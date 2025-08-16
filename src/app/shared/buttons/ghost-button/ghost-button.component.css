@@ -1,0 +1,16 @@
+.btn-ghost {
+  background: #fff;
+  color: #8154A2;
+  border: 2px solid #8154A2;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 18px;
+  line-height: 2;
+  min-width: 240px;
+}

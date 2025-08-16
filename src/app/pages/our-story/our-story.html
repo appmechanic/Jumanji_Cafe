@@ -1,0 +1,47 @@
+<div class="custom-spacing hero">
+  <div class="background-overlay"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 custom-col-width">
+        <div class="hero-section-wrapper">
+          <app-hero-section [titleParts]="[
+                            { text: '', class: '' },
+                            { text: 'Our ', class: 'text-primary' },
+                            { text: 'Story', class: 'text-secondary' }
+                        ]" [subtitleParts]="[
+                            { text: 'Discover how a passion for games, laughter, and connection led  to the ', class: '' },
+                            { text: 'creation of Jumanji Café ', class: 'text-primary' },
+                            { text: 'in the heart of ', class: '' },
+                            { text: 'Jeddah', class: 'text-secondary' }
+                        ]">
+          </app-hero-section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Story Section -->
+<div class="story-section container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <app-story-section [imageSrc]="'/assets/sec2-img.jpg'" 
+        [textOverImage1]="'Best Experience'"
+        [icon1]="'sports_esports'" 
+        [textOverImage2]="'Jeddah, Saudi Arabia'"
+        [icon2]="'location_on'"
+        [titleicon]="'favorite'" 
+        [iconType]="'material'"
+        [titleParts]="['About ', 'The Cafe']" [description]="[
+                    'Jumanji Café was born from a simple yet powerful belief: that the magic of board games has the power to bring people together in extraordinary ways. Our founders, passionate gamers and coffee enthusiasts, noticed a gap in Jeddah\'s entertainment scene - a place where families, friends, and strangers could connect over the timeless joy of tabletop adventures.',
+                    'What started as weekend game nights among friends evolved into a dream of creating Saudi Arabia\'s premier board game destination. We wanted to build more than just a café - we envisioned a community hub where laughter echoes through the air, where strategic minds meet creative spirits, and where every visit becomes a memorable adventure.',
+                    'Since opening our doors in 2020, Jumanji Café has become a beloved gathering place for game enthusiasts of all ages. From seasoned strategists tackling complex campaigns to families discovering their first cooperative adventure, our space welcomes everyone ready to roll the dice on fun.'
+                ]" [stats]="[
+                  { icon: 'bi bi-clock', title: 'Since 2020', text: 'Quality', borderColor: 'border-primary', iconBgColor: 'bg-primary2', titleColor: 'text-primary' },
+                  { icon: 'bi bi-buildings', title: '10k+', text: 'Happy Gamers', borderColor: 'border-secondary', iconBgColor: 'bg-secondary2', titleColor: 'text-secondary' },
+                ]" [buttons]="[
+                ]">
+      </app-story-section>
+    </div>
+  </div>
+</div>

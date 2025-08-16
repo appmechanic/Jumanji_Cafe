@@ -1,0 +1,23 @@
+<div class="hero-section"> 
+    <div class="text-center">
+                <h1 class="hero-title">
+                    @for (part of titleParts; track part) {
+                    <span [ngClass]="part.class">{{ part.text }}</span>
+                    }
+                </h1>
+                <!-- Decorative element -->
+                <div class="decorative-element d-flex align-items-center justify-content-center my-4">
+                    <span class="line left"></span>
+                    <span class="icon bg-warning text-primary d-flex justify-content-center align-items-center">
+                        <i class="material-icons">sports_esports</i>
+                    </span>
+                    <span class="line right"></span>
+                </div>
+                <p class="hero-subtitle">
+                    @for (part of subtitleParts; track part) {
+                    <span [ngClass]="part.class">{{ part.text }}</span>
+                    }
+                </p>
+                <ng-content></ng-content>
+            </div>
+        </div>

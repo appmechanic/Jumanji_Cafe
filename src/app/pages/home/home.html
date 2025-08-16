@@ -1,0 +1,82 @@
+<div class="custom-spacing hero">
+    <div class="background-overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 custom-col-width">
+                <div class="hero-section-wrapper">
+                    <app-hero-section [titleParts]="[
+                            { text: 'Welcome to ', class: '' },
+                            { text: 'Jumanji ', class: 'text-primary' },
+                            { text: 'Café', class: 'text-secondary' }
+                        ]" [subtitleParts]="[
+                            { text: 'Experience the ultimate board game café adventure in the heart of ', class: '' },
+                            { text: 'Jeddah ', class: 'text-primary' },
+                            { text: ' . Where games come to life and memories are made! ', class: '' }
+                        ]">
+                    </app-hero-section>
+                    <div class="row hero-buttons justify-content-center align-items-center gap-4 flex-wrap mt-5">
+                        <div class="col-auto">
+                            <app-primary-button [icon]="'bi-fork-knife'" iconPosition="left">Explore Our Menu</app-primary-button>
+                        </div>
+                        <div class="col-auto">
+                            <app-ghost-button [icon]="'videogame_asset'" iconPosition="left">Browse Games</app-ghost-button>
+                        </div>
+                    </div>
+                    <div class="row mt-5 g-4 d-flex align-items-stretch">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <app-stat-card [icon]="'bi-controller'" [title]="'200+'" [text]="'Board Games'"
+                                [borderColor]="'border-primary'" [iconBgColor]="'bg-primary2'"
+                                [titleColor]="'text-primary'">
+                            </app-stat-card>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <app-stat-card [icon]="'bi-cup-fill'" [title]="'50+'" [text]="'Specialty Drinks'"
+                                [borderColor]="'border-secondary'" [iconBgColor]="'bg-secondary2'"
+                                [titleColor]="'text-secondary'">
+                            </app-stat-card>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <app-stat-card [icon]="'bi-people-fill'" [title]="'Daily'" [text]="'Events'"
+                                [borderColor]="'border-primary'" [iconBgColor]="'bg-primary2'"
+                                [titleColor]="'text-primary'">
+                            </app-stat-card>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <app-stat-card [icon]="'bi-heart-fill'" [title]="'5★'" [text]="'Experience'"
+                                [borderColor]="'border-secondary'" [iconBgColor]="'bg-secondary2'"
+                                [titleColor]="'text-secondary'">
+                            </app-stat-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Story Section -->
+<div class="story-section container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <app-story-section 
+                [imageSrc]="'/assets/sec2-img.jpg'" 
+                [textOverImage1]="'Best Experience'"
+                [icon1]="'bi-heart-fill'" 
+                [titleicon]="'sports_esports'" 
+                [iconType]="'material'"
+                [titleParts]="['About ', 'Jumanji']" 
+                [description]="[
+                    'At Jumanji Café, we believe that the best adventures happen when people come together. Our mission is to create unforgettable experiences through the magic of board games, exceptional coffee, and genuine connections.',
+                    'Whether you\'re a seasoned gamer or just discovering the joy of tabletop adventures, our welcoming space in the heart of Jeddah is designed to bring out the child in everyone. Every game tells a story, and every visit creates memories that last a lifetime.'
+                ]"
+                [stats]="[
+                    { icon: 'bi-heart-fill', title: '5★', text: 'Experience', borderColor: 'border-secondary', iconBgColor: 'bg-secondary2', titleColor: 'text-secondary' },
+                    { icon: 'bi-star-fill', title: 'Top-notch', text: 'Quality', borderColor: 'border-primary', iconBgColor: 'bg-primary2', titleColor: 'text-primary' }
+                ]"
+                [buttons]="[
+                    { icon: 'bi bi-arrow-right', iconPosition: 'right', text: 'Read Our Story' },
+                ]">
+            </app-story-section>
+        </div>
+    </div>
+</div>

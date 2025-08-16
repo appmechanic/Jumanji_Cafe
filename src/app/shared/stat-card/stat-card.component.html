@@ -1,0 +1,10 @@
+<div 
+  class="stat-card d-flex flex-column align-items-center justify-content-center text-center p-3 shadow-sm"
+  [ngClass]="[borderColor]">
+  <div class="icon rounded-pill d-flex align-items-center justify-content-center mb-3"
+  [ngClass]="iconBgColor" style="width: 60px; height: 60px;">
+    <i class="{{ icon }}" style="font-size: 2rem;"></i>
+  </div>
+  <h3 class="stat-value" [ngClass]="titleColor">{{ title }}</h3>
+  <p class="stat-label text-color fw-600">{{ text }}</p>
+</div>

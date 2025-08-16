@@ -1,0 +1,127 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  height: 100%;
+  background-color: #EDEDED;
+}
+$primary: #8154A2;
+$secondary: #FFC713;
+
+.bg-dark {
+  background-color: #000 !important;
+}
+
+.bg-secondary {
+  background-color: #292929 !important;
+}
+
+.btn {
+  outline: none !important;
+  border: none !important;
+}
+.bg-warning {
+  background-color: $secondary !important;
+}
+
+.nav-link {
+  color: #Fafafa;
+  font-weight: 400;
+  font-size: 14px !important;
+  cursor: pointer;
+}
+
+.badge {
+  padding: 2px 7px !important;
+  font-size: 12px !important;
+  line-height: 16px !important;
+}
+.text-primary {
+  color: $primary !important;
+}
+
+.text-secondary {
+  color: $secondary !important;
+}
+
+// custom
+
+.rounded-20 {
+  border-radius: 20px !important;
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+.sub-title-color{
+  color:#121212 !important;
+}
+.text-color{
+  color: #292929 !important;
+}
+.gradient-text {
+  background: linear-gradient(90deg, $primary, $secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  font-weight: bold; 
+}
+.gradient-bg {
+  background: linear-gradient(90deg, $primary, $secondary);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.bg-primary2{
+  background-color: #E2D7EA;
+  color: #8154A2;
+}
+.bg-secondary2{
+  background-color: #FFF8E0;
+  color: $secondary;
+}
+.border-primary{
+  border: 1px solid $primary !important;
+}
+.border-secondary{
+  border: 1px solid $secondary !important;
+  border-radius: 12px;
+}
+.fw-600{
+  font-weight: 600 !important;
+}
+/* filepath: c:\Users\Asus\Desktop\jumanji-cafe\src\app\pages\home\home.scss */
+.custom-spacing {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 160px 20px;
+  @media screen and (max-width: 768px) {
+    padding: 80px 20px;
+    margin-top: 60px;
+  }
+
+  .background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8); 
+    z-index: 1;
+  }
+
+  .hero-section-wrapper {
+    position: relative;
+    z-index: 2; 
+    padding-top: 0; 
+  }
+  
+}
