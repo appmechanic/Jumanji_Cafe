@@ -1,0 +1,19 @@
+<div class="image-360-container position-relative rounded-20 shadow-sm overflow-hidden">
+  <!-- Left Badge -->
+  <div class="badge position-absolute top-0 start-0 m-3 gradient-bg text-white" *ngIf="badgeLeft">
+    {{ badgeLeft }}
+  </div>
+  <!-- Right Badge -->
+  <div class="badge position-absolute top-0 end-0 m-3" [ngClass]="badgeRightColor" *ngIf="badgeRight">
+    {{ badgeRight }}
+  </div>
+  <!-- Main Image (scrollable for 360 view) -->
+  <div class="scrollable-image w-100 position-relative">
+    <img [src]="imageSrc" class="w-100 d-block" alt="360 Experience" />
+    <!-- Play Icon Overlay -->
+    <span class="play-btn position-absolute top-50 start-50 translate-middle">
+      <i *ngIf="playIconType === 'material'" class="material-icons bg-white text-primary p-2 rounded-pill fs-1">{{ playIcon }}</i>
+      <i *ngIf="playIconType === 'bootstrap'" [class]="playIcon" ></i>
+    </span>
+  </div>
+</div>

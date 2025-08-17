@@ -1,0 +1,18 @@
+.image-360-container{
+    .scrollable-image{
+        height: 320px;
+        img{
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}
+
+.scrollable-image{
+  i{
+      background-color: #fff;
+      z-index: 9 ;
+      cursor: pointer;
+  }
+}

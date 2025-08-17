@@ -1,0 +1,38 @@
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-showcase-card',
+  standalone: true,
+  templateUrl: './showcase-card.html',
+  styleUrls: ['./showcase-card.scss'],
+  imports: [CommonModule]
+})
+export class ShowcaseCardComponent {
+  @Input() imageSrc: string = '';
+  @Input() category: string = '';
+  @Input() categoryColor: string = '';
+  @Input() badgeRight: string = '';
+  @Input() badgeRightColor: string = '';
+  @Input() title: string = '';
+  @Input() subtitle: string = '';
+  @Input() price: string = '';
+  @Input() priceColor: string = '';
+  @Input() tags: string[] = [];
+  @Input() tagColor: string = '';
+  @Input() players: string = '';
+  @Input() playersClass: string = '';
+  @Input() duration: string = '';
+  @Input() durationClass: string = '';
+  @Input() progress: number = 0;
+  @Input() progressLabel: string = '';
+  @Input() progressColor: string = '';
+  @Input() buttonText: string = '';
+  @Input() buttonColor: string = '';
+  @Input() showCart: boolean = false;
+  @Input() starColor: string = '';
+  @Input() starCount: number = 0;
+  @Input() gameCategory: string = '';
+  @Input() detailIcon: string = '';
+  @Input() iconType: 'bootstrap' | 'material' = 'bootstrap';
+}

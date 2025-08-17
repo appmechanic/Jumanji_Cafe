@@ -1,0 +1,13 @@
+<div 
+  class="stat-card d-flex flex-column align-items-center justify-content-center text-center p-3 shadow-sm bg-white rounded-20"
+  [ngClass]="[borderColor]">
+  <div class="icon rounded-pill d-flex align-items-center justify-content-center mb-3"
+    [ngClass]="iconBgColor" style="width: 60px; height: 60px;">
+    <!-- Material Icons -->
+    <i *ngIf="iconType === 'material'" class="material-icons" style="font-size: 2rem;">{{ icon }}</i>
+    <!-- Bootstrap Icons -->
+    <i *ngIf="iconType === 'bootstrap'" class="bi" [ngClass]="icon" style="font-size: 2rem;"></i>
+  </div>
+  <h3 class="stat-value fw-600" [ngClass]="titleColor">{{ title }}</h3>
+  <p class="stat-label text-color">{{ text }}</p>
+</div>

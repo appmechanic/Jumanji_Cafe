@@ -1,0 +1,21 @@
+.heading-section {
+    .heading-icon {
+        font-size: 25px;
+        border-radius: 50%;
+        padding: 12px;
+    }
+
+    .heading-img {
+        width: 32px;
+        height: 32px;
+        object-fit: cover;
+        border-radius: 50%;
+        background: #ececec;
+    }
+
+    .gradient-line {
+        width: 20%;
+        height: 6px;
+        margin: 0 auto;
+    }
+}

@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StatCardComponent } from '../stat-card/stat-card.component'; 
-import { PrimaryButtonComponent } from '../buttons/primary-button/primary-button.component';
+import { StatCardComponent } from '../stat-card/stat-card'; 
+import { PrimaryButtonComponent } from '../buttons/primary-button/primary-button';
 
 @Component({
   selector: 'app-story-section',
   standalone: true,
   imports: [CommonModule, StatCardComponent, PrimaryButtonComponent],
-  templateUrl: './story-section.component.html',
-  styleUrls: ['./story-section.component.css']
+  templateUrl: './story-section.html',
+  styleUrls: ['./story-section.scss']
 })
 export class StorySectionComponent {
   @Input() imageSrc!: string;
@@ -21,8 +21,8 @@ export class StorySectionComponent {
   @Input() titleParts!: string[];
   @Input() description!: string[];
 
-  // Accept stats dynamically from the page
   @Input() stats!: Array<{
+    iconType: 'material' | 'bootstrap';
     icon: string;
     title: string;
     text: string;

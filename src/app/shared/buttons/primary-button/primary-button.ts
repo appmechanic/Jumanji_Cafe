@@ -10,10 +10,10 @@ import { CommonModule } from '@angular/common';
       <i *ngIf="icon && iconPosition === 'right'" class="{{ icon }}" style="color: white; margin-left: 0.5rem;"></i>
     </button>
   `,
-  styleUrls: ['./primary-button.component.css'],
+  styleUrls: ['./primary-button.scss'],
   imports: [CommonModule]
 })
 export class PrimaryButtonComponent {
   @Input() icon?: string;
-  @Input() iconPosition: 'left' | 'right' = 'left'; // Default position is 'left'
+  @Input() iconPosition: 'left' | 'right' = 'left';
 }

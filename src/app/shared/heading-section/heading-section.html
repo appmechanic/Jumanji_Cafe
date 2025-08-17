@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-12 col-md-12 col-lg-9 col-xl-6 heading-section d-flex flex-column align-items-center text-center py-4">
+        <div class="d-flex align-items-center justify-content-center mb-3">
+            <!-- Left Icon/Image -->
+            <ng-container *ngIf="imgLeft">
+                <img [src]="imgLeft" alt="icon" class="heading-img me-2" />
+            </ng-container>
+            <ng-container *ngIf="iconLeft">
+                <i *ngIf="iconLeftType === 'material'" class="material-icons heading-icon me-2"
+                    [ngClass]="iconLeftColor">{{ iconLeft }}</i>
+                <i *ngIf="iconLeftType === 'bootstrap'" [class]="iconLeft" class="heading-icon me-2"
+                    [ngClass]="iconLeftColor"></i>
+            </ng-container>
+
+            <!-- Title -->
+            <h2 class="fw-600 m-0 d-flex align-items-center">
+                <ng-content select="[before-title]"></ng-content>
+                <span>{{ title }}</span>
+                <span [ngClass]="highlightColor" class="ms-2">{{ highlight }}</span>
+            </h2>
+
+            <!-- Right Icon/Image -->
+            <ng-container *ngIf="imgRight">
+                <img [src]="imgRight" alt="icon" class="heading-img ms-2" />
+            </ng-container>
+            <ng-container *ngIf="iconRight">
+                <i *ngIf="iconRightType === 'material'" class="material-icons heading-icon ms-2"
+                    [ngClass]="iconRightColor">{{ iconRight }}</i>
+                <i *ngIf="iconRightType === 'bootstrap'" [class]="iconRight" class="heading-icon ms-2"
+                    [ngClass]="iconRightColor"></i>
+            </ng-container>
+        </div>
+
+        <!-- Gradient Line -->
+        <div class="gradient-line"></div>
+
+        <!-- Subtitle -->
+        <div class="d-flex align-items-center justify-content-center subtitle mt-4">
+            <span>{{ subtitle }}</span>
+        </div>
+    </div>
+</div>

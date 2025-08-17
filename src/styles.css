@@ -1,9 +1,0 @@
-.custom-col-width{
-    width: 66%;
-    @media screen and (max-width:1400px) and (min-width:1200px) {
-        width: 80%;
-    }
-    @media screen and (max-width: 1200px) {
-        width: 100%;
-    }
-}

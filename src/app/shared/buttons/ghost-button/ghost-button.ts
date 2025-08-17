@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
       <ng-content></ng-content>
     </button>
   `,
-  styleUrls: ['./ghost-button.component.css'],
+  styleUrls: ['./ghost-button.scss'],
   imports: [CommonModule]
 })
 export class GhostButtonComponent {
@@ -19,7 +19,6 @@ export class GhostButtonComponent {
   @Input() iconPosition: 'left' | 'right' = 'left';
 
   get isMaterialIcon(): boolean {
-    // Check if the icon is a Material Icon (e.g., 'videogame_asset')
     return !this.icon?.includes('bi-') && !this.icon?.includes('fa-');
   }
 }

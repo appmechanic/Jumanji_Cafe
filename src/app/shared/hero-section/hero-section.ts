@@ -6,8 +6,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-hero-section',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './hero-section.component.html',
-  styleUrls: ['./hero-section.component.css']
+  templateUrl: './hero-section.html',
+  styleUrls: ['./hero-section.scss']
 })
 export class HeroSectionComponent {
   @Input() backgroundImage!: string;

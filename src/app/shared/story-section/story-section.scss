@@ -1,0 +1,23 @@
+.story-section{
+  .right-text{
+      top: 20px;
+      right: 30px;
+  }
+  .left-text{
+      bottom: 0px;
+      left: 10px;
+  }
+  
+  .story-title {
+    position: relative;
+    width: 100%;
+
+    .gradient-line {
+      position: absolute;
+      bottom: -25px;
+      left: 0;
+      width: 15%;
+      height: 6px;
+    }
+  }
+}

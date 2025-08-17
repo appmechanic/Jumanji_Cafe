@@ -19,7 +19,7 @@
 
     <!-- Content Section -->
     <div class="col-12 col-lg-6 mt-4 mt-lg-0">
-      <div class="d-flex align-items-center mb-3">
+      <div class="d-flex align-items-center mb-5 story-title">
         <span *ngIf="titleicon"
           class="icon bg-primary2 text-primary d-flex justify-content-center align-items-center rounded-circle me-3"
           style="width: 50px; height: 50px;">
@@ -29,6 +29,7 @@
         <h2 class="fw-600 m-0">
           <span class="sub-title-color">{{ titleParts[0] }}</span>
           <span class="gradient-text">{{ titleParts[1] }}</span>
+          <span class="gradient-line "></span>
         </h2>
       </div>
 
@@ -36,6 +37,7 @@
       <div class="row g-3">
         <div class="col-12 col-md-6" *ngFor="let stat of stats">
           <app-stat-card class="rounded-20"
+            [iconType]="stat.iconType"
             [icon]="stat.icon"
             [title]="stat.title"
             [text]="stat.text"

@@ -2,9 +2,9 @@ import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { StorySectionComponent } from './story-section.component';
+import { StorySectionComponent } from './story-section';
 
-describe('StorySectionComponent', () => {
+describe('StorySection', () => {
   let component: StorySectionComponent;
   let fixture: ComponentFixture<StorySectionComponent>;
 

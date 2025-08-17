@@ -5,10 +5,10 @@ import { HeaderComponent } from './header/header.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true, // Required for standalone
+  standalone: true, 
   imports: [RouterOutlet, CommonModule, HeaderComponent],
   templateUrl: './app.html',
-  styleUrls: ['./app.scss'] // Must be plural and array
+  styleUrls: ['./app.scss'] 
 })
 export class App {
   protected readonly title = signal('jumanji-cafe');
