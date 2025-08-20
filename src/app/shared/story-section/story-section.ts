@@ -31,9 +31,9 @@ export class StorySectionComponent {
     titleColor: string;
   }>;
 
-  @Input() buttons!: Array<{
-    icon?: string;
-    iconPosition?: 'left' | 'right';
+    @Input() buttons!: Array<{
+    iconLeft?: string;
+    iconRight?: string;
     text: string;
   }>;
 }

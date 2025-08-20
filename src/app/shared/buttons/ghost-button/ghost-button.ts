@@ -5,20 +5,23 @@ import { CommonModule } from '@angular/common';
   selector: 'app-ghost-button',
   template: `
     <button class="btn btn-ghost">
-      <i *ngIf="icon" [ngClass]="isMaterialIcon ? 'material-icons' : icon" style="margin-right: 0.5rem;">
-        {{ isMaterialIcon ? icon : '' }}
+      <i *ngIf="iconLeft" [ngClass]="isMaterialIcon(iconLeft) ? 'material-icons' : iconLeft">
+        {{ isMaterialIcon(iconLeft) ? iconLeft : '' }}
       </i>
       <ng-content></ng-content>
+      <i *ngIf="iconRight" [ngClass]="isMaterialIcon(iconRight) ? 'material-icons' : iconRight">
+        {{ isMaterialIcon(iconRight) ? iconRight : '' }}
+      </i>
     </button>
   `,
   styleUrls: ['./ghost-button.scss'],
   imports: [CommonModule]
 })
 export class GhostButtonComponent {
-  @Input() icon?: string;
-  @Input() iconPosition: 'left' | 'right' = 'left';
+  @Input() iconLeft?: string;
+  @Input() iconRight?: string;
 
-  get isMaterialIcon(): boolean {
-    return !this.icon?.includes('bi-') && !this.icon?.includes('fa-');
+  isMaterialIcon(icon?: string): boolean {
+    return !!icon && !icon.includes('bi-') && !icon.includes('fa-');
   }
 }

@@ -8,6 +8,8 @@ import { StorySectionComponent } from '../../shared/story-section/story-section'
 import { HeadingSectionComponent } from '../../shared/heading-section/heading-section';
 import { Image360ViewerComponent } from '../../shared/image-360-viewer/image-360-viewer';
 import { ShowcaseCardComponent } from '../../shared/showcase-card/showcase-card';
+import { CafeMenuSliderComponent } from '../../shared/cafe-menu-slider/cafe-menu-slider';
+// import { NgxSlickCarouselModule } from 'ngx-slick-carousel';
 
 export type StatCardType = {
   iconType: "material" | "bootstrap";
@@ -55,7 +57,9 @@ export type ShowcaseCardType = {
     StorySectionComponent,
     HeadingSectionComponent,
     Image360ViewerComponent,
-    ShowcaseCardComponent
+    ShowcaseCardComponent,
+    // NgxSlickCarouselModule,
+    CafeMenuSliderComponent
   ],
   templateUrl: './home.html',
   styleUrls: ['./home.scss']

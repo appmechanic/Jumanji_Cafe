@@ -1,3 +1,47 @@
 .hero {
   background-image: url('/assets/background-image.jpg');
 }
+.carousel-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-block;
+  background: #eaeaea;
+  transition: background 0.2s;
+}
+.active-dot {
+  background: linear-gradient(90deg, #6c4cff 0%, #ffc700 100%);
+  border: none;
+}
+.upcoming-dot {
+  background: #eaeaea;
+  border: none;
+}
+.carousel-arrow {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+.carousel-arrow-left .material-icons {
+  background: #eaeaea;
+  border-radius: 50%;
+  padding: 4px;
+}
+.carousel-arrow-right .material-icons {
+  background: #ffc700;
+  border-radius: 50%;
+  padding: 4px;
+}
+.carousel-arrow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.carousel-track {
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  will-change: transform;
+}
+.transition-transform {
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}

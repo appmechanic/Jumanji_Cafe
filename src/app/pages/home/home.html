@@ -16,12 +16,15 @@
                     </app-hero-section>
                     <div class="row hero-buttons justify-content-center align-items-center gap-4 flex-wrap mt-5">
                         <div class="col-auto">
-                            <app-primary-button [icon]="'bi-fork-knife'" iconPosition="left">Explore Our
-                                Menu</app-primary-button>
+                                <app-primary-button iconLeft="bi-fork-knife">
+                                Explore Our Menu
+                            </app-primary-button>
                         </div>
+
                         <div class="col-auto">
-                            <app-ghost-button [icon]="'videogame_asset'" iconPosition="left">Browse
-                                Games</app-ghost-button>
+                            <app-ghost-button iconLeft="videogame_asset">
+                                Browse Games
+                            </app-ghost-button>
                         </div>
                     </div>
                     <div class="row mt-5 g-4 d-flex align-items-stretch justify-content-center">
@@ -47,9 +50,8 @@
                 [titleParts]="['About ', 'Jumanji']" [description]="[
                     'At Jumanji Café, we believe that the best adventures happen when people come together. Our mission is to create unforgettable experiences through the magic of board games, exceptional coffee, and genuine connections.',
                     'Whether you\'re a seasoned gamer or just discovering the joy of tabletop adventures, our welcoming space in the heart of Jeddah is designed to bring out the child in everyone. Every game tells a story, and every visit creates memories that last a lifetime.'
-                ]" [stats]="storyStats" [buttons]="[
-                    { icon: 'bi bi-arrow-right', iconPosition: 'right', text: 'Read Our Story' },
-                ]">
+                ]" [stats]="storyStats" 
+                [buttons]="[{ iconRight: 'bi bi-arrow-right', text: 'Read Our Story' }]">
 
             </app-story-section>
         </div>
@@ -58,109 +60,82 @@
 
 <!-- Featured Games Section -->
 <div class="container mb-5">
-        <app-heading-section 
-            iconLeft="slideshow" 
-            iconLeftType="material"
-            iconLeftColor="bg-primary2"
-            title="🎥 Step Inside" 
-            highlight="Jumanji"
-            highlightColor="gradient-text"
-            subtitle="Take a sneak peek into our world. Explore the café in 360° before your next visit and discover all the magical corners where adventures begin! ✨"
-        >
+    <app-heading-section iconLeft="slideshow" iconLeftType="material" iconLeftColor="bg-primary2" title="🎥 Step Inside"
+        highlight="Jumanji" highlightColor="gradient-text"
+        subtitle="Take a sneak peek into our world. Explore the café in 360° before your next visit and discover all the magical corners where adventures begin! ✨">
     </app-heading-section>
-    <app-image-360-viewer
-        [imageSrc]="'/assets/360-img.jpg'"
-        badgeLeft="360° Experience"
-        badgeRight="3 min tour">
+    <app-image-360-viewer [imageSrc]="'/assets/360-img.jpg'" badgeLeft="360° Experience" badgeRight="3 min tour">
     </app-image-360-viewer>
 </div>
 
 <!-- Cafe Menu Section -->
- <div class="container my-5 ">
-    <app-heading-section 
-            iconLeft="restaurant" 
-            iconLeftType="material"
-            iconLeftColor="bg-secondary2"
-            iconRight="free_breakfast"
-            iconRightType="material"
-            iconRightColor="bg-primary2"
-            title="Cafe" 
-            highlight="Menu"
-            highlightColor="gradient-text"
-            subtitle="Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕"
-        >
+<div class="container my-5 ">
+    <app-heading-section
+        iconLeft="restaurant"
+        iconLeftType="material"
+        iconLeftColor="bg-secondary2"
+        iconRight="free_breakfast"
+        iconRightType="material"
+        iconRightColor="bg-primary2"
+        title="Cafe"
+        highlight="Menu"
+        highlightColor="gradient-text"
+        subtitle="Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕">
     </app-heading-section>
     <div class="row justify-content-center">
-    <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let game of cafeMenu">
-        <app-showcase-card
-        [imageSrc]="game.imageSrc"
-        [category]="game.category"
-        [categoryColor]="game.categoryColor"
-        [title]="game.title"
-        [price]="game.price ?? ''"
-        [priceColor]="game.priceColor ?? ''"
-        [subtitle]="game.subtitle"
-        [players]="game.players"
-        [duration]="game.duration"
-        [playersClass]="game.playersClass ?? ''"
-        [durationClass]="game.durationClass ?? ''"
-        [tags]="game.tags"
-        [tagColor]="game.tagColor"
-        [gameCategory]="game.gameCategory"
-        [buttonText]="game.buttonText"
-        [buttonColor]="game.buttonColor"
-        [showCart]="game.showCart"
-        [detailIcon]="game.detailIcon"
-        [iconType]="game.iconType"
-        ></app-showcase-card>
+        <app-cafe-menu-slider>
+            <div class="carousel-item" *ngFor="let game of cafeMenu; let i = index" [class.active]="i === 0">
+                <div class="d-flex justify-content-center">
+                    <app-showcase-card
+                        [imageSrc]="game.imageSrc"
+                        [category]="game.category"
+                        [categoryColor]="game.categoryColor"
+                        [title]="game.title"
+                        [price]="game.price ?? ''"
+                        [priceColor]="game.priceColor ?? ''"
+                        [subtitle]="game.subtitle"
+                        [players]="game.players"
+                        [duration]="game.duration"
+                        [playersClass]="game.playersClass ?? ''"
+                        [durationClass]="game.durationClass ?? ''"
+                        [tags]="game.tags"
+                        [tagColor]="game.tagColor"
+                        [gameCategory]="game.gameCategory"
+                        [buttonText]="game.buttonText"
+                        [buttonColor]="game.buttonColor"
+                        [showCart]="game.showCart"
+                        [detailIcon]="game.detailIcon"
+                        [iconType]="game.iconType">
+                    </app-showcase-card>
+                </div>
+            </div>
+        </app-cafe-menu-slider>
+        <app-primary-button iconLeft="bi-fork-knife" iconRight="bi bi-arrow-right" class="d-flex justify-content-center">
+            View Full Menu
+        </app-primary-button>
     </div>
-    <app-primary-button iconLeft="bi bi-star" iconRight="bi bi-arrow-right" class="d-flex justify-content-center">
-        View Full Menu
-    </app-primary-button>
-</div>
 </div>
 
 <!-- Featured Games Section -->
 <div class="container my-5 ">
-    <app-heading-section 
-            iconLeft="sports_esports" 
-            iconLeftType="material"
-            iconLeftColor="bg-primary2"
-            iconRight="emoji_events"
-            iconRightType="material"
-            iconRightColor="bg-secondary2"
-            title="Featured" 
-            highlight="Games"
-            highlightColor="gradient-text"
-            subtitle="Discover our handpicked collection of the most exciting board games. From quick party games to strategic adventures! 🎯"
-        >
+    <app-heading-section iconLeft="sports_esports" iconLeftType="material" iconLeftColor="bg-primary2"
+        iconRight="emoji_events" iconRightType="material" iconRightColor="bg-secondary2" title="Featured"
+        highlight="Games" highlightColor="gradient-text"
+        subtitle="Discover our handpicked collection of the most exciting board games. From quick party games to strategic adventures! 🎯">
     </app-heading-section>
     <div class="row justify-content-center">
-    <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let game of featuredGames">
-        <app-showcase-card
-        [imageSrc]="game.imageSrc"
-        [category]="game.category"
-        [categoryColor]="game.categoryColor"
-        [title]="game.title"
-        [starCount]="game.starCount ?? 0"
-        [starColor]="game.starColor ?? ''"
-        [subtitle]="game.subtitle"
-        [players]="game.players"
-        [duration]="game.duration"
-        [playersClass]="game.playersClass ?? ''"
-        [durationClass]="game.durationClass ?? ''"
-        [tags]="game.tags"
-        [tagColor]="game.tagColor"
-        [gameCategory]="game.gameCategory"
-        [buttonText]="game.buttonText"
-        [buttonColor]="game.buttonColor"
-        [showCart]="game.showCart"
-        [detailIcon]="game.detailIcon"
-        [iconType]="game.iconType"
-        ></app-showcase-card>
+        <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let game of featuredGames">
+            <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category"
+                [categoryColor]="game.categoryColor" [title]="game.title" [starCount]="game.starCount ?? 0"
+                [starColor]="game.starColor ?? ''" [subtitle]="game.subtitle" [players]="game.players"
+                [duration]="game.duration" [playersClass]="game.playersClass ?? ''"
+                [durationClass]="game.durationClass ?? ''" [tags]="game.tags" [tagColor]="game.tagColor"
+                [gameCategory]="game.gameCategory" [buttonText]="game.buttonText" [buttonColor]="game.buttonColor"
+                [showCart]="game.showCart" [detailIcon]="game.detailIcon"
+                [iconType]="game.iconType"></app-showcase-card>
+        </div>
+        <app-primary-button iconLeft="sports_esports" iconRight="bi bi-arrow-right" class="d-flex justify-content-center">
+            View Game Store
+        </app-primary-button>
     </div>
-    <app-primary-button iconLeft="bi bi-star" iconRight="bi bi-arrow-right" class="d-flex justify-content-center">
-        View Game Store
-    </app-primary-button>
-</div>
 </div>

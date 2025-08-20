@@ -4,13 +4,15 @@
     <div class="col-12 col-lg-6 position-relative">
       <img [src]="imageSrc" class="img-fluid rounded-20 shadow" alt="Story Image" />
 
-      <div *ngIf="textOverImage1" class="badge bg-warning text-primary position-absolute right-text d-flex align-items-center justify-content-center">
+      <div *ngIf="textOverImage1"
+        class="badge bg-warning text-primary position-absolute right-text d-flex align-items-center justify-content-center">
         <i *ngIf="icon1 && iconType === 'material'" class="material-icons me-2">{{ icon1 }}</i>
         <i *ngIf="icon1 && iconType === 'bootstrap'" [class]="icon1" class="me-2"></i>
         {{ textOverImage1 }}
       </div>
 
-      <div *ngIf="textOverImage2" class="badge bg-secondary text-light position-absolute left-text m-3 mt-5 d-flex align-items-center justify-content-center">
+      <div *ngIf="textOverImage2"
+        class="badge bg-secondary text-light position-absolute left-text m-3 mt-5 d-flex align-items-center justify-content-center">
         <i *ngIf="icon2 && iconType === 'material'" class="material-icons me-2 text-secondary">{{ icon2 }}</i>
         <i *ngIf="icon2 && iconType === 'bootstrap'" [class]="icon2" class="me-2 text-secondary"></i>
         {{ textOverImage2 }}
@@ -36,22 +38,14 @@
       <p class="text-color" *ngFor="let desc of description">{{ desc }}</p>
       <div class="row g-3">
         <div class="col-12 col-md-6" *ngFor="let stat of stats">
-          <app-stat-card class="rounded-20"
-            [iconType]="stat.iconType"
-            [icon]="stat.icon"
-            [title]="stat.title"
-            [text]="stat.text"
-            [borderColor]="stat.borderColor"
-            [iconBgColor]="stat.iconBgColor"
+          <app-stat-card class="rounded-20" [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title"
+            [text]="stat.text" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
             [titleColor]="stat.titleColor">
           </app-stat-card>
         </div>
       </div>
       <div class="mt-4">
-        <app-primary-button 
-          *ngFor="let button of buttons" 
-          [icon]="button.icon" 
-          [iconPosition]="button.iconPosition || 'left'" 
+        <app-primary-button *ngFor="let button of buttons" [iconLeft]="button.iconLeft" [iconRight]="button.iconRight"
           class="me-2">
           {{ button.text }}
         </app-primary-button>
