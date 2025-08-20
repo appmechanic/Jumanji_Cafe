@@ -35,4 +35,13 @@ export class ShowcaseCardComponent {
   @Input() gameCategory: string = '';
   @Input() detailIcon: string = '';
   @Input() iconType: 'bootstrap' | 'material' = 'bootstrap';
+  @Input() eventDate: string = '';
+  @Input() eventTime: string = '';
+  @Input() attending: number = 0;
+  @Input() capacity: number = 0;
+  @Input() showOverlay: boolean = false;
+
+  get progressPercent(): number {
+    return this.capacity > 0 ? Math.round((this.attending / this.capacity) * 100) : 0;
+  }
 }

@@ -9,7 +9,6 @@ import { HeadingSectionComponent } from '../../shared/heading-section/heading-se
 import { Image360ViewerComponent } from '../../shared/image-360-viewer/image-360-viewer';
 import { ShowcaseCardComponent } from '../../shared/showcase-card/showcase-card';
 import { CafeMenuSliderComponent } from '../../shared/cafe-menu-slider/cafe-menu-slider';
-// import { NgxSlickCarouselModule } from 'ngx-slick-carousel';
 
 export type StatCardType = {
   iconType: "material" | "bootstrap";
@@ -43,6 +42,12 @@ export type ShowcaseCardType = {
   durationClass?: string;
   price?: string;
   priceColor?: string;
+  badgeRight?: string;
+  badgeRightColor?: string;
+  eventDate?: string;
+  eventTime?: string;
+  attending: number;
+  capacity: number;
 };
 
 @Component({
@@ -65,6 +70,7 @@ export type ShowcaseCardType = {
   styleUrls: ['./home.scss']
 })
 export class Home {
+  selectedIndex = 0;
   heroStats: StatCardType[] = [
     {
       iconType: "material",
@@ -143,7 +149,9 @@ export class Home {
       buttonColor: 'bg-primary text-white',
       showCart: true,
       detailIcon: 'cart',
-      iconType: 'bootstrap'
+      iconType: 'bootstrap',
+      attending: 0,
+      capacity: 0
     },
     {
       imageSrc: '/assets/cafe-game-img1.jpg',
@@ -164,7 +172,9 @@ export class Home {
       buttonColor: 'bg-primary text-white',
       showCart: true,
       detailIcon: 'cart',
-      iconType: 'bootstrap'
+      iconType: 'bootstrap',
+      attending: 0,
+      capacity: 0
     },
     {
       imageSrc: '/assets/cafe-game-img1.jpg',
@@ -185,10 +195,12 @@ export class Home {
       buttonColor: 'bg-primary text-white',
       showCart: true,
       detailIcon: 'cart',
-      iconType: 'bootstrap'
+      iconType: 'bootstrap',
+      attending: 0,
+      capacity: 0
     },
   ];
-    cafeMenu: ShowcaseCardType[] = [
+  cafeMenu: ShowcaseCardType[] = [
     {
       imageSrc: '/assets/cafe-menu-img1.jpg',
       category: 'Jumanji Special',
@@ -206,7 +218,9 @@ export class Home {
       buttonColor: 'bg-primary text-white',
       showCart: false,
       detailIcon: '',
-      iconType: 'bootstrap'
+      iconType: 'bootstrap',
+      attending: 0,
+      capacity: 0
     },
     {
       imageSrc: '/assets/cafe-menu-img1.jpg',
@@ -225,7 +239,9 @@ export class Home {
       buttonColor: 'bg-primary text-white',
       showCart: false,
       detailIcon: '',
-      iconType: 'bootstrap'
+      iconType: 'bootstrap',
+      attending: 0,
+      capacity: 0
     },
     {
       imageSrc: '/assets/cafe-menu-img1.jpg',
@@ -245,7 +261,103 @@ export class Home {
       buttonColor: 'bg-primary text-white',
       showCart: false,
       detailIcon: '',
-      iconType: 'bootstrap'
+      iconType: 'bootstrap',
+      attending: 0,
+      capacity: 0
     },
+    {
+      imageSrc: '/assets/cafe-menu-img1.jpg',
+      category: 'Medium',
+      categoryColor: 'bg-primary3',
+      starColor: 'bg-secondary text-white',
+      title: 'Wingspan',
+      price: '15 SAR',
+      priceColor: 'bg-secondary2',
+      subtitle: 'Attract birds to your wildlife preserves in this engine-building game',
+      players: '',
+      duration: '',
+      tags: [],
+      tagColor: '',
+      gameCategory: '',
+      buttonText: 'View Details',
+      buttonColor: 'bg-primary text-white',
+      showCart: false,
+      detailIcon: '',
+      iconType: 'bootstrap',
+      attending: 0,
+      capacity: 0
+    }
   ];
+  upcomingEvents: ShowcaseCardType[] = [
+    {
+      imageSrc: '/assets/cafe-event-img1.jpg',
+      category: 'Tournament',
+      categoryColor: 'bg-danger text-white',
+      badgeRight: 'Free Entry',
+      badgeRightColor: 'bg-light text-dark',
+      eventDate: 'Dec 15, 2024',
+      eventTime: '7:00 PM',
+      title: 'Tournament Night: Catan Championship',
+      subtitle: 'Join our monthly Catan tournament and compete for amazing prizes!',
+      attending: 24,
+      capacity: 32,
+      buttonText: 'Join Event',
+      buttonColor: 'bg-primary text-white',
+      showCart: true,
+      detailIcon: 'share',
+      iconType: 'material',
+      players: '',
+      duration: '',
+      tags: [],
+      tagColor: '',
+      gameCategory: ''
+    },
+    {
+      imageSrc: '/assets/cafe-event-img1.jpg',
+      category: 'Workshop',
+      categoryColor: 'bg-success text-white',
+      badgeRight: 'Limited Seats',
+      badgeRightColor: 'bg-warning text-dark',
+      eventDate: 'Dec 20, 2024',
+      eventTime: '5:30 PM',
+      title: 'Azul Strategy Workshop',
+      subtitle: 'Learn advanced Azul strategies from top players.',
+      attending: 12,
+      capacity: 20,
+      buttonText: 'Join Event',
+      buttonColor: 'bg-primary text-white',
+      showCart: true,
+      detailIcon: 'share',
+      iconType: 'material',
+      players: '',
+      duration: '',
+      tags: [],
+      tagColor: '',
+      gameCategory: ''
+    },
+    {
+      imageSrc: '/assets/cafe-event-img1.jpg',
+      category: 'Family Night',
+      categoryColor: 'bg-primary text-white',
+      badgeRight: '',
+      badgeRightColor: '',
+      eventDate: 'Dec 22, 2024',
+      eventTime: '6:00 PM',
+      title: 'Family Game Night',
+      subtitle: 'Bring your family for a fun-filled evening of games!',
+      attending: 30,
+      capacity: 40,
+      buttonText: 'Join Event',
+      buttonColor: 'bg-primary text-white',
+      showCart: true,
+      detailIcon: 'share',
+      iconType: 'material',
+      players: '',
+      duration: '',
+      tags: [],
+      tagColor: '',
+      gameCategory: ''
+    }
+  ];
+
 }

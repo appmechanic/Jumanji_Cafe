@@ -1,8 +1,17 @@
 .heading-section {
+    h2{
+        @media screen and (max-width: 768px) {
+            font-size: 24px !important;
+        }
+    }
     .heading-icon {
         font-size: 25px;
         border-radius: 50%;
         padding: 12px;
+        @media screen and (max-width: 768px) {
+            font-size: 20px !important;
+            padding: 8px;
+        }
     }
 
     .heading-img {

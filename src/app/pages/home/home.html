@@ -16,7 +16,7 @@
                     </app-hero-section>
                     <div class="row hero-buttons justify-content-center align-items-center gap-4 flex-wrap mt-5">
                         <div class="col-auto">
-                                <app-primary-button iconLeft="bi-fork-knife">
+                            <app-primary-button iconLeft="bi-fork-knife">
                                 Explore Our Menu
                             </app-primary-button>
                         </div>
@@ -50,8 +50,7 @@
                 [titleParts]="['About ', 'Jumanji']" [description]="[
                     'At Jumanji Café, we believe that the best adventures happen when people come together. Our mission is to create unforgettable experiences through the magic of board games, exceptional coffee, and genuine connections.',
                     'Whether you\'re a seasoned gamer or just discovering the joy of tabletop adventures, our welcoming space in the heart of Jeddah is designed to bring out the child in everyone. Every game tells a story, and every visit creates memories that last a lifetime.'
-                ]" [stats]="storyStats" 
-                [buttons]="[{ iconRight: 'bi bi-arrow-right', text: 'Read Our Story' }]">
+                ]" [stats]="storyStats" [buttons]="[{ iconRight: 'bi bi-arrow-right', text: 'Read Our Story' }]">
 
             </app-story-section>
         </div>
@@ -70,15 +69,8 @@
 
 <!-- Cafe Menu Section -->
 <div class="container my-5 ">
-    <app-heading-section
-        iconLeft="restaurant"
-        iconLeftType="material"
-        iconLeftColor="bg-secondary2"
-        iconRight="free_breakfast"
-        iconRightType="material"
-        iconRightColor="bg-primary2"
-        title="Cafe"
-        highlight="Menu"
+    <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2"
+        iconRight="free_breakfast" iconRightType="material" iconRightColor="bg-primary2" title="Cafe" highlight="Menu"
         highlightColor="gradient-text"
         subtitle="Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕">
     </app-heading-section>
@@ -86,31 +78,20 @@
         <app-cafe-menu-slider>
             <div class="carousel-item" *ngFor="let game of cafeMenu; let i = index" [class.active]="i === 0">
                 <div class="d-flex justify-content-center">
-                    <app-showcase-card
-                        [imageSrc]="game.imageSrc"
-                        [category]="game.category"
-                        [categoryColor]="game.categoryColor"
-                        [title]="game.title"
-                        [price]="game.price ?? ''"
-                        [priceColor]="game.priceColor ?? ''"
-                        [subtitle]="game.subtitle"
-                        [players]="game.players"
-                        [duration]="game.duration"
-                        [playersClass]="game.playersClass ?? ''"
-                        [durationClass]="game.durationClass ?? ''"
-                        [tags]="game.tags"
-                        [tagColor]="game.tagColor"
-                        [gameCategory]="game.gameCategory"
-                        [buttonText]="game.buttonText"
-                        [buttonColor]="game.buttonColor"
-                        [showCart]="game.showCart"
-                        [detailIcon]="game.detailIcon"
-                        [iconType]="game.iconType">
+                    <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category"
+                        [categoryColor]="game.categoryColor" [title]="game.title" [price]="game.price ?? ''"
+                        [priceColor]="game.priceColor ?? ''" [subtitle]="game.subtitle" [players]="game.players"
+                        [duration]="game.duration" [playersClass]="game.playersClass ?? ''"
+                        [durationClass]="game.durationClass ?? ''" [tags]="game.tags" [tagColor]="game.tagColor"
+                        [gameCategory]="game.gameCategory" [buttonText]="game.buttonText"
+                        [buttonColor]="game.buttonColor" [showCart]="game.showCart" [detailIcon]="game.detailIcon"
+                        [iconType]="game.iconType" [showOverlay]="false">
                     </app-showcase-card>
                 </div>
             </div>
         </app-cafe-menu-slider>
-        <app-primary-button iconLeft="bi-fork-knife" iconRight="bi bi-arrow-right" class="d-flex justify-content-center">
+        <app-primary-button iconLeft="bi-fork-knife" iconRight="bi bi-arrow-right"
+            class="d-flex justify-content-center mt-2">
             View Full Menu
         </app-primary-button>
     </div>
@@ -132,10 +113,38 @@
                 [durationClass]="game.durationClass ?? ''" [tags]="game.tags" [tagColor]="game.tagColor"
                 [gameCategory]="game.gameCategory" [buttonText]="game.buttonText" [buttonColor]="game.buttonColor"
                 [showCart]="game.showCart" [detailIcon]="game.detailIcon"
-                [iconType]="game.iconType"></app-showcase-card>
+                [iconType]="game.iconType" [showOverlay]="false"></app-showcase-card>
         </div>
-        <app-primary-button iconLeft="sports_esports" iconRight="bi bi-arrow-right" class="d-flex justify-content-center">
+        <app-primary-button iconLeft="sports_esports" iconRight="bi bi-arrow-right"
+            class="d-flex justify-content-center">
             View Game Store
+        </app-primary-button>
+    </div>
+</div>
+
+<!-- Upcoming Event Section -->
+<div class="container my-5 ">
+    <app-heading-section iconLeft="sports_esports" iconLeftType="material" iconLeftColor="bg-primary2"
+        iconRight="emoji_events" iconRightType="material" iconRightColor="bg-secondary2" title="Upcoming"
+        highlight="Events" highlightColor="gradient-text"
+        subtitle="Join our exciting events and connect with fellow gamers. From tournaments to family days, there's always something magical happening! 🎉">
+    </app-heading-section>
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let event of upcomingEvents">
+            <app-showcase-card [imageSrc]="event.imageSrc"
+                [category]="event.category" [categoryColor]="event.categoryColor"
+                [badgeRight]="event.badgeRight ?? ''"
+                [badgeRightColor]="event.badgeRightColor ?? ''"
+                [eventDate]="event.eventDate ?? ''"
+                [eventTime]="event.eventTime ?? ''"
+                [title]="event.title" [subtitle]="event.subtitle" [attending]="event.attending"
+                [capacity]="event.capacity" [buttonText]="event.buttonText" [buttonColor]="event.buttonColor"
+                [showCart]="event.showCart" [detailIcon]="event.detailIcon" [iconType]="event.iconType" [showOverlay]="true">
+            </app-showcase-card>
+        </div>
+        <app-primary-button iconLeft="bi bi-calendar4-week" iconRight="bi bi-arrow-right"
+            class="d-flex justify-content-center">
+            See All Event
         </app-primary-button>
     </div>
 </div>
