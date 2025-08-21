@@ -1,6 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Interface for list items
+export interface ListItem {
+  icon: string;        
+  iconType?: 'bootstrap' | 'material';  
+  content: string;    
+}
+
 @Component({
   selector: 'app-showcase-card',
   standalone: true,
@@ -12,6 +19,8 @@ export class ShowcaseCardComponent {
   @Input() imageSrc: string = '';
   @Input() category: string = '';
   @Input() categoryColor: string = '';
+  @Input() categoryIcon: string = ''; 
+  @Input() categoryIconType: 'bootstrap' | 'material' | '' = ''; 
   @Input() badgeRight: string = '';
   @Input() badgeRightColor: string = '';
   @Input() title: string = '';
@@ -40,6 +49,7 @@ export class ShowcaseCardComponent {
   @Input() attending: number = 0;
   @Input() capacity: number = 0;
   @Input() showOverlay: boolean = false;
+  @Input() listItems: ListItem[] = []; 
 
   get progressPercent(): number {
     return this.capacity > 0 ? Math.round((this.attending / this.capacity) * 100) : 0;

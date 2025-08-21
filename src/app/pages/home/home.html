@@ -152,8 +152,8 @@
 
 <!-- Upcoming Event Section -->
 <div class="container my-5 ">
-    <app-heading-section iconLeft="sports_esports" iconLeftType="material" iconLeftColor="bg-primary2"
-        iconRight="emoji_events" iconRightType="material" iconRightColor="bg-secondary2" title="Upcoming"
+    <app-heading-section iconLeft="sports_esports" iconLeftType="material" iconLeftColor="bg-secondary2"
+        iconRight="emoji_events" iconRightType="material" iconRightColor="bg-primary2" title="Upcoming"
         highlight="Events" highlightColor="gradient-text"
         subtitle="Join our exciting events and connect with fellow gamers. From tournaments to family days, there's always something magical happening! 🎉">
     </app-heading-section>
@@ -168,6 +168,33 @@
                 [title]="event.title" [subtitle]="event.subtitle" [attending]="event.attending"
                 [capacity]="event.capacity" [buttonText]="event.buttonText" [buttonColor]="event.buttonColor"
                 [showCart]="event.showCart" [detailIcon]="event.detailIcon" [iconType]="event.iconType" [showOverlay]="true">
+            </app-showcase-card>
+        </div>
+        <app-primary-button iconLeft="bi bi-calendar4-week" iconRight="bi bi-arrow-right"
+            class="d-flex justify-content-center mt-3">
+            See All Event
+        </app-primary-button>
+    </div>
+</div>
+
+<!-- Business Services -->
+ <div class="container my-5 ">
+    <app-heading-section iconLeft="corporate_fare" iconLeftType="material" iconLeftColor="bg-primary2"
+        iconRight="card_travel" iconRightType="material" iconRightColor="bg-secondary2" title="Business"
+        highlight="Services" highlightColor="gradient-text"
+        subtitle="Transform your corporate events with our professional B2B services. From team building to full event hosting, we create memorable experiences that strengthen teams and celebrate success! 🏢">
+    </app-heading-section>
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-lg-3 pb-4" *ngFor="let service of businessServices">
+            <app-showcase-card [imageSrc]="service.imageSrc"
+                [category]="service.category" [categoryColor]="service.categoryColor"
+                [badgeRight]="service.badgeRight ?? ''"
+                [badgeRightColor]="service.badgeRightColor ?? ''"
+                [eventDate]="service.eventDate ?? ''"
+                [eventTime]="service.eventTime ?? ''"
+                [title]="service.title" [subtitle]="service.subtitle" [attending]="service.attending"
+                [capacity]="service.capacity" [buttonText]="service.buttonText" [buttonColor]="service.buttonColor"
+                [showCart]="service.showCart" [detailIcon]="service.detailIcon" [iconType]="service.iconType" [listItems]="service.listItems ?? []" [showOverlay]="true">
             </app-showcase-card>
         </div>
         <app-primary-button iconLeft="bi bi-calendar4-week" iconRight="bi bi-arrow-right"

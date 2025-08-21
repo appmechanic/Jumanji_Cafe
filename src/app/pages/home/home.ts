@@ -7,7 +7,7 @@ import { StatCardComponent } from '../../shared/stat-card/stat-card';
 import { StorySectionComponent } from '../../shared/story-section/story-section';
 import { HeadingSectionComponent } from '../../shared/heading-section/heading-section';
 import { Image360ViewerComponent } from '../../shared/image-360-viewer/image-360-viewer';
-import { ShowcaseCardComponent } from '../../shared/showcase-card/showcase-card';
+import { ShowcaseCardComponent, ListItem } from '../../shared/showcase-card/showcase-card';
 import { SliderComponent } from '../../shared/slider/slider';
 import { FilterComponent, FilterConfig } from '../../shared/filter-tab/filter-tab';
 
@@ -26,6 +26,8 @@ export type ShowcaseCardType = {
   imageSrc: string;
   category: string;
   categoryColor: string;
+  categoryIcon: string;
+  categoryIconType: 'material' | 'bootstrap';
   title: string;
   subtitle: string;
   players: string;
@@ -50,6 +52,7 @@ export type ShowcaseCardType = {
   eventTime?: string;
   attending: number;
   capacity: number;
+  listItems?: ListItem[]; // Add listItems property
 };
 
 @Component({
@@ -147,6 +150,8 @@ export class Home implements OnInit {
       imageSrc: '/assets/cafe-game-img1.jpg',
       category: 'Medium',
       categoryColor: 'bg-secondary5 text-secondary',
+      categoryIcon: '',
+      categoryIconType: 'bootstrap',
       starCount: 4,
       starColor: 'bg-secondary text-white',
       title: 'Catan',
@@ -169,6 +174,8 @@ export class Home implements OnInit {
     {
       imageSrc: '/assets/cafe-game-img1.jpg',
       category: 'Easy',
+      categoryIcon: '',
+      categoryIconType: 'bootstrap',
       categoryColor: 'bg-secondary5 text-success',
       starCount: 4,
       starColor: 'bg-secondary text-white',
@@ -192,6 +199,8 @@ export class Home implements OnInit {
     {
       imageSrc: '/assets/cafe-game-img1.jpg',
       category: 'Hard',
+      categoryIcon: '',
+      categoryIconType: 'bootstrap',
       categoryColor: 'bg-secondary5 text-danger',
       starCount: 4,
       starColor: 'bg-secondary text-white',
@@ -217,6 +226,8 @@ export class Home implements OnInit {
     {
       imageSrc: '/assets/cafe-menu-img1.jpg',
       category: 'Jumanji Special',
+      categoryIcon: '',
+      categoryIconType: 'bootstrap',
       categoryColor: 'bg-primary3',
       title: 'Catan',
       price: '15 SAR',
@@ -238,6 +249,8 @@ export class Home implements OnInit {
     {
       imageSrc: '/assets/cafe-menu-img1.jpg',
       category: 'Medium',
+      categoryIcon: '',
+      categoryIconType: 'bootstrap',
       categoryColor: 'bg-secondary4',
       title: 'Azul',
       price: '15 SAR',
@@ -259,6 +272,8 @@ export class Home implements OnInit {
     {
       imageSrc: '/assets/cafe-menu-img1.jpg',
       category: 'Medium',
+      categoryIcon: '',
+      categoryIconType: 'bootstrap',
       categoryColor: 'bg-primary3',
       starColor: 'bg-secondary text-white',
       title: 'Wingspan',
@@ -281,6 +296,8 @@ export class Home implements OnInit {
     {
       imageSrc: '/assets/cafe-menu-img1.jpg',
       category: 'Medium',
+      categoryIcon: '',
+      categoryIconType: 'bootstrap',
       categoryColor: 'bg-primary3',
       starColor: 'bg-secondary text-white',
       title: 'Wingspan',
@@ -305,6 +322,8 @@ export class Home implements OnInit {
     {
       imageSrc: '/assets/cafe-event-img1.jpg',
       category: 'Tournament',
+      categoryIcon: '',
+      categoryIconType: 'bootstrap',
       categoryColor: 'bg-danger text-white',
       badgeRight: 'Free Entry',
       badgeRightColor: 'bg-light text-dark',
@@ -328,6 +347,8 @@ export class Home implements OnInit {
     {
       imageSrc: '/assets/cafe-event-img1.jpg',
       category: 'Workshop',
+      categoryIcon: '',
+      categoryIconType: 'bootstrap',
       categoryColor: 'bg-success text-white',
       badgeRight: 'Limited Seats',
       badgeRightColor: 'bg-warning text-dark',
@@ -351,6 +372,8 @@ export class Home implements OnInit {
     {
       imageSrc: '/assets/cafe-event-img1.jpg',
       category: 'Family Night',
+      categoryIcon: '',
+      categoryIconType: 'bootstrap',
       categoryColor: 'bg-primary text-white',
       badgeRight: '',
       badgeRightColor: '',
@@ -370,6 +393,116 @@ export class Home implements OnInit {
       tags: [],
       tagColor: '',
       gameCategory: ''
+    }
+  ];
+  businessServices: ShowcaseCardType[] = [
+    {
+      imageSrc: '/assets/business-services-img1.jpg',
+      category: '',
+      categoryIcon: 'groups',
+      categoryIconType: 'material',
+      categoryColor: 'bg-primary text-white',
+      title: 'Business Strategy',
+      subtitle: 'Expert guidance for your business growth',
+      buttonText: 'Book Now',
+      buttonColor: 'bg-primary text-white',
+      showCart: false,
+      detailIcon: '',
+      iconType: 'bootstrap',
+      players: '',
+      duration: '',
+      tags: [],
+      tagColor: '',
+      gameCategory: '',
+      attending: 0,
+      capacity: 0,
+      listItems: [
+        { icon: 'check', content: 'Custom Game Selection' },
+        { icon: 'check', content: 'Professional Facilitation' },
+        { icon: 'check', content: 'Team Challenges' },
+        { icon: 'check', content: 'Performance Analytics' }
+      ]
+    },
+    {
+      imageSrc: '/assets/business-services-img1.jpg',
+      category: '',
+      categoryIcon: 'megaphone',
+      categoryIconType: 'bootstrap',
+      categoryColor: 'bg-info text-white',
+      title: 'Event Hosting',
+      subtitle: 'Complete event management for corporate gatherings and special celebrations',
+      buttonText: 'Get Started',
+      buttonColor: 'bg-primary text-white',
+      showCart: false,
+      detailIcon: '',
+      iconType: 'bootstrap',
+      players: '',
+      duration: '',
+      tags: [],
+      tagColor: '',
+      gameCategory: '',
+      attending: 0,
+      capacity: 0,
+      listItems: [
+        { icon: 'check', content: 'Strategic Thinking' },
+        { icon: 'check', content: 'Leadership Skills' },
+        { icon: 'check', content: 'Communication Training' },
+        { icon: 'check', content: 'Certified Instructors' }
+      ]
+    },
+    {
+      imageSrc: '/assets/business-services-img1.jpg',
+      category: '',
+      categoryIcon: '',
+      categoryIconType: 'bootstrap',
+      categoryColor: 'bg-warning text-dark',
+      title: 'Website Development',
+      subtitle: 'Custom website solutions for your business',
+      buttonText: 'Learn More',
+      buttonColor: 'bg-primary text-white',
+      showCart: false,
+      detailIcon: '',
+      iconType: 'bootstrap',
+      players: '',
+      duration: '',
+      tags: [],
+      tagColor: '',
+      gameCategory: '',
+      attending: 0,
+      capacity: 0,
+      listItems: [
+        { icon: 'check', content: 'Full Event Planning' },
+        { icon: 'check', content: 'Custom Decorations' },
+        { icon: 'check', content: 'Professional Staff' },
+        { icon: 'check', content: 'Entertainment Coordination' }
+      ]
+    },
+    {
+      imageSrc: '/assets/business-services-img1.jpg',
+      category: '',
+      categoryIcon: '',
+      categoryIconType: 'bootstrap',
+      categoryColor: 'bg-warning text-dark',
+      title: 'Catering',
+      subtitle: 'Premium food and beverage service tailored to your corporate event needs',
+      buttonText: 'Learn More',
+      buttonColor: 'bg-primary text-white',
+      showCart: false,
+      detailIcon: '',
+      iconType: 'bootstrap',
+      players: '',
+      duration: '',
+      tags: [],
+      tagColor: '',
+      gameCategory: '',
+      attending: 0,
+      capacity: 0,
+      listItems: [
+        { icon: 'check', content: 'Gourmet Menu Options' },
+        { icon: 'check', content: 'Coffee Bar Service' },
+        { icon: 'check', content: 'Dietary Accommodations' },
+        { icon: 'check', content: 'Professional Presentation' }
+      ]
     }
   ];
 
