@@ -1,0 +1,14 @@
+<div class="filter-tabs d-flex flex-wrap flex-row justify-content-center pb-5 pt-2">
+  <div class="filter-tabs-container d-flex flex-wrap flex-row justify-content-center gap-3">
+    <button *ngFor="let option of filterOptions"
+            class="filter-tab fw-bold rounded-pill px-4 py-2 bg-white border border-0 shadow-sm"
+            [class.text-color2]="selectedFilter !== option.value"
+            [class.active]="selectedFilter === option.value"
+            [class.text-white]="selectedFilter === option.value"
+            [class.gradient-bg]="selectedFilter === option.value"
+            [class.shadow]="selectedFilter === option.value"
+            (click)="selectFilter(option.value)">
+      {{ option.label }}
+    </button>
+  </div>
+</div>  

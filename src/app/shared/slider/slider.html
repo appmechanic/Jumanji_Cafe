@@ -1,0 +1,28 @@
+<div class="slider-container mb-4">
+  <div class="slider-wrapper">
+    <div class="slider-content row" [ngStyle]="{'transform': 'translateX(' + translateX + 'px)', 'transition': isAnimating ? 'transform 0.5s ease' : 'none'}">
+      <ng-container *ngFor="let item of displayItems">
+        <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: item}"></ng-container>
+      </ng-container>
+    </div>
+  </div>
+  
+  <div class="slider-controls">
+    <button class="slider-control prev" (click)="prev()">
+      <i class="bi bi-arrow-left-short"></i>
+    </button>
+    
+    <div class="slider-indicators">
+      <div *ngFor="let item of items; let i = index" 
+           class="indicator" 
+           [class.active]="i === currentActiveIndex"
+           (click)="goToSlide(i)">
+      </div>
+    </div>
+    
+    <button class="slider-control next" (click)="next()">
+      <i class="bi bi-arrow-right-short"></i>
+    </button>
+  </div>
+</div>
+<ng-content></ng-content>

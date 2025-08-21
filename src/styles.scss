@@ -190,25 +190,3 @@ h2 {
     width: 100%;
   }
 }
- .carousel-control-prev{
-  background-color: $primary !important;
-  opacity: 1 !important;
-  border-radius: 100%;
-  width: auto;
-  padding: 8px;
-  .carousel-control-prev-icon{
-    width: 1.5rem !important;
-    height: 1.5rem !important;
-  }
- }
- .carousel-control-next{
-  background-color: $secondary !important;
-  opacity: 1 !important;
-  border-radius: 100%;
-  width: auto;
-  padding: 8px;
-  .carousel-control-next-icon{
-    width: 1.5rem !important;
-    height: 1.5rem !important;
-  }
- }

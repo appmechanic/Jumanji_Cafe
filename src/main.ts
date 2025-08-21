@@ -2,7 +2,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, RouterOutlet } from '@angular/router';
 import { appConfig } from './app/app.config';
 import { App } from './app/app';
-import { Home } from './app/pages/home/home';
+import { Home as Home } from './app/pages/home/home';
 import { OurStory } from './app/pages/our-story/our-story';
 
 const routes = [

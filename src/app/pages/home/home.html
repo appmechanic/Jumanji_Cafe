@@ -69,27 +69,47 @@
 
 <!-- Cafe Menu Section -->
 <div class="container my-5 ">
-    <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2"
-        iconRight="free_breakfast" iconRightType="material" iconRightColor="bg-primary2" title="Cafe" highlight="Menu"
+    <app-heading-section
+        iconLeft="restaurant"
+        iconLeftType="material"
+        iconLeftColor="bg-secondary2"
+        iconRight="free_breakfast"
+        iconRightType="material"
+        iconRightColor="bg-primary2"
+        title="Cafe"
+        highlight="Menu"
         highlightColor="gradient-text"
         subtitle="Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕">
     </app-heading-section>
     <div class="row justify-content-center">
-        <app-cafe-menu-slider>
-            <div class="carousel-item" *ngFor="let game of cafeMenu; let i = index" [class.active]="i === 0">
-                <div class="d-flex justify-content-center">
-                    <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category"
-                        [categoryColor]="game.categoryColor" [title]="game.title" [price]="game.price ?? ''"
-                        [priceColor]="game.priceColor ?? ''" [subtitle]="game.subtitle" [players]="game.players"
-                        [duration]="game.duration" [playersClass]="game.playersClass ?? ''"
-                        [durationClass]="game.durationClass ?? ''" [tags]="game.tags" [tagColor]="game.tagColor"
-                        [gameCategory]="game.gameCategory" [buttonText]="game.buttonText"
-                        [buttonColor]="game.buttonColor" [showCart]="game.showCart" [detailIcon]="game.detailIcon"
-                        [iconType]="game.iconType" [showOverlay]="false">
+        <app-slider [items]="cafeMenu" [visibleCount]="3">
+            <ng-template #itemTemplate let-game>
+                <div class="col-12 col-sm-6 col-lg-4 pb-4">
+                    <app-showcase-card
+                        [imageSrc]="game.imageSrc"
+                        [category]="game.category"
+                        [categoryColor]="game.categoryColor"
+                        [title]="game.title"
+                        [price]="game.price ?? ''"
+                        [priceColor]="game.priceColor ?? ''"
+                        [subtitle]="game.subtitle"
+                        [players]="game.players"
+                        [duration]="game.duration"
+                        [playersClass]="game.playersClass ?? ''"
+                        [durationClass]="game.durationClass ?? ''"
+                        [tags]="game.tags"
+                        [tagColor]="game.tagColor"
+                        [gameCategory]="game.gameCategory"
+                        [buttonText]="game.buttonText"
+                        [buttonColor]="game.buttonColor"
+                        [showCart]="game.showCart"
+                        [detailIcon]="game.detailIcon"
+                        [iconType]="game.iconType"
+                        [showOverlay]="false">
                     </app-showcase-card>
                 </div>
-            </div>
-        </app-cafe-menu-slider>
+            </ng-template>
+        </app-slider>
         <app-primary-button iconLeft="bi-fork-knife" iconRight="bi bi-arrow-right"
             class="d-flex justify-content-center mt-2">
             View Full Menu
@@ -104,8 +124,16 @@
         highlight="Games" highlightColor="gradient-text"
         subtitle="Discover our handpicked collection of the most exciting board games. From quick party games to strategic adventures! 🎯">
     </app-heading-section>
+    
+    <!-- Add filter tab here -->
+    <app-filter-tab
+        [data]="featuredGames"
+        [config]="gameFilterConfig"
+        (filteredDataChange)="onGamesFilteredDataChange($event)">
+    </app-filter-tab>
+    
     <div class="row justify-content-center">
-        <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let game of featuredGames">
+        <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let game of filteredGames">
             <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category"
                 [categoryColor]="game.categoryColor" [title]="game.title" [starCount]="game.starCount ?? 0"
                 [starColor]="game.starColor ?? ''" [subtitle]="game.subtitle" [players]="game.players"
@@ -116,7 +144,7 @@
                 [iconType]="game.iconType" [showOverlay]="false"></app-showcase-card>
         </div>
         <app-primary-button iconLeft="sports_esports" iconRight="bi bi-arrow-right"
-            class="d-flex justify-content-center">
+            class="d-flex justify-content-center mt-3">
             View Game Store
         </app-primary-button>
     </div>
@@ -143,7 +171,7 @@
             </app-showcase-card>
         </div>
         <app-primary-button iconLeft="bi bi-calendar4-week" iconRight="bi bi-arrow-right"
-            class="d-flex justify-content-center">
+            class="d-flex justify-content-center mt-3">
             See All Event
         </app-primary-button>
     </div>

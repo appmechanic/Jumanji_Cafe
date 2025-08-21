@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroSectionComponent } from '../../shared/hero-section/hero-section';
 import { PrimaryButtonComponent } from '../../shared/buttons/primary-button/primary-button';
@@ -8,7 +8,9 @@ import { StorySectionComponent } from '../../shared/story-section/story-section'
 import { HeadingSectionComponent } from '../../shared/heading-section/heading-section';
 import { Image360ViewerComponent } from '../../shared/image-360-viewer/image-360-viewer';
 import { ShowcaseCardComponent } from '../../shared/showcase-card/showcase-card';
-import { CafeMenuSliderComponent } from '../../shared/cafe-menu-slider/cafe-menu-slider';
+import { SliderComponent } from '../../shared/slider/slider';
+import { FilterComponent, FilterConfig } from '../../shared/filter-tab/filter-tab';
+
 
 export type StatCardType = {
   iconType: "material" | "bootstrap";
@@ -63,14 +65,25 @@ export type ShowcaseCardType = {
     HeadingSectionComponent,
     Image360ViewerComponent,
     ShowcaseCardComponent,
-    // NgxSlickCarouselModule,
-    CafeMenuSliderComponent
+    SliderComponent,
+    FilterComponent
   ],
   templateUrl: './home.html',
   styleUrls: ['./home.scss']
 })
-export class Home {
+export class Home implements OnInit {
   selectedIndex = 0;
+  
+  // Game filter configuration - specifically filters by tags
+  gameFilterConfig: FilterConfig = {
+    property: 'tags',
+    includeAll: true,
+    allLabel: 'All'
+  };
+  
+  // Filtered games collection
+  filteredGames: ShowcaseCardType[] = [];
+  
   heroStats: StatCardType[] = [
     {
       iconType: "material",
@@ -142,7 +155,7 @@ export class Home {
       playersClass: 'text-primary fw-600',
       durationClass: 'text-secondary fw-600',
       duration: '60-90 min',
-      tags: ['Family Picks', 'Top Rated'],
+      tags: ['Family Picks', 'Quick Games'],
       tagColor: 'bg-primary2',
       gameCategory: 'Strategy',
       buttonText: 'View Details',
@@ -188,7 +201,7 @@ export class Home {
       playersClass: 'text-primary fw-600',
       durationClass: 'text-secondary fw-600',
       duration: '60-90 min',
-      tags: ['Family Picks', 'Top Rated'],
+      tags: ['Top Rated'],
       tagColor: 'bg-primary2',
       gameCategory: 'Strategy',
       buttonText: 'View Details',
@@ -360,4 +373,11 @@ export class Home {
     }
   ];
 
+  ngOnInit() {
+    this.filteredGames = [...this.featuredGames];
+  }
+  
+  onGamesFilteredDataChange(filteredData: ShowcaseCardType[]): void {
+    this.filteredGames = filteredData;
+  }
 }
