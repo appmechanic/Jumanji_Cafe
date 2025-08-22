@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cta-section',
-  templateUrl: './CTA-section.html',
-  styleUrls: ['./CTA-section.scss'],
-  standalone: true, 
-  imports: [CommonModule] 
+  templateUrl: './CTA-Section.html',
+  styleUrls: ['./CTA-Section.scss'],
+  standalone: true,
+  imports: [CommonModule]
 })
 export class CtaSectionComponent {
   @Input() icon: string = '';
