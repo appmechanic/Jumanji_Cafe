@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cta-section',
-  templateUrl: './cta-section.html',
-  styleUrls: ['./cta-section.scss'],
+  templateUrl: './CTA-section.html',
+  styleUrls: ['./CTA-section.scss'],
   standalone: true, 
   imports: [CommonModule] 
 })
