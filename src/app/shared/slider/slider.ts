@@ -7,6 +7,7 @@ import { SliderComponent as ImportedSliderComponent } from './slider';
   selector: 'app-slider',
   templateUrl: './slider.html',
   styleUrls: ['./slider.scss'],
+  standalone: true,
   imports: [CommonModule]
 })
 export class SliderComponent implements OnInit, AfterViewInit {
