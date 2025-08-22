@@ -12,6 +12,7 @@ export type StatCardType = {
   borderColor: string;
   iconBgColor: string;
   titleColor: string;
+  cardBgColor: string;
 };
 
 @Component({
@@ -30,7 +31,8 @@ export class OurStory {
         text: 'Experience',
         borderColor: 'border-secondary',
         iconBgColor: 'bg-secondary2',
-        titleColor: 'text-secondary'
+        titleColor: 'text-secondary',
+        cardBgColor: 'bg-white'
       },
       {
         iconType: 'bootstrap',
@@ -39,7 +41,8 @@ export class OurStory {
         text: 'Quality',
         borderColor: 'border-primary',
         iconBgColor: 'bg-primary2',
-        titleColor: 'text-primary'
+        titleColor: 'text-primary',
+        cardBgColor: 'bg-white'
       }
     ];
  }

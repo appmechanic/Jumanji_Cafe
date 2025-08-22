@@ -74,7 +74,7 @@ export type ShowcaseCardType = {
     SliderComponent,
     FilterComponent,
     CtaSectionComponent,
-    BgGradientComponent
+    BgGradientComponent,
   ],
   templateUrl: './home.html',
   styleUrls: ['./home.scss']
