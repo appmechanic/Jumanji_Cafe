@@ -21,4 +21,8 @@ export class HeadingSectionComponent {
   @Input() iconRightColor: string = '';
   @Input() iconLeftType: 'material' | 'bootstrap' = 'bootstrap';
   @Input() iconRightType: 'material' | 'bootstrap' = 'bootstrap';
+
+  isMaterialIcon(icon?: string): boolean {
+    return !!icon && !icon.includes('bi-') && !icon.includes('fa-');
+  }
 }

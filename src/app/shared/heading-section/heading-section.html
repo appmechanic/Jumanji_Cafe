@@ -13,11 +13,11 @@
             </ng-container>
 
             <!-- Title -->
-            <h2 class="fw-600 m-0 d-flex align-items-center">
+            <h3 class="fw-600 m-0 d-flex align-items-center">
                 <ng-content select="[before-title]"></ng-content>
                 <span>{{ title }}</span>
                 <span [ngClass]="highlightColor" class="ms-2">{{ highlight }}</span>
-            </h2>
+            </h3>
 
             <!-- Right Icon/Image -->
             <ng-container *ngIf="imgRight">

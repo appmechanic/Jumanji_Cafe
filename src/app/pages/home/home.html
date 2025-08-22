@@ -31,7 +31,7 @@
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of heroStats">
                             <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title"
                                 [text]="stat.text" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
-                                [titleColor]="stat.titleColor">
+                                [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor">
                             </app-stat-card>
                         </div>
                     </div>
@@ -69,15 +69,8 @@
 
 <!-- Cafe Menu Section -->
 <div class="container my-5 ">
-    <app-heading-section
-        iconLeft="restaurant"
-        iconLeftType="material"
-        iconLeftColor="bg-secondary2"
-        iconRight="free_breakfast"
-        iconRightType="material"
-        iconRightColor="bg-primary2"
-        title="Cafe"
-        highlight="Menu"
+    <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2"
+        iconRight="free_breakfast" iconRightType="material" iconRightColor="bg-primary2" title="Cafe" highlight="Menu"
         highlightColor="gradient-text"
         subtitle="Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕">
     </app-heading-section>
@@ -85,27 +78,14 @@
         <app-slider [items]="cafeMenu" [visibleCount]="3">
             <ng-template #itemTemplate let-game>
                 <div class="col-12 col-sm-6 col-lg-4 pb-4">
-                    <app-showcase-card
-                        [imageSrc]="game.imageSrc"
-                        [category]="game.category"
-                        [categoryColor]="game.categoryColor"
-                        [title]="game.title"
-                        [price]="game.price ?? ''"
-                        [priceColor]="game.priceColor ?? ''"
-                        [subtitle]="game.subtitle"
-                        [players]="game.players"
-                        [duration]="game.duration"
-                        [playersClass]="game.playersClass ?? ''"
-                        [durationClass]="game.durationClass ?? ''"
-                        [tags]="game.tags"
-                        [tagColor]="game.tagColor"
-                        [gameCategory]="game.gameCategory"
-                        [buttonText]="game.buttonText"
-                        [buttonColor]="game.buttonColor"
-                        [showCart]="game.showCart"
-                        [detailIcon]="game.detailIcon"
-                        [iconType]="game.iconType"
-                        [showOverlay]="false">
+                    <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category"
+                        [categoryColor]="game.categoryColor" [title]="game.title" [price]="game.price ?? ''"
+                        [priceColor]="game.priceColor ?? ''" [subtitle]="game.subtitle" [players]="game.players"
+                        [duration]="game.duration" [playersClass]="game.playersClass ?? ''"
+                        [durationClass]="game.durationClass ?? ''" [tags]="game.tags" [tagColor]="game.tagColor"
+                        [gameCategory]="game.gameCategory" [buttonText]="game.buttonText"
+                        [buttonColor]="game.buttonColor" [showDetailIcon]="game.showDetailIcon"
+                        [detailIcon]="game.detailIcon" [showOverlay]="false">
                     </app-showcase-card>
                 </div>
             </ng-template>
@@ -124,14 +104,12 @@
         highlight="Games" highlightColor="gradient-text"
         subtitle="Discover our handpicked collection of the most exciting board games. From quick party games to strategic adventures! 🎯">
     </app-heading-section>
-    
+
     <!-- Add filter tab here -->
-    <app-filter-tab
-        [data]="featuredGames"
-        [config]="gameFilterConfig"
+    <app-filter-tab [data]="featuredGames" [config]="gameFilterConfig"
         (filteredDataChange)="onGamesFilteredDataChange($event)">
     </app-filter-tab>
-    
+
     <div class="row justify-content-center">
         <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let game of filteredGames">
             <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category"
@@ -140,8 +118,8 @@
                 [duration]="game.duration" [playersClass]="game.playersClass ?? ''"
                 [durationClass]="game.durationClass ?? ''" [tags]="game.tags" [tagColor]="game.tagColor"
                 [gameCategory]="game.gameCategory" [buttonText]="game.buttonText" [buttonColor]="game.buttonColor"
-                [showCart]="game.showCart" [detailIcon]="game.detailIcon"
-                [iconType]="game.iconType" [showOverlay]="false"></app-showcase-card>
+                [showDetailIcon]="game.showDetailIcon" [detailIcon]="game.detailIcon"
+                [showOverlay]="false"></app-showcase-card>
         </div>
         <app-primary-button iconLeft="sports_esports" iconRight="bi bi-arrow-right"
             class="d-flex justify-content-center mt-3">
@@ -159,15 +137,13 @@
     </app-heading-section>
     <div class="row justify-content-center">
         <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let event of upcomingEvents">
-            <app-showcase-card [imageSrc]="event.imageSrc"
-                [category]="event.category" [categoryColor]="event.categoryColor"
-                [badgeRight]="event.badgeRight ?? ''"
-                [badgeRightColor]="event.badgeRightColor ?? ''"
-                [eventDate]="event.eventDate ?? ''"
-                [eventTime]="event.eventTime ?? ''"
-                [title]="event.title" [subtitle]="event.subtitle" [attending]="event.attending"
-                [capacity]="event.capacity" [buttonText]="event.buttonText" [buttonColor]="event.buttonColor"
-                [showCart]="event.showCart" [detailIcon]="event.detailIcon" [iconType]="event.iconType" [showOverlay]="true">
+            <app-showcase-card [imageSrc]="event.imageSrc" [category]="event.category"
+                [categoryColor]="event.categoryColor" [badgeRight]="event.badgeRight ?? ''"
+                [badgeRightColor]="event.badgeRightColor ?? ''" [eventDate]="event.eventDate ?? ''"
+                [eventTime]="event.eventTime ?? ''" [title]="event.title" [subtitle]="event.subtitle"
+                [attending]="event.attending" [capacity]="event.capacity" [buttonText]="event.buttonText"
+                [buttonColor]="event.buttonColor" [showDetailIcon]="event.showDetailIcon"
+                [detailIcon]="event.detailIcon" [showOverlay]="true">
             </app-showcase-card>
         </div>
         <app-primary-button iconLeft="bi bi-calendar4-week" iconRight="bi bi-arrow-right"
@@ -178,7 +154,7 @@
 </div>
 
 <!-- Business Services -->
- <div class="container my-5 ">
+<div class="container my-5 ">
     <app-heading-section iconLeft="corporate_fare" iconLeftType="material" iconLeftColor="bg-primary2"
         iconRight="card_travel" iconRightType="material" iconRightColor="bg-secondary2" title="Business"
         highlight="Services" highlightColor="gradient-text"
@@ -186,20 +162,78 @@
     </app-heading-section>
     <div class="row justify-content-center">
         <div class="col-12 col-sm-6 col-lg-3 pb-4" *ngFor="let service of businessServices">
-            <app-showcase-card [imageSrc]="service.imageSrc"
-                [category]="service.category" [categoryColor]="service.categoryColor"
-                [badgeRight]="service.badgeRight ?? ''"
-                [badgeRightColor]="service.badgeRightColor ?? ''"
-                [eventDate]="service.eventDate ?? ''"
-                [eventTime]="service.eventTime ?? ''"
-                [title]="service.title" [subtitle]="service.subtitle" [attending]="service.attending"
-                [capacity]="service.capacity" [buttonText]="service.buttonText" [buttonColor]="service.buttonColor"
-                [showCart]="service.showCart" [detailIcon]="service.detailIcon" [iconType]="service.iconType" [listItems]="service.listItems ?? []" [showOverlay]="true">
+            <app-showcase-card [imageSrc]="service.imageSrc" [category]="service.category"
+                [categoryColor]="service.categoryColor" [categoryIcon]="service.categoryIcon"
+                [badgeRight]="service.badgeRight ?? ''" [badgeRightColor]="service.badgeRightColor ?? ''"
+                [eventDate]="service.eventDate ?? ''" [eventTime]="service.eventTime ?? ''" [title]="service.title"
+                [subtitle]="service.subtitle" [attending]="service.attending" [capacity]="service.capacity"
+                [buttonText]="service.buttonText" [buttonColor]="service.buttonColor"
+                [showDetailIcon]="service.showDetailIcon" [detailIcon]="service.detailIcon"
+                [listItems]="service.listItems ?? []" [showOverlay]="true">
             </app-showcase-card>
         </div>
-        <app-primary-button iconLeft="bi bi-calendar4-week" iconRight="bi bi-arrow-right"
-            class="d-flex justify-content-center mt-3">
-            See All Event
-        </app-primary-button>
     </div>
 </div>
+
+<!-- CTA Section -->
+<div class="container my-5 ">
+
+    <app-cta-section icon="" titleStart="Ready to Elevate Your" titleHighlight="Team Experience?"
+        description="Let's discuss how our professional services can create unforgettable experiences for your team. Contact us for a customized proposal tailored to your needs.">
+        <app-primary-button primaryButton iconLeft="card_travel" iconRight="bi bi-arrow-right"
+            class="d-flex justify-content-center mt-2">
+            Explore B2B Services
+        </app-primary-button>
+        <app-ghost-button ghostButton iconLeft="call" class="d-flex justify-content-center mt-2">
+            Get Quote
+        </app-ghost-button>
+    </app-cta-section>
+</div>
+
+<!-- Choose Your Adventure -->
+
+<app-decorative-background gradientClass="gradient-primary" [shapes]="[
+    { top: '10%', left: '5%', width: '100px', height: '100px', color: 'transparent', border: '2px solid rgba(255, 255, 255, 0.1)', rotate: '45deg', borderRadius: '4px'},
+    { top: '5%', right: '2%', width: '50px', height: '50px', color: '#ffffff', opacity: '0.1', rotate: '0deg', borderRadius: '100%'},
+    { top: '50%', left: '10%', width: '50px', height: '50px', color: '#ffffff', opacity: '0.1', rotate: '0deg', borderRadius: '100%'},
+    { bottom: '5%', left: '40%', width: '50px', height: '50px', color: '#ffffff', opacity: '0.1', rotate: '70deg'},
+    { bottom: '20%', right: '15%', width: '120px', height: '120px', color: 'transparent', border: '2px solid rgba(255, 255, 255, 0.07)', borderRadius: '100%'}
+  ]">
+    <div class="row justify-content-center">
+        <div class="col-12 custom-col-width">
+            <div class="text-center py-5">
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 d-none d-sm-block">
+                        <h2 class="text-white" style="text-align: left;">Choose Your</h2>
+                        <h2 style="text-align: right; color: #FFE07A;">Adventure!</h2>
+                    </div>
+                    <h2 class="d-block d-sm-none" style="text-align: center; color: #FFE07A;">Choose Your Adventure!</h2>
+                </div>
+                <div class="row justify-content-center mt-2">
+                    <div class="col-lg-9">
+                        <p class="text-white fs-24 mb-4">Let fate decide your next gaming experience. Click the magic
+                            dice and
+                            discover something amazing!</p>
+                    </div>
+                </div>
+                <div class="div d-flex justify-content-center mt-3">
+                    <span class="vector-icon bg-white rounded-pill text-center shadow-lg">
+                        <img src="../../../assets/Vector-dice.png" alt="">
+                    </span>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="row mt-4 g-4 d-flex d-flex align-items-stretch justify-content-center">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of AdventureStats">
+                            <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title"
+                                [text]="stat.text" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
+                                [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor"
+                                [textColor]="stat.textColor" [subtitleColor]="stat.subtitleColor"
+                                [subtitle]="stat.subtitle">
+                            </app-stat-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-decorative-background>

@@ -10,16 +10,21 @@ import { Image360ViewerComponent } from '../../shared/image-360-viewer/image-360
 import { ShowcaseCardComponent, ListItem } from '../../shared/showcase-card/showcase-card';
 import { SliderComponent } from '../../shared/slider/slider';
 import { FilterComponent, FilterConfig } from '../../shared/filter-tab/filter-tab';
-
+import { CtaSectionComponent } from '../../shared/CTA-Section/CTA-Section';
+import { BgGradientComponent } from '../../shared/bg-gradient/bg-gradient';
 
 export type StatCardType = {
   iconType: "material" | "bootstrap";
   icon: string;
   title: string;
   text: string;
+  textColor: string;
   borderColor: string;
   iconBgColor: string;
   titleColor: string;
+  subtitle: string;
+  subtitleColor: string;
+  cardBgColor:string;
 };
 
 export type ShowcaseCardType = {
@@ -27,7 +32,6 @@ export type ShowcaseCardType = {
   category: string;
   categoryColor: string;
   categoryIcon: string;
-  categoryIconType: 'material' | 'bootstrap';
   title: string;
   subtitle: string;
   players: string;
@@ -37,9 +41,8 @@ export type ShowcaseCardType = {
   gameCategory: string;
   buttonText: string;
   buttonColor: string;
-  showCart: boolean;
+  showDetailIcon: boolean;
   detailIcon: string;
-  iconType: 'material' | 'bootstrap';
   starCount?: number;
   starColor?: string;
   playersClass?: string;
@@ -52,7 +55,7 @@ export type ShowcaseCardType = {
   eventTime?: string;
   attending: number;
   capacity: number;
-  listItems?: ListItem[]; // Add listItems property
+  listItems?: ListItem[]; 
 };
 
 @Component({
@@ -69,7 +72,9 @@ export type ShowcaseCardType = {
     Image360ViewerComponent,
     ShowcaseCardComponent,
     SliderComponent,
-    FilterComponent
+    FilterComponent,
+    CtaSectionComponent,
+    BgGradientComponent
   ],
   templateUrl: './home.html',
   styleUrls: ['./home.scss']
@@ -93,36 +98,106 @@ export class Home implements OnInit {
       icon: "sports_esports",
       title: "200+",
       text: "Board Games",
+      textColor: "text-color2",
       borderColor: "border-primary",
       iconBgColor: "bg-primary2",
-      titleColor: "text-primary"
+      titleColor: "text-primary",
+      cardBgColor:"bg-white",
+      subtitle: "",
+      subtitleColor: ""
     },
     {
       iconType: "bootstrap",
       icon: "bi-cup-fill",
       title: "50+",
       text: "Specialty Drinks",
+      textColor: "text-color2",
       borderColor: "border-secondary",
       iconBgColor: "bg-secondary2",
-      titleColor: "text-secondary"
+      titleColor: "text-secondary",
+      cardBgColor:"bg-white",
+      subtitle: "",
+      subtitleColor: ""
     },
     {
       iconType: "bootstrap",
       icon: "bi-people-fill",
       title: "Daily",
       text: "Events",
+      textColor: "text-color2",
       borderColor: "border-primary",
       iconBgColor: "bg-primary2",
-      titleColor: "text-primary"
+      titleColor: "text-primary",
+      cardBgColor:"bg-white",
+      subtitle: "",
+      subtitleColor: ""
     },
     {
       iconType: "material",
       icon: "favorite",
       title: "5★",
       text: "Experience",
+      textColor: "text-color2",
       borderColor: "border-secondary",
       iconBgColor: "bg-secondary2",
-      titleColor: "text-secondary"
+      titleColor: "text-secondary",
+      cardBgColor:"bg-white",
+      subtitle: "",
+      subtitleColor: ""
+    }
+  ];
+  AdventureStats: StatCardType[] = [
+    {
+      iconType: "bootstrap",
+      icon: "bi bi-fork-knife",
+      title: "",
+      text: "Discover new flavors",
+      textColor: "text-white2",
+      borderColor: "",
+      iconBgColor: "bg-primary4",
+      titleColor: "",
+      cardBgColor:"bg-semantic",
+      subtitle: "Board Games",
+      subtitleColor: "text-white2"
+    },
+    {
+      iconType: "bootstrap",
+      icon: "bi bi-search",
+      title: "",
+      text: "Find the perfect game for your next night",
+      textColor: "text-white2",
+      borderColor: "",
+      iconBgColor: "bg-primary4",
+      titleColor: "",
+      cardBgColor:"bg-semantic",
+      subtitle: "Game Hunt",
+      subtitleColor: "text-white2"
+    },
+    {
+      iconType: "bootstrap",
+      icon: "bi bi-calendar-minus",
+      title: "",
+      text: "Join the community",
+      textColor: "text-white2",
+      borderColor: "",
+      iconBgColor: "bg-primary4",
+      titleColor: "",
+      cardBgColor:"bg-semantic",
+      subtitle: "Epic Events",
+      subtitleColor: "text-white2"
+    },
+    {
+      iconType: "bootstrap",
+      icon: "bi bi-compass",
+      title: "",
+      text: "Our Story",
+      textColor: "text-white2",
+      borderColor: "",
+      iconBgColor: "bg-primary4",
+      titleColor: "",
+      cardBgColor:"bg-semantic",
+      subtitle: "Learn about us",
+      subtitleColor: "text-white2"
     }
   ];
   storyStats: StatCardType[] = [
@@ -131,18 +206,26 @@ export class Home implements OnInit {
       icon: 'favorite',
       title: '5★',
       text: 'Experience',
+      textColor: "text-color2",
       borderColor: '',
       iconBgColor: 'bg-secondary2',
-      titleColor: 'text-secondary'
+      titleColor: 'text-secondary',
+      cardBgColor: 'bg-white',
+      subtitle: '',
+      subtitleColor: ''
     },
     {
       iconType: 'bootstrap',
       icon: 'bi-star-fill',
       title: 'Top-notch',
       text: 'Quality',
+      textColor: "text-color2",
       borderColor: '',
       iconBgColor: 'bg-primary2',
-      titleColor: 'text-primary'
+      titleColor: 'text-primary',
+      cardBgColor: 'bg-white',
+      subtitle: '',
+      subtitleColor: ''
     }
   ];
   featuredGames: ShowcaseCardType[] = [
@@ -151,7 +234,6 @@ export class Home implements OnInit {
       category: 'Medium',
       categoryColor: 'bg-secondary5 text-secondary',
       categoryIcon: '',
-      categoryIconType: 'bootstrap',
       starCount: 4,
       starColor: 'bg-secondary text-white',
       title: 'Catan',
@@ -165,9 +247,8 @@ export class Home implements OnInit {
       gameCategory: 'Strategy',
       buttonText: 'View Details',
       buttonColor: 'bg-primary text-white',
-      showCart: true,
-      detailIcon: 'cart',
-      iconType: 'bootstrap',
+      showDetailIcon: true,
+      detailIcon: 'bi-cart',
       attending: 0,
       capacity: 0
     },
@@ -175,7 +256,6 @@ export class Home implements OnInit {
       imageSrc: '/assets/cafe-game-img1.jpg',
       category: 'Easy',
       categoryIcon: '',
-      categoryIconType: 'bootstrap',
       categoryColor: 'bg-secondary5 text-success',
       starCount: 4,
       starColor: 'bg-secondary text-white',
@@ -190,9 +270,8 @@ export class Home implements OnInit {
       gameCategory: 'Strategy',
       buttonText: 'View Details',
       buttonColor: 'bg-primary text-white',
-      showCart: true,
-      detailIcon: 'cart',
-      iconType: 'bootstrap',
+      showDetailIcon: true,
+      detailIcon: 'bi-cart',
       attending: 0,
       capacity: 0
     },
@@ -200,7 +279,6 @@ export class Home implements OnInit {
       imageSrc: '/assets/cafe-game-img1.jpg',
       category: 'Hard',
       categoryIcon: '',
-      categoryIconType: 'bootstrap',
       categoryColor: 'bg-secondary5 text-danger',
       starCount: 4,
       starColor: 'bg-secondary text-white',
@@ -215,9 +293,8 @@ export class Home implements OnInit {
       gameCategory: 'Strategy',
       buttonText: 'View Details',
       buttonColor: 'bg-primary text-white',
-      showCart: true,
-      detailIcon: 'cart',
-      iconType: 'bootstrap',
+      showDetailIcon: true,
+      detailIcon: 'bi-cart',
       attending: 0,
       capacity: 0
     },
@@ -227,7 +304,6 @@ export class Home implements OnInit {
       imageSrc: '/assets/cafe-menu-img1.jpg',
       category: 'Jumanji Special',
       categoryIcon: '',
-      categoryIconType: 'bootstrap',
       categoryColor: 'bg-primary3',
       title: 'Catan',
       price: '15 SAR',
@@ -240,9 +316,8 @@ export class Home implements OnInit {
       gameCategory: '',
       buttonText: 'View Details',
       buttonColor: 'bg-primary text-white',
-      showCart: false,
+      showDetailIcon: false,
       detailIcon: '',
-      iconType: 'bootstrap',
       attending: 0,
       capacity: 0
     },
@@ -250,7 +325,6 @@ export class Home implements OnInit {
       imageSrc: '/assets/cafe-menu-img1.jpg',
       category: 'Medium',
       categoryIcon: '',
-      categoryIconType: 'bootstrap',
       categoryColor: 'bg-secondary4',
       title: 'Azul',
       price: '15 SAR',
@@ -263,9 +337,8 @@ export class Home implements OnInit {
       gameCategory: '',
       buttonText: 'View Details',
       buttonColor: 'bg-primary text-white',
-      showCart: false,
+      showDetailIcon: false,
       detailIcon: '',
-      iconType: 'bootstrap',
       attending: 0,
       capacity: 0
     },
@@ -273,7 +346,6 @@ export class Home implements OnInit {
       imageSrc: '/assets/cafe-menu-img1.jpg',
       category: 'Medium',
       categoryIcon: '',
-      categoryIconType: 'bootstrap',
       categoryColor: 'bg-primary3',
       starColor: 'bg-secondary text-white',
       title: 'Wingspan',
@@ -287,9 +359,8 @@ export class Home implements OnInit {
       gameCategory: '',
       buttonText: 'View Details',
       buttonColor: 'bg-primary text-white',
-      showCart: false,
+      showDetailIcon: false,
       detailIcon: '',
-      iconType: 'bootstrap',
       attending: 0,
       capacity: 0
     },
@@ -297,7 +368,6 @@ export class Home implements OnInit {
       imageSrc: '/assets/cafe-menu-img1.jpg',
       category: 'Medium',
       categoryIcon: '',
-      categoryIconType: 'bootstrap',
       categoryColor: 'bg-primary3',
       starColor: 'bg-secondary text-white',
       title: 'Wingspan',
@@ -311,9 +381,8 @@ export class Home implements OnInit {
       gameCategory: '',
       buttonText: 'View Details',
       buttonColor: 'bg-primary text-white',
-      showCart: false,
+      showDetailIcon: false,
       detailIcon: '',
-      iconType: 'bootstrap',
       attending: 0,
       capacity: 0
     }
@@ -323,7 +392,6 @@ export class Home implements OnInit {
       imageSrc: '/assets/cafe-event-img1.jpg',
       category: 'Tournament',
       categoryIcon: '',
-      categoryIconType: 'bootstrap',
       categoryColor: 'bg-danger text-white',
       badgeRight: 'Free Entry',
       badgeRightColor: 'bg-light text-dark',
@@ -335,9 +403,8 @@ export class Home implements OnInit {
       capacity: 32,
       buttonText: 'Join Event',
       buttonColor: 'bg-primary text-white',
-      showCart: true,
+      showDetailIcon: true,
       detailIcon: 'share',
-      iconType: 'material',
       players: '',
       duration: '',
       tags: [],
@@ -348,7 +415,6 @@ export class Home implements OnInit {
       imageSrc: '/assets/cafe-event-img1.jpg',
       category: 'Workshop',
       categoryIcon: '',
-      categoryIconType: 'bootstrap',
       categoryColor: 'bg-success text-white',
       badgeRight: 'Limited Seats',
       badgeRightColor: 'bg-warning text-dark',
@@ -360,9 +426,8 @@ export class Home implements OnInit {
       capacity: 20,
       buttonText: 'Join Event',
       buttonColor: 'bg-primary text-white',
-      showCart: true,
+      showDetailIcon: true,
       detailIcon: 'share',
-      iconType: 'material',
       players: '',
       duration: '',
       tags: [],
@@ -373,7 +438,6 @@ export class Home implements OnInit {
       imageSrc: '/assets/cafe-event-img1.jpg',
       category: 'Family Night',
       categoryIcon: '',
-      categoryIconType: 'bootstrap',
       categoryColor: 'bg-primary text-white',
       badgeRight: '',
       badgeRightColor: '',
@@ -385,9 +449,8 @@ export class Home implements OnInit {
       capacity: 40,
       buttonText: 'Join Event',
       buttonColor: 'bg-primary text-white',
-      showCart: true,
+      showDetailIcon: true,
       detailIcon: 'share',
-      iconType: 'material',
       players: '',
       duration: '',
       tags: [],
@@ -400,15 +463,13 @@ export class Home implements OnInit {
       imageSrc: '/assets/business-services-img1.jpg',
       category: '',
       categoryIcon: 'groups',
-      categoryIconType: 'material',
-      categoryColor: 'bg-primary text-white',
+      categoryColor: 'bg-white text-primary',
       title: 'Business Strategy',
       subtitle: 'Expert guidance for your business growth',
       buttonText: 'Book Now',
       buttonColor: 'bg-primary text-white',
-      showCart: false,
+      showDetailIcon: false,
       detailIcon: '',
-      iconType: 'bootstrap',
       players: '',
       duration: '',
       tags: [],
@@ -426,16 +487,14 @@ export class Home implements OnInit {
     {
       imageSrc: '/assets/business-services-img1.jpg',
       category: '',
-      categoryIcon: 'megaphone',
-      categoryIconType: 'bootstrap',
-      categoryColor: 'bg-info text-white',
+      categoryIcon: 'bi bi-easel2',
+      categoryColor: 'bg-white text-primary',
       title: 'Event Hosting',
       subtitle: 'Complete event management for corporate gatherings and special celebrations',
       buttonText: 'Get Started',
       buttonColor: 'bg-primary text-white',
-      showCart: false,
+      showDetailIcon: false,
       detailIcon: '',
-      iconType: 'bootstrap',
       players: '',
       duration: '',
       tags: [],
@@ -453,16 +512,14 @@ export class Home implements OnInit {
     {
       imageSrc: '/assets/business-services-img1.jpg',
       category: '',
-      categoryIcon: '',
-      categoryIconType: 'bootstrap',
-      categoryColor: 'bg-warning text-dark',
+      categoryIcon: 'bi bi-calendar-event',
+      categoryColor: 'bg-white text-primary',
       title: 'Website Development',
       subtitle: 'Custom website solutions for your business',
       buttonText: 'Learn More',
       buttonColor: 'bg-primary text-white',
-      showCart: false,
+      showDetailIcon: false,
       detailIcon: '',
-      iconType: 'bootstrap',
       players: '',
       duration: '',
       tags: [],
@@ -480,16 +537,14 @@ export class Home implements OnInit {
     {
       imageSrc: '/assets/business-services-img1.jpg',
       category: '',
-      categoryIcon: '',
-      categoryIconType: 'bootstrap',
-      categoryColor: 'bg-warning text-dark',
+      categoryIcon: 'bi bi-fork-knife',
+      categoryColor: 'bg-white text-primary',
       title: 'Catering',
       subtitle: 'Premium food and beverage service tailored to your corporate event needs',
       buttonText: 'Learn More',
       buttonColor: 'bg-primary text-white',
-      showCart: false,
+      showDetailIcon: false,
       detailIcon: '',
-      iconType: 'bootstrap',
       players: '',
       duration: '',
       tags: [],

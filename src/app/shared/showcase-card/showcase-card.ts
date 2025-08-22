@@ -16,11 +16,11 @@ export interface ListItem {
   imports: [CommonModule]
 })
 export class ShowcaseCardComponent {
+  @Input() cardBgColor: string = '';
   @Input() imageSrc: string = '';
   @Input() category: string = '';
   @Input() categoryColor: string = '';
   @Input() categoryIcon: string = ''; 
-  @Input() categoryIconType: 'bootstrap' | 'material' | '' = ''; 
   @Input() badgeRight: string = '';
   @Input() badgeRightColor: string = '';
   @Input() title: string = '';
@@ -38,12 +38,11 @@ export class ShowcaseCardComponent {
   @Input() progressColor: string = '';
   @Input() buttonText: string = '';
   @Input() buttonColor: string = '';
-  @Input() showCart: boolean = false;
+  @Input() showDetailIcon: boolean = false;
   @Input() starColor: string = '';
   @Input() starCount: number = 0;
   @Input() gameCategory: string = '';
   @Input() detailIcon: string = '';
-  @Input() iconType: 'bootstrap' | 'material' = 'bootstrap';
   @Input() eventDate: string = '';
   @Input() eventTime: string = '';
   @Input() attending: number = 0;
@@ -54,4 +53,9 @@ export class ShowcaseCardComponent {
   get progressPercent(): number {
     return this.capacity > 0 ? Math.round((this.attending / this.capacity) * 100) : 0;
   }
+
+  isMaterialIcon(icon?: string): boolean {
+    return !!icon && !icon.includes('bi-') && !icon.includes('fa-');
+  }
+
 }

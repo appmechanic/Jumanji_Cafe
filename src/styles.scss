@@ -18,8 +18,22 @@ h2 {
     font-size: 3rem !important;
   }
 }
-
-
+h3{
+  font-size: 1.5rem !important;
+  line-height: 2.5rem;
+  font-weight: bold;
+  @media screen and (min-width: 768px) {
+    font-size: 2.5rem !important;
+  }
+}
+h4{
+  font-size: 1.2rem !important;
+  line-height: 2rem;
+  font-weight: bold;
+  @media screen and (min-width: 768px) {
+    font-size: 2rem !important;
+  }
+}
 .bg-dark {
   background-color: #000 !important;
 }
@@ -78,6 +92,11 @@ h2 {
 .fs-18 {
   font-size: 18px;
 }
+.fs-24{
+  font-size: 24px;
+  line-height: 34px;
+}
+.bg-secondary5
 
 .sub-title-color {
   color: #121212 !important;
@@ -116,7 +135,13 @@ h2 {
   background-color: $primary;
   color: #E2D7EA;
 }
-
+.bg-primary4{
+  background-color: $primary;
+  color: #fafafa;
+}
+.bg-semantic {
+  background-color: #2E90FA33;
+}
 .bg-secondary2 {
   background-color: #FFF8E0;
   color: $secondary;
@@ -143,7 +168,9 @@ h2 {
 .fw-800 {
   font-weight: 800 !important;
 }
-
+.text-white2{
+  color: #fafafa;
+}
 .custom-spacing {
   position: relative;
   overflow: hidden;

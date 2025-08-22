@@ -1,18 +1,11 @@
 .btn-primary {
-  background: linear-gradient(to right, #8154A2 40%, #F6D02F 100%);
-  color: #fff;
-  border: none;
   padding: 10px 20px;
-  border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap:10px;
-  border-radius: 12px;
-  font-size: 18px;
-  line-height: 2;
   min-width: 240px;
+  gap:10px;
+  &.rounded-3{
+    border-radius: 14px !important;
+   }
 }
 

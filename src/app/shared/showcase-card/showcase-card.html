@@ -1,4 +1,4 @@
-<div class="showcase-card rounded-20 shadow-sm bg-white overflow-hidden h-100 d-flex flex-column">
+<div class="showcase-card rounded-20 bg-white shadow-sm overflow-hidden h-100 d-flex flex-column">
     <div class="card-img position-relative">
         <img [src]="imageSrc" class="w-100 d-block" alt="Card Image" />
         <!-- Image overlay (conditionally shown) -->
@@ -7,10 +7,10 @@
         <div class="badge position-absolute top-0 start-0 m-2 d-flex align-items-center" [ngClass]="categoryColor"
             *ngIf="category || categoryIcon">
             <ng-container *ngIf="categoryIcon">
-                <ng-container [ngSwitch]="categoryIconType || iconType">
-                    <i *ngSwitchCase="'bootstrap'" class="bi me-1" [ngClass]="'bi-' + categoryIcon"></i>
-                    <span *ngSwitchCase="'material'" class="material-icons me-1 small-icon">{{ categoryIcon }}</span>
-                </ng-container>
+                <i *ngIf="!isMaterialIcon(categoryIcon)" class="bi me-1 category-icon" [ngClass]="categoryIcon"></i>
+                <i *ngIf="isMaterialIcon(categoryIcon)" class="material-icons me-1 category-icon">
+                    {{ categoryIcon }}
+                </i>
             </ng-container>
             <span *ngIf="category">{{ category }}</span>
         </div>
@@ -43,17 +43,15 @@
             <div class="subtitle text-color2 mb-3" *ngIf="subtitle">{{ subtitle }}</div>
             <!-- List Items -->
             <div *ngIf="listItems && listItems.length">
-                <ul class="list-unstyled">
-                    <li *ngFor="let item of listItems" class="d-flex align-items-center mb-1 gap-2 list-items">
-                        <ng-container [ngSwitch]="item.iconType || 'bootstrap'">
-                            <i *ngSwitchCase="'bootstrap'" class="bi bg-primary2 rounded-20 "
-                                [ngClass]="'bi-' + item.icon"></i>
-                            <span *ngSwitchCase="'material'" class="material-icons">{{ item.icon }}</span>
-                        </ng-container>
-                        <span>{{ item.content }}</span>
-                    </li>
-                </ul>
-            </div>
+            <ul class="list-unstyled">
+                <li *ngFor="let item of listItems" class="d-flex align-items-center mb-1 gap-2 list-items">
+                    <!-- Replace ngSwitch with isMaterialIcon method -->
+                    <i *ngIf="!isMaterialIcon(item.icon)" class="bi bg-primary2 rounded-20" [ngClass]="item.icon"></i>
+                    <i *ngIf="isMaterialIcon(item.icon)" class="material-icons bg-primary2 rounded-20">{{ item.icon }}</i>
+                    <span>{{ item.content }}</span>
+                </li>
+            </ul>
+        </div>
         </div>
         <div class="d-flex align-items-center justify-content-between mb-3" *ngIf="players || duration">
             <span [ngClass]="playersClass" *ngIf="players">
@@ -84,13 +82,11 @@
                 <button class="btn w-100 rounded fw-bold py-2" [ngClass]="[buttonColor, buttonText ? 'mt-0' : '']">
                     {{ buttonText }}
                 </button>
-                <span *ngIf="showCart"
-                    class="rounded border border-2 d-flex align-items-center justify-content-center text-primary cart">
-                    <ng-container [ngSwitch]="iconType">
-                        <i *ngSwitchCase="'bootstrap'" class="bi" [ngClass]="'bi-' + detailIcon"></i>
-                        <span *ngSwitchCase="'material'" class="material-icons">{{ detailIcon }}</span>
-                    </ng-container>
-                </span>
+                <span *ngIf="showDetailIcon"
+            class="rounded border border-2 d-flex align-items-center justify-content-center text-primary cart">
+            <i *ngIf="!isMaterialIcon(detailIcon)" class="bi" [ngClass]="detailIcon"></i>
+            <i *ngIf="isMaterialIcon(detailIcon)" class="material-icons">{{ detailIcon }}</i>
+        </span>
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-ghost-button',
   template: `
-    <button class="btn btn-ghost">
+    <button class="btn btn-ghost bg-white text-primary border-primary rounded-3 d-flex align-items-center justify-content-center fs-18">
       <i *ngIf="iconLeft" [ngClass]="isMaterialIcon(iconLeft) ? 'material-icons' : iconLeft">
         {{ isMaterialIcon(iconLeft) ? iconLeft : '' }}
       </i>

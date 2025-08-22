@@ -29,6 +29,7 @@ export class StorySectionComponent {
     borderColor: string;
     iconBgColor: string;
     titleColor: string;
+    cardBgColor: string;
   }>;
 
     @Input() buttons!: Array<{

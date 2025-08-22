@@ -1,0 +1,49 @@
+<div class="decorative-background position-relative overflow-hidden"
+     [ngClass]="{}"
+     [ngStyle]="{
+       'background-color': backgroundColor,
+       'background-image': backgroundImage ? 'url(' + backgroundImage + ')' : null,
+       'background-size': backgroundImage ? 'cover' : null,
+       'background-position': backgroundImage ? 'center' : null,
+       'padding': padding
+     }">
+  
+  <!-- Gradient overlay if class provided -->
+  <div *ngIf="gradientClass" class="position-absolute top-0 start-0 w-100 h-100 gradient-bg" 
+       [ngClass]="gradientClass"></div>
+  
+  <!-- Color overlay if provided -->
+  <div *ngIf="overlay" class="position-absolute top-0 start-0 w-100 h-100" 
+       [ngStyle]="{'background-color': overlay}"></div>
+
+  <!-- Decorative shapes -->
+  <ng-container *ngFor="let shape of shapes; let i = index">
+    <div class="shape position-absolute d-none d-md-block"
+          tabindex="-1"
+         aria-hidden="true"
+         [ngClass]="[
+           shape.customClass || '', 
+         ]"
+         [ngStyle]="{
+           'top': shape.top || '',
+           'left': shape.left || '',
+           'bottom': shape.bottom || '',
+           'right': shape.right || '',
+           'width': shape.width || '',
+           'height': shape.height || '',
+           'border': shape.border || '',
+           'border-radius': shape.borderRadius || '',
+           'background-color': shape.color || '',
+           'opacity': shape.opacity || '1',
+           'transform': 'rotate(' + (shape.rotate || '0deg') + ') scale(' + (shape.scale || '1') + ')',
+           'z-index': shape.zIndex || '0',
+           'backdrop-filter': shape.blur ? 'blur(' + shape.blur + ')' : 'none'
+         }">
+    </div>
+  </ng-container>
+  
+  <!-- Content -->
+  <div class="content position-relative z-1">
+    <ng-content></ng-content>
+  </div>
+</div>
