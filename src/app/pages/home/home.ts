@@ -25,6 +25,7 @@ export type StatCardType = {
   subtitle: string;
   subtitleColor: string;
   cardBgColor:string;
+  titleicon: string;
 };
 
 export type ShowcaseCardType = {
@@ -96,6 +97,7 @@ export class Home implements OnInit {
     {
       iconType: "material",
       icon: "sports_esports",
+      titleicon: "",
       title: "200+",
       text: "Board Games",
       textColor: "text-color2",
@@ -110,6 +112,7 @@ export class Home implements OnInit {
       iconType: "bootstrap",
       icon: "bi-cup-fill",
       title: "50+",
+      titleicon: "",
       text: "Specialty Drinks",
       textColor: "text-color2",
       borderColor: "border-secondary",
@@ -122,6 +125,7 @@ export class Home implements OnInit {
     {
       iconType: "bootstrap",
       icon: "bi-people-fill",
+      titleicon: "",
       title: "Daily",
       text: "Events",
       textColor: "text-color2",
@@ -135,6 +139,7 @@ export class Home implements OnInit {
     {
       iconType: "material",
       icon: "favorite",
+      titleicon: "",
       title: "5★",
       text: "Experience",
       textColor: "text-color2",
@@ -150,6 +155,7 @@ export class Home implements OnInit {
     {
       iconType: "bootstrap",
       icon: "bi bi-fork-knife",
+      titleicon: "",
       title: "",
       text: "Discover new flavors",
       textColor: "text-white2",
@@ -163,6 +169,7 @@ export class Home implements OnInit {
     {
       iconType: "bootstrap",
       icon: "bi bi-search",
+      titleicon: "",
       title: "",
       text: "Find the perfect game for your next night",
       textColor: "text-white2",
@@ -176,6 +183,7 @@ export class Home implements OnInit {
     {
       iconType: "bootstrap",
       icon: "bi bi-calendar-minus",
+      titleicon: "",
       title: "",
       text: "Join the community",
       textColor: "text-white2",
@@ -189,6 +197,7 @@ export class Home implements OnInit {
     {
       iconType: "bootstrap",
       icon: "bi bi-compass",
+      titleicon: "",
       title: "",
       text: "Our Story",
       textColor: "text-white2",
@@ -204,7 +213,8 @@ export class Home implements OnInit {
     {
       iconType: 'material',
       icon: 'favorite',
-      title: '5★',
+      titleicon: 'favorite',
+      title: '5',
       text: 'Experience',
       textColor: "text-color2",
       borderColor: '',
@@ -217,6 +227,7 @@ export class Home implements OnInit {
     {
       iconType: 'bootstrap',
       icon: 'bi-star-fill',
+      titleicon: '',
       title: 'Top-notch',
       text: 'Quality',
       textColor: "text-color2",
@@ -226,6 +237,64 @@ export class Home implements OnInit {
       cardBgColor: 'bg-white',
       subtitle: '',
       subtitleColor: ''
+    }
+  ];
+  PlayStats: StatCardType[] = [
+    {
+      iconType: 'material',
+      icon: 'favorite',
+      titleicon: 'all_inclusive',
+      title: '',
+      text: '',
+      textColor: "text-color2",
+      borderColor: '',
+      iconBgColor: 'bg-primary2',
+      titleColor: 'text-primary',
+      cardBgColor: 'bg-white',
+      subtitle: 'Memories Made',
+      subtitleColor: 'text-color2'
+    },
+    {
+      iconType: 'bootstrap',
+      icon: 'bi-controller',
+      titleicon: '',
+      title: '200+',
+      text: '',
+      textColor: "text-color2",
+      borderColor: '',
+      iconBgColor: 'bg-secondary2',
+      titleColor: 'text-secondary',
+      cardBgColor: 'bg-white',
+      subtitle: 'Epic Games',
+      subtitleColor: 'text-color2'
+    },
+    {
+      iconType: 'bootstrap',
+      icon: 'bi-people-fill',
+      titleicon: '',
+      title: '24/7',
+      text: '',
+      textColor: "text-color2",
+      borderColor: '',
+      iconBgColor: 'bg-primary2',
+      titleColor: 'text-primary',
+      cardBgColor: 'bg-white',
+      subtitle: 'Fun Ready',
+      subtitleColor: 'text-color2'
+    },
+    {
+      iconType: 'bootstrap',
+      icon: 'bi-star-fill',
+      titleicon: 'bi-star-fill',
+      title: '5',
+      text: '',
+      textColor: "text-color2",
+      borderColor: '',
+      iconBgColor: 'bg-secondary2',
+      titleColor: 'text-secondary',
+      cardBgColor: 'bg-white',
+      subtitle: 'Adventure',
+      subtitleColor: 'text-color2'
     }
   ];
   featuredGames: ShowcaseCardType[] = [

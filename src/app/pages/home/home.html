@@ -239,15 +239,65 @@
 
 <!-- Ready to Play -->
 <div class="container my-5">
-  <div class="row justify-content-center pt-4">
-    <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 d-none d-sm-block">
-      <h2 class="text-start">Ready to</h2>
-      <h2 class="text-end"><span class="gradient-text">Play, Laugh</span></h2>
-      <h2 class="text-start ps-5">and <span class="gradient-text">Connect?</span></h2>
+    <div class="row justify-content-center pt-4">
+        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-8 d-none d-sm-block">
+            <h2 class="text-start">Ready to</h2>
+            <h2 class="text-end"><span class="gradient-text">Play, Laugh</span></h2>
+            <h2 class="text-start ps-5">and <span class="gradient-text">Connect?</span></h2>
+        </div>
+        <div class="d-block d-sm-none text-center">
+            <h2>Ready to <span class="gradient-text">Play, Laugh and Connect?</span></h2>
+        </div>
+        <div class="decorative-element d-flex align-items-center justify-content-center py-4 my-2">
+            <span class="line left"></span>
+            <div class="d-flex  gap-2">
+                <span class="dots bg-primary rounded-pill"></span>
+                <span class="dots bg-secondary rounded-pill"></span>
+                <span class="dots bg-primary rounded-pill"></span>
+            </div>
+            <span class="line right"></span>
+        </div>
     </div>
-    <div class="d-block d-sm-none text-center">
-      <h2>Ready to <span class="gradient-text">Play, Laugh and Connect?</span></h2>
+
+    <div class="row justify-content-center">
+        <div class="col-xl-9 col-lg-10">
+            <p class="text-center fs-24">Your next great adventure is just a click away. Join us at Jumanji Café where
+                every game tells a story, every laugh creates a memory, and every visit brings new friendships!
+                <span><img src="../../../assets/vector-dice-2.png" alt=""></span>
+            </p>
+        </div>
     </div>
-  </div>
-  <p>Your next great adventure is just a click away. Join us at Jumanji Café where every game tells a story, every laugh creates a memory, and every visit brings new friendships!</p>
+
+    <div class="row justify-content-center">
+        <div
+            class="row d-flex hero-buttons justify-content-center align-items-center flex-wrap pt-2 flex-column flex-md-row gap-2 gap-md-0">
+            <div class="col-auto">
+                <app-primary-button iconLeft="bi-fork-knife">
+                    Explore Our Menu
+                </app-primary-button>
+            </div>
+            <div class="col-auto"><span class="fs-18 fw-600" style="color: #9CA3AF;">OR</span></div>
+            <div class="col-auto">
+                <app-ghost-button iconLeft="videogame_asset">
+                    Browse Games
+                </app-ghost-button>
+            </div>
+        </div>
+        <div class="col-12 custom-col-width">
+            <div class="row mt-5 g-4 d-flex align-items-stretch justify-content-center">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of PlayStats">
+                    <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+                        [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor" [titleicon]="stat.titleicon"
+                        [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor" [subtitle]="stat.subtitle"
+                        [subtitleColor]="stat.subtitleColor">
+                    </app-stat-card>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 pt-5 mt-2">
+            <div class="text-center text-primary fw-600">"Life's too short for boring games!"</div>
+            <div class="text-center text-color2 fw-600">"Come discover why Jumanji Café is Jeddah's favorite destination for board game adventures."</div>
+            <div class="text-center text-secondary fw-600">Your table is waiting... 🪑✨</div>
+        </div>
+    </div>
 </div>

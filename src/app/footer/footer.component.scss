@@ -1,0 +1,19 @@
+.social-icon{
+    background-color: #8154A266;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-list{
+    li{
+        i{
+            font-size: 10px;
+        }
+        line-height: 38px !important;
+        display: flex;
+        align-items: center;
+    }
+}

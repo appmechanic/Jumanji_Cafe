@@ -12,39 +12,51 @@ $secondary: #FFC713;
 
 h2 {
   font-size: 1.9rem !important;
-  line-height: 3rem;
+  line-height: 2.2rem;
   font-weight: bold;
+
   @media screen and (min-width: 768px) {
     font-size: 3rem !important;
+    line-height: 3rem !important;
   }
 }
-h3{
+
+h3 {
   font-size: 1.5rem !important;
-  line-height: 2.5rem;
+  line-height: 1.5rem;
   font-weight: bold;
+
   @media screen and (min-width: 768px) {
     font-size: 2.5rem !important;
+    line-height: 2.5rem !important;
   }
 }
-h4{
+
+h4 {
   font-size: 1.2rem !important;
-  line-height: 2rem;
+  line-height: 1.2rem;
   font-weight: bold;
+
   @media screen and (min-width: 768px) {
     font-size: 2rem !important;
+    line-height: 2rem !important;
   }
 }
+
 .bg-dark {
   background-color: #000 !important;
 }
-.bg-primary{
+
+.bg-primary {
   background-color: $primary !important;
 }
-.bg-secondary{
+
+.bg-secondary {
   background-color: $secondary !important;
 }
+
 .bg-secondary3 {
-  background-color: #292929 ;
+  background-color: #292929;
 }
 
 .btn {
@@ -62,15 +74,17 @@ h4{
   font-size: 14px !important;
   cursor: pointer;
 }
-.badge{
-      padding: 6px 16px !important;
-      border-radius: 24px;
-      font-size: 1rem !important;
-      line-height: 1.2rem !important;
-      display: flex !important;
-      align-items: center !important;
-      z-index: 9;
-  }
+
+.badge {
+  padding: 6px 16px !important;
+  border-radius: 24px;
+  font-size: 1rem !important;
+  line-height: 1.2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  z-index: 9;
+}
+
 .text-primary {
   color: $primary !important;
 }
@@ -90,24 +104,26 @@ h4{
 }
 
 .fs-18 {
-  font-size: 18px;
+  font-size: 18px !important;
 }
-.fs-24{
+
+.fs-24 {
   font-size: 24px;
   line-height: 34px;
 }
-.bg-secondary5
 
-.sub-title-color {
+.bg-secondary5 .sub-title-color {
   color: #121212 !important;
 }
 
 .text-color {
   color: #292929 !important;
 }
-.text-color2{
+
+.text-color2 {
   color: #4a4a4a !important;
 }
+
 .gradient-text {
   background: linear-gradient(90deg, $primary, $secondary);
   -webkit-background-clip: text;
@@ -123,36 +139,51 @@ h4{
   height: 10px;
   border-radius: 5px;
 }
+
 .gradient-bg {
   background: linear-gradient(to right, $primary 30%, $secondary 100%);
+}
+
+.angular-gradient {
+  background: conic-gradient(from 211.52deg at 56.95% 56.46%,
+      #000000 0deg,
+      #8154A2 180deg,
+      #000000 360deg);
 }
 
 .bg-primary2 {
   background-color: #E2D7EA;
   color: $primary;
 }
+
 .bg-primary3 {
   background-color: $primary;
   color: #E2D7EA;
 }
-.bg-primary4{
+
+.bg-primary4 {
   background-color: $primary;
   color: #fafafa;
 }
+
 .bg-semantic {
   background-color: #2E90FA33;
 }
+
 .bg-secondary2 {
   background-color: #FFF8E0;
   color: $secondary;
 }
-.bg-secondary4{
+
+.bg-secondary4 {
   background-color: $secondary;
   color: #FFF8E0;
 }
-.bg-secondary5{
+
+.bg-secondary5 {
   background-color: #FFF8E0;
 }
+
 .border-primary {
   border: 1px solid $primary !important;
 }
@@ -168,9 +199,11 @@ h4{
 .fw-800 {
   font-weight: 800 !important;
 }
-.text-white2{
+
+.text-white2 {
   color: #fafafa;
 }
+
 .custom-spacing {
   position: relative;
   overflow: hidden;
@@ -215,5 +248,20 @@ h4{
 
   @media screen and (max-width: 1200px) {
     width: 100%;
+  }
+}
+
+.line {
+  width: 100px;
+  height: 4px;
+  border-radius: 4px;
+  margin: 0 10px;
+
+  &.left {
+    background: linear-gradient(to right, #8154a2, rgb(0 0 0 / 5%) 100%);
+  }
+
+  &.right {
+    background: linear-gradient(to left, #f6d02f, rgb(0 0 0 / 5%) 100%);
   }
 }

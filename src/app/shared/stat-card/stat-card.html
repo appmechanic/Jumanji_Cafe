@@ -1,15 +1,22 @@
-<div 
-  class="stat-card d-flex flex-column align-items-center justify-content-center text-center p-3 shadow-sm rounded-20 h-100"
+<div
+  class="stat-card d-flex flex-column align-items-center justify-content-center text-center p-3 py-4 shadow-sm rounded-20 h-100"
   [ngClass]="[borderColor, cardBgColor]">
-  <div class="icon rounded-pill d-flex align-items-center justify-content-center mb-3"
-    [ngClass]="iconBgColor" style="width: 60px; height: 60px;">
+  <div class="icon rounded-pill d-flex align-items-center justify-content-center mb-3" [ngClass]="iconBgColor"
+    style="width: 60px; height: 60px;">
     <i *ngIf="iconType === 'material'" class="material-icons" style="font-size: 2rem;">{{ icon }}</i>
     <i *ngIf="iconType === 'bootstrap'" class="bi" [ngClass]="icon" style="font-size: 2rem;"></i>
   </div>
-  
-  <p *ngIf="title && title.trim().length > 0" class="stat-value fs-24 mb-0 fw-600" [ngClass]="titleColor">{{ title }}</p>
-  
-  <p *ngIf="subtitle && subtitle.trim().length > 0" class="stat-subtitle mb-0 fw-600 fs-18" [ngClass]="subtitleColor">{{ subtitle }}</p>
-  
+
+  <p *ngIf="(title && title.trim().length > 0) || titleicon"
+    class="stat-value fs-24 mb-0 fw-600 d-flex align-items-center justify-content-center gap-2 py-2" [ngClass]="titleColor">
+    <span *ngIf="title && title.trim().length > 0">{{ title }}</span>
+    <ng-container *ngIf="titleicon">
+      <i *ngIf="iconType === 'material'" class="material-icons" >{{ titleicon }}</i>
+      <i *ngIf="iconType === 'bootstrap'" [class]="'bi ' + titleicon + ' ' "></i>
+    </ng-container>
+  </p>
+  <p *ngIf="subtitle && subtitle.trim().length > 0" class="stat-subtitle mb-0 fw-600 fs-18" [ngClass]="subtitleColor">{{
+    subtitle }}</p>
+
   <p *ngIf="text" class="stat-label mb-0" [ngClass]="textColor">{{ text }}</p>
 </div>

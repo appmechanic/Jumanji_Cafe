@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 export class StatCardComponent {
   @Input() iconType!: 'material' | 'bootstrap'; 
   @Input() icon!: string;
+  @Input() titleicon!: string;
+  
   @Input() title!: string;
   @Input() subtitle!: string;
   @Input() text!: string;
