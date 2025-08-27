@@ -168,6 +168,9 @@ h4 {
 
 .bg-semantic {
   background-color: #2E90FA33;
+  &:hover {
+      background-color: #2E90FA33;
+  }
 }
 
 .bg-secondary2 {

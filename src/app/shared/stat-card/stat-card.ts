@@ -22,5 +22,5 @@ export class StatCardComponent {
   @Input() border: string = '';
   @Input() iconBgColor: string = '';
   @Input() titleColor: string = '';
-  @Input() subtitleColor: string = '';
+@Input() subtitleColor: string = '';
 }

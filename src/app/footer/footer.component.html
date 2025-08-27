@@ -1,8 +1,8 @@
 <footer class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid p-4">
-    <div class="row gy-4 w-100">
+    <div class="row gy-5 w-100">
       <!-- Logo & Social -->
-      <div class="col-12 col-md-3 d-flex flex-column align-items-md-start align-items-center">
+      <div class="col-12 col-md-6 col-lg-6 col-xl-3 d-flex flex-column align-items-start pe-lg-5">
         <img src="../../assets/jumanji-logo.png" alt="Jumanji Board Game" class="position-relative">
         <span
           style="width: 80px; height: 80px; position: absolute; border: 2px solid #ffc8132c; border-radius: 100%; top: 10px; left: 30px;"></span>
@@ -18,11 +18,12 @@
         </div>
       </div>
       <!-- Quick Links -->
-      <div class="col-12 col-md-3">
-        <h6 class="fw-bold text-warning mb-3 d-flex align-items-center gap-2"><span class="material-symbols-outlined">
+      <div class="col-12 col-md-6 col-lg-6 col-xl-3 footer-title">
+        <h6 class="fw-bold text-secondary mb-3 d-flex align-items-center gap-2 position-relative"><span class="material-symbols-outlined">
             videogame_asset
-          </span> Quick Links</h6>
-        <ul class="list-unstyled menu-list">
+          </span> Quick Links <span class="gradient-line position-absolute"></span></h6>
+          
+        <ul class="list-unstyled menu-list mb-0">
           <li><a href="#" class="text-light text-decoration-none"> <i class="bi bi-chevron-right"></i>
               Café Menu</a></li>
           <li><a href="#" class="text-light text-decoration-none"> <i class="bi bi-chevron-right"></i>
@@ -38,21 +39,42 @@
         </ul>
       </div>
       <!-- Contact & Location -->
-      <div class="col-12 col-md-3">
-        <h6 class="fw-bold text-warning mb-3"><i class="bi bi-geo-alt"></i> Contact & Location</h6>
-        <div class="mb-2"><i class="bi bi-geo-alt-fill text-warning"></i> Al Kayyal St, Al Rawdah<br>Jeddah, Saudi
-          Arabia 🇸🇦</div>
-        <div class="mb-2"><i class="bi bi-telephone-fill text-warning"></i> +966 XXX XXX XXX</div>
-        <div class="mb-2"><i class="bi bi-envelope-fill text-warning"></i> info@jumanji.sa</div>
-        <a href="#" class="btn btn-primary btn-sm mt-2"><i class="bi bi-arrow-right"></i> Get Directions</a>
+      <div class="col-12 col-md-6 col-lg-6 col-xl-3 footer-title">
+        <h6 class="fw-bold text-secondary mb-4 d-flex align-items-center gap-2 position-relative"><i class="bi bi-geo-alt"></i> Contact &
+          Location <span class="gradient-line position-absolute"></span></h6>
+        <div class="d-flex flex-column gap-3">
+          <div class="d-flex gap-2 text-footer">
+            <i class="bi bi-geo-alt mt-1" style="color: #ffc813; font-size: 1.3rem;"></i>
+            <span>Al Kayyal St, Al Rawdah<br>Jeddah, Saudi Arabia 🇸🇦</span>
+          </div>
+          <div class="d-flex align-items-center gap-2 text-footer">
+            <i class="bi bi-telephone" style="color: #ffc813; font-size: 1.3rem;"></i>
+            <span>+966 XXX XXX XXX</span>
+          </div>
+          <div class="d-flex align-items-center gap-2 text-footer">
+            <i class="bi bi-envelope" style="color: #ffc813; font-size: 1.3rem;"></i>
+            <span>info@jumanji.sa</span>
+          </div>
+          <a href="#"
+            class="btn bg-semantic fs-6 text-secondary btn-lg mt-2 d-flex align-items-center gap-3 rounded-pill px-4"
+            style="width: fit-content;">
+            <i class="bi bi-sign-turn-right"></i>
+            <span class="fw-bold">Get Directions</span>
+          </a>
+        </div>
       </div>
       <!-- Adventure Updates -->
-      <div class="col-12 col-md-3">
-        <h6 class="fw-bold text-warning mb-3"><i class="bi bi-bell"></i> Adventure Updates</h6>
-        <p class="mb-2">Join the adventure! Get the latest news about new games, epic events, and magical moments.</p>
-        <form class="d-flex flex-column gap-2">
-          <input type="email" class="form-control" placeholder="Enter your email for magic ✨">
-          <button type="submit" class="btn btn-warning text-white fw-bold">Start the Adventure</button>
+      <div class="col-12 col-md-6 col-lg-6 col-xl-3 footer-title">
+        <h6 class="fw-bold text-secondary mb-4 d-flex align-items-center gap-2 position-relative"><i class="bi bi-bell"></i> Adventure
+          Updates <span class="gradient-line position-absolute"></span></h6>
+        <p class="mb-3 text-footer">Join the adventure! Get the latest news about new games, epic events, and magical
+          moments.</p>
+        <form class="d-flex flex-column gap-3">
+          <input type="email" class="form-control bg-dark text-footer border border-1"
+            placeholder="Enter your email for magic ✨">
+          <button type="submit"
+            class="btn gradient-bg text-white fw-bold d-flex gap-2 align-items-center justify-content-center"><i
+              class="bi bi-send"></i>Start the Adventure</button>
         </form>
       </div>
     </div>
