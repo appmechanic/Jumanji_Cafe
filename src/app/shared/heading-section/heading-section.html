@@ -8,8 +8,8 @@
             <ng-container *ngIf="iconLeft">
                 <i *ngIf="iconLeftType === 'material'" class="material-icons heading-icon me-2"
                     [ngClass]="iconLeftColor">{{ iconLeft }}</i>
-                <i *ngIf="iconLeftType === 'bootstrap'" [class]="iconLeft" class="heading-icon me-2"
-                    [ngClass]="iconLeftColor"></i>
+                <i *ngIf="iconLeftType === 'bootstrap'"
+                    [ngClass]="[iconLeft, 'heading-icon', 'me-2', iconLeftColor]"></i>
             </ng-container>
 
             <!-- Title -->
@@ -26,8 +26,8 @@
             <ng-container *ngIf="iconRight">
                 <i *ngIf="iconRightType === 'material'" class="material-icons heading-icon ms-2"
                     [ngClass]="iconRightColor">{{ iconRight }}</i>
-                <i *ngIf="iconRightType === 'bootstrap'" [class]="iconRight" class="heading-icon ms-2"
-                    [ngClass]="iconRightColor"></i>
+                <i *ngIf="iconRightType === 'bootstrap'"
+                    [ngClass]="[iconRight, 'heading-icon', 'ms-2', iconRightColor]"></i>
             </ng-container>
         </div>
 

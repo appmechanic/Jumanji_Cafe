@@ -1,14 +1,12 @@
-import { Component, Input, ContentChild, TemplateRef, OnInit, AfterViewInit, ElementRef } from '@angular/core';
-import { NgModule } from '@angular/core';
+import { Component, Input, ContentChild, TemplateRef, OnInit, AfterViewInit, ElementRef, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SliderComponent as ImportedSliderComponent } from './slider';
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.html',
   styleUrls: ['./slider.scss'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule] // Remove CommonModule if not using ngIf/ngFor in slider.html
 })
 export class SliderComponent implements OnInit, AfterViewInit {
   @Input() items: any[] = [];
@@ -23,7 +21,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
   isAnimating = false;
   currentActiveIndex = 0; // Track the active indicator
 
-  constructor(private el: ElementRef) {}
+  constructor(@Inject(ElementRef) private el: ElementRef<any>) {}
 
   ngOnInit() {
     // Create a display array with duplicate items for the infinite effect

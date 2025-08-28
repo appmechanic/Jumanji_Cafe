@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-heading-section',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './heading-section.html',
-  styleUrls: ['./heading-section.scss'],
-  imports: [CommonModule]
+  styleUrls: ['./heading-section.scss']
 })
 export class HeadingSectionComponent {
   @Input() iconLeft: string = '';

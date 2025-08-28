@@ -1,4 +1,3 @@
-import '@angular/localize/init';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, RouterOutlet } from '@angular/router';
 import { appConfig } from './app/app.config';

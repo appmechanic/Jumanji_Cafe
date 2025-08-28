@@ -13,8 +13,8 @@
         </span>
         <div class="mb-2 custom-qualities">{{t.qualities}}</div>
         <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
-          <ng-container *ngFor="let star of [].constructor(5); let i = index">
-            <i class="bi" [ngClass]="i < (t.rating ?? 0) ? 'bi-star-fill text-warning' : 'bi-star text  -light'" class="custom-star"></i>
+          <ng-container *ngFor="let star of starsArray; let i = index">
+            <span [ngClass]="i < (t.rating ?? 0) ? 'bi bi-star-fill text-warning custom-star' : 'bi bi-star text-light custom-star'"></span>
           </ng-container>
           <span class="ms-3 custom-trophy">
             <i class="bi bi-trophy-fill text-warning"></i> {{t.trophies}}
@@ -39,7 +39,7 @@
   </div>
   <div class="slider-indicators d-flex justify-content-center align-items-center mt-2">
     <span
-      *ngFor="let i of [].constructor(testimonials.length); let idx = index"
+      *ngFor="let i of testimonialsArray; let idx = index"
       class="indicator-dot mx-1"
       [ngClass]="{'active': idx === currentIndex}"
       (click)="goTo(idx)">

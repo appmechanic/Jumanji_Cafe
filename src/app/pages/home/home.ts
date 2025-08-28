@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { HeroSectionComponent } from '../../shared/hero-section/hero-section';
 import { PrimaryButtonComponent } from '../../shared/buttons/primary-button/primary-button';
 import { GhostButtonComponent } from '../../shared/buttons/ghost-button/ghost-button';
@@ -12,7 +11,7 @@ import { SliderComponent } from '../../shared/slider/slider';
 import { FilterComponent, FilterConfig } from '../../shared/filter-tab/filter-tab';
 import { CtaSectionComponent } from '../../shared/CTA-Section/CTA-Section';
 import { BgGradientComponent } from '../../shared/bg-gradient/bg-gradient';
-import { TestimonialSliderComponent } from '../../shared/testimonial-slider/testimonial-slider';
+import { CommonModule } from '@angular/common';
 
 export type StatCardType = {
   iconType: "material" | "bootstrap";
@@ -77,7 +76,6 @@ export type ShowcaseCardType = {
     FilterComponent,
     CtaSectionComponent,
     BgGradientComponent,
-    TestimonialSliderComponent,
   ],
   templateUrl: './home.html',
   styleUrls: ['./home.scss']

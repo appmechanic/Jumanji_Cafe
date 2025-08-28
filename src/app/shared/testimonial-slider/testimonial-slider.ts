@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-
 type Testimonial = {
   author: string;
   tag: string;
-  qualities: string; // <-- lowercase
+  qualities: string; 
   image?: string;
   rating?: number;
   trophies?: number;
@@ -15,11 +13,11 @@ type Testimonial = {
 @Component({
   selector: 'app-testimonial-slider',
   standalone: true,
-  imports: [CommonModule, NgbCarouselModule],
   templateUrl: './testimonial-slider.html',
-  styleUrls: ['./testimonial-slider.scss']
+  styleUrls: ['./testimonial-slider.scss'],
+  imports: [CommonModule]
 })
-export class TestimonialSliderComponent {
+export class TestimonialSliderComponent implements OnInit, OnDestroy {
   testimonials: Testimonial[] = [
     {
       author: 'Omar bin Khalid',
@@ -73,11 +71,17 @@ export class TestimonialSliderComponent {
   visibleTestimonials: Testimonial[] = [];
   autoplayInterval: any;
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit() {
     this.setGroupSize();
-    window.addEventListener('resize', this.setGroupSize.bind(this));
     this.updateVisibleTestimonials();
     this.startAutoplay();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.setGroupSize();
   }
 
   setGroupSize() {
@@ -127,7 +131,13 @@ export class TestimonialSliderComponent {
   }
 
   ngOnDestroy() {
-    window.removeEventListener('resize', this.setGroupSize.bind(this));
     this.stopAutoplay();
+  }
+
+  get starsArray(): any[] {
+    return Array(5);
+  }
+  get testimonialsArray(): any[] {
+    return Array(this.testimonials.length);
   }
 }
