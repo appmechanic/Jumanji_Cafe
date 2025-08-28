@@ -85,7 +85,9 @@ export class TestimonialSliderComponent implements OnInit, OnDestroy {
   }
 
   setGroupSize() {
-    if (window.innerWidth <= 900) {
+    if (window.innerWidth <= 600) {
+      this.groupSize = 1;
+    } else if (window.innerWidth <= 900) {
       this.groupSize = 2;
     } else {
       this.groupSize = 3;
