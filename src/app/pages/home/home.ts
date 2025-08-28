@@ -14,8 +14,6 @@ import { CtaSectionComponent } from '../../shared/CTA-Section/CTA-Section';
 import { BgGradientComponent } from '../../shared/bg-gradient/bg-gradient';
 import { TestimonialSliderComponent } from '../../shared/testimonial-slider/testimonial-slider';
 
-
-
 export type StatCardType = {
   iconType: "material" | "bootstrap";
   icon: string;

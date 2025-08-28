@@ -296,16 +296,35 @@
         </div>
         <div class="col-12 pt-5 mt-2">
             <div class="text-center text-primary fw-600">"Life's too short for boring games!"</div>
-            <div class="text-center text-color2 fw-600">"Come discover why Jumanji Café is Jeddah's favorite destination for board game adventures."</div>
+            <div class="text-center text-color2 fw-600">"Come discover why Jumanji Café is Jeddah's favorite destination
+                for board game adventures."</div>
             <div class="text-center text-secondary fw-600">Your table is waiting... 🪑✨</div>
         </div>
     </div>
 </div>
 
-<!-- Testimonial Section -->
-<div class="container my-5">
-
-    <!-- Testimonial Slider Component -->
-    <app-testimonial-slider [visibleCount]="3"></app-testimonial-slider>
+<div class="container-fluid w-full py-5 angular-gradient-purple position-relative">
+    <div class="testimonial-bg-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+    <div class="position-relative" style="z-index: 1;">
+        <div class="row justify-content-center pt-3">
+            <div class="col-12">
+                <app-heading-section iconLeft="military_tech" iconLeftType="material" iconLeftColor="bg-primary2"
+                    iconRight="military_tech" iconRightType="material" iconRightColor="bg-primary2" title=""
+                    highlight="Top Players of Jumanji" highlightColor="gradient-text" subtitle="">
+                </app-heading-section>
+            </div>
+            <div class="col-12 col-lg-5 pb-2" style="margin-top: -20px;">
+                <p class="text-center text-white">Celebrate our legendary players! From tournament champions to puzzle
+                    masters — see who's claimed the jungle crown.</p>
+            </div>
+        </div>
+        <app-testimonial-slider />
+        <div class="py-4">
+        <app-primary-button primaryButton iconLeft="bi-trophy" iconRight="bi-arrow-right"
+            class="d-flex justify-content-center mt-2">
+            View Full Hall of Fame
+        </app-primary-button>
+        <p class="fw-600 text-white text-center py-3">Think you have what it takes? Join the competition! 🏆</p>
+        </div>
+    </div>
 </div>
-

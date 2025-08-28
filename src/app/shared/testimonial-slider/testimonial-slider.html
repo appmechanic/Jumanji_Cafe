@@ -1,31 +1,48 @@
-<div class="testimonial-slider-container">
-  <h2 class="text-center mb-4"><span class="gradient-text">Top Players of Jumanji</span></h2>
-  <div class="d-flex justify-content-center align-items-center gap-3">
-    <button class="btn btn-outline-secondary" (click)="prev()" [disabled]="startIndex === 0">
+<div class="testimonial-slider-container d-flex flex-column align-items-center justify-content-center">
+  <div class="d-flex align-items-center justify-content-center w-100 mb-2">
+    <button class="arrow-btn btn rounded-pill" (click)="prev()">
       <i class="bi bi-chevron-left"></i>
     </button>
-    <div class="d-flex gap-4 flex-wrap justify-content-center">
-      <!-- Show fallback if no testimonials -->
-      <ng-container *ngIf="visibleTestimonials?.length; else noTestimonials">
-        <div *ngFor="let t of visibleTestimonials" class="testimonial-card p-4 rounded shadow bg-dark text-light">
-          <img [src]="t.image" alt="{{t.name}}" class="rounded-circle mb-3" width="80" height="80">
-          <h5 class="fw-bold mb-1">{{t.name}}</h5>
-          <span class="badge bg-warning text-dark mb-2">{{t.title}}</span>
-          <div class="mb-2 text-secondary">{{t.role}}</div>
-          <div class="mb-2">
-            <ng-container *ngFor="let s of [].constructor(t.stars)">
-              <i class="bi bi-star-fill text-warning"></i>
-            </ng-container>
-          </div>
-          <div class="mb-2 text-secondary"><i class="bi bi-chat"></i> {{t.reviews}}</div>
+    <div class="slider-viewport d-flex flex-row justify-content-center gap-3">
+      <div class="testimonial-slide custom-slide p-4 text-center"
+           *ngFor="let t of visibleTestimonials">
+        <img *ngIf="t.image" [src]="t.image" alt="{{t.author}}" class="testimonial-img mb-3 custom-img"/>
+        <div class="fw-bold fs-5 mb-2">{{t.author}}</div>
+        <span class=" custom-badge px-3 py-1 mb-2 gradient-bg rounded-pill">
+          {{t.tag}}
+        </span>
+        <div class="mb-2 custom-qualities">{{t.qualities}}</div>
+        <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+          <ng-container *ngFor="let star of [].constructor(5); let i = index">
+            <i class="bi" [ngClass]="i < (t.rating ?? 0) ? 'bi-star-fill text-warning' : 'bi-star text  -light'" class="custom-star"></i>
+          </ng-container>
+          <span class="ms-3 custom-trophy">
+            <i class="bi bi-trophy-fill text-warning"></i> {{t.trophies}}
+          </span>
         </div>
-      </ng-container>
-      <ng-template #noTestimonials>
-        <div class="text-center w-100 text-muted py-5">No top players found.</div>
-      </ng-template>
+        <div class="d-flex justify-content-center gap-4 mb-2">
+          <span class="custom-icon-bg custom-icon-medal d-inline-flex align-items-center justify-content-center">
+            <i class="bi bi-award-fill"></i>
+          </span>
+          <span class="custom-icon-bg custom-icon-pacman d-inline-flex align-items-center justify-content-center">
+            <i class="bi bi-emoji-smile"></i>
+          </span>
+          <span class="custom-icon-bg custom-icon-bulb d-inline-flex align-items-center justify-content-center">
+            <i class="bi bi-lightbulb"></i>
+          </span>
+        </div>
+      </div>
     </div>
-    <button class="btn btn-outline-secondary" (click)="next()" [disabled]="startIndex + visibleCount >= testimonials.length">
+    <button class="arrow-btn btn btn-light rounded-pill" (click)="next()">
       <i class="bi bi-chevron-right"></i>
     </button>
+  </div>
+  <div class="slider-indicators d-flex justify-content-center align-items-center mt-2">
+    <span
+      *ngFor="let i of [].constructor(testimonials.length); let idx = index"
+      class="indicator-dot mx-1"
+      [ngClass]="{'active': idx === currentIndex}"
+      (click)="goTo(idx)">
+    </span>
   </div>
 </div>

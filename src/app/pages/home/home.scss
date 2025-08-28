@@ -1,19 +1,32 @@
+$hero-bg: url('/assets/background-image.jpg');
+$testimonial-bg: url('/assets/testimonial-bg-img.jpg');
+
 .hero {
-  background-image: url('/assets/background-image.jpg');
+  background-image: $hero-bg;
   z-index: 2;
 }
+
 .carousel-control-prev,
 .carousel-control-next {
   z-index: 1 !important;
 }
-.vector-icon{
+
+.vector-icon {
   width: 150px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .dots {
   width: 10px;
   height: 10px;
+}
+
+.testimonial-bg-overlay {
+  background: $testimonial-bg center center/cover no-repeat;
+  z-index: 0;
+  opacity: 0.3;
+  pointer-events: none;
 }
