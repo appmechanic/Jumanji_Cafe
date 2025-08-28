@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { HeroSectionComponent } from '../../shared/hero-section/hero-section';
 import { PrimaryButtonComponent } from '../../shared/buttons/primary-button/primary-button';
 import { GhostButtonComponent } from '../../shared/buttons/ghost-button/ghost-button';
@@ -631,10 +631,29 @@ export class Home implements OnInit {
       ]
     }
   ];
+
+  sliderVisibleCount: number = 3;
   ngOnInit() {
     this.filteredGames = [...this.featuredGames];
+    this.updateSliderVisibleCount();
   }
   
+  @HostListener('window:resize')
+  onResize() {
+    this.updateSliderVisibleCount();
+  }
+
+  updateSliderVisibleCount() {
+    const width = window.innerWidth;
+    if (width < 576) {
+      this.sliderVisibleCount = 1; // mobile
+    } else if (width < 992) {
+      this.sliderVisibleCount = 2; // tablet
+    } else {
+      this.sliderVisibleCount = 3; // desktop
+    }
+  }
+
   onGamesFilteredDataChange(filteredData: ShowcaseCardType[]): void {
     this.filteredGames = filteredData;
   }

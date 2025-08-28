@@ -75,7 +75,7 @@
         subtitle="Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕">
     </app-heading-section>
     <div class="row justify-content-center">
-        <app-slider [items]="cafeMenu" [visibleCount]="3">
+        <app-slider [items]="cafeMenu" [visibleCount]="sliderVisibleCount">
             <ng-template #itemTemplate let-game>
                 <div class="col-12 col-sm-6 col-lg-4 pb-4">
                     <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category"
@@ -303,6 +303,7 @@
     </div>
 </div>
 
+<!-- Testimonial Section -->
 <div class="container-fluid w-full py-5 angular-gradient-purple position-relative">
     <div class="testimonial-bg-overlay position-absolute top-0 start-0 w-100 h-100"></div>
     <div class="position-relative" style="z-index: 1;">

@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './slider.html',
   styleUrls: ['./slider.scss'],
   standalone: true,
-  imports: [CommonModule] // Remove CommonModule if not using ngIf/ngFor in slider.html
+  imports: [CommonModule] 
 })
 export class SliderComponent implements OnInit, AfterViewInit {
   @Input() items: any[] = [];
@@ -14,17 +14,16 @@ export class SliderComponent implements OnInit, AfterViewInit {
   @ContentChild(TemplateRef) itemTemplate!: TemplateRef<any>;
   
   displayItems: any[] = [];
-  visibleItems: any[] = []; // Keep this for backward compatibility
+  visibleItems: any[] = []; 
   startIndex = 0;
   itemWidth = 0;
   translateX = 0;
   isAnimating = false;
-  currentActiveIndex = 0; // Track the active indicator
+  currentActiveIndex = 0; 
 
   constructor(@Inject(ElementRef) private el: ElementRef<any>) {}
 
   ngOnInit() {
-    // Create a display array with duplicate items for the infinite effect
     this.displayItems = [...this.items, ...this.items.slice(0, this.visibleCount)];
     this.updateVisibleItems();
   }
@@ -43,7 +42,6 @@ export class SliderComponent implements OnInit, AfterViewInit {
   }
 
   private updateVisibleItems() {
-    // Update visible items for backward compatibility
     this.visibleItems = this.items.slice(this.startIndex, this.startIndex + this.visibleCount);
   }
 
@@ -55,10 +53,8 @@ export class SliderComponent implements OnInit, AfterViewInit {
     this.translateX = -this.startIndex * this.itemWidth;
     this.updateVisibleItems();
     
-    // Update active index for indicators
     this.currentActiveIndex = this.startIndex % this.items.length;
 
-    // If we've reached the end of the original items, reset to beginning after animation
     if (this.startIndex >= this.items.length) {
       setTimeout(() => {
         this.isAnimating = false;
@@ -66,7 +62,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
         this.translateX = 0;
         this.updateVisibleItems();
         this.currentActiveIndex = 0;
-      }, 500); // Match the transition duration
+      }, 500); 
     } else {
       setTimeout(() => {
         this.isAnimating = false;
@@ -80,11 +76,9 @@ export class SliderComponent implements OnInit, AfterViewInit {
     this.isAnimating = true;
     
     if (this.startIndex === 0) {
-      // If at the beginning, prepare to loop back to the end
       this.startIndex = this.items.length;
       this.translateX = -this.startIndex * this.itemWidth;
       
-      // Force reflow to make the jump instant without animation
       this.el.nativeElement.offsetHeight;
     }
     
@@ -92,16 +86,14 @@ export class SliderComponent implements OnInit, AfterViewInit {
     this.translateX = -this.startIndex * this.itemWidth;
     this.updateVisibleItems();
     
-    // Update active index for indicators
     this.currentActiveIndex = this.startIndex % this.items.length;
     if (this.currentActiveIndex < 0) this.currentActiveIndex = this.items.length - 1;
 
     setTimeout(() => {
       this.isAnimating = false;
-    }, 500); // Match the transition duration
+    }, 500); 
   }
   
-  // Add method to navigate to specific slide
   goToSlide(index: number) {
     if (this.isAnimating || index === this.currentActiveIndex) return;
     
