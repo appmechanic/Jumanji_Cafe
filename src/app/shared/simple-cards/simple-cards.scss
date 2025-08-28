@@ -1,0 +1,41 @@
+.simple-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+
+    .card {
+        border-radius: 12px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .card-body {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+
+                .icon-circle {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    font-size: 1.2rem;
+                }
+
+            .badges-row {
+
+                .badge {
+                    padding: 0.4em 1em;
+                    border-radius: 8px;
+                    font-size: 0.85em;
+                    font-weight: 500;
+                    margin-right: 0.5em;
+                }
+            }
+        }
+    }
+}

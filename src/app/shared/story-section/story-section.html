@@ -5,16 +5,19 @@
       <img [src]="imageSrc" class="img-fluid rounded-20 shadow" alt="Story Image" />
 
       <div *ngIf="textOverImage1"
-        class="badge bg-warning text-primary position-absolute right-text d-flex align-items-center justify-content-center">
+        class="badge position-absolute right-text d-flex align-items-center justify-content-center"
+        [ngClass]="[textOverImage1BgColor, textOverImage1Color]">
         <i *ngIf="icon1 && iconType === 'material'" class="material-icons me-2">{{ icon1 }}</i>
         <i *ngIf="icon1 && iconType === 'bootstrap'" [class]="icon1" class="me-2"></i>
         {{ textOverImage1 }}
       </div>
-
+      
       <div *ngIf="textOverImage2"
-        class="badge bg-secondary text-light position-absolute left-text m-3 mt-5 d-flex align-items-center justify-content-center">
-        <i *ngIf="icon2 && iconType === 'material'" class="material-icons me-2 text-secondary">{{ icon2 }}</i>
-        <i *ngIf="icon2 && iconType === 'bootstrap'" [class]="icon2" class="me-2 text-secondary"></i>
+        class="badge position-absolute left-text m-3 mt-5 d-flex align-items-center justify-content-center"
+        [ngClass]="[textOverImage2BgColor, textOverImage2Color]">
+        <i *ngIf="icon1 && iconType === 'material'" class="material-icons me-2" [ngStyle]="{ color: icon2Color }">{{
+          icon2 }}</i>
+        <i *ngIf="icon1 && iconType === 'bootstrap'" [class]="icon2" class="me-2" [ngStyle]="{ color: icon2Color }"></i>
         {{ textOverImage2 }}
       </div>
     </div>

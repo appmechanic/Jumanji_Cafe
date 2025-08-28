@@ -14,4 +14,5 @@ export class HeroSectionComponent {
   @Input() subtitle!: string;
   @Input() titleParts: { text: string; class: string }[] = [];
   @Input() subtitleParts: { text: string; class: string }[] = [];
+  @Input() headingTag: string = 'h1';
 }

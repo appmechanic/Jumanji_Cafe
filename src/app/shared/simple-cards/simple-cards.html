@@ -1,0 +1,23 @@
+<div class="simple-cards-container">
+    <div *ngFor="let card of cards" class="card shadow-sm" [ngClass]="card.bgColor">
+        <div class="card-body p-4">
+            <div class="d-flex gap-4 align-items-center">
+            <span class="icon-circle rounded-pill d-flex align-items-center justify-content-center" [ngClass]="card.iconColor">
+                <ng-container *ngIf="card.icon">
+                    <i *ngIf="isMaterialIcon(card.icon)" class="material-icons">{{ card.icon }}</i>
+                    <i *ngIf="!isMaterialIcon(card.icon)" [ngClass]="card.icon"></i>
+                </ng-container>
+            </span>
+            <h4 class="card-title d-flex align-items-center gap-2 fw-600 mb-0" [ngClass]="card.titleColor">
+                {{ card.title }}
+            </h4>
+            </div>
+            <div *ngFor="let paragraph of card.description.split('\n\n')">
+              <p class="card-text py-2">{{ paragraph }}</p>
+            </div>
+            <div class="badges-row mt-3 d-flex gap-3 flex-wrap">
+                <span *ngFor="let badge of card.badges" class="badge fw-600 rounded-pill" [ngClass]="badge.color">{{ badge.label }}</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,15 +5,15 @@
       <div class="col-12 custom-col-width">
         <div class="hero-section-wrapper">
           <app-hero-section [titleParts]="[
-                            { text: '', class: '' },
-                            { text: 'Our ', class: 'text-primary' },
-                            { text: 'Story', class: 'text-secondary' }
-                        ]" [subtitleParts]="[
-                            { text: 'Discover how a passion for games, laughter, and connection led  to the ', class: '' },
-                            { text: 'creation of Jumanji Café ', class: 'text-primary' },
-                            { text: 'in the heart of ', class: '' },
-                            { text: 'Jeddah', class: 'text-secondary' }
-                        ]">
+              { text: '', class: '' },
+              { text: 'Our ', class: 'text-primary' },
+              { text: 'Story', class: 'text-secondary' }
+            ]" [subtitleParts]="[
+              { text: 'Discover how a passion for games, laughter, and connection led  to the ', class: '' },
+              { text: 'creation of Jumanji Café ', class: 'text-primary' },
+              { text: 'in the heart of ', class: '' },
+              { text: 'Jeddah', class: 'text-secondary' }
+            ]" [headingTag]="'h1'">
           </app-hero-section>
         </div>
       </div>
@@ -22,26 +22,87 @@
 </div>
 
 <!-- Story Section -->
-<div class="story-section container my-5">
+<div class="story-section container mt-5">
   <div class="row justify-content-center">
     <div class="col-12">
-      <app-story-section 
-        [imageSrc]="'/assets/sec2-img.jpg'" 
-        [textOverImage1]="'Best Experience'"
-        [icon1]="'sports_esports'" 
-        [textOverImage2]="'Jeddah, Saudi Arabia'" 
-        [icon2]="'location_on'"
-        [titleicon]="'favorite'" 
-        [iconType]="'material'" 
-        [titleParts]="['About ', 'The Cafe']" 
-        [description]="[
+      <app-story-section [imageSrc]="'/assets/sec2-img.jpg'" [textOverImage1]="'Best Experience'"
+        [textOverImage1BgColor]="'gradient-bg'" [textOverImage1Color]="'text-white'" [icon1]="'sports_esports'"
+        [textOverImage2]="'Jeddah, Saudi Arabia'" [textOverImage2BgColor]="'bg-dark'"
+        [textOverImage2Color]="'text-white'" [icon2]="'location_on'" [titleicon]="'favorite'" [iconType]="'material'"
+        [titleParts]="['About ', 'The Cafe']" [description]="[
           'Jumanji Café was born from a simple yet powerful belief: that the magic of board games has the power to bring people together in extraordinary ways. Our founders, passionate gamers and coffee enthusiasts, noticed a gap in Jeddah\'s entertainment scene - a place where families, friends, and strangers could connect over the timeless joy of tabletop adventures.',
           'What started as weekend game nights among friends evolved into a dream of creating Saudi Arabia\'s premier board game destination. We wanted to build more than just a café - we envisioned a community hub where laughter echoes through the air, where strategic minds meet creative spirits, and where every visit becomes a memorable adventure.',
           'Since opening our doors in 2020, Jumanji Café has become a beloved gathering place for game enthusiasts of all ages. From seasoned strategists tackling complex campaigns to families discovering their first cooperative adventure, our space welcomes everyone ready to roll the dice on fun.'
-        ]" 
-        [stats]="storyStats" 
-        [buttons]="[]">
+        ]" [stats]="storyStats" [buttons]="[]">
       </app-story-section>
+    </div>
+  </div>
+</div>
+
+<!-- Mission & Vission -->
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-12">
+      <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="" iconRight="" iconRightType="material"
+        iconRightColor="" title="Mission &" highlight="Vision" highlightColor="gradient-text"
+        subtitle="Guided by our passion for connection and community, we strive to create extraordinary experiences">
+      </app-heading-section>
+    </div>
+  </div>
+  <div class="row align-items-stretch gy-5">
+    <div class="col-12 col-md-6 col-lg-6" *ngFor="let card of missionCard">
+      <app-simple-cards [cards]="[card]"></app-simple-cards>
+    </div>
+  </div>
+  <div class="row mt-4 mb-5 pb-5 g-4 d-flex align-items-stretch justify-content-center">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of missionStats">
+      <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+        [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor" [titleColor]="stat.titleColor"
+        [cardBgColor]="stat.cardBgColor">
+      </app-stat-card>
+    </div>
+  </div>
+</div>
+
+<!-- last section -->
+<div class="container-fluid w-full py-5 angular-gradient-purple position-relative">
+  <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
+  <div class="row justify-content-center py-5">
+    <div class="col-12 col-lg-5">
+      <app-hero-section [titleParts]="[
+              { text: '', class: '' },
+              { text: 'Want to Experience ', class: 'text-white' },
+              { text: 'The Fun Yourself?', class: 'gradient-text' }
+            ]" [subtitleParts]="[
+              { text: 'Join thousands of adventurers who have discovered the magic of  ', class: 'text-white fw-medium' },
+              { text: 'Jumanji Café ', class: 'text-secondary' },
+              { text: '. Your next great adventure is just a game away! 🎲', class: 'text-white' }
+            ]" [headingTag]="'h2'">
+      </app-hero-section>
+    </div>
+    <div class="container w-full">
+      <div class="row hero-buttons justify-content-center align-items-center gap-4 flex-wrap mt-5">
+        <div class="col-auto">
+          <app-primary-button iconLeft="bi-fork-knife">
+            Explore Our Menu
+          </app-primary-button>
+        </div>
+
+        <div class="col-auto">
+          <app-ghost-button iconLeft="today">
+            Check Events
+          </app-ghost-button>
+        </div>
+      </div>
+
+      <div class="row mt-5 g-4 d-flex align-items-stretch justify-content-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of CtaStats">
+          <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+            [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor" [titleColor]="stat.titleColor"
+            [cardBgColor]="stat.cardBgColor">
+          </app-stat-card>
+        </div>
+      </div>
     </div>
   </div>
 </div>
