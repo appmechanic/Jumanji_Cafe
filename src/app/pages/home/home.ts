@@ -12,6 +12,7 @@ import { FilterComponent, FilterConfig } from '../../shared/filter-tab/filter-ta
 import { CtaSectionComponent } from '../../shared/CTA-Section/CTA-Section';
 import { BgGradientComponent } from '../../shared/bg-gradient/bg-gradient';
 import { CommonModule } from '@angular/common';
+import { TestimonialSliderComponent } from "../../shared/testimonial-slider/testimonial-slider";
 
 export type StatCardType = {
   iconType: "material" | "bootstrap";
@@ -76,7 +77,8 @@ export type ShowcaseCardType = {
     FilterComponent,
     CtaSectionComponent,
     BgGradientComponent,
-  ],
+    TestimonialSliderComponent
+],
   templateUrl: './home.html',
   styleUrls: ['./home.scss']
 })
