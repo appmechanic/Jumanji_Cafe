@@ -7,7 +7,7 @@ import { SimpleCardsComponent, SimpleCardType } from '../../shared/simple-cards/
 import { StatCardComponent } from '../../shared/stat-card/stat-card';
 import { PrimaryButtonComponent } from '../../shared/buttons/primary-button/primary-button';
 import { GhostButtonComponent } from '../../shared/buttons/ghost-button/ghost-button';
-
+import {CustomerTag} from '../../shared/customer-tag/customer-tag'; 
 
 export type StatCardType = {
   iconType: "material" | "bootstrap";
@@ -17,6 +17,7 @@ export type StatCardType = {
   borderColor: string;
   iconBgColor: string;
   titleColor: string;
+  textColor: string;
   cardBgColor: string;
 };
 
@@ -31,7 +32,8 @@ export type StatCardType = {
     SimpleCardsComponent,
     StatCardComponent,
     PrimaryButtonComponent,
-    GhostButtonComponent
+    GhostButtonComponent,
+    CustomerTag
   ],
   templateUrl: './our-story.html',
   styleUrls: ['./our-story.scss']
@@ -43,9 +45,10 @@ export class OurStory {
       icon: 'bi-clock',
       title: 'Since 2020',
       text: 'Experience',
-      borderColor: 'border-secondary',
+      borderColor: 'border-none',
       iconBgColor: 'bg-primary2',
       titleColor: 'text-primary',
+      textColor:'',
       cardBgColor: 'bg-white'
     },
     {
@@ -53,9 +56,10 @@ export class OurStory {
       icon: 'bi-buildings',
       title: '10k +',
       text: 'Quality',
-      borderColor: 'border-primary',
+      borderColor: 'border-none',
       iconBgColor: 'bg-secondary2',
       titleColor: 'text-secondary',
+      textColor:'',
       cardBgColor: 'bg-white'
     }
   ];
@@ -65,9 +69,10 @@ export class OurStory {
       icon: 'videogame_asset',
       title: '200+',
       text: 'Experience',
-      borderColor: '',
+      borderColor: 'border-none',
       iconBgColor: 'bg-primary2',
       titleColor: 'text-primary',
+      textColor:'',
       cardBgColor: 'bg-white'
     },
     {
@@ -75,9 +80,10 @@ export class OurStory {
       icon: 'today',
       title: '500+',
       text: 'Quality',
-      borderColor: '',
+      borderColor: 'border-none',
       iconBgColor: 'bg-secondary2',
       titleColor: 'text-secondary',
+      textColor:'',
       cardBgColor: 'bg-white'
     },
     {
@@ -85,9 +91,10 @@ export class OurStory {
       icon: 'bi-people-fill',
       title: '50k +',
       text: 'Quality',
-      borderColor: '',
+      borderColor: 'border-none',
       iconBgColor: 'bg-primary2',
       titleColor: 'text-primary',
+      textColor:'',
       cardBgColor: 'bg-white'
     },
     {
@@ -95,43 +102,47 @@ export class OurStory {
       icon: 'bi-suit-heart-fill',
       title: '5★',
       text: 'Quality',
-      borderColor: '',
+      borderColor: 'border-none',
       iconBgColor: 'bg-secondary2',
       titleColor: 'text-secondary',
+      textColor:'',
       cardBgColor: 'bg-white'
     }
   ];
   CtaStats: StatCardType[] = [
-    {
-      iconType: 'bootstrap',
-      icon: 'bi-clock',
-      title: 'Since 2020',
-      text: 'Experience',
-      borderColor: 'border-secondary',
-      iconBgColor: 'bg-primary2',
-      titleColor: 'text-primary',
-      cardBgColor: 'bg-white'
-    },
-    {
-      iconType: 'bootstrap',
-      icon: 'bi-buildings',
-      title: '10k +',
-      text: 'Quality',
-      borderColor: 'border-primary',
-      iconBgColor: 'bg-secondary2',
-      titleColor: 'text-secondary',
-      cardBgColor: 'bg-white'
-    },
-    {
-      iconType: 'bootstrap',
-      icon: 'bi-buildings',
-      title: '10k +',
-      text: 'Quality',
-      borderColor: 'border-primary',
-      iconBgColor: 'bg-secondary2',
-      titleColor: 'text-secondary',
-      cardBgColor: 'bg-white'
-    }
+  {
+    iconType: 'bootstrap',
+    icon: 'bi-geo-alt',
+    title: 'Visit Us',
+    text: 'Al Kayyal St, Al Rawdah, Jeddah',
+    borderColor: 'rgb(255 255 255 / 20%)',
+    iconBgColor: 'bg-primary text-white',
+    titleColor: 'text-white',
+    textColor: 'text-white',
+    cardBgColor: '#FFFFFF1A'
+  },
+  {
+    iconType: 'bootstrap',
+    icon: 'bi-clock',
+    title: 'Open Daily',
+    text: '9:00 AM - 12:00 AM',
+    borderColor: 'rgb(255 255 255 / 20%)',
+    iconBgColor: 'bg-secondary text-white',
+    titleColor: 'text-white',
+    textColor: 'text-white',
+    cardBgColor: '#FFFFFF1A'
+  },
+  {
+    iconType: 'bootstrap',
+    icon: 'bi-telephone',
+    title: 'Call Us',
+    text: '+966 XXX XXX XXX',
+    borderColor: 'rgb(255 255 255 / 20%)',
+    iconBgColor: 'bg-success text-white',
+    titleColor: 'text-white',
+    textColor: 'text-white',
+    cardBgColor: '#FFFFFF1A'
+  }
   ];
   missionCard: SimpleCardType[] = [
     {

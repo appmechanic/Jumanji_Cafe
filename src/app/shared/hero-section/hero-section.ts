@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 export class HeroSectionComponent {
   @Input() backgroundImage!: string;
   @Input() subtitle!: string;
-  @Input() titleParts: { text: string; class: string }[] = [];
-  @Input() subtitleParts: { text: string; class: string }[] = [];
+  @Input() titleParts: Array<{ text: string, class: string, breakLine?: boolean }> = [];
+  @Input() subtitleParts: Array<{ text: string, class: string, breakLine?: boolean }> = [];
   @Input() headingTag: string = 'h1';
 }

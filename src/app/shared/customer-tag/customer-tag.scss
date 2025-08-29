@@ -1,0 +1,35 @@
+.customer-tag-container{
+    background-color: #ffffff1A;
+    min-width: 400px;
+}
+
+.customer-images {
+  .customer-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    object-fit: cover;
+    background: #eee;
+    margin-right: -8px;
+  }
+}
+
+.customer-info {
+
+  .stars {
+    .star {
+      color: #FFC713;
+      &.empty {
+        color: #bbb;
+      }
+      &.half {
+        color: #FFC713;
+      }
+    }
+    .rating-value {
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+  }
+}

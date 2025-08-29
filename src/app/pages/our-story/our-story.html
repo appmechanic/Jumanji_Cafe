@@ -5,9 +5,9 @@
       <div class="col-12 custom-col-width">
         <div class="hero-section-wrapper">
           <app-hero-section [titleParts]="[
-              { text: '', class: '' },
-              { text: 'Our ', class: 'text-primary' },
-              { text: 'Story', class: 'text-secondary' }
+              { text: '', class: '', breakLine: false },
+              { text: 'Our ', class: 'text-primary', breakLine: false },
+              { text: 'Story', class: 'text-secondary', breakLine: false }
             ]" [subtitleParts]="[
               { text: 'Discover how a passion for games, laughter, and connection led  to the ', class: '' },
               { text: 'creation of Jumanji Café ', class: 'text-primary' },
@@ -67,12 +67,13 @@
 <!-- last section -->
 <div class="container-fluid w-full py-5 angular-gradient-purple position-relative">
   <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
-  <div class="row justify-content-center py-5">
-    <div class="col-12 col-lg-5">
+
+  <div class="row justify-content-center py-5 position-relative" style="z-index: 1;">
+    <div class="col-11 col-md-10 col-lg-7 col-xl-6 col-xxl-5">
       <app-hero-section [titleParts]="[
-              { text: '', class: '' },
-              { text: 'Want to Experience ', class: 'text-white' },
-              { text: 'The Fun Yourself?', class: 'gradient-text' }
+              { text: '', class: '', breakLine: false },
+              { text: 'Want to Experience ', class: 'text-white', breakLine: true },
+              { text: 'The Fun Yourself?', class: 'gradient-text', breakLine: false }
             ]" [subtitleParts]="[
               { text: 'Join thousands of adventurers who have discovered the magic of  ', class: 'text-white fw-medium' },
               { text: 'Jumanji Café ', class: 'text-secondary' },
@@ -99,10 +100,15 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of CtaStats">
           <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
             [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor" [titleColor]="stat.titleColor"
-            [cardBgColor]="stat.cardBgColor">
+            [cardBgColor]="stat.cardBgColor" [textColor]="stat.textColor">
           </app-stat-card>
         </div>
       </div>
+    </div>
+    <div class="text-center pt-5">
+      <app-customer-tag [rating]="4.9" [customerCount]="15000"
+        [customerImages]="['/assets/testimonial-img1.jpg', '/assets/testimonial-img1.jpg', '/assets/testimonial-img1.jpg', '/assets/testimonial-img1.jpg']">
+      </app-customer-tag>
     </div>
   </div>
 </div>

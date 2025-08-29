@@ -3,24 +3,23 @@
         <ng-container [ngSwitch]="headingTag">
             <h1 *ngSwitchCase="'h1'" class="hero-title">
                 @for (part of titleParts; track part) {
-                <span [ngClass]="part.class">{{ part.text }}</span>
-                }
+    <span [ngClass]="part.class">{{ part.text }}</span>
+    <br *ngIf="part.breakLine">
+}
             </h1>
             <h2 *ngSwitchCase="'h2'" class="hero-title">
                 @for (part of titleParts; track part) {
-                <span [ngClass]="part.class">{{ part.text }}</span>
-                }
+    <span [ngClass]="part.class">{{ part.text }}</span>
+    <br *ngIf="part.breakLine">
+}
             </h2>
             <h3 *ngSwitchCase="'h3'" class="hero-title">
                 @for (part of titleParts; track part) {
-                <span [ngClass]="part.class">{{ part.text }}</span>
-                }
+    <span [ngClass]="part.class">{{ part.text }}</span>
+    <br *ngIf="part.breakLine">
+}
             </h3>
-            <h1 *ngSwitchDefault class="hero-title">
-                @for (part of titleParts; track part) {
-                <span [ngClass]="part.class">{{ part.text }}</span>
-                }
-            </h1>
+            
         </ng-container>
         <!-- Decorative element -->
         <div class="decorative-element d-flex align-items-center justify-content-center my-4">

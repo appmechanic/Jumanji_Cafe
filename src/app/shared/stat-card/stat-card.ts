@@ -23,4 +23,14 @@ export class StatCardComponent {
   @Input() iconBgColor: string = '';
   @Input() titleColor: string = '';
 @Input() subtitleColor: string = '';
+isClass(value: string): boolean {
+  // Accepts only class names (letters, numbers, dashes, underscores)
+  return /^[\w- ]+$/.test(value);
+}
+getClassNames(): string[] {
+  const classes: string[] = [];
+  if (this.isClass(this.cardBgColor)) classes.push(this.cardBgColor);
+  if (this.isClass(this.borderColor)) classes.push(this.borderColor);
+  return classes;
+}
 }
