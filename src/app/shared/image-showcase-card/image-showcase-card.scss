@@ -1,0 +1,13 @@
+.feature-card {
+  min-height: 300px;
+
+  .feature-card-overlay {
+    background: rgba(0,0,0,0.6);
+  }
+  .feature-card-content{
+    i{
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

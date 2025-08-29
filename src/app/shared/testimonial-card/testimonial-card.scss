@@ -1,0 +1,38 @@
+.testimonial-card {
+  position: relative;
+  .testimonial-comma {
+    top: -25px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+  }
+  .testimonial-dot {
+    top: 18px;
+    right: 18px;
+    width: 20px;
+    height: 20px;
+    .testimonial-dot-icon {
+      width: 14px;
+      height: 14px;
+    }
+  }
+  .testimonial-quote {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .testimonial-img-photo {
+    width: 48px;
+    height: 48px;
+    padding: 2px;
+    object-fit: cover;
+  }
+  .testimonial-check {
+    bottom: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    font-size: 14px;
+    line-height: 0px;
+    border: 1px solid #fff;
+  }
+}

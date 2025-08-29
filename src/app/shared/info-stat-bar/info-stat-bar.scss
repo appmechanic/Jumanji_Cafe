@@ -1,0 +1,31 @@
+.info-stat-bar {
+  border-radius: 1.5rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+
+  .info-stat-item {
+    min-width: 100px;
+    border-radius: 1rem;
+    transition: box-shadow 0.2s;
+
+    .info-stat-icon {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .info-stat-divider {
+    border-radius: 4px;
+
+    &.d-none.d-md-block {
+      width: 4px;
+      height: 40px;
+      align-self: center;
+    }
+
+    &.d-block.d-md-none {
+      width: 30%;
+      height: 4px;
+    }
+  }
+}

@@ -15,6 +15,7 @@ export class CtaSectionComponent {
   @Input() titleHighlight: string = '';
   @Input() titleEnd: string = '';
   @Input() description: string = '';
+  @Input() colClass: string = '';
 
   isMaterialIcon(icon?: string): boolean {
     return !!icon && !icon.includes('bi-') && !icon.includes('fa-');

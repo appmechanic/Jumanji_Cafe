@@ -21,6 +21,7 @@
   </div>
 </div>
 
+
 <!-- Story Section -->
 <div class="story-section container mt-5">
   <div class="row justify-content-center">
@@ -54,7 +55,7 @@
       <app-simple-cards [cards]="[card]"></app-simple-cards>
     </div>
   </div>
-  <div class="row mt-4 mb-5 pb-5 g-4 d-flex align-items-stretch justify-content-center">
+  <div class="row mt-4 mb-5 pb-4 g-4 d-flex align-items-stretch justify-content-center">
     <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of missionStats">
       <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
         [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor" [titleColor]="stat.titleColor"
@@ -64,7 +65,89 @@
   </div>
 </div>
 
-<!-- last section -->
+<!-- Highlights section-->
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-12">
+      <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="" iconRight="" iconRightType="material"
+        iconRightColor="" title="Unique Experience" highlight="Highlights" highlightColor="gradient-text"
+        subtitle="Discover what makes Jumanji Café the ultimate destination for board game enthusiasts">
+      </app-heading-section>
+    </div>
+  </div>
+  <div class="row align-items-stretch gy-4">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let card of highlightCards">
+      <app-image-showcase-card [imageSrc]="card.imageSrc" [overlay]="card.overlay" [icon]="card.icon"
+        [title]="card.title" [titleClass]="card.titleClass" [text]="card.text"
+        [textClass]="card.textClass"></app-image-showcase-card>
+    </div>
+  </div>
+  <div class="text-center pt-5  pb-3">
+    <app-info-stat-bar [stats]="highlightStats" [bgColor]="'bg-white'" [shadow]="true">
+    </app-info-stat-bar>
+  </div>
+</div>
+
+<!-- Community section -->
+<div class="container mb-4">
+  <div class="row">
+    <div class="col-12">
+      <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="" iconRight="" iconRightType="material"
+        iconRightColor="" title="What Our" highlight="Community Says" highlightColor="gradient-text"
+        subtitle="Real experiences from our amazing gaming community">
+      </app-heading-section>
+    </div>
+  </div>
+  <div class="row align-items-stretch gy-5 mt-3 justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let testimonial of testimonials">
+      <app-testimonial-card [quote]="testimonial.quote" [showInvertedCommas]="testimonial.showInvertedCommas"
+        [rating]="testimonial.rating" [name]="testimonial.name" [role]="testimonial.role"
+        [location]="testimonial.location ?? ''" [imageSrc]="testimonial.imageSrc"
+        [showCheckIcon]="testimonial.showCheckIcon" [icon]="testimonial.icon" [tag]="testimonial.tag"
+        [tagClass]="testimonial.tagClass" [cardClass]="testimonial.cardClass"></app-testimonial-card>
+    </div>
+  </div>
+  <div class="text-center py-5">
+    <app-info-stat-bar [stats]="communityStats" [bgColor]="'bg-white'" [shadow]="true">
+    </app-info-stat-bar>
+  </div>
+</div>
+
+<!-- Media section-->
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-12">
+      <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="" iconRight="" iconRightType="material"
+        iconRightColor="" title="Jumanji in" highlight="The Media" highlightColor="gradient-text"
+        subtitle="Recognized by leading media outlets for our contribution to Saudi Arabia's entertainment landscape">
+      </app-heading-section>
+    </div>
+  </div>
+  
+  <div class="text-center"> 
+    <app-cta-section colClass="col-12" icon="" titleStart="Media &  " titleHighlight="Press Kit"
+      description="High-resolution images, logos, and press materials">
+      <!-- <div class="d-flex align-items-center justify-content-center flex-wrap gap-3"> -->
+      <app-primary-button primaryButton iconLeft="download" class="d-flex justify-content-center mt-2">
+        Download Press Kit
+      </app-primary-button>
+      <app-ghost-button ghostButton iconLeft="mail" class="d-flex justify-content-center mt-2">
+        Contact Media Team
+      </app-ghost-button>
+      <!-- </div> -->
+    </app-cta-section>
+  </div>
+  <div class="row align-items-stretch gy-4 mt-5 pb-5">
+    <div class="col-12 col-md-6 col-lg-3" *ngFor="let card of mediaStats">
+      <app-stat-card [iconType]="card.iconType" [icon]="card.icon" [title]="card.title" [text]="card.text"
+        [borderColor]="card.borderColor" [iconBgColor]="card.iconBgColor" [titleColor]="card.titleColor"
+        [cardBgColor]="card.cardBgColor">
+      </app-stat-card>
+    </div>
+  </div>
+</div>
+
+<!-- Experience section-->
 <div class="container-fluid w-full py-5 angular-gradient-purple position-relative">
   <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
 

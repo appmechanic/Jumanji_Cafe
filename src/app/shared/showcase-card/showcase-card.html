@@ -45,7 +45,6 @@
             <div *ngIf="listItems && listItems.length">
             <ul class="list-unstyled">
                 <li *ngFor="let item of listItems" class="d-flex align-items-center mb-1 gap-2 list-items">
-                    <!-- Replace ngSwitch with isMaterialIcon method -->
                     <i *ngIf="!isMaterialIcon(item.icon)" class="bi bg-primary2 rounded-20" [ngClass]="item.icon"></i>
                     <i *ngIf="isMaterialIcon(item.icon)" class="material-icons bg-primary2 rounded-20">{{ item.icon }}</i>
                     <span>{{ item.content }}</span>

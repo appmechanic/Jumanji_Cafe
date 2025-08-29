@@ -3,7 +3,9 @@
   [ngClass]="getClassNames()"
   [style.backgroundColor]="!isClass(cardBgColor) ? cardBgColor : null"
   [style.border]="!isClass(borderColor) ? '2px solid ' + borderColor : null">
-  <div class="icon rounded-pill d-flex align-items-center justify-content-center mb-3" [ngClass]="iconBgColor"
+  <!-- Only show icon container if icon is present and not empty -->
+  <div *ngIf="icon && icon.trim().length > 0"
+    class="icon rounded-pill d-flex align-items-center justify-content-center mb-3" [ngClass]="iconBgColor"
     style="width: 60px; height: 60px;">
     <i *ngIf="iconType === 'material'" class="material-icons" style="font-size: 2rem;">{{ icon }}</i>
     <i *ngIf="iconType === 'bootstrap'" class="bi" [ngClass]="icon" style="font-size: 2rem;"></i>

@@ -1,0 +1,13 @@
+<div class="feature-card position-relative rounded-20 overflow-hidden shadow-sm">
+  <img [src]="imageSrc" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0" alt="Feature image" />
+  <div *ngIf="overlay" class="feature-card-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+  <div
+    class="feature-card-content position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end align-items-start p-4 gap-2">
+    <!-- <div [ngClass]="iconBgClass" class="icon-bg"> -->
+    <i *ngIf="!isMaterialIcon(icon)" class="d-flex align-items-center justify-content-center rounded-pill" [ngClass]="icon"></i>
+    <i *ngIf="isMaterialIcon(icon)" class="material-icons d-flex align-items-center justify-content-center rounded-pill" [ngClass]="icon.split(' ').slice(1).join(' ')">{{ icon.split(' ')[0] }}</i>
+    <!-- </div> -->
+    <h3 [ngClass]="titleClass" class="mb-0">{{ title }}</h3>
+    <p [ngClass]="textClass" class="mb-0">{{ text }}</p>
+  </div>
+</div>

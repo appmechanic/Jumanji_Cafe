@@ -1,5 +1,5 @@
-<div class="cta-section bg-white rounded-20 p-4 p-sm-5 text-center shadow-sm d-flex justify-content-center">
-  <div class="col-12 col-xl-9">
+<div class="cta-section bg-white rounded-20 p-4 p-sm-5 text-center shadow-sm d-inline-flex justify-content-center">
+  <div [ngClass]="colClass || 'col-12 col-lg-9'">
     <div *ngIf="icon" class="icon-circle mx-auto mb-2 d-flex align-items-center justify-content-center" [ngClass]="iconBgClass">
       <i *ngIf="!isMaterialIcon(icon)" class="bi" [ngClass]="icon"></i>
       <i *ngIf="isMaterialIcon(icon)" class="material-icons">{{ icon }}</i>
@@ -13,7 +13,7 @@
       {{ description }}
     </p>
     
-    <div class="buttons-container d-flex flex-wrap justify-content-center gap-3">
+    <div class="buttons-container d-flex flex-row flex-wrap justify-content-center gap-3">
       <ng-content select="[primaryButton]"></ng-content>
       <ng-content select="[ghostButton]"></ng-content>
     </div>
