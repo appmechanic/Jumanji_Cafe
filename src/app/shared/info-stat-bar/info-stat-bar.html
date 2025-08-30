@@ -4,7 +4,7 @@
     'box-shadow': shadow ? '0 2px 8px rgba(0,0,0,0.08)' : 'none'
   }">
   <ng-container *ngFor="let stat of stats; let last = last">
-    <div class="info-stat-item d-flex flex-row align-items-center px-3 py-2 gap-2 w-100">
+    <div class="info-stat-item d-flex flex-row align-items-center px-3 py-2 gap-2">
       <ng-container *ngIf="stat.icon">
         <span [ngClass]="stat.iconClass" class="info-stat-icon fs-4 d-flex justify-content-center align-items-center rounded-pill">
           <i [class]="stat.icon"></i>
