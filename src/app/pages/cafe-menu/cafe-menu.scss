@@ -1,0 +1,14 @@
+$hero-bg: url('/assets/background-image.jpg');
+$last-bg: url('/assets/testimonial-bg-img.jpg');
+
+.hero {
+  background-image: $hero-bg;
+}
+.angular-gradient-purple{
+.overlay {
+  background: $last-bg center center/cover no-repeat;
+  z-index: 0;
+  opacity: 0.3;
+  pointer-events: none;
+}
+}

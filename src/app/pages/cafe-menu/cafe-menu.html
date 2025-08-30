@@ -1,0 +1,21 @@
+<div class="container py-5 main">
+  <div class="row">
+    <div class="col-12">
+      <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2" iconRight="local_cafe" iconRightType="material"
+        iconRightColor="bg-primary2" title="Cafe" highlight="Menu" highlightColor="gradient-text"
+        subtitle="Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕">
+      </app-heading-section>
+    </div>
+  </div>
+  <div class="row justify-content-center py-5">
+    <ng-container *ngFor="let item of cafeMenu">
+      <div class="col-12 col-sm-6 col-lg-4 pb-4">
+        <app-showcase-card [imageSrc]="item.imageSrc" [category]="item.category"
+          [categoryColor]="item.categoryColor" [title]="item.title" [price]="item.price ?? ''"
+          [priceColor]="item.priceColor ?? ''" [subtitle]="item.subtitle" [buttonText]="item.buttonText"
+          [buttonColor]="item.buttonColor" [showOverlay]="false">
+        </app-showcase-card>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -210,23 +210,24 @@ h4 {
 .text-white2 {
   color: #fafafa;
 }
-
+.main{
+  margin-top: 66px;
+}
 .custom-spacing {
   position: relative;
   overflow: hidden;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  // min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 160px 20px;
+  padding: 80px 20px;
 
   @media screen and (max-width: 768px) {
     padding: 80px 20px;
-    margin-top: 60px;
   }
 }
 

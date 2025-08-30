@@ -4,10 +4,12 @@ import { appConfig } from './app/app.config';
 import { App } from './app/app';
 import { Home as Home } from './app/pages/home/home';
 import { OurStory } from './app/pages/our-story/our-story';
+import { CafeMenu } from './app/pages/cafe-menu/cafe-menu';
 
 const routes = [
   { path: '', component: Home },
-  { path: 'our-story', component: OurStory }
+  { path: 'our-story', component: OurStory },
+  { path: 'cafe-menu', component: CafeMenu }
 ];
 
 bootstrapApplication(App, {
