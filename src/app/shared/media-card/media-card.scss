@@ -1,0 +1,40 @@
+.media-card-root{
+  .media-card-left {
+    width: 100px;
+    .media-card-img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  .media-card-right {
+    width: 45px;
+    height: 45px;
+    z-index: 9;
+    .icon-dot{
+      width: 25px;
+      height: 25px;
+      top: -9px;
+      right: -7px;
+      z-index: -1;
+    }
+  }
+  
+  .media-card-badge {
+    font-size: 12px;
+  }
+  
+  .media-card-title {
+    font-size: 18px;
+  }
+  
+  .media-card-info {
+    font-size: 14px;
+  }
+  .media-card-btn-icon {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+  button{
+    border-radius: 10px;
+  }
+}

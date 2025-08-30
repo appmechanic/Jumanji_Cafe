@@ -1,0 +1,27 @@
+<div class="rounded-20 shadow-sm p-4 bg-white position-relative media-card-root d-flex flex-column align-items-start gap-3 border h-100 {{cardClass}}">
+  <div class="d-flex justify-content-between align-items-center mb-3 w-100">
+    <div class="media-card-left d-flex align-items-center justify-content-center">
+      <img *ngIf="image" [src]="image" class="media-card-img" />
+    </div>
+    <div
+      class="media-card-right rounded-circle d-flex align-items-center justify-content-center position-relative" [ngClass]="iconBgClass">
+      <i *ngIf="isMaterialIcon(icon)" class="material-icons">{{ icon }}</i>
+      <i *ngIf="!isMaterialIcon(icon)" [ngClass]="icon"></i>
+      <span class="position-absolute icon-dot rounded-pill" [ngClass]="iconDotClass"></span>
+    </div>
+  </div>
+  <span class="mb-0 fw-600 rounded-pill px-3 py-1 {{badgeClass}} media-card-badge">{{badgeText}}</span>
+  <div class="content d-flex align-items-center justify-content-between flex-wrap gap-2">
+    <p class="mb-0 text-dark media-card-title fw-600">{{title}}</p>
+    <div class="d-flex justify-content-between text-color2 mb-0 media-card-info w-100">
+      <span>{{subtitle}}</span>
+      <span *ngIf="date">{{date}}</span>
+    </div>
+  </div>
+  <button type="button"
+    class="d-flex align-items-center justify-content-center w-100 border-0 py-3 fw-600 {{buttonClass}} media-card-btn">
+    <i *ngIf="isMaterialIcon(buttonIcon)" class="material-icons media-card-btn-icon">{{buttonIcon}}</i>
+    <i *ngIf="!isMaterialIcon(buttonIcon)" [ngClass]="buttonIcon" class="media-card-btn-icon"></i>
+    {{buttonText}}
+  </button>
+</div>

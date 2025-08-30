@@ -34,7 +34,8 @@
           'Jumanji Café was born from a simple yet powerful belief: that the magic of board games has the power to bring people together in extraordinary ways. Our founders, passionate gamers and coffee enthusiasts, noticed a gap in Jeddah\'s entertainment scene - a place where families, friends, and strangers could connect over the timeless joy of tabletop adventures.',
           'What started as weekend game nights among friends evolved into a dream of creating Saudi Arabia\'s premier board game destination. We wanted to build more than just a café - we envisioned a community hub where laughter echoes through the air, where strategic minds meet creative spirits, and where every visit becomes a memorable adventure.',
           'Since opening our doors in 2020, Jumanji Café has become a beloved gathering place for game enthusiasts of all ages. From seasoned strategists tackling complex campaigns to families discovering their first cooperative adventure, our space welcomes everyone ready to roll the dice on fun.'
-        ]" [stats]="storyStats" [buttons]="[]">
+        ]" 
+        [stats]="storyStats" [buttons]="[]">
       </app-story-section>
     </div>
   </div>
@@ -50,7 +51,7 @@
       </app-heading-section>
     </div>
   </div>
-  <div class="row align-items-stretch gy-5">
+  <div class="row align-items-stretch gy-3">
     <div class="col-12 col-md-6 col-lg-6" *ngFor="let card of missionCard">
       <app-simple-cards [cards]="[card]"></app-simple-cards>
     </div>
@@ -123,23 +124,28 @@
       </app-heading-section>
     </div>
   </div>
-  
-  <div class="text-center"> 
+  <div class="row align-items-stretch gy-4">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let card of mediaCards">
+      <app-media-card [title]="card.title" [subtitle]="card.subtitle" [date]="card.date"
+        [badgeText]="card.badgeText" [badgeClass]="card.badgeClass" [buttonClass]="card.buttonClass"
+        [buttonText]="card.buttonText" [buttonIcon]="card.buttonIcon" [iconBgClass]="card.iconBgClass"
+        [icon]="card.icon" [iconDotClass]="card.iconDotClass" [image]="card.image"></app-media-card>
+    </div>
+  </div>
+  <div class="text-center my-5">
     <app-cta-section colClass="col-12" icon="" titleStart="Media &  " titleHighlight="Press Kit"
       description="High-resolution images, logos, and press materials">
-      <!-- <div class="d-flex align-items-center justify-content-center flex-wrap gap-3"> -->
       <app-primary-button primaryButton iconLeft="download" class="d-flex justify-content-center mt-2">
         Download Press Kit
       </app-primary-button>
       <app-ghost-button ghostButton iconLeft="mail" class="d-flex justify-content-center mt-2">
         Contact Media Team
       </app-ghost-button>
-      <!-- </div> -->
     </app-cta-section>
   </div>
-  <div class="row align-items-stretch gy-4 mt-5 pb-5">
-    <div class="col-12 col-md-6 col-lg-3" *ngFor="let card of mediaStats">
-      <app-stat-card [iconType]="card.iconType" [icon]="card.icon" [title]="card.title" [text]="card.text"
+  <div class="row align-items-stretch gy-4 pb-5">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let card of mediaStats">
+      <app-stat-card  [iconType]="card.iconType" [icon]="card.icon" [title]="card.title" [text]="card.text"
         [borderColor]="card.borderColor" [iconBgColor]="card.iconBgColor" [titleColor]="card.titleColor"
         [cardBgColor]="card.cardBgColor">
       </app-stat-card>

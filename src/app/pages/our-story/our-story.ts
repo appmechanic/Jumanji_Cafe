@@ -9,10 +9,10 @@ import { PrimaryButtonComponent } from '../../shared/buttons/primary-button/prim
 import { GhostButtonComponent } from '../../shared/buttons/ghost-button/ghost-button';
 import { CustomerTag } from '../../shared/customer-tag/customer-tag';
 import { ImageShowcaseCard } from '../../shared/image-showcase-card/image-showcase-card';
-import {InfoStatBar} from '../../shared/info-stat-bar/info-stat-bar';
+import { InfoStatBar } from '../../shared/info-stat-bar/info-stat-bar';
 import { TestimonialCard } from '../../shared/testimonial-card/testimonial-card';
 import { CtaSectionComponent } from '../../shared/CTA-Section/CTA-Section';
-
+import { MediaCard } from '../../shared/media-card/media-card';
 
 export type StatCardType = {
   iconType: "material" | "bootstrap";
@@ -42,6 +42,7 @@ export type InfoStatType = {
   titleColor: string;
   text: string;
 };
+
 export interface Testimonial {
   quote: string;
   showInvertedCommas: boolean;
@@ -56,6 +57,8 @@ export interface Testimonial {
   tagClass: string;
   cardClass: string;
 }
+
+
 @Component({
   selector: 'app-about-jumanji',
   standalone: true,
@@ -72,7 +75,8 @@ export interface Testimonial {
     ImageShowcaseCard,
     InfoStatBar,
     TestimonialCard,
-    CtaSectionComponent
+    CtaSectionComponent,
+    MediaCard
   ],
   templateUrl: './our-story.html',
   styleUrls: ['./our-story.scss']
@@ -318,45 +322,45 @@ export class OurStory {
     }
   ];
   highlightStats: InfoStatType[] = [
-  {
-    icon: 'bi-clock',
-    iconClass: 'text-white bg-primary',
-    title: 'Open Daily',
-    titleColor: 'text-primary',
-    text: '9 AM - 12 AM',
-  },
-  {
-    icon: 'bi-people',
-    iconClass: 'text-white bg-secondary',
-    title: 'All Ages',
-    titleColor: 'text-secondary',
-    text: 'Family Welcome',
-  }
-];
-communityStats: InfoStatType[] = [
-  {
-    icon: 'bi-star-fill',
-    iconClass: 'text-success bg-success-subtle',
-    title: '4.9/5',
-    titleColor: 'text-success',
-    text: 'Average Rating',
-  },
-  {
-    icon: 'bi-chat-fill',
-    iconClass: 'text-white bg-primary',
-    title: '500+',
-    titleColor: 'text-primary',
-    text: 'Happy Reviews',
-  },
-{
-    icon: 'bi-chat-fill',
-    iconClass: 'text-info bg-info-subtle',
-    title: '85%',
-    titleColor: 'text-info',
-    text: 'Return Visitors',
-  }
-];
-testimonials: Testimonial[] = [
+    {
+      icon: 'bi-clock',
+      iconClass: 'text-white bg-primary',
+      title: 'Open Daily',
+      titleColor: 'text-primary',
+      text: '9 AM - 12 AM',
+    },
+    {
+      icon: 'bi-people',
+      iconClass: 'text-white bg-secondary',
+      title: 'All Ages',
+      titleColor: 'text-secondary',
+      text: 'Family Welcome',
+    }
+  ];
+  communityStats: InfoStatType[] = [
+    {
+      icon: 'bi-star-fill',
+      iconClass: 'text-success bg-success-subtle',
+      title: '4.9/5',
+      titleColor: 'text-success',
+      text: 'Average Rating',
+    },
+    {
+      icon: 'bi-chat-fill',
+      iconClass: 'text-white bg-primary',
+      title: '500+',
+      titleColor: 'text-primary',
+      text: 'Happy Reviews',
+    },
+    {
+      icon: 'bi-chat-fill',
+      iconClass: 'text-info bg-info-subtle',
+      title: '85%',
+      titleColor: 'text-info',
+      text: 'Return Visitors',
+    }
+  ];
+  testimonials: Testimonial[] = [
     {
       quote: '"Jumanji Café has become our family\'s weekend tradition! The staff is incredibly helpful in recommending games, and the atmosphere is perfect for spending quality time together. My kids always ask when we can go back!"',
       showInvertedCommas: true,
@@ -400,4 +404,90 @@ testimonials: Testimonial[] = [
       cardClass: 'bg-light'
     }
   ];
+  mediaCards = [
+  {
+    title: 'Board Game Revolution Hits Jeddah',
+    subtitle: 'Saudi Gazette',
+    date: 'March 2024',
+    badgeText: 'Featured Article',
+    badgeClass: 'bg-primary2',
+    buttonClass: 'bg-primary text-white',
+    buttonText: 'Read Article',
+    buttonIcon: 'open_in_new',
+    iconBgClass: 'bg-primary text-white',
+    icon: 'bi-file-earmark-text',
+    iconDotClass: 'bg-primary2',
+    image: 'assets/media-img1.jpg',
+  },
+  {
+    title: 'Jumanji Café: Where Gaming Meets Community',
+    subtitle: 'Arab News',
+    date: 'February 2024',
+    badgeText: 'Business Spotlight',
+    badgeClass: 'bg-secondary2',
+    buttonClass: 'bg-primary text-white',
+    buttonText: 'Read Article',
+    buttonIcon: 'open_in_new',
+    iconBgClass: 'bg-secondary text-white',
+    icon: 'bi-tv',
+    iconDotClass: 'bg-secondary2',
+    image: 'assets/media-img1.jpg',
+  },
+   {
+    title: 'Must-Visit Entertainment Destination',
+    subtitle: 'Tourism Feature',
+    date: 'January 2024',
+    badgeText: 'Jeddah Tourism',
+    badgeClass: 'bg-primary2',
+    buttonClass: 'bg-primary text-white',
+    buttonText: 'Read Article',
+    buttonIcon: 'open_in_new',
+    iconBgClass: 'bg-primary text-white',
+    icon: 'bi-map',
+    iconDotClass: 'bg-primary2',
+    image: 'assets/media-img1.jpg',
+  },
+  {
+    title: 'Board Game Revolution Hits Jeddah',
+    subtitle: 'Saudi Gazette',
+    date: 'March 2024',
+    badgeText: 'Featured Article',
+    badgeClass: 'bg-primary2',
+    buttonClass: 'bg-primary text-white',
+    buttonText: 'Read Article',
+    buttonIcon: 'open_in_new',
+    iconBgClass: 'bg-primary text-white',
+    icon: 'bi-file-earmark-text',
+    iconDotClass: 'bg-primary2',
+    image: 'assets/media-img1.jpg',
+  },
+  {
+    title: 'Jumanji Café: Where Gaming Meets Community',
+    subtitle: 'Arab News',
+    date: 'February 2024',
+    badgeText: 'Business Spotlight',
+    badgeClass: 'bg-secondary2',
+    buttonClass: 'bg-primary text-white',
+    buttonText: 'Read Article',
+    buttonIcon: 'open_in_new',
+    iconBgClass: 'bg-secondary text-white',
+    icon: 'bi-tv',
+    iconDotClass: 'bg-secondary2',
+    image: 'assets/media-img1.jpg',
+  },
+   {
+    title: 'Must-Visit Entertainment Destination',
+    subtitle: 'Tourism Feature',
+    date: 'January 2024',
+    badgeText: 'Jeddah Tourism',
+    badgeClass: 'bg-primary2',
+    buttonClass: 'bg-primary text-white',
+    buttonText: 'Read Article',
+    buttonIcon: 'open_in_new',
+    iconBgClass: 'bg-primary text-white',
+    icon: 'bi-map',
+    iconDotClass: 'bg-primary2',
+    image: 'assets/media-img1.jpg',
+  }
+];
 }
