@@ -5,6 +5,7 @@ import { StatCardComponent } from '../../shared/stat-card/stat-card';
 import { NewsletterComponent } from '../../shared/newsletter/newsletter';
 import { ContactForm } from '../../shared/contact-form/contact-form';
 import { LocationCard } from '../../shared/location-card/location-card';
+import { HoursCard } from '../../shared/hours-card/hours-card';
 export type StatCardType = {
   iconType: "material" | "bootstrap";
   icon: string;
@@ -29,7 +30,8 @@ export type StatCardType = {
     StatCardComponent,
     NewsletterComponent,
     ContactForm,
-    LocationCard
+    LocationCard,
+    HoursCard
   ],
   templateUrl: './contact-us.html',
   styleUrls: ['./contact-us.scss']
