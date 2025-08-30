@@ -7,35 +7,19 @@ export type ShowcaseCardType = {
   imageSrc: string;
   category: string;
   categoryColor: string;
-  categoryIcon: string;
   title: string;
   subtitle: string;
-  players: string;
-  duration: string;
-  tags: string[];
-  tagColor: string;
-  gameCategory: string;
   buttonText: string;
   buttonColor: string;
-  showDetailIcon: boolean;
-  detailIcon: string;
-  starCount?: number;
-  starColor?: string;
-  playersClass?: string;
-  durationClass?: string;
   price?: string;
   priceColor?: string;
   badgeRight?: string;
+  showDetailIcon?: boolean;
   badgeRightColor?: string;
-  eventDate?: string;
-  eventTime?: string;
-  attending: number;
-  capacity: number;
-  listItems?: ListItem[]; 
 };
 
 @Component({
-  selector: 'app-about-jumanji',
+  selector: 'app-cafe-menu',
   standalone: true,
   imports: [
     CommonModule,
@@ -50,131 +34,88 @@ export class CafeMenu {
       {
         imageSrc: '/assets/cafe-menu-img1.jpg',
         category: 'Jumanji Special',
-        categoryIcon: '',
         categoryColor: 'bg-primary text-white',
         title: 'Catan',
         price: '15 SAR',
         priceColor: 'bg-secondary2',
         subtitle: 'Build settlements and cities in this classic strategy game',
-        players: '',
-        duration: '',
-        tags: [],
-        tagColor: '',
-        gameCategory: '',
         buttonText: 'Add to Order',
         buttonColor: 'bg-primary text-white',
         showDetailIcon: false,
-        detailIcon: '',
-        attending: 0,
-        capacity: 0
+
       },
       {
         imageSrc: '/assets/cafe-menu-img1.jpg',
         category: 'Customer Favorite',
-        categoryIcon: '',
         categoryColor: 'bg-secondary text-white',
         title: 'Azul',
         price: '15 SAR',
         priceColor: 'bg-secondary2',
         subtitle: 'Create beautiful tile patterns in this elegant strategy game',
-        players: '',
-        duration: '',
-        tags: [],
-        tagColor: '',
-        gameCategory: '',
         buttonText: 'Add to Order',
         buttonColor: 'bg-primary text-white',
         showDetailIcon: false,
-        detailIcon: '',
-        attending: 0,
-        capacity: 0
       },
       {
         imageSrc: '/assets/cafe-menu-img1.jpg',
         category: 'Jumanji Special',
-        categoryIcon: '',
         categoryColor: 'bg-primary text-white',
-        starColor: 'bg-secondary text-white',
         title: 'Wingspan',
         price: '15 SAR',
         priceColor: 'bg-secondary2',
         subtitle: 'Attract birds to your wildlife preserves in this engine-building game',
-        players: '',
-        duration: '',
-        tags: [],
-        tagColor: '',
-        gameCategory: '',
         buttonText: 'Add to Order',
         buttonColor: 'bg-primary text-white',
-        showDetailIcon: false,
-        detailIcon: '',
-        attending: 0,
-        capacity: 0
+        showDetailIcon: false
       },
       {
         imageSrc: '/assets/cafe-menu-img1.jpg',
         category: 'Sweet Victory',
-        categoryIcon: '',
         categoryColor: 'bg-primary text-white',
-        starColor: 'bg-secondary text-white',
         title: 'Wingspan',
         price: '15 SAR',
         priceColor: 'bg-secondary2',
         subtitle: 'Attract birds to your wildlife preserves in this engine-building game',
-        players: '',
-        duration: '',
-        tags: [],
-        tagColor: '',
-        gameCategory: '',
-        buttonText: 'View Details',
+        buttonText: 'Add to Order',
         buttonColor: 'bg-primary text-white',
         showDetailIcon: false,
-        detailIcon: '',
-        attending: 0,
-        capacity: 0
+      },
+      {
+        imageSrc: '/assets/cafe-menu-img1.jpg',
+        category: 'Sweet Victory',
+        categoryColor: 'bg-primary text-white',
+        title: 'Wingspan',
+        price: '15 SAR',
+        priceColor: 'bg-secondary2',
+        subtitle: 'Attract birds to your wildlife preserves in this engine-building game',
+        buttonText: 'Add to Order',
+        buttonColor: 'bg-primary text-white',
+        showDetailIcon: false
       },
       {
         imageSrc: '/assets/cafe-menu-img1.jpg',
         category: 'Customer Favorite',
-        categoryIcon: '',
         categoryColor: 'bg-secondary text-white',
         title: 'Azul',
         price: '15 SAR',
         priceColor: 'bg-secondary2',
         subtitle: 'Create beautiful tile patterns in this elegant strategy game',
-        players: '',
-        duration: '',
-        tags: [],
-        tagColor: '',
-        gameCategory: '',
         buttonText: 'Add to Order',
         buttonColor: 'bg-primary text-white',
-        showDetailIcon: false,
-        detailIcon: '',
-        attending: 0,
-        capacity: 0
+        showDetailIcon: false
       },
       {
         imageSrc: '/assets/cafe-menu-img1.jpg',
         category: 'Jumanji Special',
-        categoryIcon: '',
         categoryColor: 'bg-primary text-white',
-        starColor: 'bg-secondary text-white',
         title: 'Wingspan',
         price: '15 SAR',
         priceColor: 'bg-secondary2',
         subtitle: 'Attract birds to your wildlife preserves in this engine-building game',
-        players: '',
-        duration: '',
-        tags: [],
-        tagColor: '',
-        gameCategory: '',
+
         buttonText: 'Add to Order',
         buttonColor: 'bg-primary text-white',
-        showDetailIcon: false,
-        detailIcon: '',
-        attending: 0,
-        capacity: 0
+        showDetailIcon: false
       }
     ];
 }

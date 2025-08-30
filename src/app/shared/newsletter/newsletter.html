@@ -1,0 +1,22 @@
+<div class="newsletter-container bg-white2 w-100 d-flex flex-column justify-content-center p-5 rounded-20 gap-4">
+  <div class="newsletter-header d-flex flex-column justify-content-center align-items-center gap-2">
+    <span class="newsletter-icon rounded-pill d-flex align-items-center justify-content-center fs-24" [ngClass]="iconColor">
+      <i [class]="icon"></i>
+    </span>
+    <h3 class="mb-0" [ngClass]="titleColor">{{ title }}</h3>
+    <p class="mb-0 text-center" [ngClass]="subtitleColor">{{ subtitle }}</p>
+  </div>
+  <form class="newsletter-form w-100 d-flex gap-3">
+    <input type="email" class="p-3 text-white" [placeholder]="fieldPlaceholder" />
+    <button type="submit" class="py-3 px-4 gradient-bg text-white">
+      <i *ngIf="buttonIcon" [class]="buttonIcon"></i>
+      {{ buttonName }}
+    </button>
+  </form>
+  <div class="newsletter-below d-flex align-items-center justify-content-center flex-wrap">
+  <span *ngFor="let item of belowItems" class="newsletter-below-item text-white2 d-flex justify-content-center align-items-center gap-2">
+    <i [class]="item.icon" [ngClass]="item.iconColor"></i>
+    {{ item.text }}
+  </span>
+</div>
+</div>

@@ -17,6 +17,7 @@ export class HeadingSectionComponent {
   @Input() highlight: string = '';
   @Input() highlightColor: string = 'gradient-text';
   @Input() subtitle: string = '';
+  @Input() subtitleColor: string = 'text-color2';
   @Input() iconLeftColor: string = '';
   @Input() iconRightColor: string = '';
   @Input() iconLeftType: 'material' | 'bootstrap' = 'bootstrap';

@@ -2,9 +2,9 @@
     <div class="col-12 col-md-12 col-lg-9 col-xl-6 heading-section d-flex flex-column align-items-center text-center py-4">
         <div class="d-flex align-items-center justify-content-center mb-3">
             <!-- Left Icon/Image -->
-            <ng-container *ngIf="imgLeft">
+            <!-- <ng-container *ngIf="imgLeft">
                 <img [src]="imgLeft" alt="icon" class="heading-img me-2" />
-            </ng-container>
+            </ng-container> -->
             <ng-container *ngIf="iconLeft">
                 <i *ngIf="iconLeftType === 'material'" class="material-icons heading-icon me-2"
                     [ngClass]="iconLeftColor">{{ iconLeft }}</i>
@@ -20,9 +20,9 @@
             </h3>
 
             <!-- Right Icon/Image -->
-            <ng-container *ngIf="imgRight">
+            <!-- <ng-container *ngIf="imgRight">
                 <img [src]="imgRight" alt="icon" class="heading-img ms-2" />
-            </ng-container>
+            </ng-container> -->
             <ng-container *ngIf="iconRight">
                 <i *ngIf="iconRightType === 'material'" class="material-icons heading-icon ms-2"
                     [ngClass]="iconRightColor">{{ iconRight }}</i>
@@ -35,7 +35,7 @@
         <div class="gradient-line"></div>
 
         <!-- Subtitle -->
-        <div class="d-flex align-items-center justify-content-center subtitle mt-4">
+        <div class="d-flex align-items-center justify-content-center subtitle mt-4 fs-5" [ngClass]="subtitleColor">
             <span>{{ subtitle }}</span>
         </div>
     </div>

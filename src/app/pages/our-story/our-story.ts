@@ -92,7 +92,7 @@ export class OurStory {
       iconBgColor: 'bg-primary2',
       titleColor: 'text-primary',
       textColor: '',
-      cardBgColor: 'bg-white'
+      cardBgColor: 'bg-white shadow-sm'
     },
     {
       iconType: 'bootstrap',
@@ -103,7 +103,7 @@ export class OurStory {
       iconBgColor: 'bg-secondary2',
       titleColor: 'text-secondary',
       textColor: '',
-      cardBgColor: 'bg-white'
+      cardBgColor: 'bg-white shadow-sm'
     }
   ];
   missionStats: StatCardType[] = [
@@ -116,7 +116,7 @@ export class OurStory {
       iconBgColor: 'bg-primary2',
       titleColor: 'text-primary',
       textColor: '',
-      cardBgColor: 'bg-white'
+      cardBgColor: 'bg-white shadow-sm'
     },
     {
       iconType: 'material',
@@ -127,7 +127,7 @@ export class OurStory {
       iconBgColor: 'bg-secondary2',
       titleColor: 'text-secondary',
       textColor: '',
-      cardBgColor: 'bg-white'
+      cardBgColor: 'bg-white shadow-sm'
     },
     {
       iconType: 'bootstrap',
@@ -138,7 +138,7 @@ export class OurStory {
       iconBgColor: 'bg-primary2',
       titleColor: 'text-primary',
       textColor: '',
-      cardBgColor: 'bg-white'
+      cardBgColor: 'bg-white shadow-sm'
     },
     {
       iconType: 'bootstrap',
@@ -149,7 +149,7 @@ export class OurStory {
       iconBgColor: 'bg-secondary2',
       titleColor: 'text-secondary',
       textColor: '',
-      cardBgColor: 'bg-white'
+      cardBgColor: 'bg-white shadow-sm'
     }
   ];
   CtaStats: StatCardType[] = [
@@ -162,7 +162,7 @@ export class OurStory {
       iconBgColor: 'bg-primary text-white',
       titleColor: 'text-white',
       textColor: 'text-white',
-      cardBgColor: '#FFFFFF1A'
+      cardBgColor: 'bg-white2 shadow-sm'
     },
     {
       iconType: 'bootstrap',
@@ -173,7 +173,7 @@ export class OurStory {
       iconBgColor: 'bg-secondary text-white',
       titleColor: 'text-white',
       textColor: 'text-white',
-      cardBgColor: '#FFFFFF1A'
+      cardBgColor: 'bg-white2 shadow-sm'
     },
     {
       iconType: 'bootstrap',
@@ -184,7 +184,7 @@ export class OurStory {
       iconBgColor: 'bg-success text-white',
       titleColor: 'text-white',
       textColor: 'text-white',
-      cardBgColor: '#FFFFFF1A'
+      cardBgColor: 'bg-white2 shadow-sm'
     }
   ];
   mediaStats: StatCardType[] = [
@@ -197,7 +197,7 @@ export class OurStory {
       iconBgColor: '',
       titleColor: 'text-info',
       textColor: '',
-      cardBgColor: 'bg-info-subtle'
+      cardBgColor: 'bg-info-subtle shadow-sm'
     },
     {
       iconType: 'material',
@@ -208,7 +208,7 @@ export class OurStory {
       iconBgColor: '',
       titleColor: 'text-success',
       textColor: '',
-      cardBgColor: 'bg-success-subtle'
+      cardBgColor: 'bg-success-subtle shadow-sm'
     },
     {
       iconType: 'bootstrap',
@@ -219,7 +219,7 @@ export class OurStory {
       iconBgColor: '',
       titleColor: 'text-primary',
       textColor: '',
-      cardBgColor: 'bg-primary5'
+      cardBgColor: 'bg-primary5 shadow-sm'
     },
     {
       iconType: 'bootstrap',
@@ -230,7 +230,7 @@ export class OurStory {
       iconBgColor: '',
       titleColor: 'text-secondary',
       textColor: '',
-      cardBgColor: 'bg-secondary5'
+      cardBgColor: 'bg-secondary5 shadow-sm'
     }
   ];
   missionCard: SimpleCardType[] = [
@@ -247,7 +247,7 @@ export class OurStory {
         { label: 'Quality Experience', color: 'bg-primary2' }
       ],
       badgeColor: 'bg-purple-light text-purple',
-      bgColor: 'bg-white'
+      bgColor: 'bg-white shadow-sm'
     },
     {
       title: 'Our Vission',
@@ -262,7 +262,7 @@ export class OurStory {
         { label: 'Community Growth', color: 'bg-secondary2' }
       ],
       badgeColor: 'bg-purple-light text-purple',
-      bgColor: 'bg-white'
+      bgColor: 'bg-white shadow-sm'
     }
   ];
   highlightCards: ImageShowcaseCardData[] = [

@@ -1,0 +1,20 @@
+$last-bg: url('/assets/testimonial-bg-img.jpg');
+.stat-row{
+  max-width: 800px;
+  width: 100%;
+  @media screen and (max-width: 992px) and (min-width: 767px) {
+    max-width: 600px;
+  }
+  @media screen and (max-width: 767px) {
+    max-width: 100%;
+  }
+}
+
+.angular-gradient-purple{
+.overlay {
+  background: $last-bg center center/cover no-repeat;
+  z-index: 0;
+  opacity: 0.2;
+  pointer-events: none;
+}
+}

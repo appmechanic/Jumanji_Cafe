@@ -103,6 +103,16 @@ h4 {
   border-radius: 20px !important;
 }
 
+.fs-5 {
+  font-size: 1.25rem !important;
+  line-height: 1.7rem !important;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.13rem !important;
+    line-height: 1.5rem !important;
+  }
+}
+
 .fs-18 {
   font-size: 18px !important;
 }
@@ -144,6 +154,28 @@ h4 {
   background: linear-gradient(to right, $primary 30%, $secondary 100%);
 }
 
+.border-gradient {
+  position: relative;
+  border-radius: 20px !important;
+  z-index: 1;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px; // border width
+    background: linear-gradient(to right, #8154A2 30%, #FFC713 100%);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 2;
+  }
+}
 
 .angular-gradient-purple {
   background: conic-gradient(from 211.52deg at 56.95% 56.46%,
@@ -151,7 +183,9 @@ h4 {
       #8154A2 180deg,
       #000000 360deg);
 }
-
+.linear-gradient-purple {
+  background: linear-gradient(135deg, #581C87 0%, #000000 50%, #6B21A8 100%);
+}
 .bg-primary2 {
   background-color: #E2D7EA;
   color: $primary;
@@ -166,14 +200,17 @@ h4 {
   background-color: $primary;
   color: #fafafa;
 }
-.bg-primary5{
+
+.bg-primary5 {
   background: #EEE7F3;
 
 }
+
 .bg-semantic {
   background-color: #2E90FA33;
+
   &:hover {
-      background-color: #2E90FA33;
+    background-color: #2E90FA33;
   }
 }
 
@@ -210,9 +247,13 @@ h4 {
 .text-white2 {
   color: #fafafa;
 }
-.main{
+.bg-white2{
+  background-color: #FFFFFF1A;
+}
+.main {
   margin-top: 66px;
 }
+
 .custom-spacing {
   position: relative;
   overflow: hidden;

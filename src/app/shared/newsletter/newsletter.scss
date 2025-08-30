@@ -1,0 +1,28 @@
+
+.newsletter-icon {
+  width: 60px;
+  height: 60px;
+}
+.newsletter-form {
+
+  input {
+    flex: 1;
+    border-radius: 8px;
+    border: 1px solid #858585;
+    background: rgba(74, 74, 74, 1);
+    &:focus {
+      outline: none;
+    }
+    &::placeholder{
+      color: #fff;
+    }
+  }
+  button{
+    outline: none;
+    border: none;
+    border-radius: 8px;
+  }
+}
+.newsletter-below{
+  gap: 10px 40px
+}

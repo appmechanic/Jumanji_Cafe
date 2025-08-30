@@ -1,0 +1,87 @@
+<div class="container-fluid w-full py-5 linear-gradient-purple position-relative main">
+  <div class="row justify-content-center">
+    <div class="col-11 col-md-10 col-lg-10 col-xl-9">
+      <app-heading-section iconLeft="support_agent" iconLeftType="material" iconLeftColor="bg-primary2" iconRight=""
+        iconRightType="material" iconRightColor="bg-primary2" title="" highlight="Get in Touch"
+        highlightColor="gradient-text" subtitleColor="text-white"
+        subtitle="Whether you're planning your next game night, booking a team event, or just saying hello — we'd love to hear from you.">
+      </app-heading-section>
+    </div>
+    <div class="stat-row">
+      <div class="row g-4 d-flex align-items-stretch justify-content-center">
+        <div class="col-6 col-sm-5 col-md-4 col-lg-3" *ngFor="let stat of heroStats">
+          <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+            [textColor]="stat.textColor" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
+            [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor">
+          </app-stat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- form section -->
+<div class="container my-5">
+  <div class="row py-5 align-items-stretch gap-5 gap-lg-0">
+    <div class="col-12 col-lg-6">
+      <app-contact-form [title]="'Send Us'" [highlight]="'a Message'" [highlightColor]="'gradient-text'"
+        [titleIcon]="'bi bi-envelope'" [titleIconClass]="'bg-primary2'" [fields]="[
+      { label: 'Name *', type: 'text', placeholder: 'Enter your name', icon: 'bi-person', iconClass: 'text-info' },
+      { label: 'Email *', type: 'email', placeholder: 'your.email@example.com', icon: 'bi-envelope', iconClass: 'text-info' },
+      { label: 'Phone number (Optional)', type: 'email', placeholder: '+966 XXX XXX XXXX', icon: 'bi-telephone', iconClass: 'text-info' },
+      { label: 'Message *', type: 'message', placeholder: 'Tell us about your inquiry, event planning needs, or any questions you have...', icon: 'bi-chat-dots', iconClass: 'text-info' }
+      ]" [belowItems]="[
+        { text: 'Secure & Private', icon: 'bi-shield-check', iconClass: 'text-success' },
+        { text: '24h Response', icon: 'bi-clock', iconClass: 'text-info' },
+        { text: 'Friendly Support', icon: 'bi-headset', iconClass: 'text-primary' }
+      ]"></app-contact-form>
+    </div>
+    <div class="col-12 col-lg-6">
+      <app-location-card [titleIcon]="'bi-geo-alt'" [titleIconClass]="'bg-primary2'" [title]="'Visit'"
+        [highlight]="'Our Cafe'" [subTitle]="'Find us in the heart of Jeddah'" [highlightColor]="'gradient-text'"
+        [content]="[
+          { icon: 'bi-geo-alt', iconClass: 'bg-secondary2', label: 'Jumanji Cafe, Riyadh', Text: '123 Main St, Riyadh, Saudi Arabia' },
+          { icon: 'bi-telephone', iconClass: 'bg-primary2', label: 'Phone', Text: '+966 XXX XXX XXX' },
+          { icon: 'bi-envelope', iconClass: 'bg-secondary2', label: 'Email', Text: 'info@jumanji.sa' }
+        ]"
+        [iframeSrc]="'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.491779886395!2d39.15329637600109!3d21.566718769083142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d075133f23b3%3A0x643f18959e4bbc0f!2sAl%20Kayal%2C%20Ar%20Rawdah%2C%20Jeddah%20Saudi%20Arabia!5e0!3m2!1sen!2sin!4v1756558267881!5m2!1sen!2sin'"
+        [buttonLink]="'https://maps.app.goo.gl/yNNi4vyPuPwpYRqr6'">
+      </app-location-card>
+    </div>
+  </div>
+</div>
+<!-- newsletter section -->
+<div class="linear-gradient-purple w-full py-5 angular-gradient-purple position-relative">
+  <div class="container w-full">
+    <div class="row justify-content-center pt-5  position-relative" style="z-index: 1;">
+      <div class="col-12">
+        <app-heading-section iconLeft="bi-suit-heart" iconLeftType="bootstrap" iconLeftColor="bg-primary2" iconRight=""
+          iconRightType="material" iconRightColor="bg-primary2" title="" highlight="Follow Our Adventure"
+          highlightColor="gradient-text" subtitleColor="text-white"
+          subtitle="Join our community across social platforms for daily game highlights, event updates, and behind-the-scenes fun! 🎮✨">
+        </app-heading-section>
+      </div>
+      <div class="row g-4 mt-0 d-flex align-items-stretch justify-content-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of AdventureStats ">
+          <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+            [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor" [titleColor]="stat.titleColor"
+            [cardBgColor]="stat.cardBgColor" [textColor]="stat.textColor">
+          </app-stat-card>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center py-5 mt-2">
+      <div class="col-12 col-lg-9">
+        <app-newsletter [icon]="'bi-envelope-open-fill'" [iconColor]="'text-white gradient-bg'"
+          [title]="'Get Latest Updates'" [titleColor]="'text-white'"
+          [subtitle]="'Subscribe to receive news about new games, upcoming events, and exclusive offers!'"
+          [subtitleColor]="'text-white2'" [fieldPlaceholder]="'Enter your email for adventure updates ✨'"
+          [buttonIcon]="'bi-send-fill'" [buttonName]="'Subscribe'" [belowItems]="[
+            { icon: 'bi-shield-check', iconColor: 'text-secondary', text: 'No spam, ever' },
+            { icon: 'bi-calendar-week', iconColor: 'text-info', text: 'Weekly updates' },
+            { icon: 'bi-star-fill', iconColor: 'text-secondary', text: 'Exclusive offers' }
+          ]"></app-newsletter>
+      </div>
+    </div>
+  </div>
+</div>

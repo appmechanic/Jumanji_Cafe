@@ -1,0 +1,36 @@
+<div
+    class="location-card-container bg-white w-100 d-flex flex-column rounded-20 gap-4 shadow-sm h-100">
+
+    <div class="location-card-header d-flex flex-column justify-content-center align-items-center gap-3">
+        <div class="d-flex flex-row align-items-center justify-content-center gap-3">
+            <span class="location-card-icon rounded-pill d-flex align-items-center justify-content-center fs-24"
+                [ngClass]="titleIconClass">
+                <i [class]="titleIcon"></i>
+            </span>
+            <h4 class="mb-0" class="title fw-600">
+                <span>{{ title }}</span>
+                <span [ngClass]="highlightColor" class="ms-2">{{ highlight }}</span>
+            </h4>
+        </div>
+        <p>{{ subTitle }}</p>
+    </div>
+    <div class="location-card-content d-flex flex-column gap-4">
+        <ng-container *ngFor="let item of content">
+            <div class="d-flex flex-row align-items-center gap-3">
+                <i class="rounded-pill fs-5 d-flex align-items-center justify-content-center" [class]="item.icon" [ngClass]="item.iconClass"></i>
+                <div>
+                    <label class="fw-600 text-color2">{{ item.label }}</label>
+                    <div class="text-color2">{{ item.Text }}</div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div *ngIf="safeIframeSrc" class="location-card-map mt-3 position-relative" style="min-height: 250px;">
+        <iframe [src]="safeIframeSrc" width="100%" height="250" class="w-100"></iframe>
+        <button *ngIf="buttonLink" type="button"
+            class="shadow-sm px-2 bg-white text-primary fw-600 gap-2 d-flex align-items-center justify-content-center position-absolute"
+            (click)="openLink()">
+            <i class="bi-box-arrow-up-right fw-600"></i> Get Directions
+        </button>
+    </div>
+</div>

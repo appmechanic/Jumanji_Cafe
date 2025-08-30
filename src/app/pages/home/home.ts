@@ -106,7 +106,7 @@ export class Home implements OnInit {
       borderColor: "border-primary",
       iconBgColor: "bg-primary2",
       titleColor: "text-primary",
-      cardBgColor:"bg-white",
+      cardBgColor:"bg-white shadow-sm",
       subtitle: "",
       subtitleColor: ""
     },
@@ -120,7 +120,7 @@ export class Home implements OnInit {
       borderColor: "border-secondary",
       iconBgColor: "bg-secondary2",
       titleColor: "text-secondary",
-      cardBgColor:"bg-white",
+      cardBgColor:"bg-white shadow-sm",
       subtitle: "",
       subtitleColor: ""
     },
@@ -134,7 +134,7 @@ export class Home implements OnInit {
       borderColor: "border-primary",
       iconBgColor: "bg-primary2",
       titleColor: "text-primary",
-      cardBgColor:"bg-white",
+      cardBgColor:"bg-white shadow-sm",
       subtitle: "",
       subtitleColor: ""
     },
@@ -148,7 +148,7 @@ export class Home implements OnInit {
       borderColor: "border-secondary",
       iconBgColor: "bg-secondary2",
       titleColor: "text-secondary",
-      cardBgColor:"bg-white",
+      cardBgColor:"bg-white shadow-sm",
       subtitle: "",
       subtitleColor: ""
     }
@@ -164,7 +164,7 @@ export class Home implements OnInit {
       borderColor: "border-none",
       iconBgColor: "bg-primary4",
       titleColor: "",
-      cardBgColor:"bg-semantic",
+      cardBgColor:"bg-semantic shadow-sm",
       subtitle: "Board Games",
       subtitleColor: "text-white2"
     },
@@ -206,7 +206,7 @@ export class Home implements OnInit {
       borderColor: "border-none",
       iconBgColor: "bg-primary4",
       titleColor: "",
-      cardBgColor:"bg-semantic",
+      cardBgColor:"bg-semantic ",
       subtitle: "Learn about us",
       subtitleColor: "text-white2"
     }
@@ -222,7 +222,7 @@ export class Home implements OnInit {
       borderColor: 'border-none',
       iconBgColor: 'bg-secondary2',
       titleColor: 'text-secondary',
-      cardBgColor: 'bg-white',
+      cardBgColor: 'bg-white shadow-sm',
       subtitle: "",
       subtitleColor: ""
     },
@@ -236,7 +236,7 @@ export class Home implements OnInit {
       borderColor: 'border-none',
       iconBgColor: 'bg-primary2',
       titleColor: 'text-primary',
-      cardBgColor: 'bg-white',
+      cardBgColor: 'bg-white shadow-sm',
       subtitle: "",
       subtitleColor: ""
     }
@@ -252,7 +252,7 @@ export class Home implements OnInit {
       borderColor: 'border-none',
       iconBgColor: 'bg-primary2',
       titleColor: 'text-primary',
-      cardBgColor: 'bg-white',
+      cardBgColor: 'bg-white shadow-sm',
       subtitle: 'Memories Made',
       subtitleColor: 'text-color2'
     },
@@ -266,7 +266,7 @@ export class Home implements OnInit {
       borderColor: 'border-none',
       iconBgColor: 'bg-secondary2',
       titleColor: 'text-secondary',
-      cardBgColor: 'bg-white',
+      cardBgColor: 'bg-white shadow-sm',
       subtitle: 'Epic Games',
       subtitleColor: 'text-color2'
     },
@@ -280,7 +280,7 @@ export class Home implements OnInit {
       borderColor: 'border-none',
       iconBgColor: 'bg-primary2',
       titleColor: 'text-primary',
-      cardBgColor: 'bg-white',
+      cardBgColor: 'bg-white shadow-sm',
       subtitle: 'Fun Ready',
       subtitleColor: 'text-color2'
     },
@@ -294,7 +294,7 @@ export class Home implements OnInit {
       borderColor: 'border-none',
       iconBgColor: 'bg-secondary2',
       titleColor: 'text-secondary',
-      cardBgColor: 'bg-white',
+      cardBgColor: 'bg-white shadow-sm',
       subtitle: 'Adventure',
       subtitleColor: 'text-color2'
     }

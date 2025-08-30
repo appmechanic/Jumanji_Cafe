@@ -1,0 +1,41 @@
+<div
+  class="contact-form-container bg-white w-100 d-flex flex-column rounded-20 gap-4 shadow-sm h-100">
+  <div class="contact-form-header d-flex flex-row justify-content-center align-items-center gap-3">
+    <span class="contact-form-icon rounded-pill d-flex align-items-center justify-content-center fs-24"
+      [ngClass]="titleIconClass">
+      <i [class]="titleIcon"></i>
+    </span>
+    <h5 class="mb-0" class="title fw-600">
+      <span>{{ title }}</span>
+      <span [ngClass]="highlightColor" class="ms-2">{{ highlight }}</span>
+    </h5>
+  </div>
+  <form class="contact-form w-100 d-flex flex-column gap-3">
+    <ng-container *ngFor="let field of fields">
+      <div class="d-flex align-items-center gap-2">
+        <span [ngClass]="field.iconClass"><i [class]="field.icon"></i></span>
+        <label class="fw-600 text-color2" [innerHTML]="getLabel(field)"></label>
+      </div>
+      <div class="input-group d-flex align-items-center gap-2">
+        <ng-container *ngIf="field.type === 'message'; else normalField">
+          <textarea class="p-3 w-100" [placeholder]="field.placeholder" [ngStyle]="getFieldStyles(field)" rows="4"
+            maxlength="500"></textarea>
+        </ng-container>
+        <ng-template #normalField>
+          <input [type]="field.type" class="p-3 w-100" [placeholder]="field.placeholder" />
+        </ng-template>
+      </div>
+    </ng-container>
+    <button type="submit"
+      class="p-3 gradient-bg text-white mt-3 fw-600 gap-2 d-flex align-items-center justify-content-center">
+      <i class="bi bi-send"></i> Send Message
+    </button>
+  </form>
+  <div class="contact-form-below d-flex align-items-center justify-content-center flex-wrap">
+    <span *ngFor="let item of belowItems"
+      class="contact-form-below-item text-color2 d-flex justify-content-center align-items-center gap-2">
+      <i [class]="item.icon" [ngClass]="item.iconClass"></i>
+      {{ item.text }}
+    </span>
+  </div>
+</div>

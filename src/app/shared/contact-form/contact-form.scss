@@ -1,0 +1,57 @@
+.contact-form-container {
+  padding: 40px 30px
+}
+
+.title {
+  font-size: 28px;
+
+  @media screen and (max-width: 992px) {
+    font-size: 24px;
+  }
+}
+
+.contact-form-icon {
+  width: 60px;
+  height: 60px;
+
+  @media screen and (max-width: 767px) {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+.contact-form {
+  .input-group {
+
+    textarea,
+    input {
+      border: none;
+      outline: none;
+      flex: 1;
+      background-color: #fafafa;
+      border-radius: 12px;
+    }
+  }
+
+  button {
+    border-radius: 12px;
+    outline: none;
+    border: none;
+  }
+
+  textarea.form-control {
+    min-height: 100px;
+    white-space: pre-line;
+    resize: vertical;
+  }
+
+  textarea.form-control::placeholder {
+    white-space: pre-line;
+    word-break: break-word;
+  }
+}
+
+.contact-form-below {
+  gap: 10px 30px;
+}
