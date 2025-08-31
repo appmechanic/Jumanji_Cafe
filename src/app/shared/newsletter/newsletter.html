@@ -6,9 +6,9 @@
     <h3 class="mb-0" [ngClass]="titleColor">{{ title }}</h3>
     <p class="mb-0 text-center" [ngClass]="subtitleColor">{{ subtitle }}</p>
   </div>
-  <form class="newsletter-form w-100 d-flex gap-3">
-    <input type="email" class="p-3 text-white" [placeholder]="fieldPlaceholder" />
-    <button type="submit" class="py-3 px-4 gradient-bg text-white">
+  <form class="newsletter-form w-100 d-flex align-items-center justify-content-center flex-wrap gap-3">
+    <input type="email" class=" text-white" [placeholder]="fieldPlaceholder" />
+    <button type="submit" class=" gradient-bg text-white">
       <i *ngIf="buttonIcon" [class]="buttonIcon"></i>
       {{ buttonName }}
     </button>
