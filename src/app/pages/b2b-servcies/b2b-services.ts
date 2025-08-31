@@ -6,6 +6,7 @@ import { ShowcaseCardComponent, ListItem } from '../../shared/showcase-card/show
 import { CtaSectionComponent } from '../../shared/CTA-Section/CTA-Section';
 import { PrimaryButtonComponent } from '../../shared/buttons/primary-button/primary-button';
 import { GhostButtonComponent } from '../../shared/buttons/ghost-button/ghost-button';
+import { TestimonialCard } from '../../shared/testimonial-card/testimonial-card';
 
 export type StatCardType = {
   iconType: "material" | "bootstrap";
@@ -51,6 +52,18 @@ export type ShowcaseCardType = {
   capacity: number;
   listItems?: ListItem[];
 };
+export interface Testimonial {
+  quote: string;
+  showInvertedCommas: boolean;
+  rating: number;
+  name: string;
+  role: string;
+  location?: string;
+  imageSrc: string;
+  showCheckIcon: boolean;
+  icon: string;
+  cardClass: string;
+}
 @Component({
   selector: 'app-b2b-services',
   standalone: true,
@@ -61,6 +74,7 @@ export type ShowcaseCardType = {
     ShowcaseCardComponent,
     CtaSectionComponent,
     PrimaryButtonComponent,
+    TestimonialCard,
     GhostButtonComponent
   ],
   templateUrl: './b2b-services.html',
@@ -75,7 +89,7 @@ export class B2BServices {
       title: "200+",
       text: "Board Games",
       textColor: "text-color2",
-      borderColor: "border-primary",
+      borderColor: "border-none",
       iconBgColor: "bg-primary2",
       titleColor: "text-primary",
       cardBgColor: "bg-primary5 shadow-sm",
@@ -89,7 +103,7 @@ export class B2BServices {
       titleicon: "",
       text: "Specialty Drinks",
       textColor: "text-color2",
-      borderColor: "border-secondary",
+      borderColor: "border-none",
       iconBgColor: "bg-primary2",
       titleColor: "text-secondary",
       cardBgColor: "bg-primary5 shadow-sm",
@@ -103,7 +117,7 @@ export class B2BServices {
       title: "Daily",
       text: "Events",
       textColor: "text-color2",
-      borderColor: "border-primary",
+      borderColor: "border-none",
       iconBgColor: "bg-primary2",
       titleColor: "text-primary",
       cardBgColor: "bg-primary5 shadow-sm",
@@ -117,7 +131,7 @@ export class B2BServices {
       title: "5★",
       text: "Experience",
       textColor: "text-color2",
-      borderColor: "border-secondary",
+      borderColor: "border-none",
       iconBgColor: "bg-primary2",
       titleColor: "text-secondary",
       cardBgColor: "bg-primary5 shadow-sm",
@@ -233,6 +247,44 @@ export class B2BServices {
         { icon: 'check', content: 'Customized Team Challenges' },
         { icon: 'check', content: 'Performance Analytics' }
       ]
+    }
+  ];
+  testimonials: Testimonial[] = [
+    {
+      quote: '"Jumanji Café has become our family\'s weekend tradition! The staff is incredibly helpful in recommending games, and the atmosphere is perfect for spending quality time together. My kids always ask when we can go back!"',
+      showInvertedCommas: true,
+      rating: 4.2,
+      name: 'Ahmed Al-Rahman',
+      role: 'HR Director',
+      location: 'Tech Solutions KSA',
+      imageSrc: '/assets/testimonial-img1.jpg',
+      showCheckIcon: true,
+      icon: 'videogame_asset',
+      cardClass: 'bg-light'
+    },
+    {
+      quote: '"As a strategy game enthusiast, I\'ve finally found my paradise! The collection here is incredible, and I\'ve discovered so many new games. The coffee is excellent too - perfect fuel for those long gaming sessions."',
+      showInvertedCommas: true,
+      rating: 4,
+      name: 'Ahmed Al-Rahman',
+      role: 'HR Director',
+      location: 'Tech Solutions KSA',
+      imageSrc: '/assets/testimonial-img1.jpg',
+      showCheckIcon: true,
+      icon: 'videogame_asset',
+      cardClass: 'bg-light'
+    },
+    {
+      quote: '"I brought my team here for a corporate event, and it was amazing! The staff organized everything perfectly, and our team bonding experience was unforgettable. Highly recommended for both personal and business visits."',
+      showInvertedCommas: true,
+      rating: 5,
+      name: 'Sara Al-Mutairi',
+      role: '',
+      location: 'Jeddah',
+      imageSrc: '/assets/testimonial-img1.jpg',
+      showCheckIcon: false,
+      icon: 'videogame_asset',
+      cardClass: 'bg-light'
     }
   ];
 }

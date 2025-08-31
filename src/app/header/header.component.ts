@@ -1,12 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ThemeService } from '../theme.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  imports: [CommonModule]
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  isDarkMode: boolean = false;
+
+  constructor(private themeService: ThemeService) { }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    this.themeService.toggleTheme();
+  }
 
   ngOnInit(): void {
     const toggler = document.querySelector('.navbar-toggler');

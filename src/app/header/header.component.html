@@ -47,6 +47,10 @@
           style="width: 40px; height: 40px;">
           <i class="bi bi-person"></i>
         </span>
+        <span class="btn bg-purple text-light rounded-pill d-flex justify-content-center align-items-center"
+          style="width: 40px; height: 40px;" (click)="toggleTheme()" title="Toggle Dark/Light Mode">
+          <i class="bi" [ngClass]="{ 'bi-moon': isDarkMode, 'bi-brightness-high': !isDarkMode }"></i>
+        </span>
       </div>
     </div>
   </div>

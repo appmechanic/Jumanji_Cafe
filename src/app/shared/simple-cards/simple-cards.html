@@ -13,7 +13,7 @@
             </h4>
             </div>
             <div *ngFor="let paragraph of card.description.split('\n\n')">
-              <p class="card-text py-2">{{ paragraph }}</p>
+              <p class="card-text py-2 text-color2">{{ paragraph }}</p>
             </div>
             <div class="badges-row mt-3 d-flex gap-3 flex-wrap">
                 <span *ngFor="let badge of card.badges" class="badge fw-600 rounded-pill" [ngClass]="badge.color">{{ badge.label }}</span>
