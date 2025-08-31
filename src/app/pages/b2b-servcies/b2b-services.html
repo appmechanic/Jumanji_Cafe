@@ -1,0 +1,56 @@
+<div class="container-fluid py-5 main position-relative b2b-services">
+  <div class="overlay position-absolute top-0 start-0 w-100 h-100 linear-gradient-purple2"></div>
+  <div class="row">
+    <div class="col-12">
+      <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2"
+        iconRight="local_cafe" iconRightType="material" iconRightColor="bg-primary2" titleColor="text-white"
+        title="Corporate &" highlight="Private Events" highlightColor="gradient-text" subtitleColor="text-white"
+        subtitle="Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕">
+      </app-heading-section>
+    </div>
+  </div>
+  <div class="container mb-5 mt-4">
+    <div class="row g-4 d-flex align-items-stretch justify-content-center">
+      <div class="col-6 col-sm-5 col-md-4 col-lg-3" *ngFor="let stat of heroStats">
+        <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+          [textColor]="stat.textColor" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
+          [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor">
+        </app-stat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- services section -->
+<div class="container my-5 ">
+    <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="bg-primary2"
+        iconRight="" iconRightType="material" iconRightColor="bg-secondary2" title="Our"
+        highlight="Professional Services" highlightColor="gradient-text"
+        subtitle="Transform your corporate events with our specialized gaming experiences designed for professional development and team building.">
+    </app-heading-section>
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-lg-6 pb-4" *ngFor="let service of businessServices">
+            <app-showcase-card [imageSrc]="service.imageSrc" [category]="service.category"
+                [categoryColor]="service.categoryColor" [categoryIcon]="service.categoryIcon"
+                [badgeRight]="service.badgeRight ?? ''" [badgeRightColor]="service.badgeRightColor ?? ''"
+                [eventDate]="service.eventDate ?? ''" [eventTime]="service.eventTime ?? ''" [title]="service.title"
+                [subtitle]="service.subtitle" [attending]="service.attending" [capacity]="service.capacity"
+                [buttonText]="service.buttonText" [buttonColor]="service.buttonColor"
+                [showDetailIcon]="service.showDetailIcon" [detailIcon]="service.detailIcon"
+                [listItems]="service.listItems ?? []" [showOverlay]="true">
+            </app-showcase-card>
+        </div>
+    </div>
+</div>
+
+<!-- CTA section -->
+ <!-- CTA Section -->
+<div class="container my-5 pb-5">
+    <app-cta-section icon="bi-nut-fill gradient-text" iconBgClass=" bg-primary5" titleStart="Need a" titleHighlight="Custom Solution?"
+        description="Every organization is unique, and we love creating tailored experiences. Let's discuss your specific requirements and design the perfect package for your team.">
+        <app-primary-button primaryButton iconLeft="card_travel" iconLeft="bi-calendar2"
+            class="d-flex justify-content-center mt-2">
+            Book Free Consultation
+        </app-primary-button>
+    </app-cta-section>
+</div>

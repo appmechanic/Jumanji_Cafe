@@ -14,6 +14,7 @@ export class HeadingSectionComponent {
   @Input() imgLeft: string = '';
   @Input() imgRight: string = '';
   @Input() title: string = '';
+  @Input() titleColor: string = 'sub-title-color';
   @Input() highlight: string = '';
   @Input() highlightColor: string = 'gradient-text';
   @Input() subtitle: string = '';

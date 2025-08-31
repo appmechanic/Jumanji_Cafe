@@ -1,5 +1,6 @@
 <div class="row justify-content-center">
-    <div class="col-12 col-md-12 col-lg-9 col-xl-6 heading-section d-flex flex-column align-items-center text-center py-4">
+    <div
+        class="col-12 col-md-12 col-lg-9 col-xl-6 heading-section d-flex flex-column align-items-center text-center py-4">
         <div class="d-flex align-items-center justify-content-center mb-3">
             <!-- Left Icon/Image -->
             <!-- <ng-container *ngIf="imgLeft">
@@ -14,10 +15,10 @@
 
             <!-- Title -->
             <h3 class="fw-600 m-0 d-flex align-items-center justify-content-center flex-wrap">
-  <ng-content select="[before-title]"></ng-content>
-  <span>{{ title }}</span>
-  <span [ngClass]="highlightColor" class="ms-2">{{ highlight }}</span>
-</h3>
+                <ng-content select="[before-title]"></ng-content>
+                <span [ngClass]="titleColor">{{ title }}</span>
+                <span [ngClass]="highlightColor" class="ms-2">{{ highlight }}</span>
+            </h3>
             <!-- Right Icon/Image -->
             <!-- <ng-container *ngIf="imgRight">
                 <img [src]="imgRight" alt="icon" class="heading-img ms-2" />

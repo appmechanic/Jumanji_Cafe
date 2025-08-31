@@ -1,0 +1,10 @@
+$b2b-bg: url('/assets/bg-img2.jpg');
+
+.b2b-services {
+  background-image: $b2b-bg;
+  z-index: 99;
+  .overlay{
+    opacity: 0.95;
+    z-index: -1;
+  }
+}
