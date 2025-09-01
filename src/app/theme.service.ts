@@ -5,13 +5,9 @@ export class ThemeService {
   private darkMode = false;
 
   constructor() {
-    const saved = localStorage.getItem('darkMode');
+    const saved = sessionStorage.getItem('darkMode');
     this.darkMode = saved === 'true';
     this.applyTheme();
-
-    window.addEventListener('beforeunload', () => {
-      localStorage.removeItem('darkMode');
-    });
   }
 
   isDarkMode(): boolean {
@@ -20,7 +16,7 @@ export class ThemeService {
 
   toggleTheme(): void {
     this.darkMode = !this.darkMode;
-    localStorage.setItem('darkMode', String(this.darkMode));
+    sessionStorage.setItem('darkMode', String(this.darkMode));
     this.applyTheme();
   }
 
