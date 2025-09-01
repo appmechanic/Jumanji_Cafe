@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { StatCardComponent } from '../stat-card/stat-card'; 
 import { PrimaryButtonComponent } from '../buttons/primary-button/primary-button';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-story-section',
@@ -30,20 +30,4 @@ export class StorySectionComponent {
   @Input() buttons: any[] = [];
 
 
-  // @Input() stats!: Array<{
-  //   iconType: 'material' | 'bootstrap';
-  //   icon: string;
-  //   title: string;
-  //   text: string;
-  //   borderColor: string;
-  //   iconBgColor: string;
-  //   titleColor: string;
-  //   cardBgColor: string;
-  // }>;
-
-  //   @Input() buttons!: Array<{
-  //   iconLeft?: string;
-  //   iconRight?: string;
-  //   text: string;
-  // }>;
 }

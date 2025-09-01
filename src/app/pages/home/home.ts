@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { HeroSectionComponent } from '../../shared/hero-section/hero-section';
 import { PrimaryButtonComponent } from '../../shared/buttons/primary-button/primary-button';
 import { GhostButtonComponent } from '../../shared/buttons/ghost-button/ghost-button';
@@ -13,6 +13,8 @@ import { CtaSectionComponent } from '../../shared/CTA-Section/CTA-Section';
 import { BgGradientComponent } from '../../shared/bg-gradient/bg-gradient';
 import { CommonModule } from '@angular/common';
 import { TestimonialSliderComponent } from "../../shared/testimonial-slider/testimonial-slider";
+import { I18nService } from '../../i18n.service';
+import { Subscription } from 'rxjs';
 
 export type StatCardType = {
   iconType: "material" | "bootstrap";
@@ -63,26 +65,25 @@ export type ShowcaseCardType = {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    CommonModule,
-    HeroSectionComponent,
-    PrimaryButtonComponent,
-    GhostButtonComponent,
-    StatCardComponent,
-    StorySectionComponent,
-    HeadingSectionComponent,
-    Image360ViewerComponent,
-    ShowcaseCardComponent,
-    SliderComponent,
-    FilterComponent,
-    CtaSectionComponent,
-    BgGradientComponent,
-    TestimonialSliderComponent
+imports: [
+  HeroSectionComponent,
+  PrimaryButtonComponent,
+  GhostButtonComponent,
+  StatCardComponent,
+  StorySectionComponent,
+  HeadingSectionComponent,
+  Image360ViewerComponent,
+  ShowcaseCardComponent,
+  SliderComponent,
+  FilterComponent,
+  CtaSectionComponent,
+  BgGradientComponent,
+  TestimonialSliderComponent
 ],
   templateUrl: './home.html',
   styleUrls: ['./home.scss']
 })
-export class Home implements OnInit {
+export class Home implements OnInit, OnDestroy {
   selectedIndex = 0;
   
   // Game filter configuration - specifically filters by tags
@@ -633,14 +634,23 @@ export class Home implements OnInit {
   ];
 
   sliderVisibleCount: number = 3;
+  homeText: any = {};
+  langSub!: Subscription;
+
+  constructor(private i18n: I18nService) {}
+
   ngOnInit() {
     this.filteredGames = [...this.featuredGames];
     this.updateSliderVisibleCount();
+    this.loadTranslations();
+    // Subscribe to language change
+    this.langSub = this.i18n.langChanged$.subscribe(() => {
+      this.loadTranslations();
+    });
   }
-  
-  @HostListener('window:resize')
-  onResize() {
-    this.updateSliderVisibleCount();
+
+  ngOnDestroy() {
+    this.langSub?.unsubscribe();
   }
 
   updateSliderVisibleCount() {
@@ -656,5 +666,16 @@ export class Home implements OnInit {
 
   onGamesFilteredDataChange(filteredData: ShowcaseCardType[]): void {
     this.filteredGames = filteredData;
+  }
+
+  loadTranslations() {
+    this.homeText = this.i18n.t('home');
+    // Optionally reload other translated arrays if needed
+  }
+
+  // Example: call this method when language changes globally
+  onLanguageChanged() {
+    this.loadTranslations();
+    // If you need to reload other data, do it here
   }
 }

@@ -1,8 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef, Inject } from '@angular/core';
 import { ThemeService } from '../theme.service';
 import { CommonModule } from '@angular/common';
-import { I18nService } from '../../app/services/i18n.service';
-
+import{I18nService} from '../i18n.service'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -34,8 +33,7 @@ export class HeaderComponent implements OnInit {
       await this.i18n.setLang(lang); 
       this.currentLang = lang;
       await this.loadNavLinks();
-      this.cdr.detectChanges(); 
-      
+      this.cdr.detectChanges();  
     }
   }
 
@@ -45,6 +43,9 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.currentLang = this.i18n.getCurrentLang(); 
+    this.loadNavLinks();
+
     const toggler = document.querySelector('.navbar-toggler');
     toggler?.addEventListener('click', () => {
       const barsIcon = toggler.querySelector('[data-icon="bars"]');

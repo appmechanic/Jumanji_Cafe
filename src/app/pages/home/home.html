@@ -4,26 +4,20 @@
         <div class="row justify-content-center">
             <div class="col-12 custom-col-width">
                 <div class="hero-section-wrapper">
-                    <app-hero-section [titleParts]="[
-                            { text: 'Welcome to ', class: '' },
-                            { text: 'Jumanji ', class: 'text-primary' },
-                            { text: 'Café', class: 'text-secondary' }
-                        ]" [subtitleParts]="[
-                            { text: 'Experience the ultimate board game café adventure in the heart of ', class: '' },
-                            { text: 'Jeddah ', class: 'text-primary' },
-                            { text: ' . Where games come to life and memories are made! ', class: '' }
-                        ]">
+                    <app-hero-section 
+                      [titleParts]="homeText.hero?.titleParts"
+                      [subtitleParts]="homeText.hero?.subtitleParts">
                     </app-hero-section>
                     <div class="row hero-buttons justify-content-center align-items-center gap-4 flex-wrap mt-5">
                         <div class="col-auto">
                             <app-primary-button iconLeft="bi-fork-knife">
-                                Explore Our Menu
+                              {{ homeText.hero?.exploreMenuBtn }}
                             </app-primary-button>
                         </div>
 
                         <div class="col-auto">
                             <app-ghost-button iconLeft="videogame_asset">
-                                Browse Games
+                              {{ homeText.hero?.browseGamesBtn }}
                             </app-ghost-button>
                         </div>
                     </div>
@@ -45,14 +39,15 @@
 <div class="story-section container my-5 mb-0">
     <div class="row justify-content-center">
         <div class="col-12">
-            <app-story-section [imageSrc]="'/assets/sec2-img.jpg'" [textOverImage1]="'Best Experience'"
-                [textOverImage1BgColor]="'gradient-bg'" [textOverImage1Color]="'text-white'"
-                [icon1]="'favorite'" [titleicon]="'sports_esports'" [iconType]="'material'"
-                [titleParts]="['About ', 'Jumanji']" [description]="[
-                    'At Jumanji Café, we believe that the best adventures happen when people come together. Our mission is to create unforgettable experiences through the magic of board games, exceptional coffee, and genuine connections.',
-                    'Whether you\'re a seasoned gamer or just discovering the joy of tabletop adventures, our welcoming space in the heart of Jeddah is designed to bring out the child in everyone. Every game tells a story, and every visit creates memories that last a lifetime.'
-                ]" [stats]="storyStats" [buttons]="[{ iconRight: 'bi bi-arrow-right', text: 'Read Our Story' }]">
-
+            <app-story-section 
+              [imageSrc]="'/assets/sec2-img.jpg'"
+              [icon1]="homeText.story?.icon1"
+              [textOverImage1]="homeText.story?.textOverImage1"
+              [textOverImage1BgColor]="homeText.story?.textOverImage1BgColor"
+              [titleParts]="homeText.story?.titleParts"
+              [description]="homeText.story?.description"
+              [stats]="storyStats"
+              [buttons]="[{ iconRight: 'bi bi-arrow-right', text: homeText.story?.readStoryBtn }]">
             </app-story-section>
         </div>
     </div>

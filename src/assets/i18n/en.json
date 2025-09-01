@@ -1,4 +1,3 @@
-
 {
   "header": {
     "navLinks": [
@@ -9,5 +8,94 @@
       { "label": "B2B Services", "url": "/b2b-services" },
       { "label": "Contact Us", "url": "/contact-us" }
     ]
+  },
+  "home": {
+    "hero": {
+      "titleParts": [
+        { "text": "Welcome to ", "class": "" },
+        { "text": "Jumanji ", "class": "text-primary" },
+        { "text": "Café", "class": "text-secondary" }
+      ],
+      "subtitleParts": [
+        { "text": "Experience the ultimate board game café adventure in the heart of ", "class": "" },
+        { "text": "Jeddah ", "class": "text-primary" },
+        { "text": ". Where games come to life and memories are made! ", "class": "" }
+      ],
+      "exploreMenuBtn": "Explore Our Menu",
+      "browseGamesBtn": "Browse Games"
+    },
+    "story": {
+        "icon1": "favorite",
+      "textOverImage1": "Best Experience",
+      "textOverImage1BgColor": "gradient-bg",
+      "titleParts": ["About ", "Jumanji"],
+      "description": [
+        "At Jumanji Café, we believe that the best adventures happen when people come together. Our mission is to create unforgettable experiences through the magic of board games, exceptional coffee, and genuine connections.",
+        "Whether you're a seasoned gamer or just discovering the joy of tabletop adventures, our welcoming space in the heart of Jeddah is designed to bring out the child in everyone. Every game tells a story, and every visit creates memories that last a lifetime."
+      ],
+      "readStoryBtn": "Read Our Story"
+    },
+    "featuredGames": {
+      "title": "🎥 Step Inside",
+      "highlight": "Jumanji",
+      "subtitle": "Take a sneak peek into our world. Explore the café in 360° before your next visit and discover all the magical corners where adventures begin! ✨",
+      "badgeLeft": "360° Experience",
+      "badgeRight": "3 min tour"
+    },
+    "cafeMenu": {
+      "title": "Cafe",
+      "highlight": "Menu",
+      "subtitle": "Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕",
+      "viewFullMenuBtn": "View Full Menu"
+    },
+    "featuredGamesSection": {
+      "title": "Featured",
+      "highlight": "Games",
+      "subtitle": "Discover our handpicked collection of the most exciting board games. From quick party games to strategic adventures! 🎯",
+      "viewGameStoreBtn": "View Game Store"
+    },
+    "upcomingEvents": {
+      "title": "Upcoming",
+      "highlight": "Events",
+      "subtitle": "Join our exciting events and connect with fellow gamers. From tournaments to family days, there's always something magical happening! 🎉",
+      "seeAllEventsBtn": "See All Event"
+    },
+    "businessServices": {
+      "title": "Business",
+      "highlight": "Services",
+      "subtitle": "Transform your corporate events with our professional B2B services. From team building to full event hosting, we create memorable experiences that strengthen teams and celebrate success! 🏢"
+    },
+    "ctaSection": {
+      "titleStart": "Ready to Elevate Your",
+      "titleHighlight": "Team Experience?",
+      "description": "Let's discuss how our professional services can create unforgettable experiences for your team. Contact us for a customized proposal tailored to your needs.",
+      "exploreB2BBtn": "Explore B2B Services",
+      "getQuoteBtn": "Get Quote"
+    },
+    "chooseAdventure": {
+      "chooseYour": "Choose Your",
+      "adventure": "Adventure!",
+      "letFate": "Let fate decide your next gaming experience. Click the magic dice and discover something amazing!"
+    },
+    "readyToPlay": {
+      "title": "Ready to",
+      "highlight": "Play, Laugh",
+      "connect": "and Connect?",
+      "subtitle": "Your next great adventure is just a click away. Join us at Jumanji Café where every game tells a story, every laugh creates a memory, and every visit brings new friendships!",
+      "exploreMenuBtn": "Explore Our Menu",
+      "browseGamesBtn": "Browse Games",
+      "or": "OR"
+    },
+    "testimonials": {
+      "highlight": "Top Players of Jumanji",
+      "celebrate": "Celebrate our legendary players! From tournament champions to puzzle masters — see who's claimed the jungle crown.",
+      "viewHallOfFameBtn": "View Full Hall of Fame",
+      "joinCompetition": "Think you have what it takes? Join the competition! 🏆"
+    },
+    "quotes": {
+      "lifeShort": "\"Life's too short for boring games!\"",
+      "favoriteDestination": "\"Come discover why Jumanji Café is Jeddah's favorite destination for board game adventures.\"",
+      "tableWaiting": "Your table is waiting... 🪑✨"
+    }
   }
 }

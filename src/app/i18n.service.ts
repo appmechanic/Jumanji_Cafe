@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class I18nService {
   private currentLang = 'en';
   private translations: any = {};
+  langChanged$ = new Subject<void>();
 
   constructor() {
     this.loadTranslationsSync();
@@ -17,6 +19,7 @@ export class I18nService {
     this.currentLang = lang;
     await this.loadTranslations();
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    this.langChanged$.next(); // Notify subscribers
   }
 
   t(key: string): any {
@@ -29,7 +32,6 @@ export class I18nService {
   }
 
   private loadTranslationsSync() {
-    // Synchronously load translations for initial language
     const req = new XMLHttpRequest();
     req.open('GET', `assets/i18n/${this.currentLang}.json`, false);
     req.send(null);

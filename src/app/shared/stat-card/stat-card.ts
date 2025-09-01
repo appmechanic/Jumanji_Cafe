@@ -33,4 +33,5 @@ getClassNames(): string[] {
   if (this.isClass(this.borderColor)) classes.push(this.borderColor);
   return classes;
 }
+// StatCardComponent is already standalone and ready for use in standalone Angular components.
 }
