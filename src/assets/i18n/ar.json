@@ -17,85 +17,385 @@
         { "text": "كافيه", "class": "text-secondary" }
       ],
       "subtitleParts": [
-        { "text": "جرب مغامرة مقهى ألعاب اللوح النهائي في قلب ", "class": "" },
+        { "text": "اكتشف مغامرة ألعاب الطاولة الفريدة في قلب ", "class": "" },
         { "text": "جدة ", "class": "text-primary" },
-        { "text": ". حيث تأتي الألعاب إلى الحياة ويتم صنع الذكريات!", "class": "" }
+        { "text": ". حيث تنبض الألعاب بالحياة وتُصنع الذكريات!", "class": "" }
       ],
       "exploreMenuBtn": "استكشف قائمتنا",
-      "browseGamesBtn": "تصفح الألعاب"
+      "browseGamesBtn": "تصفح الألعاب",
+      "heroStats": [
+        {
+          "iconType": "material",
+          "icon": "sports_esports",
+          "titleicon": "",
+          "title": "200+",
+          "text": "ألعاب الطاولة",
+          "textColor": "text-color2",
+          "borderColor": "border-primary",
+          "iconBgColor": "bg-primary2",
+          "titleColor": "text-primary",
+          "cardBgColor": "bg-white shadow-sm",
+          "subtitle": "",
+          "subtitleColor": ""
+        },
+        {
+          "iconType": "bootstrap",
+          "icon": "bi-cup-fill",
+          "title": "50+",
+          "titleicon": "",
+          "text": "مشروبات خاصة",
+          "textColor": "text-color2",
+          "borderColor": "border-secondary",
+          "iconBgColor": "bg-secondary2",
+          "titleColor": "text-secondary",
+          "cardBgColor": "bg-white shadow-sm",
+          "subtitle": "",
+          "subtitleColor": ""
+        },
+        {
+          "iconType": "bootstrap",
+          "icon": "bi-people-fill",
+          "titleicon": "",
+          "title": "يوميًا",
+          "text": "فعاليات",
+          "textColor": "text-color2",
+          "borderColor": "border-primary",
+          "iconBgColor": "bg-primary2",
+          "titleColor": "text-primary",
+          "cardBgColor": "bg-white shadow-sm",
+          "subtitle": "",
+          "subtitleColor": ""
+        },
+        {
+          "iconType": "material",
+          "icon": "favorite",
+          "titleicon": "",
+          "title": "5★",
+          "text": "تجربة",
+          "textColor": "text-color2",
+          "borderColor": "border-secondary",
+          "iconBgColor": "bg-secondary2",
+          "titleColor": "text-secondary",
+          "cardBgColor": "bg-white shadow-sm",
+          "subtitle": "",
+          "subtitleColor": ""
+        }
+      ]
     },
     "story": {
+      "icon1": "favorite",
       "textOverImage1": "أفضل تجربة",
-        "icon1": "favorite",
-        "textOverImage1BgColor": "gradient-bg",
+      "textOverImage1BgColor": "gradient-bg",
+      "titleicon": "sports_esports",
+      "iconType": "material",
       "titleParts": ["عن ", "جومانجي"],
       "description": [
-        "في جومانجي كافيه، نؤمن أن أفضل المغامرات تحدث عندما يجتمع الناس معًا. مهمتنا هي خلق تجارب لا تُنسى من خلال سحر ألعاب الطاولة والقهوة المميزة والعلاقات الحقيقية.",
-        "سواء كنت لاعبًا محترفًا أو تكتشف متعة الألعاب لأول مرة، فإن مساحتنا الترحيبية في قلب جدة مصممة لإحياء الطفل في داخلك. كل لعبة تروي قصة، وكل زيارة تصنع ذكريات تدوم مدى الحياة."
+        "في جومانجي كافيه، نؤمن أن أجمل المغامرات تبدأ عندما يجتمع الناس معًا. مهمتنا هي خلق تجارب لا تُنسى من خلال سحر ألعاب الطاولة، والقهوة المميزة، والعلاقات الإنسانية الحقيقية.",
+        "سواء كنت من عشاق ألعاب الطاولة أو تجربها لأول مرة، فإن أجواءنا الترحيبية في قلب جدة مصممة لإحياء روح المرح في داخلك. كل لعبة تروي قصة، وكل زيارة تصنع ذكرى تدوم مدى الحياة."
+      ],
+      "storyStats": [
+        {
+          "iconType": "material",
+          "icon": "favorite",
+          "titleicon": "favorite",
+          "title": "5",
+          "text": "تجربة",
+          "textColor": "text-color2",
+          "borderColor": "border-none",
+          "iconBgColor": "bg-secondary2",
+          "titleColor": "text-secondary",
+          "cardBgColor": "bg-white shadow-sm",
+          "subtitle": "",
+          "subtitleColor": ""
+        },
+        {
+          "iconType": "bootstrap",
+          "icon": "bi-star-fill",
+          "titleicon": "",
+          "title": "رفيع المستوى",
+          "text": "جودة",
+          "textColor": "text-color2",
+          "borderColor": "border-none",
+          "iconBgColor": "bg-primary2",
+          "titleColor": "text-primary",
+          "cardBgColor": "bg-white shadow-sm",
+          "subtitle": "",
+          "subtitleColor": ""
+        }
       ],
       "readStoryBtn": "اقرأ قصتنا"
     },
-    "featuredGames": {
-      "title": "🎥 جولة داخلية",
+    "360": {
+      "title": "🎥 جولة افتراضية",
       "highlight": "جومانجي",
-      "subtitle": "خذ نظرة خاطفة على عالمنا. استكشف المقهى بزاوية 360° قبل زيارتك القادمة واكتشف كل الزوايا السحرية حيث تبدأ المغامرات! ✨",
-      "badgeLeft": "تجربة 360°",
-      "badgeRight": "جولة لمدة 3 دقائق"
+      "subtitle": "استكشف عالمنا من الداخل. خذ جولة افتراضية في المقهى واكتشف الزوايا السحرية حيث تبدأ المغامرات! ✨",
+      "badgeLeft": "تجربة 360 درجة",
+      "badgeRight": "جولة 3 دقائق",
+      "imageSrc": "/assets/360-img.jpg"
     },
-    "cafeMenu": {
-      "title": "قائمة",
-      "highlight": "المقهى",
-      "subtitle": "زود مغامرتك بمشروباتنا المميزة وأطعمتنا الشهية، المصممة لإبقائك نشيطًا خلال جلسات اللعب الملحمية! ☕",
-      "viewFullMenuBtn": "عرض القائمة كاملة"
+    "cafe-menu": {
+      "title": " مقهى",
+      "highlight": "قائمة",
+      "highlightColor": "gradient-text",
+      "subtitle": "قم بتزويد مغامراتك بمشروباتنا المصممة خصيصًا وعلاجات لذيذة ، مصممة لإبقائك على النشاط من خلال جلسات الألعاب الملحمية! . ☕",
+      "Btn": "عرض القائمة الكاملة",
+      "items": [
+        {
+          "imageSrc": "/assets/cafe-menu-img1.jpg",
+          "category": "جومانجي سبيشل",
+          "categoryIcon": "",
+          "categoryColor": "bg-primary3",
+          "title": "كتان",
+          "price": "١٥ ريال",
+          "priceColor": "bg-secondary2",
+          "subtitle": "ابنِ المستوطنات والمدن في لعبة الاستراتيجية الكلاسيكية هذه",
+          "players": "",
+          "duration": "",
+          "tags": [],
+          "tagColor": "",
+          "gameCategory": "",
+          "buttonText": "عرض التفاصيل",
+          "buttonColor": "bg-primary text-white",
+          "showDetailIcon": false,
+          "detailIcon": "",
+          "attending": 0,
+          "capacity": 0
+        },
+        {
+          "imageSrc": "/assets/cafe-menu-img1.jpg",
+          "category": "متوسط",
+          "categoryIcon": "",
+          "categoryColor": "bg-secondary4",
+          "title": "أزول",
+          "price": "١٥ ريال",
+          "priceColor": "bg-secondary2",
+          "subtitle": "اصنع أنماط بلاط جميلة في لعبة الاستراتيجية الأنيقة هذه",
+          "players": "",
+          "duration": "",
+          "tags": [],
+          "tagColor": "",
+          "gameCategory": "",
+          "buttonText": "عرض التفاصيل",
+          "buttonColor": "bg-primary text-white",
+          "showDetailIcon": false,
+          "detailIcon": "",
+          "attending": 0,
+          "capacity": 0
+        },
+        {
+          "imageSrc": "/assets/cafe-menu-img1.jpg",
+          "category": "متوسط",
+          "categoryIcon": "",
+          "categoryColor": "bg-primary3",
+          "starColor": "bg-secondary text-white",
+          "title": "وينغسبان",
+          "price": "١٥ ريال",
+          "priceColor": "bg-secondary2",
+          "subtitle": "اجذب الطيور إلى محمياتك الطبيعية في لعبة بناء المحركات هذه",
+          "players": "",
+          "duration": "",
+          "tags": [],
+          "tagColor": "",
+          "gameCategory": "",
+          "buttonText": "عرض التفاصيل",
+          "buttonColor": "bg-primary text-white",
+          "showDetailIcon": false,
+          "detailIcon": "",
+          "attending": 0,
+          "capacity": 0
+        },
+        {
+          "imageSrc": "/assets/cafe-menu-img1.jpg",
+          "category": "متوسط",
+          "categoryIcon": "",
+          "categoryColor": "bg-primary3",
+          "starColor": "bg-secondary text-white",
+          "title": "وينغسبان",
+          "price": "١٥ ريال",
+          "priceColor": "bg-secondary2",
+          "subtitle": "اجذب الطيور إلى محمياتك الطبيعية في لعبة بناء المحركات هذه",
+          "players": "",
+          "duration": "",
+          "tags": [],
+          "tagColor": "",
+          "gameCategory": "",
+          "buttonText": "عرض التفاصيل",
+          "buttonColor": "bg-primary text-white",
+          "showDetailIcon": false,
+          "detailIcon": "",
+          "attending": 0,
+          "capacity": 0
+        }
+      ]
     },
-    "featuredGamesSection": {
+    "featured-game": {
       "title": "الألعاب",
       "highlight": "المميزة",
-      "subtitle": "اكتشف مجموعتنا المختارة من أكثر ألعاب الطاولة إثارة. من ألعاب الحفلات السريعة إلى المغامرات الاستراتيجية! 🎯",
-      "viewGameStoreBtn": "عرض متجر الألعاب"
+      "subtitle": "اكتشف مجموعتنا المختارة من ألعاب الطاولة الأكثر إثارة. من ألعاب الحفلات السريعة إلى المغامرات الاستراتيجية! . 🎯",
+      "Btn": "قم بزيارة متجر الألعاب",
+      "items": [
+        {
+          "imageSrc": "/assets/cafe-game-img1.jpg",
+          "category": "متوسط",
+          "categoryColor": "bg-secondary5 text-secondary",
+          "categoryIcon": "",
+          "starCount": 4,
+          "starColor": "bg-secondary text-white",
+          "title": "كتان",
+          "subtitle": "ابنِ المستوطنات والمدن في لعبة الاستراتيجية الكلاسيكية هذه",
+          "players": "3-4 لاعبين",
+          "playersClass": "text-primary fw-600",
+          "durationClass": "text-secondary fw-600",
+          "duration": "60-90 دقيقة",
+          "tags": [
+            "اختيارات عائلية",
+            "ألعاب سريعة"
+          ],
+          "tagColor": "bg-primary2",
+          "gameCategory": "استراتيجية",
+          "buttonText": "عرض التفاصيل",
+          "buttonColor": "bg-primary text-white",
+          "showDetailIcon": true,
+          "detailIcon": "bi-cart",
+          "attending": 0,
+          "capacity": 0
+        },
+        {
+          "imageSrc": "/assets/cafe-game-img1.jpg",
+          "category": "سهل",
+          "categoryIcon": "",
+          "categoryColor": "bg-secondary5 text-success",
+          "starCount": 4,
+          "starColor": "bg-secondary text-white",
+          "title": "أزول",
+          "subtitle": "اصنع أنماط بلاط جميلة في لعبة الاستراتيجية الأنيقة هذه",
+          "players": "3-4 لاعبين",
+          "playersClass": "text-primary fw-600",
+          "durationClass": "text-secondary fw-600",
+          "duration": "60-90 دقيقة",
+          "tags": [
+            "اختيارات عائلية",
+            "الأعلى تقييماً"
+          ],
+          "tagColor": "bg-primary2",
+          "gameCategory": "استراتيجية",
+          "buttonText": "عرض التفاصيل",
+          "buttonColor": "bg-primary text-white",
+          "showDetailIcon": true,
+          "detailIcon": "bi-cart",
+          "attending": 0,
+          "capacity": 0
+        },
+        {
+          "imageSrc": "/assets/cafe-game-img1.jpg",
+          "category": "صعب",
+          "categoryIcon": "",
+          "categoryColor": "bg-secondary5 text-danger",
+          "starCount": 4,
+          "starColor": "bg-secondary text-white",
+          "title": "وينغسبان",
+          "subtitle": "اجذب الطيور إلى محمياتك الطبيعية في لعبة بناء المحركات هذه",
+          "players": "3-4 لاعبين",
+          "playersClass": "text-primary fw-600",
+          "durationClass": "text-secondary fw-600",
+          "duration": "60-90 دقيقة",
+          "tags": [
+            "الأعلى تقييماً"
+          ],
+          "tagColor": "bg-primary2",
+          "gameCategory": "استراتيجية",
+          "buttonText": "عرض التفاصيل",
+          "buttonColor": "bg-primary text-white",
+          "showDetailIcon": true,
+          "detailIcon": "bi-cart",
+          "attending": 0,
+          "capacity": 0
+        }
+      ]
     },
-    "upcomingEvents": {
-      "title": "القادمة",
+    "upcoming-event": {
+      "title": "القادم",
       "highlight": "الفعاليات",
-      "subtitle": "انضم إلى فعالياتنا المثيرة وتواصل مع لاعبين آخرين. من البطولات إلى أيام العائلة، هناك دائمًا شيء سحري يحدث! 🎉",
-      "seeAllEventsBtn": "عرض جميع الفعاليات"
-    },
-    "businessServices": {
-      "title": "الأعمال",
-      "highlight": "الخدمات",
-      "subtitle": "حوّل فعاليات شركتك مع خدماتنا الاحترافية للأعمال. من بناء الفرق إلى استضافة الفعاليات الكاملة، نخلق تجارب لا تُنسى تعزز الفرق وتحتفل بالنجاح! 🏢"
-    },
-    "ctaSection": {
-      "titleStart": "جاهز لتعزيز",
-      "titleHighlight": "تجربة فريقك؟",
-      "description": "دعنا نناقش كيف يمكن لخدماتنا الاحترافية أن تخلق تجارب لا تُنسى لفريقك. تواصل معنا للحصول على عرض مخصص يناسب احتياجاتك.",
-      "exploreB2BBtn": "استكشف خدمات الأعمال",
-      "getQuoteBtn": "احصل على عرض سعر"
-    },
-    "chooseAdventure": {
-      "chooseYour": "اختر",
-      "adventure": "مغامرتك!",
-      "letFate": "دع الحظ يحدد تجربتك القادمة في اللعب. اضغط على النرد السحري واكتشف شيئًا مذهلًا!"
-    },
-    "readyToPlay": {
-      "title": "جاهز لـ",
-      "highlight": "اللعب والضحك",
-      "connect": "والتواصل؟",
-      "subtitle": "مغامرتك الرائعة التالية على بعد نقرة واحدة فقط. انضم إلينا في جومانجي كافيه حيث كل لعبة تروي قصة، وكل ضحكة تصنع ذكرى، وكل زيارة تجلب صداقات جديدة!",
-      "exploreMenuBtn": "استكشف قائمتنا",
-      "browseGamesBtn": "تصفح الألعاب",
-      "or": "أو"
-    },
-    "testimonials": {
-      "highlight": "أفضل لاعبي جومانجي",
-      "celebrate": "احتفل بلاعبينا الأسطوريين! من أبطال البطولات إلى أساتذة الألغاز — شاهد من حصل على تاج الغابة.",
-      "viewHallOfFameBtn": "عرض قاعة الشهرة كاملة",
-      "joinCompetition": "هل تعتقد أن لديك ما يلزم؟ انضم إلى المنافسة! 🏆"
-    },
-    "quotes": {
-      "lifeShort": "\"الحياة أقصر من أن تلعب ألعاب مملة!\"",
-      "favoriteDestination": "\"اكتشف لماذا يُعد جومانجي كافيه الوجهة المفضلة في جدة لمغامرات ألعاب الطاولة.\"",
-      "tableWaiting": "طاولتك بانتظارك... 🪑✨"
+      "subtitle": "انضم إلى فعالياتنا المثيرة وتواصل مع لاعبين آخرين. من البطولات إلى ليالي العائلة، هناك دائمًا شيء سحري يحدث! 🎉",
+      "Btn": "عرض جميع الفعاليات",
+      "items": [
+        {
+          "imageSrc": "/assets/cafe-event-img1.jpg",
+          "category": "بطولة",
+          "categoryIcon": "",
+          "categoryColor": "bg-danger text-white",
+          "badgeRight": "دخول مجاني",
+          "badgeRightColor": "bg-light text-dark",
+          "eventDate": "Dec 15, 2024",
+          "eventTime": "7:00 PM",
+          "title": "ليلة البطولة: بطولة كتان",
+          "subtitle": "انضم إلى بطولة كتان الشهرية وتنافس على جوائز رائعة!",
+          "attending": 24,
+          "capacity": 32,
+          "buttonText": "انضم للفعالية",
+          "buttonColor": "bg-primary text-white",
+          "showDetailIcon": true,
+          "detailIcon": "share",
+          "players": "",
+          "duration": "",
+          "tags": [],
+          "tagColor": "",
+          "gameCategory": ""
+        },
+        {
+          "imageSrc": "/assets/cafe-event-img1.jpg",
+          "category": "ورشة عمل",
+          "categoryIcon": "",
+          "categoryColor": "bg-success text-white",
+          "badgeRight": "مقاعد محدودة",
+          "badgeRightColor": "bg-warning text-dark",
+          "eventDate": "Dec 20, 2024",
+          "eventTime": "5:30 PM",
+          "title": "ورشة استراتيجيات أزول",
+          "subtitle": "تعلم استراتيجيات أزول المتقدمة من أفضل اللاعبين.",
+          "attending": 12,
+          "capacity": 20,
+          "buttonText": "انضم للفعالية",
+          "buttonColor": "bg-primary text-white",
+          "showDetailIcon": true,
+          "detailIcon": "share",
+          "players": "",
+          "duration": "",
+          "tags": [],
+          "tagColor": "",
+          "gameCategory": ""
+        },
+        {
+          "imageSrc": "/assets/cafe-event-img1.jpg",
+          "category": "ليلة عائلية",
+          "categoryIcon": "",
+          "categoryColor": "bg-primary text-white",
+          "badgeRight": "",
+          "badgeRightColor": "",
+          "eventDate": "Dec 22, 2024",
+          "eventTime": "6:00 PM",
+          "title": "ليلة الألعاب العائلية",
+          "subtitle": "أحضر عائلتك لقضاء أمسية مليئة بالمرح والألعاب!",
+          "attending": 30,
+          "capacity": 40,
+          "buttonText": "انضم للفعالية",
+          "buttonColor": "bg-primary text-white",
+          "showDetailIcon": true,
+          "detailIcon": "share",
+          "players": "",
+          "duration": "",
+          "tags": [],
+          "tagColor": "",
+          "gameCategory": ""
+        }
+      ]
     }
+  },
+  "tags": {
+    "all": "الكل",
+    "family-friendly": "ملائم للعائلة",
+    "quick-games": "ألعاب سريعة",
+    "top-rated": "الأعلى تقييماً",
+    "strategy": "استراتيجية"
   }
 }

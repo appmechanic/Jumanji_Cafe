@@ -1,4 +1,4 @@
-import { Component, Input, ContentChild, TemplateRef, OnInit, AfterViewInit, ElementRef, Inject } from '@angular/core';
+import { Component, Input, ContentChild, TemplateRef, OnInit, AfterViewInit, ElementRef, Inject, SimpleChanges, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule] 
 })
-export class SliderComponent implements OnInit, AfterViewInit {
+export class SliderComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() items: any[] = [];
   @Input() visibleCount = 3;
   @ContentChild(TemplateRef) itemTemplate!: TemplateRef<any>;
@@ -26,6 +26,16 @@ export class SliderComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.displayItems = [...this.items, ...this.items.slice(0, this.visibleCount)];
     this.updateVisibleItems();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['items']) {
+      this.displayItems = [...this.items, ...this.items.slice(0, this.visibleCount)];
+      this.startIndex = 0;
+      this.translateX = 0;
+      this.currentActiveIndex = 0;
+      this.updateVisibleItems();
+    }
   }
 
   ngAfterViewInit() {
@@ -70,29 +80,31 @@ export class SliderComponent implements OnInit, AfterViewInit {
     }
   }
 
-  prev() {
+prev() {
     if (this.isAnimating) return;
-    
+
     this.isAnimating = true;
-    
-    if (this.startIndex === 0) {
-      this.startIndex = this.items.length;
-      this.translateX = -this.startIndex * this.itemWidth;
-      
-      this.el.nativeElement.offsetHeight;
-    }
-    
+
     this.startIndex--;
+    if (this.startIndex < 0) {
+      this.startIndex = this.items.length - 1;
+      this.translateX = -this.startIndex * this.itemWidth;
+      this.updateVisibleItems();
+      this.currentActiveIndex = this.startIndex;
+      setTimeout(() => {
+        this.isAnimating = false;
+      }, 500);
+      return;
+    }
+
     this.translateX = -this.startIndex * this.itemWidth;
     this.updateVisibleItems();
-    
-    this.currentActiveIndex = this.startIndex % this.items.length;
-    if (this.currentActiveIndex < 0) this.currentActiveIndex = this.items.length - 1;
+    this.currentActiveIndex = this.startIndex;
 
     setTimeout(() => {
       this.isAnimating = false;
-    }, 500); 
-  }
+    }, 500);
+}
   
   goToSlide(index: number) {
     if (this.isAnimating || index === this.currentActiveIndex) return;

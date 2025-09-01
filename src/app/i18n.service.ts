@@ -6,6 +6,7 @@ export class I18nService {
   private currentLang = 'en';
   private translations: any = {};
   langChanged$ = new Subject<void>();
+  dirChanged$ = new Subject<string>();
 
   constructor() {
     this.loadTranslationsSync();
@@ -18,8 +19,10 @@ export class I18nService {
   async setLang(lang: string) {
     this.currentLang = lang;
     await this.loadTranslations();
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    this.langChanged$.next(); // Notify subscribers
+    const dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.dir = dir;
+    this.langChanged$.next(); 
+    this.dirChanged$.next(dir); 
   }
 
   t(key: string): any {

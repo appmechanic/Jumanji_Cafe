@@ -13,11 +13,16 @@
     width: 100%;
 
     .gradient-line {
-      position: absolute;
-      bottom: -25px;
-      left: 0;
-      width: 15%;
-      height: 6px;
+        display: block;
+  width: 100px;
+  height: 4px;
+  margin-top: 8px;
+  border-radius: 2px;
+      // position: absolute;
+      // bottom: -25px;
+      // left: 0;
+      // width: 15%;
+      // height: 6px;
     }
   }
 }

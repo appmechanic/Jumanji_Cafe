@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./story-section.scss']
 })
 export class StorySectionComponent {
+  gradientDir: string = 'to right';
 @Input() imageSrc: string = '';
   @Input() textOverImage1: string = '';
   @Input() textOverImage1BgColor: string = '';

@@ -1,33 +1,25 @@
 <div class="row justify-content-center">
     <div
         class="col-12 col-md-12 col-lg-9 col-xl-6 heading-section d-flex flex-column align-items-center text-center py-4">
-        <div class="d-flex align-items-center justify-content-center mb-3">
-            <!-- Left Icon/Image -->
-            <!-- <ng-container *ngIf="imgLeft">
-                <img [src]="imgLeft" alt="icon" class="heading-img me-2" />
-            </ng-container> -->
+        <div class="d-flex align-items-center justify-content-center mb-3 gap-2">
             <ng-container *ngIf="iconLeft">
-                <i *ngIf="iconLeftType === 'material'" class="material-icons heading-icon me-2"
+                <i *ngIf="iconLeftType === 'material'" class="material-icons heading-icon"
                     [ngClass]="iconLeftColor">{{ iconLeft }}</i>
                 <i *ngIf="iconLeftType === 'bootstrap'"
-                    [ngClass]="[iconLeft, 'heading-icon', 'me-2', iconLeftColor]"></i>
+                    [ngClass]="[iconLeft, 'heading-icon', iconLeftColor]"></i>
             </ng-container>
 
             <!-- Title -->
-            <h3 class="fw-600 m-0 d-flex align-items-center justify-content-center flex-wrap">
+            <h3 class="fw-600 m-0 d-flex align-items-center justify-content-center flex-wrap gap-2">
                 <ng-content select="[before-title]"></ng-content>
                 <span [ngClass]="titleColor">{{ title }}</span>
-                <span [ngClass]="highlightColor" class="ms-2">{{ highlight }}</span>
+                <span [ngClass]="highlightColor">{{ highlight }}</span>
             </h3>
-            <!-- Right Icon/Image -->
-            <!-- <ng-container *ngIf="imgRight">
-                <img [src]="imgRight" alt="icon" class="heading-img ms-2" />
-            </ng-container> -->
             <ng-container *ngIf="iconRight">
-                <i *ngIf="iconRightType === 'material'" class="material-icons heading-icon ms-2"
+                <i *ngIf="iconRightType === 'material'" class="material-icons heading-icon "
                     [ngClass]="iconRightColor">{{ iconRight }}</i>
                 <i *ngIf="iconRightType === 'bootstrap'"
-                    [ngClass]="[iconRight, 'heading-icon', 'ms-2', iconRightColor]"></i>
+                    [ngClass]="[iconRight, 'heading-icon', iconRightColor]"></i>
             </ng-container>
         </div>
 

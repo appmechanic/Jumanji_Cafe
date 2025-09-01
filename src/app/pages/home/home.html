@@ -23,9 +23,20 @@
                     </div>
                     <div class="row mt-5 g-4 d-flex align-items-stretch justify-content-center">
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of heroStats">
-                            <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title"
-                                [text]="stat.text" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
-                                [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor">
+                            <app-stat-card 
+                                [iconType]="stat.iconType" 
+                                [icon]="stat.icon" 
+                                [title]="stat.title"
+                                [text]="stat.text" 
+                                [borderColor]="stat.borderColor" 
+                                [iconBgColor]="stat.iconBgColor"
+                                [titleColor]="stat.titleColor" 
+                                [cardBgColor]="stat.cardBgColor"
+                                [titleicon]="stat.titleicon"
+                                [subtitle]="stat.subtitle"
+                                [subtitleColor]="stat.subtitleColor"
+                                [textColor]="stat.textColor"
+                            >
                             </app-stat-card>
                         </div>
                     </div>
@@ -44,34 +55,41 @@
               [icon1]="homeText.story?.icon1"
               [textOverImage1]="homeText.story?.textOverImage1"
               [textOverImage1BgColor]="homeText.story?.textOverImage1BgColor"
+              [titleicon]="homeText.story?.titleicon"
+              [iconType]="homeText.story?.iconType"
               [titleParts]="homeText.story?.titleParts"
               [description]="homeText.story?.description"
-              [stats]="storyStats"
+              [stats]="homeText.story?.storyStats"
               [buttons]="[{ iconRight: 'bi bi-arrow-right', text: homeText.story?.readStoryBtn }]">
             </app-story-section>
         </div>
     </div>
 </div>
 
-<!-- Featured Games Section -->
+<!-- 360 section -->
 <div class="container mb-5">
-    <app-heading-section iconLeft="slideshow" iconLeftType="material" iconLeftColor="bg-primary2" title="🎥 Step Inside"
-        highlight="Jumanji" highlightColor="gradient-text"
-        subtitle="Take a sneak peek into our world. Explore the café in 360° before your next visit and discover all the magical corners where adventures begin! ✨">
+    <app-heading-section 
+        iconLeft="slideshow" 
+        iconLeftType="material" 
+        iconLeftColor="bg-primary2" 
+        [title]="homeText['360']?.title"
+        [highlight]="homeText['360']?.highlight"
+        highlightColor="gradient-text"
+        [subtitle]="homeText['360']?.subtitle">
     </app-heading-section>
-    <app-image-360-viewer [imageSrc]="'/assets/360-img.jpg'" badgeLeft="360° Experience" badgeRight="3 min tour">
+    <app-image-360-viewer [imageSrc]="homeText['360']?.imageSrc" [badgeLeft]="homeText['360']?.badgeLeft" [badgeRight]="homeText['360']?.badgeRight">
     </app-image-360-viewer>
 </div>
 
 <!-- Cafe Menu Section -->
 <div class="container my-5 ">
-    <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2"
-        iconRight="free_breakfast" iconRightType="material" iconRightColor="bg-primary2" title="Cafe" highlight="Menu"
+    <app-heading-section [iconLeft]="'restaurant'" iconLeftType="material" iconLeftColor="bg-secondary2"
+        [iconRight]="'free_breakfast'" iconRightType="material" iconRightColor="bg-primary2" [title]="homeText['cafe-menu']?.title" [highlight]="homeText['cafe-menu']?.highlight"
         highlightColor="gradient-text"
-        subtitle="Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕">
+        [subtitle]="homeText['cafe-menu']?.subtitle">
     </app-heading-section>
     <div class="row justify-content-center">
-        <app-slider [items]="cafeMenu" [visibleCount]="sliderVisibleCount">
+        <app-slider [items]="homeText['cafe-menu']?.items" [visibleCount]="sliderVisibleCount">
             <ng-template #itemTemplate let-game>
                 <div class="col-12 col-sm-6 col-lg-4 pb-4">
                     <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category"
@@ -88,7 +106,7 @@
         </app-slider>
         <app-primary-button iconLeft="bi-fork-knife" iconRight="bi bi-arrow-right"
             class="d-flex justify-content-center mt-2">
-            View Full Menu
+            {{ homeText['cafe-menu']?.Btn }}
         </app-primary-button>
     </div>
 </div>
@@ -96,18 +114,18 @@
 <!-- Featured Games Section -->
 <div class="container my-5 ">
     <app-heading-section iconLeft="sports_esports" iconLeftType="material" iconLeftColor="bg-primary2"
-        iconRight="emoji_events" iconRightType="material" iconRightColor="bg-secondary2" title="Featured"
-        highlight="Games" highlightColor="gradient-text"
-        subtitle="Discover our handpicked collection of the most exciting board games. From quick party games to strategic adventures! 🎯">
+        iconRight="emoji_events" iconRightType="material" iconRightColor="bg-secondary2" [title]="homeText['featured-game']?.title"
+        [highlight]="homeText['featured-game']?.highlight" highlightColor="gradient-text"
+        [subtitle]="homeText['featured-game']?.subtitle">
     </app-heading-section>
 
     <!-- Add filter tab here -->
-    <app-filter-tab [data]="featuredGames" [config]="gameFilterConfig"
+    <app-filter-tab [data]="homeText['featured-game']?.items" [config]="gameFilterConfig"
         (filteredDataChange)="onGamesFilteredDataChange($event)">
     </app-filter-tab>
 
     <div class="row justify-content-center">
-        <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let game of filteredGames">
+        <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let game of homeText['featured-game']?.items">
             <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category"
                 [categoryColor]="game.categoryColor" [title]="game.title" [starCount]="game.starCount ?? 0"
                 [starColor]="game.starColor ?? ''" [subtitle]="game.subtitle" [players]="game.players"
@@ -119,7 +137,7 @@
         </div>
         <app-primary-button iconLeft="sports_esports" iconRight="bi bi-arrow-right"
             class="d-flex justify-content-center mt-3">
-            View Game Store
+            {{ homeText['featured-game']?.Btn }}
         </app-primary-button>
     </div>
 </div>
@@ -127,12 +145,12 @@
 <!-- Upcoming Event Section -->
 <div class="container my-5 ">
     <app-heading-section iconLeft="sports_esports" iconLeftType="material" iconLeftColor="bg-secondary2"
-        iconRight="emoji_events" iconRightType="material" iconRightColor="bg-primary2" title="Upcoming"
-        highlight="Events" highlightColor="gradient-text"
-        subtitle="Join our exciting events and connect with fellow gamers. From tournaments to family days, there's always something magical happening! 🎉">
+        iconRight="emoji_events" iconRightType="material" iconRightColor="bg-primary2" [title]="homeText['upcoming-event']?.title"
+        [highlight]="homeText['upcoming-event']?.highlight" highlightColor="gradient-text"
+        [subtitle]="homeText['upcoming-event']?.subtitle">
     </app-heading-section>
     <div class="row justify-content-center">
-        <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let event of upcomingEvents">
+        <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let event of homeText['upcoming-event']?.items">
             <app-showcase-card [imageSrc]="event.imageSrc" [category]="event.category"
                 [categoryColor]="event.categoryColor" [badgeRight]="event.badgeRight ?? ''"
                 [badgeRightColor]="event.badgeRightColor ?? ''" [eventDate]="event.eventDate ?? ''"
@@ -144,7 +162,7 @@
         </div>
         <app-primary-button iconLeft="bi bi-calendar4-week" iconRight="bi bi-arrow-right"
             class="d-flex justify-content-center mt-3">
-            See All Event
+           {{ homeText['upcoming-event']?.Btn }}
         </app-primary-button>
     </div>
 </div>

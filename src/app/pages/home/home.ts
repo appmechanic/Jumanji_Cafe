@@ -66,6 +66,7 @@ export type ShowcaseCardType = {
   selector: 'app-home',
   standalone: true,
 imports: [
+  CommonModule,
   HeroSectionComponent,
   PrimaryButtonComponent,
   GhostButtonComponent,
@@ -90,70 +91,12 @@ export class Home implements OnInit, OnDestroy {
   gameFilterConfig: FilterConfig = {
     property: 'tags',
     includeAll: true,
-    allLabel: 'All'
+    allLabel: ''
   };
   
   // Filtered games collection
-  filteredGames: ShowcaseCardType[] = [];
-  
-  heroStats: StatCardType[] = [
-    {
-      iconType: "material",
-      icon: "sports_esports",
-      titleicon: "",
-      title: "200+",
-      text: "Board Games",
-      textColor: "text-color2",
-      borderColor: "border-primary",
-      iconBgColor: "bg-primary2",
-      titleColor: "text-primary",
-      cardBgColor:"bg-white shadow-sm",
-      subtitle: "",
-      subtitleColor: ""
-    },
-    {
-      iconType: "bootstrap",
-      icon: "bi-cup-fill",
-      title: "50+",
-      titleicon: "",
-      text: "Specialty Drinks",
-      textColor: "text-color2",
-      borderColor: "border-secondary",
-      iconBgColor: "bg-secondary2",
-      titleColor: "text-secondary",
-      cardBgColor:"bg-white shadow-sm",
-      subtitle: "",
-      subtitleColor: ""
-    },
-    {
-      iconType: "bootstrap",
-      icon: "bi-people-fill",
-      titleicon: "",
-      title: "Daily",
-      text: "Events",
-      textColor: "text-color2",
-      borderColor: "border-primary",
-      iconBgColor: "bg-primary2",
-      titleColor: "text-primary",
-      cardBgColor:"bg-white shadow-sm",
-      subtitle: "",
-      subtitleColor: ""
-    },
-    {
-      iconType: "material",
-      icon: "favorite",
-      titleicon: "",
-      title: "5★",
-      text: "Experience",
-      textColor: "text-color2",
-      borderColor: "border-secondary",
-      iconBgColor: "bg-secondary2",
-      titleColor: "text-secondary",
-      cardBgColor:"bg-white shadow-sm",
-      subtitle: "",
-      subtitleColor: ""
-    }
-  ];
+  featuredGames: any[] = []
+  cafeMenu: any[] = [];
   AdventureStats: StatCardType[] = [
     {
       iconType: "bootstrap",
@@ -212,36 +155,7 @@ export class Home implements OnInit, OnDestroy {
       subtitleColor: "text-white2"
     }
   ];
-  storyStats: StatCardType[] = [
-    {
-      iconType: 'material',
-      icon: 'favorite',
-      titleicon: 'favorite',
-      title: '5',
-      text: 'Experience',
-      textColor: "text-color2",
-      borderColor: 'border-none',
-      iconBgColor: 'bg-secondary2',
-      titleColor: 'text-secondary',
-      cardBgColor: 'bg-white shadow-sm',
-      subtitle: "",
-      subtitleColor: ""
-    },
-    {
-      iconType: 'bootstrap',
-      icon: 'bi-star-fill',
-      titleicon: '',
-      title: 'Top-notch',
-      text: 'Quality',
-      textColor: "text-color2",
-      borderColor: 'border-none',
-      iconBgColor: 'bg-primary2',
-      titleColor: 'text-primary',
-      cardBgColor: 'bg-white shadow-sm',
-      subtitle: "",
-      subtitleColor: ""
-    }
-  ];
+
   PlayStats: StatCardType[] = [
     {
       iconType: 'material',
@@ -293,243 +207,14 @@ export class Home implements OnInit, OnDestroy {
       text: '',
       textColor: "text-color2",
       borderColor: 'border-none',
-      iconBgColor: 'bg-secondary2',
+      iconBgColor: 'bg-secondary',
       titleColor: 'text-secondary',
       cardBgColor: 'bg-white shadow-sm',
       subtitle: 'Adventure',
       subtitleColor: 'text-color2'
     }
   ];
-  featuredGames: ShowcaseCardType[] = [
-    {
-      imageSrc: '/assets/cafe-game-img1.jpg',
-      category: 'Medium',
-      categoryColor: 'bg-secondary5 text-secondary',
-      categoryIcon: '',
-      starCount: 4,
-      starColor: 'bg-secondary text-white',
-      title: 'Catan',
-      subtitle: 'Build settlements and cities in this classic strategy game',
-      players: '3-4 Players',
-      playersClass: 'text-primary fw-600',
-      durationClass: 'text-secondary fw-600',
-      duration: '60-90 min',
-      tags: ['Family Picks', 'Quick Games'],
-      tagColor: 'bg-primary2',
-      gameCategory: 'Strategy',
-      buttonText: 'View Details',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: true,
-      detailIcon: 'bi-cart',
-      attending: 0,
-      capacity: 0
-    },
-    {
-      imageSrc: '/assets/cafe-game-img1.jpg',
-      category: 'Easy',
-      categoryIcon: '',
-      categoryColor: 'bg-secondary5 text-success',
-      starCount: 4,
-      starColor: 'bg-secondary text-white',
-      title: 'Azul',
-      subtitle: 'Create beautiful tile patterns in this elegant strategy game',
-      players: '3-4 Players',
-      playersClass: 'text-primary fw-600',
-      durationClass: 'text-secondary fw-600',
-      duration: '60-90 min',
-      tags: ['Family Picks', 'Top Rated'],
-      tagColor: 'bg-primary2',
-      gameCategory: 'Strategy',
-      buttonText: 'View Details',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: true,
-      detailIcon: 'bi-cart',
-      attending: 0,
-      capacity: 0
-    },
-    {
-      imageSrc: '/assets/cafe-game-img1.jpg',
-      category: 'Hard',
-      categoryIcon: '',
-      categoryColor: 'bg-secondary5 text-danger',
-      starCount: 4,
-      starColor: 'bg-secondary text-white',
-      title: 'Wingspan',
-      subtitle: 'Attract birds to your wildlife preserves in this engine-building game',
-      players: '3-4 Players',
-      playersClass: 'text-primary fw-600',
-      durationClass: 'text-secondary fw-600',
-      duration: '60-90 min',
-      tags: ['Top Rated'],
-      tagColor: 'bg-primary2',
-      gameCategory: 'Strategy',
-      buttonText: 'View Details',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: true,
-      detailIcon: 'bi-cart',
-      attending: 0,
-      capacity: 0
-    },
-  ];
-  cafeMenu: ShowcaseCardType[] = [
-    {
-      imageSrc: '/assets/cafe-menu-img1.jpg',
-      category: 'Jumanji Special',
-      categoryIcon: '',
-      categoryColor: 'bg-primary3',
-      title: 'Catan',
-      price: '15 SAR',
-      priceColor: 'bg-secondary2',
-      subtitle: 'Build settlements and cities in this classic strategy game',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: '',
-      buttonText: 'View Details',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: false,
-      detailIcon: '',
-      attending: 0,
-      capacity: 0
-    },
-    {
-      imageSrc: '/assets/cafe-menu-img1.jpg',
-      category: 'Medium',
-      categoryIcon: '',
-      categoryColor: 'bg-secondary4',
-      title: 'Azul',
-      price: '15 SAR',
-      priceColor: 'bg-secondary2',
-      subtitle: 'Create beautiful tile patterns in this elegant strategy game',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: '',
-      buttonText: 'View Details',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: false,
-      detailIcon: '',
-      attending: 0,
-      capacity: 0
-    },
-    {
-      imageSrc: '/assets/cafe-menu-img1.jpg',
-      category: 'Medium',
-      categoryIcon: '',
-      categoryColor: 'bg-primary3',
-      starColor: 'bg-secondary text-white',
-      title: 'Wingspan',
-      price: '15 SAR',
-      priceColor: 'bg-secondary2',
-      subtitle: 'Attract birds to your wildlife preserves in this engine-building game',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: '',
-      buttonText: 'View Details',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: false,
-      detailIcon: '',
-      attending: 0,
-      capacity: 0
-    },
-    {
-      imageSrc: '/assets/cafe-menu-img1.jpg',
-      category: 'Medium',
-      categoryIcon: '',
-      categoryColor: 'bg-primary3',
-      starColor: 'bg-secondary text-white',
-      title: 'Wingspan',
-      price: '15 SAR',
-      priceColor: 'bg-secondary2',
-      subtitle: 'Attract birds to your wildlife preserves in this engine-building game',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: '',
-      buttonText: 'View Details',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: false,
-      detailIcon: '',
-      attending: 0,
-      capacity: 0
-    }
-  ];
-  upcomingEvents: ShowcaseCardType[] = [
-    {
-      imageSrc: '/assets/cafe-event-img1.jpg',
-      category: 'Tournament',
-      categoryIcon: '',
-      categoryColor: 'bg-danger text-white',
-      badgeRight: 'Free Entry',
-      badgeRightColor: 'bg-light text-dark',
-      eventDate: 'Dec 15, 2024',
-      eventTime: '7:00 PM',
-      title: 'Tournament Night: Catan Championship',
-      subtitle: 'Join our monthly Catan tournament and compete for amazing prizes!',
-      attending: 24,
-      capacity: 32,
-      buttonText: 'Join Event',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: true,
-      detailIcon: 'share',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: ''
-    },
-    {
-      imageSrc: '/assets/cafe-event-img1.jpg',
-      category: 'Workshop',
-      categoryIcon: '',
-      categoryColor: 'bg-success text-white',
-      badgeRight: 'Limited Seats',
-      badgeRightColor: 'bg-warning text-dark',
-      eventDate: 'Dec 20, 2024',
-      eventTime: '5:30 PM',
-      title: 'Azul Strategy Workshop',
-      subtitle: 'Learn advanced Azul strategies from top players.',
-      attending: 12,
-      capacity: 20,
-      buttonText: 'Join Event',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: true,
-      detailIcon: 'share',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: ''
-    },
-    {
-      imageSrc: '/assets/cafe-event-img1.jpg',
-      category: 'Family Night',
-      categoryIcon: '',
-      categoryColor: 'bg-primary text-white',
-      badgeRight: '',
-      badgeRightColor: '',
-      eventDate: 'Dec 22, 2024',
-      eventTime: '6:00 PM',
-      title: 'Family Game Night',
-      subtitle: 'Bring your family for a fun-filled evening of games!',
-      attending: 30,
-      capacity: 40,
-      buttonText: 'Join Event',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: true,
-      detailIcon: 'share',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: ''
-    }
-  ];
+
   businessServices: ShowcaseCardType[] = [
     {
       imageSrc: '/assets/business-services-img1.jpg',
@@ -636,11 +321,13 @@ export class Home implements OnInit, OnDestroy {
   sliderVisibleCount: number = 3;
   homeText: any = {};
   langSub!: Subscription;
+  heroStats: any;
 
   constructor(private i18n: I18nService) {}
-
+  
+  
   ngOnInit() {
-    this.filteredGames = [...this.featuredGames];
+    this.featuredGames = this.featuredGames;
     this.updateSliderVisibleCount();
     this.loadTranslations();
     // Subscribe to language change
@@ -665,17 +352,18 @@ export class Home implements OnInit, OnDestroy {
   }
 
   onGamesFilteredDataChange(filteredData: ShowcaseCardType[]): void {
-    this.filteredGames = filteredData;
+    this.featuredGames = filteredData;
   }
 
   loadTranslations() {
     this.homeText = this.i18n.t('home');
-    // Optionally reload other translated arrays if needed
+    this.heroStats = this.homeText.hero?.heroStats;
+
+    // Set allLabel dynamically based on current language
+    this.gameFilterConfig.allLabel = this.i18n.t('tags.all') || (this.i18n.getCurrentLang() === 'ar' ? 'الكل' : 'All');
   }
 
-  // Example: call this method when language changes globally
   onLanguageChanged() {
     this.loadTranslations();
-    // If you need to reload other data, do it here
   }
 }
