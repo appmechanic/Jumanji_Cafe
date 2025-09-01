@@ -10,30 +10,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link text-light" href="/cafe-menu">Cafe Menu</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="/board-game-store">Board Game Store</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="/events-news">Events & News</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="/our-story">About Jumanji</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="/b2b-services">B2B Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="/contact-us">Contact Us</a>
+        <li class="nav-item" *ngFor="let link of navLinks">
+          <a class="nav-link text-light" [href]="link.url">{{ link.label }}</a>
         </li>
       </ul>
       <div class="d-flex align-items-center gap-2">
         <div class="flex bg-secondary3 text-light rounded-20 d-flex justify-content-center align-items-center"
           style="width: 80px; height: 30px;">
-          <span class="nav-link ">EN</span> |
-          <span class="nav-link">AR</span>
+          <span 
+            class="nav-link" 
+            [class.fw-bold]="currentLang === 'en'" 
+            style="cursor:pointer"
+            (click)="changeLang('en')"
+          >EN</span> |
+          <span 
+            class="nav-link" 
+            [class.fw-bold]="currentLang === 'ar'" 
+            style="cursor:pointer"
+            (click)="changeLang('ar')"
+          >AR</span>
         </div>
         <span class="btn bg-purple text-light rounded-pill d-flex justify-content-center align-items-center"
           style="width: 40px; height: 40px;">

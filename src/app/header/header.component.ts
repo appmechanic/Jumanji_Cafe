@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Inject } from '@angular/core';
 import { ThemeService } from '../theme.service';
 import { CommonModule } from '@angular/common';
+import { I18nService } from '../../app/services/i18n.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,12 +11,37 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
   isDarkMode: boolean = false;
+  currentLang = 'en';
 
-  constructor(private themeService: ThemeService) { }
+  navLinks: { label: string; url: string }[] = [];
+
+  constructor(
+    private themeService: ThemeService, 
+    private i18n: I18nService,
+    @Inject(ChangeDetectorRef) private cdr: ChangeDetectorRef
+  ) {
+    this.currentLang = this.i18n.getCurrentLang();
+    this.loadNavLinks();
+  }
 
   toggleTheme() {
     this.isDarkMode = !this.isDarkMode;
     this.themeService.toggleTheme();
+  }
+
+  async changeLang(lang: string) {
+    if (lang !== this.currentLang) {
+      await this.i18n.setLang(lang); 
+      this.currentLang = lang;
+      await this.loadNavLinks();
+      this.cdr.detectChanges(); 
+      
+    }
+  }
+
+  async loadNavLinks() {
+    const navLinks = this.i18n.t('header.navLinks');
+    this.navLinks = Array.isArray(navLinks) ? navLinks : [];
   }
 
   ngOnInit(): void {

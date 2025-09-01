@@ -1,0 +1,12 @@
+{
+  "header": {
+    "navLinks": [
+      { "label": "قائمة المقهى", "url": "/cafe-menu" },
+      { "label": "متجر ألعاب الطاولة", "url": "/board-game-store" },
+      { "label": "الأحداث والأخبار", "url": "/events-news" },
+      { "label": "عن جومانجي", "url": "/our-story" },
+      { "label": "خدمات الأعمال", "url": "/b2b-services" },
+      { "label": "اتصل بنا", "url": "/contact-us" }
+    ]
+  }
+}

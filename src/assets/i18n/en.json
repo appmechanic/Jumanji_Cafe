@@ -1,0 +1,13 @@
+
+{
+  "header": {
+    "navLinks": [
+      { "label": "Cafe Menu", "url": "/cafe-menu" },
+      { "label": "Board Game Store", "url": "/board-game-store" },
+      { "label": "Events & News", "url": "/events-news" },
+      { "label": "About Jumanji", "url": "/our-story" },
+      { "label": "B2B Services", "url": "/b2b-services" },
+      { "label": "Contact Us", "url": "/contact-us" }
+    ]
+  }
+}
