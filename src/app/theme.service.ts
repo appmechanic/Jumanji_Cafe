@@ -8,6 +8,10 @@ export class ThemeService {
     const saved = localStorage.getItem('darkMode');
     this.darkMode = saved === 'true';
     this.applyTheme();
+
+    window.addEventListener('beforeunload', () => {
+      localStorage.removeItem('darkMode');
+    });
   }
 
   isDarkMode(): boolean {
