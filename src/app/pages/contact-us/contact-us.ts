@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeadingSectionComponent } from '../../shared/heading-section/heading-section';
 import { StatCardComponent } from '../../shared/stat-card/stat-card';
@@ -6,6 +6,9 @@ import { NewsletterComponent } from '../../shared/newsletter/newsletter';
 import { ContactForm } from '../../shared/contact-form/contact-form';
 import { LocationCard } from '../../shared/location-card/location-card';
 import { HoursCard } from '../../shared/hours-card/hours-card';
+import { I18nService } from '../../i18n.service';
+import { Subscription } from 'rxjs';
+
 export type StatCardType = {
   iconType: "material" | "bootstrap";
   icon: string;
@@ -36,14 +39,16 @@ export type StatCardType = {
   templateUrl: './contact-us.html',
   styleUrls: ['./contact-us.scss']
 })
-export class ContactUs {
-  heroStats: StatCardType[] = [
+export class ContactUs implements OnInit, OnDestroy {
+  selectedIndex = 0;
+  contact: any = {};
+  heroStats = [
     {
       iconType: "material",
       icon: "sports_esports",
       titleicon: "",
-      title: "200+",
-      text: "Board Games",
+      title: "",
+      text: "",
       textColor: "text-white2",
       borderColor: "border-none",
       iconBgColor: "bg-primary2",
@@ -55,9 +60,7 @@ export class ContactUs {
     {
       iconType: "bootstrap",
       icon: "bi-cup-fill",
-      title: "50+",
       titleicon: "",
-      text: "Specialty Drinks",
       textColor: "text-white2",
       borderColor: "border-none",
       iconBgColor: "bg-secondary2",
@@ -70,8 +73,6 @@ export class ContactUs {
       iconType: "bootstrap",
       icon: "bi-people-fill",
       titleicon: "",
-      title: "Daily",
-      text: "Events",
       textColor: "text-white2",
       borderColor: "border-none",
       iconBgColor: "bg-primary2",
@@ -81,7 +82,7 @@ export class ContactUs {
       subtitleColor: "",
     }
   ];
-  AdventureStats: StatCardType[] = [
+  AdventureStats = [
     {
       iconType: "bootstrap",
       icon: "bi-instagram",
@@ -139,4 +140,52 @@ export class ContactUs {
       subtitleColor: "",
     }
   ];
+  contactTitle: string = '';
+  contactSubtitle: string = '';
+  contactForm: any = {};
+  mappedFields: any[] = [];
+  mappedBelowItems: any[] = [];
+  langSub!: Subscription;
+
+  constructor(private i18n: I18nService) { }
+
+  ngOnInit() {
+    this.loadTranslations();
+    this.langSub = this.i18n.langChanged$.subscribe(() => {
+      this.loadTranslations();
+    });
+  }
+
+  ngOnDestroy() {
+    this.langSub?.unsubscribe();
+  }
+
+  loadTranslations() {
+    this.contactTitle = this.i18n.t('contact.title');
+    this.contactSubtitle = this.i18n.t('contact.subtitle');
+    this.contactForm = this.i18n.t('contact.contactForm');
+    const icons = ['bi-person', 'bi-envelope', 'bi-telephone', 'bi-chat-dots'];
+    this.mappedFields = this.contactForm.fields.map((field: any, idx: number) => ({
+      ...field,
+      icon: icons[idx],
+      iconClass: 'text-info'
+    }));
+    const belowIcons = [
+      { icon: 'bi-shield-check', iconClass: 'text-success' },
+      { icon: 'bi-clock', iconClass: 'text-info' },
+      { icon: 'bi-headset', iconClass: 'text-primary' }
+    ];
+    this.mappedBelowItems = this.contactForm.belowItems.map((item: any, idx: number) => ({
+      ...item,
+      ...belowIcons[idx]
+    }));
+  }
+  getHeroStats(): any[] {
+    const stats = this.i18n.t('contact.heroStats') as any[];
+    return stats.map((stat: any, idx: number) => ({
+      ...this.heroStats[idx],
+      title: stat.title,
+      text: stat.text
+    }));
+  }
 }

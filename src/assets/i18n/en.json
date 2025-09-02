@@ -418,6 +418,48 @@
             "strategy": "Strategy"
         }
     },
+    "contact": {
+        "title": "Get in Touch",
+        "subtitle": "Whether you're planning your next game night, booking a team event, or just saying hello — we'd love to hear from you.",
+        "heroStats": [
+            {
+                "title": "200+",
+                "text": "Board Games"
+            },
+            {
+                "title": "50+",
+                "text": "Specialty Drinks"
+            },
+            {
+                "title": "Daily",
+                "text": "Events"
+            }
+        ],
+        "contactForm": {
+            "title": "Send Us",
+            "highlight": "a Message",
+            "fields": [
+                { "label": "Name *", "placeholder": "Enter your name" },
+                { "label": "Email *", "placeholder": "your.email@example.com" },
+                { "label": "Phone number (Optional)", "placeholder": "+966 XXX XXX XXXX" },
+                { "label": "Message *", "placeholder": "Tell us about your inquiry, event planning needs, or any questions you have..." }
+            ],
+            "belowItems": [
+                { "text": "Secure & Private" },
+                { "text": "24h Response" },
+                { "text": "Friendly Support" }
+            ]
+        },
+        "location": {
+            "title": "Visit",
+            "highlight": "Our Cafe",
+            "content": [
+                { "label": "Jumanji Cafe, Riyadh", "text": "123 Main St, Riyadh, Saudi Arabia" },
+                { "label": "Phone", "text": "+966 XXX XXX XXX" },
+                { "label": "Email", "text": "info@jumanji.sa" }
+            ]
+        }
+    },
     "footer": {
         "description": "Experience the ultimate board game café adventure in the heart of Jeddah. Where games come to life and legends are born! 🎲✨",
         "footerLinks": [

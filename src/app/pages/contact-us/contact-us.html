@@ -1,18 +1,26 @@
 <div class="container-fluid w-full py-5 linear-gradient-purple position-relative">
   <div class="row justify-content-center">
     <div class="col-11 col-md-10 col-lg-10 col-xl-9">
-      <app-heading-section iconLeft="support_agent" iconLeftType="material" iconLeftColor="bg-primary2" iconRight=""
-        iconRightType="material" iconRightColor="bg-primary2" title="" highlight="Get in Touch"
-        highlightColor="gradient-text" subtitleColor="text-white"
-        subtitle="Whether you're planning your next game night, booking a team event, or just saying hello — we'd love to hear from you.">
+      <app-heading-section
+        iconLeft="support_agent"
+        iconLeftType="material"
+        iconLeftColor="bg-primary2"
+        iconRight=""
+        iconRightType="material"
+        iconRightColor="bg-primary2"
+        title=""
+        [highlight]="contactTitle"
+        highlightColor="gradient-text"
+        subtitleColor="text-white"
+        [subtitle]="contactSubtitle">
       </app-heading-section>
     </div>
     <div class="stat-row">
       <div class="row g-4 d-flex align-items-stretch justify-content-center">
-        <div class="col-6 col-sm-5 col-md-4 col-lg-3" *ngFor="let stat of heroStats">
-          <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
-            [textColor]="stat.textColor" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
-            [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor">
+        <div class="col-6 col-sm-5 col-md-4 col-lg-3" *ngFor="let stat of getHeroStats()">
+          <app-stat-card [iconType]="stat?.iconType" [icon]="stat?.icon" [title]="stat?.title" [text]="stat?.text"
+            [textColor]="stat?.textColor" [borderColor]="stat?.borderColor" [iconBgColor]="stat?.iconBgColor"
+            [titleColor]="stat?.titleColor" [cardBgColor]="stat?.cardBgColor">
           </app-stat-card>
         </div>
       </div>
@@ -24,17 +32,15 @@
 <div class="forms container my-5">
   <div class="row py-5 align-items-stretch justify-content-end " style="gap:30px 0px;">
     <div class="col-12 col-lg-6">
-      <app-contact-form [title]="'Send Us'" [highlight]="'a Message'" [highlightColor]="'gradient-text'"
-        [titleIcon]="'bi bi-envelope'" [titleIconClass]="'bg-primary2'" [fields]="[
-      { label: 'Name *', type: 'text', placeholder: 'Enter your name', icon: 'bi-person', iconClass: 'text-info' },
-      { label: 'Email *', type: 'email', placeholder: 'your.email@example.com', icon: 'bi-envelope', iconClass: 'text-info' },
-      { label: 'Phone number (Optional)', type: 'email', placeholder: '+966 XXX XXX XXXX', icon: 'bi-telephone', iconClass: 'text-info' },
-      { label: 'Message *', type: 'message', placeholder: 'Tell us about your inquiry, event planning needs, or any questions you have...', icon: 'bi-chat-dots', iconClass: 'text-info' }
-      ]" [belowItems]="[
-        { text: 'Secure & Private', icon: 'bi-shield-check', iconClass: 'text-success' },
-        { text: '24h Response', icon: 'bi-clock', iconClass: 'text-info' },
-        { text: 'Friendly Support', icon: 'bi-headset', iconClass: 'text-primary' }
-      ]"></app-contact-form>
+      <app-contact-form
+        [title]="contactForm.title"
+        [highlight]="contactForm.highlight"
+        [highlightColor]="'gradient-text'"
+        [titleIcon]="'bi bi-envelope'"
+        [titleIconClass]="'bg-primary2'"
+        [fields]="mappedFields"
+        [belowItems]="mappedBelowItems">
+      </app-contact-form>
     </div>
     <div class="col-12 col-lg-6">
       <app-location-card [titleIcon]="'bi-geo-alt'" [titleIconClass]="'bg-primary2'" [title]="'Visit'"
@@ -85,10 +91,10 @@
       </div>
       <div class="row g-4 mt-0 d-flex align-items-stretch justify-content-center">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of AdventureStats ">
-          <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+          <!-- <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
             [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor" [titleColor]="stat.titleColor"
             [cardBgColor]="stat.cardBgColor" [textColor]="stat.textColor">
-          </app-stat-card>
+          </app-stat-card> -->
         </div>
       </div>
     </div>

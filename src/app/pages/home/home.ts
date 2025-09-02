@@ -471,7 +471,6 @@ export class Home implements OnInit, OnDestroy {
 
   readyToPlayStats = [
     {
-      // For "Memories Made"
       iconType: "material",
       icon: "favorite",
       titleicon: "all_inclusive",
@@ -482,7 +481,6 @@ export class Home implements OnInit, OnDestroy {
       cardBgColor: "bg-white shadow-sm"
     },
     {
-      // For "Epic Games"
       iconType: "bootstrap",
       icon: "bi-controller",
       titleicon: "",
@@ -493,7 +491,6 @@ export class Home implements OnInit, OnDestroy {
       cardBgColor: "bg-white shadow-sm"
     },
     {
-      // For "Fun Ready"
       iconType: "bootstrap",
       icon: "bi-people-fill",
       titleicon: "",
@@ -504,7 +501,6 @@ export class Home implements OnInit, OnDestroy {
       cardBgColor: "bg-white shadow-sm"
     },
     {
-      // For "Adventure"
       iconType: "bootstrap",
       icon: "bi-star-fill",
       titleicon: "bi-star-fill",
