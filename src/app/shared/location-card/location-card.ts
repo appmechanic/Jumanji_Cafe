@@ -22,6 +22,7 @@ export class LocationCard {
     @Input() Text: string = '';
     @Input() iframeSrc: string = '';
     @Input() buttonLink: string = '';
+    @Input() btnText: string = '';
     @Input() content: Array<{ icon: string, iconClass?: string, label: string, Text: string }> = [];
 
     safeIframeSrc: SafeResourceUrl | null = null;

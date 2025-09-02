@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact-form',
@@ -8,10 +9,12 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule]
 })
+
 export class ContactForm {
   @Input() title: string = '';
   @Input() titleColor: string = '';
   @Input() titleIcon: string = '';
+  @Input() btnText: string = '';
   @Input() titleIconClass: string = '';
   @Input() highlightColor: string = '';
   @Input() highlight: string = '';

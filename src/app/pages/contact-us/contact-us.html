@@ -39,17 +39,20 @@
         [titleIcon]="'bi bi-envelope'"
         [titleIconClass]="'bg-primary2'"
         [fields]="mappedFields"
-        [belowItems]="mappedBelowItems">
-      </app-contact-form>
+        [belowItems]="mappedBelowItems"
+        [btnText]="contactForm.btnText"
+      ></app-contact-form>
     </div>
     <div class="col-12 col-lg-6">
-      <app-location-card [titleIcon]="'bi-geo-alt'" [titleIconClass]="'bg-primary2'" [title]="'Visit'"
-        [highlight]="'Our Cafe'" [subTitle]="'Find us in the heart of Jeddah'" [highlightColor]="'gradient-text'"
-        [content]="[
-          { icon: 'bi-geo-alt', iconClass: 'bg-secondary2', label: 'Jumanji Cafe, Riyadh', Text: '123 Main St, Riyadh, Saudi Arabia' },
-          { icon: 'bi-telephone', iconClass: 'bg-primary2', label: 'Phone', Text: '+966 XXX XXX XXX' },
-          { icon: 'bi-envelope', iconClass: 'bg-secondary2', label: 'Email', Text: 'info@jumanji.sa' }
-            ]"
+      <app-location-card
+        [titleIcon]="'bi-geo-alt'"
+        [titleIconClass]="'bg-primary2'"
+        [title]="locationCard.title"
+        [highlight]="locationCard.highlight"
+        [subTitle]="locationCard.subTitle"
+        [highlightColor]="'gradient-text'"
+        [content]="mappedLocationFields"
+        [btnText]="locationCard.btnText"
         [iframeSrc]="'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.491779886395!2d39.15329637600109!3d21.566718769083142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d075133f23b3%3A0x643f18959e4bbc0f!2sAl%20Kayal%2C%20Ar%20Rawdah%2C%20Jeddah%20Saudi%20Arabia!5e0!3m2!1sen!2sin!4v1756558267881!5m2!1sen!2sin'"
         [buttonLink]="'https://maps.app.goo.gl/yNNi4vyPuPwpYRqr6'">
       </app-location-card>

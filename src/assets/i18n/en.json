@@ -438,6 +438,7 @@
         "contactForm": {
             "title": "Send Us",
             "highlight": "a Message",
+            "btnText": "Send Message",
             "fields": [
                 { "label": "Name *", "placeholder": "Enter your name" },
                 { "label": "Email *", "placeholder": "your.email@example.com" },
@@ -450,13 +451,14 @@
                 { "text": "Friendly Support" }
             ]
         },
-        "location": {
+        "LocationCard": {
             "title": "Visit",
             "highlight": "Our Cafe",
+            "btnText": "Get Directions",
             "content": [
-                { "label": "Jumanji Cafe, Riyadh", "text": "123 Main St, Riyadh, Saudi Arabia" },
-                { "label": "Phone", "text": "+966 XXX XXX XXX" },
-                { "label": "Email", "text": "info@jumanji.sa" }
+                { "label": "Jumanji Cafe", "Text": "123 Main St, Riyadh, Saudi Arabia" },
+                { "label": "Phone", "Text": "+966 XXX XXX XXX" },
+                { "label": "Email", "Text": "info@jumanji.sa" }
             ]
         }
     },

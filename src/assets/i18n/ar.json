@@ -430,16 +430,54 @@
     "contactForm": {
       "title": "أرسل لنا",
       "highlight": "رسالة",
+      "btnText": "إرسال الرسالة",
       "fields": [
-        { "label": "الاسم *", "placeholder": "أدخل اسمك" },
-        { "label": "البريد الإلكتروني *", "placeholder": "your.email@example.com" },
-        { "label": "رقم الجوال (اختياري)", "placeholder": "+966 XXX XXX XXXX" },
-        { "label": "الرسالة *", "placeholder": "أخبرنا عن استفسارك، احتياجات تنظيم الفعاليات، أو أي أسئلة لديك..." }
+        {
+          "label": "الاسم *",
+          "placeholder": "أدخل اسمك"
+        },
+        {
+          "label": "البريد الإلكتروني *",
+          "placeholder": "your.email@example.com"
+        },
+        {
+          "label": "رقم الجوال (اختياري)",
+          "placeholder": "+966 XXX XXX XXXX"
+        },
+        {
+          "label": "الرسالة *",
+          "placeholder": "أخبرنا عن استفسارك، احتياجات تنظيم الفعاليات، أو أي أسئلة لديك..."
+        }
       ],
       "belowItems": [
-        { "text": "آمن وسري" },
-        { "text": "استجابة خلال 24 ساعة" },
-        { "text": "دعم ودود" }
+        {
+          "text": "آمن وسري"
+        },
+        {
+          "text": "استجابة خلال 24 ساعة"
+        },
+        {
+          "text": "دعم ودود"
+        }
+      ]
+    },
+    "LocationCard": {
+      "title": "زرنا",
+      "highlight": "مقهانا",
+      "btnText": "احصل على الاتجاهات",
+      "content": [
+        {
+          "label": "جومانجي كافيه، الرياض",
+          "text": "١٢٣ شارع الرئيسي، الرياض، المملكة العربية السعودية"
+        },
+        {
+          "label": "الهاتف",
+          "text": "+966 XXX XXX XXX"
+        },
+        {
+          "label": "البريد الإلكتروني",
+          "text": "info@jumanji.sa"
+        }
       ]
     }
   },

@@ -143,8 +143,10 @@ export class ContactUs implements OnInit, OnDestroy {
   contactTitle: string = '';
   contactSubtitle: string = '';
   contactForm: any = {};
+  locationCard: any = {};
   mappedFields: any[] = [];
   mappedBelowItems: any[] = [];
+  mappedLocationFields: any[] = []; 
   langSub!: Subscription;
 
   constructor(private i18n: I18nService) { }
@@ -164,6 +166,7 @@ export class ContactUs implements OnInit, OnDestroy {
     this.contactTitle = this.i18n.t('contact.title');
     this.contactSubtitle = this.i18n.t('contact.subtitle');
     this.contactForm = this.i18n.t('contact.contactForm');
+    this.locationCard = this.i18n.t('contact.LocationCard');
     const icons = ['bi-person', 'bi-envelope', 'bi-telephone', 'bi-chat-dots'];
     this.mappedFields = this.contactForm.fields.map((field: any, idx: number) => ({
       ...field,
@@ -178,6 +181,15 @@ export class ContactUs implements OnInit, OnDestroy {
     this.mappedBelowItems = this.contactForm.belowItems.map((item: any, idx: number) => ({
       ...item,
       ...belowIcons[idx]
+    }));
+    const locationIcons = [
+      { icon: 'bi-geo-alt', iconClass: 'bg-primary2' },
+      { icon: 'bi-telephone', iconClass: 'bg-secondary2 ' },
+      { icon: 'bi-envelope', iconClass: 'bg-primary2' }
+    ];
+    this.mappedLocationFields = this.locationCard.content.map((field: any, idx: number) => ({
+      ...field,
+      ...locationIcons[idx]
     }));
   }
   getHeroStats(): any[] {
