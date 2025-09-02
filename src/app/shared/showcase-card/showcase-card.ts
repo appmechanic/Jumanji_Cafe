@@ -49,6 +49,8 @@ export class ShowcaseCardComponent {
   @Input() capacity: number = 0;
   @Input() showOverlay: boolean = false;
   @Input() listItems: ListItem[] = []; 
+  @Input() attendingLabel: string = 'attending';
+  @Input() fullLabel: string = 'full';
 
   get progressPercent(): number {
     return this.capacity > 0 ? Math.round((this.attending / this.capacity) * 100) : 0;

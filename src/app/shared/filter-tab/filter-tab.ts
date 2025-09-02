@@ -7,13 +7,9 @@ export interface FilterOption {
 }
 
 export interface FilterConfig {
-  // The property or properties to extract unique values from
   property: string | string[];
-  // Optional transformation function to convert property values to filter options
   transform?: (value: any) => FilterOption;
-  // Whether to include an "All" option
   includeAll?: boolean;
-  // Custom label for the "All" option
   allLabel?: string;
 }
 
@@ -48,7 +44,6 @@ export class FilterComponent implements OnChanges {
   generateFilterOptions(): void {
     this.filterOptions = [];
     
-    // Add "All" option if configured
     if (this.config.includeAll) {
       this.filterOptions.push({
         label: this.config.allLabel || 'All',
@@ -56,22 +51,18 @@ export class FilterComponent implements OnChanges {
       });
     }
     
-    // Extract unique values for the filter
     const uniqueValues = new Set<string>();
     
     this.data.forEach(item => {
       if (Array.isArray(this.config.property)) {
-        // If property is an array of strings, get all unique values from all properties
         this.config.property.forEach(prop => {
           this.extractValues(item, prop, uniqueValues);
         });
       } else {
-        // If property is a string, get unique values from that property
         this.extractValues(item, this.config.property, uniqueValues);
       }
     });
     
-    // Convert unique values to filter options
     uniqueValues.forEach(value => {
       if (this.config.transform) {
         const option = this.config.transform(value);
@@ -89,18 +80,15 @@ export class FilterComponent implements OnChanges {
     const value = this.getPropertyValue(item, property);
     
     if (Array.isArray(value)) {
-      // If the property value is an array, add each value
       value.forEach(v => {
         if (v) uniqueValues.add(v);
       });
     } else if (value) {
-      // If the property value is a scalar, add it
       uniqueValues.add(value);
     }
   }
   
   private getPropertyValue(item: any, property: string): any {
-    // Handle nested properties with dot notation
     const props = property.split('.');
     let value = item;
     
@@ -142,7 +130,6 @@ export class FilterComponent implements OnChanges {
   
   private matchesFilter(value: any, filter: string): boolean {
     if (Array.isArray(value)) {
-      // If value is an array, check if any element matches
       return value.some(v => {
         const normalizedValue = v.toLowerCase().replace(/\s+/g, '-');
         return normalizedValue === filter;

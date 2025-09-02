@@ -1,9 +1,14 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { I18nService } from '../../i18n.service'; // Add this import
+
 type Testimonial = {
   author: string;
   tag: string;
-  qualities: string; 
+  qualities: string;
+};
+
+type TestimonialDisplay = {
   image?: string;
   rating?: number;
   trophies?: number;
@@ -18,65 +23,39 @@ type Testimonial = {
   imports: [CommonModule]
 })
 export class TestimonialSliderComponent implements OnInit, OnDestroy {
-  testimonials: Testimonial[] = [
-    {
-      author: 'Omar bin Khalid',
-      tag: 'Puzzle Master',
-      qualities: 'Logic Games',
-      image: '/assets/testimonial-img1.jpg',
-      rating: 4,
-      trophies: 15,
-      icons: ['timer', 'moon', 'lightbulb'],
-    },
-    {
-      author: 'Ahmed Al-Rashid',
-      tag: 'Board Boss',
-      qualities: 'Strategy Games',
-      image: '/assets/testimonial-img1.jpg',
-      rating: 5,
-      trophies: 12,
-      icons: ['timer', 'moon', 'lightbulb'],
-    },
-    {
-      author: 'Fatima Al-Zahra',
-      tag: 'Trivia Queen',
-      qualities: 'Quiz Master',
-      image: '/assets/testimonial-img1.jpg',
-      rating: 5,
-      trophies: 8,
-      icons: ['timer', 'moon', 'lightbulb'],
-    },
-    {
-      author: 'Fatima',
-      tag: 'Quiz Master',
-      qualities: 'Trivia Games',
-      image: '/assets/testimonial-img1.jpg',
-      rating: 5,
-      trophies: 7,
-      icons: ['timer', 'moon', 'lightbulb'],
-    },
-    {
-      author: 'Omar',
-      tag: 'Logic Pro',
-      qualities: 'Logic Games',
-      image: '/assets/testimonial-img1.jpg',
-      rating: 4,
-      trophies: 9,
-      icons: ['timer', 'moon', 'lightbulb'],
-    }
+  testimonialDisplay: TestimonialDisplay[] = [
+    { image: '/assets/testimonial-img1.jpg', rating: 4, trophies: 15, icons: ['timer', 'moon', 'lightbulb'] },
+    { image: '/assets/testimonial-img1.jpg', rating: 5, trophies: 12, icons: ['timer', 'moon', 'lightbulb'] },
+    { image: '/assets/testimonial-img1.jpg', rating: 5, trophies: 8, icons: ['timer', 'moon', 'lightbulb'] },
+    { image: '/assets/testimonial-img1.jpg', rating: 5, trophies: 7, icons: ['timer', 'moon', 'lightbulb'] },
+    { image: '/assets/testimonial-img1.jpg', rating: 4, trophies: 9, icons: ['timer', 'moon', 'lightbulb'] }
   ];
 
+  testimonials: Testimonial[] = [];
   groupSize = 3;
   currentIndex = 0;
-  visibleTestimonials: Testimonial[] = [];
+  visibleTestimonials: (Testimonial & TestimonialDisplay)[] = [];
   autoplayInterval: any;
 
-  constructor() {}
+  constructor(private i18n: I18nService) {}
 
   ngOnInit() {
+    this.loadTestimonials();
     this.setGroupSize();
     this.updateVisibleTestimonials();
     this.startAutoplay();
+
+    // Listen for language change and reload testimonials
+    if (this.i18n.langChanged$) {
+      this.i18n.langChanged$.subscribe(() => {
+        this.loadTestimonials();
+        this.updateVisibleTestimonials();
+      });
+    }
+  }
+
+  loadTestimonials() {
+    this.testimonials = this.i18n.t('home.testimonialData') as Testimonial[];
   }
 
   @HostListener('window:resize')
@@ -100,7 +79,10 @@ export class TestimonialSliderComponent implements OnInit, OnDestroy {
     this.visibleTestimonials = [];
     for (let i = 0; i < this.groupSize; i++) {
       const idx = (this.currentIndex + i) % len;
-      this.visibleTestimonials.push(this.testimonials[idx]);
+      this.visibleTestimonials.push({
+        ...this.testimonials[idx],
+        ...this.testimonialDisplay[idx]
+      });
     }
   }
 

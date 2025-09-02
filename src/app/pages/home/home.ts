@@ -65,272 +65,462 @@ export type ShowcaseCardType = {
 @Component({
   selector: 'app-home',
   standalone: true,
-imports: [
-  CommonModule,
-  HeroSectionComponent,
-  PrimaryButtonComponent,
-  GhostButtonComponent,
-  StatCardComponent,
-  StorySectionComponent,
-  HeadingSectionComponent,
-  Image360ViewerComponent,
-  ShowcaseCardComponent,
-  SliderComponent,
-  FilterComponent,
-  CtaSectionComponent,
-  BgGradientComponent,
-  TestimonialSliderComponent
-],
+  imports: [
+    CommonModule,
+    HeroSectionComponent,
+    PrimaryButtonComponent,
+    GhostButtonComponent,
+    StatCardComponent,
+    StorySectionComponent,
+    HeadingSectionComponent,
+    Image360ViewerComponent,
+    ShowcaseCardComponent,
+    SliderComponent,
+    FilterComponent,
+    CtaSectionComponent,
+    BgGradientComponent,
+    TestimonialSliderComponent
+  ],
   templateUrl: './home.html',
   styleUrls: ['./home.scss']
 })
 export class Home implements OnInit, OnDestroy {
   selectedIndex = 0;
-  
-  // Game filter configuration - specifically filters by tags
   gameFilterConfig: FilterConfig = {
     property: 'tags',
     includeAll: true,
     allLabel: ''
   };
-  
-  // Filtered games collection
-  featuredGames: any[] = []
+  featuredGames: any[] = [];
   cafeMenu: any[] = [];
-  AdventureStats: StatCardType[] = [
+  sliderVisibleCount: number = 3;
+  homeText: any = {};
+  langSub!: Subscription;
+
+  heroStats = [
+    {
+      iconType: "material",
+      icon: "sports_esports",
+      textColor: "text-color2",
+      borderColor: "border-primary",
+      iconBgColor: "bg-primary2",
+      titleColor: "text-primary",
+      cardBgColor: "bg-white shadow-sm"
+    },
+    {
+      iconType: "bootstrap",
+      icon: "bi-cup-fill",
+      textColor: "text-color2",
+      borderColor: "border-secondary",
+      iconBgColor: "bg-secondary2",
+      titleColor: "text-secondary",
+      cardBgColor: "bg-white shadow-sm"
+    },
+    {
+      iconType: "bootstrap",
+      icon: "bi-people-fill",
+      textColor: "text-color2",
+      borderColor: "border-primary",
+      iconBgColor: "bg-primary2",
+      titleColor: "text-primary",
+      cardBgColor: "bg-white shadow-sm"
+    },
+    {
+      iconType: "material",
+      icon: "favorite",
+      textColor: "text-color2",
+      borderColor: "border-secondary",
+      iconBgColor: "bg-secondary2",
+      titleColor: "text-secondary",
+      cardBgColor: "bg-white shadow-sm"
+    }
+  ];
+
+  storyStats = [
+    {
+      iconType: "material",
+      icon: "favorite",
+      titleicon: "favorite",
+      textColor: "text-color2",
+      borderColor: "border-none",
+      iconBgColor: "bg-secondary2",
+      titleColor: "text-secondary",
+      cardBgColor: "bg-white shadow-sm",
+      subtitle: "",
+      subtitleColor: ""
+    },
+    {
+      iconType: "bootstrap",
+      icon: "bi-star-fill",
+      titleicon: "",
+      textColor: "text-color2",
+      borderColor: "border-none",
+      iconBgColor: "bg-primary2",
+      titleColor: "text-primary",
+      cardBgColor: "bg-white shadow-sm",
+      subtitle: "",
+      subtitleColor: ""
+    }
+  ];
+
+  cafeMenuStats = [
+    {
+      imageSrc: "/assets/cafe-menu-img1.jpg",
+      categoryIcon: "",
+      categoryColor: "bg-primary3",
+      priceColor: "bg-secondary2",
+      players: "",
+      duration: "",
+      tags: [],
+      tagColor: "",
+      gameCategory: "",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: false,
+      detailIcon: "",
+      attending: 0,
+      capacity: 0
+    },
+    {
+      imageSrc: "/assets/cafe-menu-img1.jpg",
+      categoryIcon: "",
+      categoryColor: "bg-secondary4",
+      priceColor: "bg-secondary2",
+      players: "",
+      duration: "",
+      tags: [],
+      tagColor: "",
+      gameCategory: "",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: false,
+      detailIcon: "",
+      attending: 0,
+      capacity: 0
+    },
+    {
+      imageSrc: "/assets/cafe-menu-img1.jpg",
+      categoryIcon: "",
+      categoryColor: "bg-primary3",
+      starColor: "bg-secondary text-white",
+      priceColor: "bg-secondary2",
+      players: "",
+      duration: "",
+      tags: [],
+      tagColor: "",
+      gameCategory: "",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: false,
+      detailIcon: "",
+      attending: 0,
+      capacity: 0
+    },
+    {
+      imageSrc: "/assets/cafe-menu-img1.jpg",
+      categoryIcon: "",
+      categoryColor: "bg-primary3",
+      starColor: "bg-secondary text-white",
+      priceColor: "bg-secondary2",
+      players: "",
+      duration: "",
+      tags: [],
+      tagColor: "",
+      gameCategory: "",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: false,
+      detailIcon: "",
+      attending: 0,
+      capacity: 0
+    }
+  ];
+
+  featuredGameStats = [
+    {
+      imageSrc: "/assets/cafe-game-img1.jpg",
+      categoryColor: "bg-secondary5 text-secondary",
+      categoryIcon: "",
+      starCount: 4,
+      starColor: "bg-secondary text-white",
+      playersClass: "text-primary fw-600",
+      durationClass: "text-secondary fw-600",
+      tagColor: "bg-primary2",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: true,
+      detailIcon: "bi-cart",
+      attending: 0,
+      capacity: 0
+    },
+    {
+      imageSrc: "/assets/cafe-game-img1.jpg",
+      categoryColor: "bg-secondary5 text-success",
+      categoryIcon: "",
+      starCount: 4,
+      starColor: "bg-secondary text-white",
+      playersClass: "text-primary fw-600",
+      durationClass: "text-secondary fw-600",
+      tagColor: "bg-primary2",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: true,
+      detailIcon: "bi-cart",
+      attending: 0,
+      capacity: 0
+    },
+    {
+      imageSrc: "/assets/cafe-game-img1.jpg",
+      categoryColor: "bg-secondary5 text-danger",
+      categoryIcon: "",
+      starCount: 4,
+      starColor: "bg-secondary text-white",
+      playersClass: "text-primary fw-600",
+      durationClass: "text-secondary fw-600",
+      tagColor: "bg-primary2",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: true,
+      detailIcon: "bi-cart",
+      attending: 0,
+      capacity: 0
+    }
+  ];
+
+  upcomingEventStats = [
+    {
+      imageSrc: "/assets/cafe-event-img1.jpg",
+      categoryIcon: "",
+      categoryColor: "bg-danger text-white",
+      badgeRightColor: "bg-light text-dark",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: true,
+      detailIcon: "share",
+      attending: 24,
+      capacity: 32,
+      players: "",
+      duration: "",
+      tags: [],
+      tagColor: "",
+      gameCategory: ""
+    },
+    {
+      imageSrc: "/assets/cafe-event-img1.jpg",
+      categoryIcon: "",
+      categoryColor: "bg-success text-white",
+      badgeRightColor: "bg-warning text-dark",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: true,
+      detailIcon: "share",
+      attending: 12,
+      capacity: 20,
+      players: "",
+      duration: "",
+      tags: [],
+      tagColor: "",
+      gameCategory: ""
+    },
+    {
+      imageSrc: "/assets/cafe-event-img1.jpg",
+      categoryIcon: "",
+      categoryColor: "bg-primary text-white",
+      badgeRightColor: "",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: true,
+      detailIcon: "share",
+      attending: 30,
+      capacity: 40,
+      players: "",
+      duration: "",
+      tags: [],
+      tagColor: "",
+      gameCategory: ""
+    }
+  ];
+
+  businessServicesStats = [
+    {
+      imageSrc: "/assets/business-services-img1.jpg",
+      category: "",
+      categoryIcon: "groups",
+      categoryColor: "bg-white text-primary",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: false,
+      detailIcon: "",
+      players: "",
+      duration: "",
+      tags: [],
+      tagColor: "",
+      gameCategory: "",
+      attending: 0,
+      capacity: 0,
+      listItems: [
+        { icon: "check" },
+        { icon: "check" },
+        { icon: "check" },
+        { icon: "check" }
+      ]
+    },
+    {
+      imageSrc: "/assets/business-services-img1.jpg",
+      category: "",
+      categoryIcon: "bi bi-easel2",
+      categoryColor: "bg-white text-primary",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: false,
+      detailIcon: "",
+      players: "",
+      duration: "",
+      tags: [],
+      tagColor: "",
+      gameCategory: "",
+      attending: 0,
+      capacity: 0,
+      listItems: [
+        { icon: "check" },
+        { icon: "check" },
+        { icon: "check" },
+        { icon: "check" }
+      ]
+    },
+    {
+      imageSrc: "/assets/business-services-img1.jpg",
+      category: "",
+      categoryIcon: "bi bi-calendar-event",
+      categoryColor: "bg-white text-primary",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: false,
+      detailIcon: "",
+      players: "",
+      duration: "",
+      tags: [],
+      tagColor: "",
+      gameCategory: "",
+      attending: 0,
+      capacity: 0,
+      listItems: [
+        { icon: "check" },
+        { icon: "check" },
+        { icon: "check" },
+        { icon: "check" }
+      ]
+    },
+    {
+      imageSrc: "/assets/business-services-img1.jpg",
+      category: "",
+      categoryIcon: "bi bi-fork-knife",
+      categoryColor: "bg-white text-primary",
+      buttonColor: "bg-primary text-white",
+      showDetailIcon: false,
+      detailIcon: "",
+      players: "",
+      duration: "",
+      tags: [],
+      tagColor: "",
+      gameCategory: "",
+      attending: 0,
+      capacity: 0,
+      listItems: [
+        { icon: "check" },
+        { icon: "check" },
+        { icon: "check" },
+        { icon: "check" }
+      ]
+    }
+  ];
+
+  adventureStats = [
     {
       iconType: "bootstrap",
       icon: "bi bi-fork-knife",
       titleicon: "",
-      title: "",
-      text: "Discover new flavors",
+      titleColor: "",
+      cardBgColor: "bg-semantic shadow-sm",
       textColor: "text-white2",
       borderColor: "border-none",
       iconBgColor: "bg-primary4",
-      titleColor: "",
-      cardBgColor:"bg-semantic shadow-sm",
-      subtitle: "Board Games",
       subtitleColor: "text-white2"
     },
     {
       iconType: "bootstrap",
       icon: "bi bi-search",
       titleicon: "",
-      title: "",
-      text: "Find the perfect game for your next night",
+      titleColor: "",
+      cardBgColor: "bg-semantic",
       textColor: "text-white2",
       borderColor: "border-none",
       iconBgColor: "bg-primary4",
-      titleColor: "",
-      cardBgColor:"bg-semantic",
-      subtitle: "Game Hunt",
       subtitleColor: "text-white2"
     },
     {
       iconType: "bootstrap",
       icon: "bi bi-calendar-minus",
       titleicon: "",
-      title: "",
-      text: "Join the community",
+      titleColor: "",
+      cardBgColor: "bg-semantic",
       textColor: "text-white2",
       borderColor: "border-none",
       iconBgColor: "bg-primary4",
-      titleColor: "",
-      cardBgColor:"bg-semantic",
-      subtitle: "Epic Events",
       subtitleColor: "text-white2"
     },
     {
       iconType: "bootstrap",
       icon: "bi bi-compass",
       titleicon: "",
-      title: "",
-      text: "Our Story",
+      titleColor: "",
+      cardBgColor: "bg-semantic",
       textColor: "text-white2",
       borderColor: "border-none",
       iconBgColor: "bg-primary4",
-      titleColor: "",
-      cardBgColor:"bg-semantic ",
-      subtitle: "Learn about us",
       subtitleColor: "text-white2"
     }
   ];
 
-  PlayStats: StatCardType[] = [
+  readyToPlayStats = [
     {
-      iconType: 'material',
-      icon: 'favorite',
-      titleicon: 'all_inclusive',
-      title: '',
-      text: '',
+      // For "Memories Made"
+      iconType: "material",
+      icon: "favorite",
+      titleicon: "all_inclusive",
       textColor: "text-color2",
-      borderColor: 'border-none',
-      iconBgColor: 'bg-primary2',
-      titleColor: 'text-primary',
-      cardBgColor: 'bg-white shadow-sm',
-      subtitle: 'Memories Made',
-      subtitleColor: 'text-color2'
+      borderColor: "border-none",
+      iconBgColor: "bg-primary2",
+      titleColor: "text-primary",
+      cardBgColor: "bg-white shadow-sm"
     },
     {
-      iconType: 'bootstrap',
-      icon: 'bi-controller',
-      titleicon: '',
-      title: '200+',
-      text: '',
+      // For "Epic Games"
+      iconType: "bootstrap",
+      icon: "bi-controller",
+      titleicon: "",
       textColor: "text-color2",
-      borderColor: 'border-none',
-      iconBgColor: 'bg-secondary2',
-      titleColor: 'text-secondary',
-      cardBgColor: 'bg-white shadow-sm',
-      subtitle: 'Epic Games',
-      subtitleColor: 'text-color2'
+      borderColor: "border-none",
+      iconBgColor: "bg-secondary2",
+      titleColor: "text-secondary",
+      cardBgColor: "bg-white shadow-sm"
     },
     {
-      iconType: 'bootstrap',
-      icon: 'bi-people-fill',
-      titleicon: '',
-      title: '24/7',
-      text: '',
+      // For "Fun Ready"
+      iconType: "bootstrap",
+      icon: "bi-people-fill",
+      titleicon: "",
       textColor: "text-color2",
-      borderColor: 'border-none',
-      iconBgColor: 'bg-primary2',
-      titleColor: 'text-primary',
-      cardBgColor: 'bg-white shadow-sm',
-      subtitle: 'Fun Ready',
-      subtitleColor: 'text-color2'
+      borderColor: "border-none",
+      iconBgColor: "bg-primary2",
+      titleColor: "text-primary",
+      cardBgColor: "bg-white shadow-sm"
     },
     {
-      iconType: 'bootstrap',
-      icon: 'bi-star-fill',
-      titleicon: 'bi-star-fill',
-      title: '5',
-      text: '',
+      // For "Adventure"
+      iconType: "bootstrap",
+      icon: "bi-star-fill",
+      titleicon: "bi-star-fill",
       textColor: "text-color2",
-      borderColor: 'border-none',
-      iconBgColor: 'bg-secondary',
-      titleColor: 'text-secondary',
-      cardBgColor: 'bg-white shadow-sm',
-      subtitle: 'Adventure',
-      subtitleColor: 'text-color2'
+      borderColor: "border-none",
+      iconBgColor: "bg-secondary2",
+      titleColor: "text-secondary",
+      cardBgColor: "bg-white shadow-sm"
     }
   ];
-
-  businessServices: ShowcaseCardType[] = [
-    {
-      imageSrc: '/assets/business-services-img1.jpg',
-      category: '',
-      categoryIcon: 'groups',
-      categoryColor: 'bg-white text-primary',
-      title: 'Business Strategy',
-      subtitle: 'Expert guidance for your business growth',
-      buttonText: 'Book Now',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: false,
-      detailIcon: '',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: '',
-      attending: 0,
-      capacity: 0,
-      listItems: [
-        { icon: 'check', content: 'Custom Game Selection' },
-        { icon: 'check', content: 'Professional Facilitation' },
-        { icon: 'check', content: 'Team Challenges' },
-        { icon: 'check', content: 'Performance Analytics' }
-      ]
-    },
-    {
-      imageSrc: '/assets/business-services-img1.jpg',
-      category: '',
-      categoryIcon: 'bi bi-easel2',
-      categoryColor: 'bg-white text-primary',
-      title: 'Event Hosting',
-      subtitle: 'Complete event management for corporate gatherings and special celebrations',
-      buttonText: 'Get Started',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: false,
-      detailIcon: '',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: '',
-      attending: 0,
-      capacity: 0,
-      listItems: [
-        { icon: 'check', content: 'Strategic Thinking' },
-        { icon: 'check', content: 'Leadership Skills' },
-        { icon: 'check', content: 'Communication Training' },
-        { icon: 'check', content: 'Certified Instructors' }
-      ]
-    },
-    {
-      imageSrc: '/assets/business-services-img1.jpg',
-      category: '',
-      categoryIcon: 'bi bi-calendar-event',
-      categoryColor: 'bg-white text-primary',
-      title: 'Website Development',
-      subtitle: 'Custom website solutions for your business',
-      buttonText: 'Learn More',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: false,
-      detailIcon: '',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: '',
-      attending: 0,
-      capacity: 0,
-      listItems: [
-        { icon: 'check', content: 'Full Event Planning' },
-        { icon: 'check', content: 'Custom Decorations' },
-        { icon: 'check', content: 'Professional Staff' },
-        { icon: 'check', content: 'Entertainment Coordination' }
-      ]
-    },
-    {
-      imageSrc: '/assets/business-services-img1.jpg',
-      category: '',
-      categoryIcon: 'bi bi-fork-knife',
-      categoryColor: 'bg-white text-primary',
-      title: 'Catering',
-      subtitle: 'Premium food and beverage service tailored to your corporate event needs',
-      buttonText: 'Learn More',
-      buttonColor: 'bg-primary text-white',
-      showDetailIcon: false,
-      detailIcon: '',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: '',
-      attending: 0,
-      capacity: 0,
-      listItems: [
-        { icon: 'check', content: 'Gourmet Menu Options' },
-        { icon: 'check', content: 'Coffee Bar Service' },
-        { icon: 'check', content: 'Dietary Accommodations' },
-        { icon: 'check', content: 'Professional Presentation' }
-      ]
-    }
-  ];
-
-  sliderVisibleCount: number = 3;
-  homeText: any = {};
-  langSub!: Subscription;
-  heroStats: any;
 
   constructor(private i18n: I18nService) {}
-  
-  
+
   ngOnInit() {
-    this.featuredGames = this.featuredGames;
     this.updateSliderVisibleCount();
     this.loadTranslations();
-    // Subscribe to language change
     this.langSub = this.i18n.langChanged$.subscribe(() => {
       this.loadTranslations();
     });
@@ -343,11 +533,11 @@ export class Home implements OnInit, OnDestroy {
   updateSliderVisibleCount() {
     const width = window.innerWidth;
     if (width < 576) {
-      this.sliderVisibleCount = 1; // mobile
+      this.sliderVisibleCount = 1;
     } else if (width < 992) {
-      this.sliderVisibleCount = 2; // tablet
+      this.sliderVisibleCount = 2;
     } else {
-      this.sliderVisibleCount = 3; // desktop
+      this.sliderVisibleCount = 3;
     }
   }
 
@@ -357,13 +547,86 @@ export class Home implements OnInit, OnDestroy {
 
   loadTranslations() {
     this.homeText = this.i18n.t('home');
-    this.heroStats = this.homeText.hero?.heroStats;
-
-    // Set allLabel dynamically based on current language
-    this.gameFilterConfig.allLabel = this.i18n.t('tags.all') || (this.i18n.getCurrentLang() === 'ar' ? 'الكل' : 'All');
+    this.gameFilterConfig.allLabel = this.i18n.getCurrentLang() === 'ar' ? 'الكل' : 'All';
   }
 
   onLanguageChanged() {
     this.loadTranslations();
+  }
+
+  getHeroStats(): any[] {
+    const stats = this.i18n.t('home.hero.heroStats') as any[];
+    return stats.map((stat: any, idx: number) => ({
+      ...stat,
+      ...this.heroStats[idx]
+    }));
+  }
+
+  getStoryStats(): any[] {
+    const stats = this.i18n.t('home.story.storyStats') as any[];
+    return stats.map((stat: any, idx: number) => ({
+      ...stat,
+      ...this.storyStats[idx]
+    }));
+  }
+
+  getCafeMenuStats(): any[] {
+    const items = this.i18n.t('home.cafe-menu.items') as any[];
+    return items.map((item: any, idx: number) => ({
+      ...item,
+      ...this.cafeMenuStats[idx]
+    }));
+  }
+
+  getFeaturedGameStats(): any[] {
+    const items = this.i18n.t('home.featured-game.items') as any[];
+    return items.map((item: any, idx: number) => ({
+      ...item,
+      ...this.featuredGameStats[idx]
+    }));
+  }
+
+  getUpcomingEventStats(): any[] {
+    const items = this.i18n.t('home.upcoming-event.items') as any[];
+    return items.map((item: any, idx: number) => ({
+      ...item,
+      ...this.upcomingEventStats[idx]
+    }));
+  }
+
+  getBusinessServicesStats(): any[] {
+    const items = this.i18n.t('home.business-services.items') as any[];
+    return items.map((item: any, idx: number) => ({
+      ...item,
+      ...this.businessServicesStats[idx],
+      // Merge listItems content and icon
+      listItems: item.listItems.map((li: any, liIdx: number) => ({
+        ...li,
+        icon: this.businessServicesStats[idx].listItems[liIdx]?.icon || ""
+      }))
+    }));
+  }
+
+  getAdventureStats(): any[] {
+    const items = this.i18n.t('home.adventure.items') as any[];
+    return items.map((item: any, idx: number) => ({
+      ...item,
+      ...this.adventureStats[idx]
+    }));
+  }
+
+  getReadyToPlayStats(): any[] {
+    const items = this.i18n.t('home.ready-to-play.items') as any[];
+    return items.map((item: any, idx: number) => ({
+      ...item,
+      ...this.readyToPlayStats[idx]
+    }));
+  }
+
+  getAttendingLabel(): string {
+    return this.i18n.getCurrentLang() === 'ar' ? 'حاضر' : 'attending';
+  }
+  getFullLabel(): string {
+    return this.i18n.getCurrentLang() === 'ar' ? 'ممتلئ' : 'full';
   }
 }
