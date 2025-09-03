@@ -9,7 +9,13 @@ export class I18nService {
   dirChanged$ = new Subject<string>();
 
   constructor() {
+    const savedLang = sessionStorage.getItem('lang');
+    if (savedLang) {
+      this.currentLang = savedLang;
+    }
     this.loadTranslationsSync();
+    const dir = this.currentLang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.dir = dir;
   }
 
   getCurrentLang() {
@@ -18,6 +24,7 @@ export class I18nService {
 
   async setLang(lang: string) {
     this.currentLang = lang;
+    sessionStorage.setItem('lang', lang);
     await this.loadTranslations();
     const dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.dir = dir;

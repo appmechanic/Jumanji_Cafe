@@ -58,26 +58,17 @@
       </app-location-card>
     </div>
     <div class="col-12 col-lg-6">
-      <app-hours-card [titleIcon]="'bi-geo-alt'" [titleIconClass]="'bg-primary2'" [title]="'Operating'"
-        [highlight]="'Hours'" [subTitle]="'When the adventure begins'" [highlightColor]="'gradient-text'"
-        [content]="[
-          { icon: 'bi-brightness-high', iconClass: 'bg-primary2', label: 'Sunday - Monday', Text: '12:00 PM - 11:00 PM' },
-          { icon: 'bi-moon', iconClass: 'bg-primary2', label: 'Friday - Saturday', Text: '2:00 PM - 12:00 AM' }
-          ]"
+      <app-hours-card [titleIcon]="'bi-geo-alt'" [titleIconClass]="'bg-primary2'" [title]="HoursCard.title"
+        [highlight]="HoursCard.highlight" [subTitle]="HoursCard.subtitle" [highlightColor]="'gradient-text'"
+        [content]="mappedHoursFields"
         [iframeSrc]="'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.491779886395!2d39.15329637600109!3d21.566718769083142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d075133f23b3%3A0x643f18959e4bbc0f!2sAl%20Kayal%2C%20Ar%20Rawdah%2C%20Jeddah%20Saudi%20Arabia!5e0!3m2!1sen!2sin!4v1756558267881!5m2!1sen!2sin'"
         [buttonLink]="'https://maps.app.goo.gl/yNNi4vyPuPwpYRqr6'"
         [notesClass]="'bg-secondary5'"
         [notesIconClass]="'text-white bg-secondary'"
         [notesIcon]="'bi-exclamation-circle'"
-        [notesTitle]="'Special Notes'"
-        [notes]="
-         [
-    { icon: 'bi-exclamation-circle', iconClass: 'text-orange', title: 'Extended hours during special events', color: 'text-orange' },
-    { icon: 'bi-lock', iconClass: 'text-orange', title: 'Private bookings available outside regular hours', color: 'text-orange' },
-    { icon: 'bi-calendar-event', iconClass: 'text-orange', title: 'Holiday hours may vary - check our social media', color: 'text-orange' }
-  ]"
-        >
-      </app-hours-card>
+        [notesTitle]="HoursCard.notesTitle"
+        [notes]="mappedNotes"
+      ></app-hours-card>
     </div>
   </div>
 </div>
@@ -87,31 +78,27 @@
     <div class="row justify-content-center pt-5  position-relative" style="z-index: 1;">
       <div class="col-12">
         <app-heading-section iconLeft="bi-suit-heart" iconLeftType="bootstrap" iconLeftColor="bg-primary2" iconRight=""
-          iconRightType="material" iconRightColor="bg-primary2" title="" highlight="Follow Our Adventure"
+          iconRightType="material" iconRightColor="bg-primary2" [title]="newsletter.title" [highlight]="newsletter.highlight"
           highlightColor="gradient-text" subtitleColor="text-white"
-          subtitle="Join our community across social platforms for daily game highlights, event updates, and behind-the-scenes fun! 🎮✨">
+          [subtitle]="newsletter.subtitle">
         </app-heading-section>
       </div>
       <div class="row g-4 mt-0 d-flex align-items-stretch justify-content-center">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of AdventureStats ">
-          <!-- <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
-            [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor" [titleColor]="stat.titleColor"
-            [cardBgColor]="stat.cardBgColor" [textColor]="stat.textColor">
-          </app-stat-card> -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of getAdventureStats()">
+          <app-stat-card [iconType]="stat?.iconType" [icon]="stat?.icon" [title]="stat?.title" [text]="stat?.text"
+            [borderColor]="stat?.borderColor" [iconBgColor]="stat?.iconBgColor" [titleColor]="stat?.titleColor"
+            [cardBgColor]="stat?.cardBgColor" [textColor]="stat?.textColor">
+          </app-stat-card>
         </div>
       </div>
     </div>
     <div class="row justify-content-center py-5 mt-2">
       <div class="col-12 col-lg-9">
         <app-newsletter [icon]="'bi-envelope-open-fill'" [iconColor]="'text-white gradient-bg'"
-          [title]="'Get Latest Updates'" [titleColor]="'text-white'"
-          [subtitle]="'Subscribe to receive news about new games, upcoming events, and exclusive offers!'"
-          [subtitleColor]="'text-white2'" [fieldPlaceholder]="'Enter your email for adventure updates ✨'"
-          [buttonIcon]="'bi-send-fill'" [buttonName]="'Subscribe'" [belowItems]="[
-            { icon: 'bi-shield-check', iconColor: 'text-secondary', text: 'No spam, ever' },
-            { icon: 'bi-calendar-week', iconColor: 'text-info', text: 'Weekly updates' },
-            { icon: 'bi-star-fill', iconColor: 'text-secondary', text: 'Exclusive offers' }
-          ]"></app-newsletter>
+          [title]="subscribe.title" [titleColor]="'text-white'"
+          [subtitle]="subscribe.subtitle"
+          [subtitleColor]="'text-white2'" [fieldPlaceholder]="subscribe.fieldPlaceholder"
+          [buttonIcon]="'bi-send-fill'" [buttonName]="subscribe.btnText" [belowItems]="newsletterBelowIcons"></app-newsletter>
       </div>
     </div>
   </div>

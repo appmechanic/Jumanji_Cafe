@@ -440,15 +440,33 @@
             "highlight": "a Message",
             "btnText": "Send Message",
             "fields": [
-                { "label": "Name *", "placeholder": "Enter your name" },
-                { "label": "Email *", "placeholder": "your.email@example.com" },
-                { "label": "Phone number (Optional)", "placeholder": "+966 XXX XXX XXXX" },
-                { "label": "Message *", "placeholder": "Tell us about your inquiry, event planning needs, or any questions you have..." }
+                {
+                    "label": "Name *",
+                    "placeholder": "Enter your name"
+                },
+                {
+                    "label": "Email *",
+                    "placeholder": "your.email@example.com"
+                },
+                {
+                    "label": "Phone number (Optional)",
+                    "placeholder": "+966 XXX XXX XXXX"
+                },
+                {
+                    "label": "Message *",
+                    "placeholder": "Tell us about your inquiry, event planning needs, or any questions you have..."
+                }
             ],
             "belowItems": [
-                { "text": "Secure & Private" },
-                { "text": "24h Response" },
-                { "text": "Friendly Support" }
+                {
+                    "text": "Secure & Private"
+                },
+                {
+                    "text": "24h Response"
+                },
+                {
+                    "text": "Friendly Support"
+                }
             ]
         },
         "LocationCard": {
@@ -456,10 +474,86 @@
             "highlight": "Our Cafe",
             "btnText": "Get Directions",
             "content": [
-                { "label": "Jumanji Cafe", "Text": "123 Main St, Riyadh, Saudi Arabia" },
-                { "label": "Phone", "Text": "+966 XXX XXX XXX" },
-                { "label": "Email", "Text": "info@jumanji.sa" }
+                {
+                    "label": "Jumanji Cafe",
+                    "Text": "123 Main St, Riyadh, Saudi Arabia"
+                },
+                {
+                    "label": "Phone",
+                    "Text": "+966 XXX XXX XXX"
+                },
+                {
+                    "label": "Email",
+                    "Text": "info@jumanji.sa"
+                }
             ]
+        },
+        "HoursCard": {
+            "title": "Operating",
+            "highlight": "Hours",
+            "subTitle": "When the adventure begins",
+            "content": [
+                {
+                    "label": "Sunday - Monday",
+                    "Text": "12:00 PM - 11:00 PM"
+                },
+                {
+                    "label": "Friday - Saturday",
+                    "Text": "2:00 PM - 12:00 AM"
+                }
+            ],
+            "notesTitle": "Special Notes",
+            "notes": [
+                {
+                    "title": "Extended hours during special events"
+                },
+                {
+                    "title": "Private bookings available outside regular hours"
+                },
+                {
+                    "title": "Holiday hours may vary - check our social media"
+                }
+            ]
+        },
+        "newsletter": {
+            "title": "",
+            "highlight": "Follow Our Adventure",
+            "subtitle": "Join our community across social platforms for daily game highlights, event updates, and behind-the-scenes fun! 🎮✨",
+            "AdventureStats": [
+                {
+                    "title": "Instagram",
+                    "text": "12.5k followers"
+                },
+                {
+                    "title": "TikTok",
+                    "text": "8.2k followers"
+                },
+                {
+                    "title": "YouTube",
+                    "text": "5.1k followers"
+                },
+                {
+                    "title": "Facebook",
+                    "text": "15.8k followers"
+                }
+            ],
+            "subscribe": {
+                "title": "Get Latest Updates",
+                "subtitle": "Subscribe to receive news about new games, upcoming events, and exclusive offers!",
+                "fieldPlaceholder": "Enter your email for adventure updates ✨",
+                "btnText": "Subscribe",
+                "belowItems": [
+                    {
+                        "text": "No spam, ever"
+                    },
+                    {
+                        "text": "Weekly updates"
+                    },
+                    {
+                        "text": "Exclusive offers"
+                    }
+                ]
+            }
         }
     },
     "footer": {

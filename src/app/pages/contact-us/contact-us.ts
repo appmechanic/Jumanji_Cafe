@@ -86,69 +86,55 @@ export class ContactUs implements OnInit, OnDestroy {
     {
       iconType: "bootstrap",
       icon: "bi-instagram",
-      titleicon: "",
-      title: "Instagram",
-      text: "12.5k followers",
-      textColor: "text-white2",
       borderColor: "border-none",
       iconBgColor: "bg-primary2",
       titleColor: "text-white",
       cardBgColor: "bg-primary3 border-gradient",
-      subtitle: "",
-      subtitleColor: "",
+      textColor: "text-white2"
     },
     {
       iconType: "bootstrap",
       icon: "bi-tiktok",
-      title: "TikTok",
-      titleicon: "",
-      text: "8.2k followers",
-      textColor: "text-white2",
       borderColor: "border-none",
       iconBgColor: "bg-dark-subtle text-dark",
       titleColor: "text-white",
       cardBgColor: "bg-dark border-gradient",
-      subtitle: "",
-      subtitleColor: "",
+      textColor: "text-white2"
     },
     {
       iconType: "bootstrap",
       icon: "bi-youtube",
-      titleicon: "",
-      title: "YouTube",
-      text: "5.1k followers",
-      textColor: "text-white2",
       borderColor: "border-none",
       iconBgColor: "bg-danger-subtle text-danger",
       titleColor: "text-white",
       cardBgColor: "bg-danger border-gradient",
-      subtitle: "",
-      subtitleColor: "",
+      textColor: "text-white2"
     },
     {
       iconType: "bootstrap",
       icon: "bi-facebook",
-      titleicon: "",
-      title: "Facebook",
-      text: "15.8k followers",
-      textColor: "text-white2",
       borderColor: "border-none",
       iconBgColor: "bg-info-subtle text-info",
       titleColor: "text-white",
       cardBgColor: "bg-info border-gradient",
-      subtitle: "",
-      subtitleColor: "",
+      textColor: "text-white2"
     }
   ];
   contactTitle: string = '';
   contactSubtitle: string = '';
   contactForm: any = {};
   locationCard: any = {};
+  HoursCard: any = {};
+  newsletter: any = {};
+  subscribe: any = {};
   mappedFields: any[] = [];
   mappedBelowItems: any[] = [];
-  mappedLocationFields: any[] = []; 
+  newsletterBelowIcons: any[] = [];
+  mappedLocationFields: any[] = [];
+  mappedHoursFields: any[] = [];
+  mappedNotes: any[] = [];
   langSub!: Subscription;
-
+  public direction: string = 'ltr';
   constructor(private i18n: I18nService) { }
 
   ngOnInit() {
@@ -167,6 +153,10 @@ export class ContactUs implements OnInit, OnDestroy {
     this.contactSubtitle = this.i18n.t('contact.subtitle');
     this.contactForm = this.i18n.t('contact.contactForm');
     this.locationCard = this.i18n.t('contact.LocationCard');
+    this.HoursCard = this.i18n.t('contact.HoursCard');
+    this.newsletter = this.i18n.t('contact.newsletter');
+    this.subscribe = this.newsletter.subscribe || {};
+
     const icons = ['bi-person', 'bi-envelope', 'bi-telephone', 'bi-chat-dots'];
     this.mappedFields = this.contactForm.fields.map((field: any, idx: number) => ({
       ...field,
@@ -178,24 +168,61 @@ export class ContactUs implements OnInit, OnDestroy {
       { icon: 'bi-clock', iconClass: 'text-info' },
       { icon: 'bi-headset', iconClass: 'text-primary' }
     ];
+    const newsletterBelowIcons = [
+      { icon: 'bi-shield-check', iconColor: 'text-secondary' },
+      { icon: 'bi-calendar-week', iconColor: 'text-info' },
+      { icon: 'bi-star-fill', iconColor: 'text-secondary' }
+    ];
     this.mappedBelowItems = this.contactForm.belowItems.map((item: any, idx: number) => ({
       ...item,
       ...belowIcons[idx]
     }));
+    this.newsletterBelowIcons = (this.subscribe.belowItems || []).map((item: any, idx: number) => ({
+      ...item,
+      ...newsletterBelowIcons[idx]
+    }));
     const locationIcons = [
       { icon: 'bi-geo-alt', iconClass: 'bg-primary2' },
-      { icon: 'bi-telephone', iconClass: 'bg-secondary2 ' },
+      { icon: 'bi-telephone', iconClass: 'bg-secondary2' },
       { icon: 'bi-envelope', iconClass: 'bg-primary2' }
     ];
+    const HoursIcons = [
+      { icon: 'bi-brightness-high', iconClass: 'bg-primary2' },
+      { icon: 'bi-moon', iconClass: 'bg-primary2' }
+    ];
+    const mappedNotes = [
+      { icon: 'bi-exclamation-circle', iconClass: 'text-orange', title: 'Extended hours during special events', color: 'text-orange' },
+      { icon: 'bi-lock', iconClass: 'text-orange', color: 'text-orange' },
+      { icon: 'bi-calendar-event', iconClass: 'text-orange', color: 'text-orange' }
+    ];
+
     this.mappedLocationFields = this.locationCard.content.map((field: any, idx: number) => ({
       ...field,
       ...locationIcons[idx]
     }));
+
+    this.mappedHoursFields = this.HoursCard.content.map((field: any, idx: number) => ({
+      ...field,
+      ...HoursIcons[idx]
+    }));
+    this.mappedNotes = this.HoursCard.notes.map((note: any, idx: number) => ({
+      ...note,
+      ...mappedNotes[idx]
+    }));
   }
+
   getHeroStats(): any[] {
     const stats = this.i18n.t('contact.heroStats') as any[];
     return stats.map((stat: any, idx: number) => ({
       ...this.heroStats[idx],
+      title: stat.title,
+      text: stat.text
+    }));
+  };
+  getAdventureStats(): any[] {
+    const stats = this.i18n.t('contact.newsletter.AdventureStats') as any[];
+    return stats.map((stat: any, idx: number) => ({
+      ...this.AdventureStats[idx],
       title: stat.title,
       text: stat.text
     }));
