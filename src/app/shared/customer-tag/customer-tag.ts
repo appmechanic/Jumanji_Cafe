@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { I18nService } from '../../i18n.service'; 
 
 @Component({
   selector: 'app-customer-tag',
@@ -12,6 +13,8 @@ export class CustomerTag {
   @Input() rating: number = 5;
   @Input() customerCount: number = 0;
   @Input() customerImages: string[] = [];
+  @Input() text1: string = '';
+  @Input() text2: string = '';
 
   get stars(): ('full' | 'half' | 'empty')[] {
     const stars: ('full' | 'half' | 'empty')[] = [];

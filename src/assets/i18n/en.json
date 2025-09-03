@@ -409,13 +409,321 @@
                 "tag": "Logic Pro",
                 "qualities": "Logic Games"
             }
-        ],
-        "tags": {
-            "all": "All",
-            "familyPicks": "Family Picks",
-            "quickGames": "Quick Games",
-            "topRated": "Top Rated",
-            "strategy": "Strategy"
+        ]
+    },
+    "about": {
+        "hero": {
+            "titleParts": [
+                {
+                    "text": " ",
+                    "class": ""
+                },
+                {
+                    "text": "Our ",
+                    "class": "text-primary"
+                },
+                {
+                    "text": "Story",
+                    "class": "text-secondary"
+                }
+            ],
+            "subtitleParts": [
+                {
+                    "text": "Discover how a passion for games, laughter, and connection led  to the ",
+                    "class": ""
+                },
+                {
+                    "text": "creation of Jumanji Café ",
+                    "class": "text-primary"
+                },
+                {
+                    "text": "in the heart of ",
+                    "class": ""
+                },
+                {
+                    "text": "Jeddah",
+                    "class": "text-secondary"
+                }
+            ]
+        },
+        "story": {
+            "textOverImage1": "Best Experience",
+            "textOverImage2": "Jeddah, Saudi Arabia",
+            "titleParts": [
+                "About ",
+                "The Cafe"
+            ],
+            "description": [
+                "Jumanji Café was born from a simple yet powerful belief: that the magic of board games has the power to bring people together in extraordinary ways. Our founders, passionate gamers and coffee enthusiasts, noticed a gap in Jeddah's entertainment scene - a place where families, friends, and strangers could connect over the timeless joy of tabletop adventures.",
+                "What started as weekend game nights among friends evolved into a dream of creating Saudi Arabia's premier board game destination. We wanted to build more than just a café - we envisioned a community hub where laughter echoes through the air, where strategic minds meet creative spirits, and where every visit becomes a memorable adventure.",
+                "Since opening our doors in 2020, Jumanji Café has become a beloved gathering place for game enthusiasts of all ages. From seasoned strategists tackling complex campaigns to families discovering their first cooperative adventure, our space welcomes everyone ready to roll the dice on fun."
+            ],
+            "storyStats": [
+                {
+                    "title": "Since 2020",
+                    "text": "Experience"
+                },
+                {
+                    "title": "10k +",
+                    "text": "Quality"
+                }
+            ]
+        },
+        "mission": {
+            "title": "Mission &",
+            "highlight": " Vision",
+            "description": "Guided by our passion for connection and community, we strive to create extraordinary experiences",
+            "cards": [
+                {
+                    "title": "Our Mission",
+                    "description": "To create a welcoming space where people of all ages and backgrounds can discover the joy of board games, forge meaningful connections, and build lasting memories over exceptional coffee and delicious treats. We believe that every game tells a story, every laugh creates a bond, and every visit should leave you feeling more connected to your community and yourself.",
+                    "badges": [
+                        {
+                            "label": "Community Building"
+                        },
+                        {
+                            "label": "Inclusive Environment"
+                        },
+                        {
+                            "label": "Quality Experience"
+                        }
+                    ]
+                },
+                {
+                    "title": "Our Vision",
+                    "description": "To become the leading board game community hub in Saudi Arabia, inspiring a new generation of gamers and establishing Jeddah as a destination for tabletop entertainment and social connection.\nWe envision a future where board game cafés are integral to Saudi communities, fostering creativity, strategic thinking, and social bonds across generations.",
+                    "badges": [
+                        {
+                            "label": "Innovation Leader"
+                        },
+                        {
+                            "label": "Cultural Impact"
+                        },
+                        {
+                            "label": "Community Growth"
+                        }
+                    ]
+                }
+            ],
+            "stats": [
+                {
+                    "title": "200+",
+                    "text": "Experience"
+                },
+                {
+                    "title": "500+",
+                    "text": "Quality"
+                },
+                {
+                    "title": "50k +",
+                    "text": "Quality"
+                },
+                {
+                    "title": "5★",
+                    "text": "Quality"
+                }
+            ]
+        },
+        "highlights": {
+            "title": "Unique Experience",
+            "highlight": "Highlights",
+            "description": "Discover what makes Jumanji Café the ultimate destination for board game enthusiasts",
+            "cards": [
+                {
+                    "title": "Over 200+ Board Games",
+                    "text": "From classic strategy games to modern party favorites, our extensive collection ensures there's always something new to discover."
+                },
+                {
+                    "title": "Handcrafted Drinks & Desserts",
+                    "text": "Our skilled baristas craft specialty beverages and delicious treats that perfectly complement your gaming experience."
+                },
+                {
+                    "title": "Family-Friendly & Inclusive",
+                    "text": "Our welcoming environment caters to all ages and backgrounds, making everyone feel at home in our gaming community."
+                },
+                {
+                    "title": "Expert Staff for Game Guidance",
+                    "text": "Our knowledgeable team is always ready to recommend the perfect game and teach you the rules for maximum fun."
+                },
+                {
+                    "title": "Themed Game Nights & Events",
+                    "text": "Join our regular tournaments, themed nights, and special events that bring the gaming community together."
+                },
+                {
+                    "title": "Modern Amenities & Comfort",
+                    "text": "Enjoy free WiFi, comfortable seating, climate control, and all the modern conveniences for extended gaming sessions."
+                }
+            ],
+            "infoStats": [
+                {
+                    "title": "Open Daily",
+                    "text": "9 AM - 12 AM"
+                },
+                {
+                    "title": "All Ages",
+                    "text": "Family Welcome"
+                }
+            ]
+        },
+        "community": {
+            "title": "What Our",
+            "highlight": "Community Says",
+            "subtitle": "Real experiences from our amazing gaming community",
+            "testimonials": [
+                {
+                    "quote": "Jumanji Café has become our family's weekend tradition! The staff is incredibly helpful in recommending games, and the atmosphere is perfect for spending quality time together. My kids always ask when we can go back!",
+                    "name": "Ahmed Al-Rahman",
+                    "role": "HR Director",
+                    "location": "Tech Solutions KSA",
+                    "tag": "Team Building"
+                },
+                {
+                    "quote": "As a strategy game enthusiast, I've finally found my paradise! The collection here is incredible, and I've discovered so many new games. The coffee is excellent too - perfect fuel for those long gaming sessions.",
+                    "name": "Ahmed Al-Rahman",
+                    "role": "HR Director",
+                    "location": "Tech Solutions KSA",
+                    "tag": "Team Building"
+                },
+                {
+                    "quote": "I brought my team here for a corporate event, and it was amazing! The staff organized everything perfectly, and our team bonding experience was unforgettable. Highly recommended for both personal and business visits.",
+                    "name": "Sara Al-Mutairi",
+                    "role": "",
+                    "location": "Jeddah",
+                    "tag": "Local Favorite"
+                }
+            ],
+            "infoStats": [
+                {
+                    "title": "4.9/5",
+                    "text": "Average Rating"
+                },
+                {
+                    "title": "500+",
+                    "text": "Happy Reviews"
+                },
+                {
+                    "title": "85%",
+                    "text": "Return Visitors"
+                }
+            ]
+        },
+        "media": {
+            "title": "Jumanji in",
+            "highlight": "The Media",
+            "subtitle": "Recognized by leading media outlets for our contribution to Saudi Arabia's entertainment landscape",
+            "cards": [
+                {
+                    "title": "Board Game Revolution Hits Jeddah",
+                    "subtitle": "Saudi Gazette",
+                    "date": "March 2024",
+                    "badgeText": "Featured Article",
+                    "buttonText": "Read Article"
+                },
+                {
+                    "title": "Jumanji Café: Where Gaming Meets Community",
+                    "subtitle": "Arab News",
+                    "date": "February 2024",
+                    "badgeText": "Business Spotlight",
+                    "buttonText": "Read Article"
+                },
+                {
+                    "title": "Must-Visit Entertainment Destination",
+                    "subtitle": "Tourism Feature",
+                    "date": "January 2024",
+                    "badgeText": "Jeddah Tourism",
+                    "buttonText": "Read Article"
+                },
+                {
+                    "title": "Board Game Revolution Hits Jeddah",
+                    "subtitle": "Saudi Gazette",
+                    "date": "March 2024",
+                    "badgeText": "Featured Article",
+                    "buttonText": "Read Article"
+                },
+                {
+                    "title": "Jumanji Café: Where Gaming Meets Community",
+                    "subtitle": "Arab News",
+                    "date": "February 2024",
+                    "badgeText": "Business Spotlight",
+                    "buttonText": "Read Article"
+                },
+                {
+                    "title": "Must-Visit Entertainment Destination",
+                    "subtitle": "Tourism Feature",
+                    "date": "January 2024",
+                    "badgeText": "Jeddah Tourism",
+                    "buttonText": "Read Article"
+                }
+            ],
+            "cta": {
+                "titleStart": "Media &  ",
+                "titleHighlight": "Press Kit",
+                "description": "High-resolution images, logos, and press materials",
+                "primaryBtn": "Download Press Kit",
+                "secondaryBtn": "Contact Media Team"
+            },
+            "stats": [
+                {
+                    "title": "25+",
+                    "text": "Experience"
+                },
+                {
+                    "title": "500k+",
+                    "text": "Quality"
+                },
+                {
+                    "title": "50k +",
+                    "text": "Quality"
+                },
+                {
+                    "title": "5★",
+                    "text": "Quality"
+                }
+            ]
+        },
+        "experience": {
+            "titleParts": [
+                {
+                    "text": " "
+                },
+                {
+                    "text": "Want to Experience "
+                },
+                {
+                    "text": "The Fun Yourself?"
+                }
+            ],
+            "subtitleParts": [
+                {
+                    "text": "Join thousands of adventurers who have discovered the magic of "
+                },
+                {
+                    "text": "Jumanji Café "
+                },
+                {
+                    "text": ". Your next great adventure is just a game away! 🎲"
+                }
+            ],
+            "primaryBtn": "Explore Our Menu",
+            "secondaryBtn": "Check Events",
+            "stats": [
+                {
+                    "title": "Visit Us",
+                    "text": "Al Kayyal St, Al Rawdah, Jeddah"
+                },
+                {
+                    "title": "Open Daily",
+                    "text": "9:00 AM - 12:00 AM"
+                },
+                {
+                    "title": "Call Us",
+                    "text": "+966 XXX XXX XXX"
+                }
+            ]
+        },
+        "customerTag":{
+            "text1": "Happy Customers",
+            "text2": "Rating"
         }
     },
     "contact": {
@@ -555,6 +863,13 @@
                 ]
             }
         }
+    },
+    "tags": {
+        "all": "All",
+        "family-friendly": "Family Friendly",
+        "quick-games": "Quick Games",
+        "top-rated": "Top Rated",
+        "strategy": "Strategy"
     },
     "footer": {
         "description": "Experience the ultimate board game café adventure in the heart of Jeddah. Where games come to life and legends are born! 🎲✨",

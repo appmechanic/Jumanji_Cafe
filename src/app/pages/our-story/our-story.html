@@ -1,19 +1,13 @@
-<div class="custom-spacing hero">
+<div class="custom-spacing hero" *ngIf="OurStory?.hero">
   <div class="background-overlay"></div>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 custom-col-width">
         <div class="hero-section-wrapper">
-          <app-hero-section [titleParts]="[
-              { text: '', class: '', breakLine: false },
-              { text: 'Our ', class: 'text-primary', breakLine: false },
-              { text: 'Story', class: 'text-secondary', breakLine: false }
-            ]" [subtitleParts]="[
-              { text: 'Discover how a passion for games, laughter, and connection led  to the ', class: '' },
-              { text: 'creation of Jumanji Café ', class: 'text-primary' },
-              { text: 'in the heart of ', class: '' },
-              { text: 'Jeddah', class: 'text-secondary' }
-            ]" [headingTag]="'h1'">
+          <app-hero-section 
+            [titleParts]="OurStory.hero?.titleParts" 
+            [subtitleParts]="OurStory.hero?.subtitleParts" 
+            [headingTag]="'h1'">
           </app-hero-section>
         </div>
       </div>
@@ -23,19 +17,24 @@
 
 
 <!-- Story Section -->
-<div class="story-section container mt-5">
+<div class="story-section container mt-5" *ngIf="OurStory?.story">
   <div class="row justify-content-center">
     <div class="col-12">
-      <app-story-section [imageSrc]="'/assets/sec2-img.jpg'" [textOverImage1]="'Best Experience'"
-        [textOverImage1BgColor]="'gradient-bg'" [textOverImage1Color]="'text-white'" [icon1]="'sports_esports'"
-        [textOverImage2]="'Jeddah, Saudi Arabia'" [textOverImage2BgColor]="'bg-dark'"
-        [textOverImage2Color]="'text-white'" [icon2]="'location_on'" [titleicon]="'favorite'" [iconType]="'material'"
-        [titleParts]="['About ', 'The Cafe']" [description]="[
-          'Jumanji Café was born from a simple yet powerful belief: that the magic of board games has the power to bring people together in extraordinary ways. Our founders, passionate gamers and coffee enthusiasts, noticed a gap in Jeddah\'s entertainment scene - a place where families, friends, and strangers could connect over the timeless joy of tabletop adventures.',
-          'What started as weekend game nights among friends evolved into a dream of creating Saudi Arabia\'s premier board game destination. We wanted to build more than just a café - we envisioned a community hub where laughter echoes through the air, where strategic minds meet creative spirits, and where every visit becomes a memorable adventure.',
-          'Since opening our doors in 2020, Jumanji Café has become a beloved gathering place for game enthusiasts of all ages. From seasoned strategists tackling complex campaigns to families discovering their first cooperative adventure, our space welcomes everyone ready to roll the dice on fun.'
-        ]" 
-        [stats]="storyStats" [buttons]="[]">
+      <app-story-section 
+        [imageSrc]="'/assets/sec2-img.jpg'" 
+        [textOverImage1]="OurStory.story.textOverImage1"
+        [textOverImage1BgColor]="'gradient-bg'" 
+        [textOverImage1Color]="'text-white'" 
+        [icon1]="'sports_esports'"
+        [textOverImage2]="OurStory.story.textOverImage2" 
+        [textOverImage2BgColor]="'bg-dark'"
+        [textOverImage2Color]="'text-white'" 
+        [icon2]="'location_on'" 
+        [titleicon]="'favorite'" 
+        [iconType]="'material'"
+        [titleParts]="OurStory.story.titleParts" 
+        [description]="OurStory.story.description" 
+        [stats]="getstoryStats()">
       </app-story-section>
     </div>
   </div>
@@ -46,18 +45,18 @@
   <div class="row">
     <div class="col-12">
       <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="" iconRight="" iconRightType="material"
-        iconRightColor="" title="Mission &" highlight="Vision" highlightColor="gradient-text"
-        subtitle="Guided by our passion for connection and community, we strive to create extraordinary experiences">
+        iconRightColor="" [title]="OurStory.mission?.title" [highlight]="OurStory.mission?.highlight" highlightColor="gradient-text"
+        [subtitle]="OurStory.mission?.description">
       </app-heading-section>
     </div>
   </div>
   <div class="row align-items-stretch gy-3">
-    <div class="col-12 col-md-6 col-lg-6" *ngFor="let card of missionCard">
+    <div class="col-12 col-md-6 col-lg-6" *ngFor="let card of getmissionCard()">
       <app-simple-cards [cards]="[card]"></app-simple-cards>
     </div>
   </div>
   <div class="row mt-4 mb-5 pb-4 g-4 d-flex align-items-stretch justify-content-center">
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of missionStats">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of getmissionStats()">
       <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
         [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor" [titleColor]="stat.titleColor"
         [cardBgColor]="stat.cardBgColor">
@@ -71,20 +70,20 @@
   <div class="row">
     <div class="col-12">
       <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="" iconRight="" iconRightType="material"
-        iconRightColor="" title="Unique Experience" highlight="Highlights" highlightColor="gradient-text"
-        subtitle="Discover what makes Jumanji Café the ultimate destination for board game enthusiasts">
+        iconRightColor="" [title]="OurStory.highlights?.title" [highlight]="OurStory.highlights?.highlight" highlightColor="gradient-text"
+        [subtitle]="OurStory.highlights?.description">
       </app-heading-section>
     </div>
   </div>
   <div class="row align-items-stretch gy-4">
-    <div class="col-12 col-md-6 col-lg-4" *ngFor="let card of highlightCards">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let card of gethighlightCards()">
       <app-image-showcase-card [imageSrc]="card.imageSrc" [overlay]="card.overlay" [icon]="card.icon"
         [title]="card.title" [titleClass]="card.titleClass" [text]="card.text"
         [textClass]="card.textClass"></app-image-showcase-card>
     </div>
   </div>
   <div class="text-center pt-5  pb-3">
-    <app-info-stat-bar [stats]="highlightStats" [bgColor]="'bg-white'" [shadow]="true">
+    <app-info-stat-bar [stats]="gethighlightInfoStats()" [bgColor]="'bg-white'" [shadow]="true">
     </app-info-stat-bar>
   </div>
 </div>
@@ -94,13 +93,13 @@
   <div class="row">
     <div class="col-12">
       <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="" iconRight="" iconRightType="material"
-        iconRightColor="" title="What Our" highlight="Community Says" highlightColor="gradient-text"
-        subtitle="Real experiences from our amazing gaming community">
+        iconRightColor="" [title]="OurStory.community?.title" [highlight]="OurStory.community?.highlight" highlightColor="gradient-text"
+        [subtitle]="OurStory.community?.subtitle">
       </app-heading-section>
     </div>
   </div>
   <div class="row align-items-stretch gy-5 mt-3 justify-content-center">
-    <div class="col-12 col-md-6 col-lg-4" *ngFor="let testimonial of testimonials">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let testimonial of gettestimonials()">
       <app-testimonial-card [quote]="testimonial.quote" [showInvertedCommas]="testimonial.showInvertedCommas"
         [rating]="testimonial.rating" [name]="testimonial.name" [role]="testimonial.role"
         [location]="testimonial.location ?? ''" [imageSrc]="testimonial.imageSrc"
@@ -109,7 +108,7 @@
     </div>
   </div>
   <div class="text-center py-5">
-    <app-info-stat-bar [stats]="communityStats" [bgColor]="'bg-white'" [shadow]="true">
+    <app-info-stat-bar [stats]="getcommunityInfoStats()" [bgColor]="'bg-white'" [shadow]="true">
     </app-info-stat-bar>
   </div>
 </div>
@@ -119,13 +118,13 @@
   <div class="row">
     <div class="col-12">
       <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="" iconRight="" iconRightType="material"
-        iconRightColor="" title="Jumanji in" highlight="The Media" highlightColor="gradient-text"
-        subtitle="Recognized by leading media outlets for our contribution to Saudi Arabia's entertainment landscape">
+        iconRightColor="" [title]="OurStory.media?.title" [highlight]="OurStory.media?.highlight" highlightColor="gradient-text"
+        [subtitle]="OurStory.media?.subtitle">
       </app-heading-section>
     </div>
   </div>
   <div class="row align-items-stretch gy-4">
-    <div class="col-12 col-md-6 col-lg-4" *ngFor="let card of mediaCards">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let card of getmediaCards()">
       <app-media-card [title]="card.title" [subtitle]="card.subtitle" [date]="card.date"
         [badgeText]="card.badgeText" [badgeClass]="card.badgeClass" [buttonClass]="card.buttonClass"
         [buttonText]="card.buttonText" [buttonIcon]="card.buttonIcon" [iconBgClass]="card.iconBgClass"
@@ -133,18 +132,19 @@
     </div>
   </div>
   <div class="text-center my-5">
-    <app-cta-section colClass="col-12" icon="" titleStart="Media &  " titleHighlight="Press Kit"
-      description="High-resolution images, logos, and press materials">
+    <app-cta-section *ngIf="OurStory.media?.cta"
+      colClass="col-12" icon="" [titleStart]="OurStory.media.cta?.titleStart" [titleHighlight]="OurStory.media.cta?.titleHighlight"
+      [description]="OurStory.media.cta?.description">
       <app-primary-button primaryButton iconLeft="download" class="d-flex justify-content-center mt-2">
-        Download Press Kit
+        {{OurStory.media.cta?.primaryBtn}}
       </app-primary-button>
       <app-ghost-button ghostButton iconLeft="mail" class="d-flex justify-content-center mt-2">
-        Contact Media Team
+        {{OurStory.media.cta?.secondaryBtn}}
       </app-ghost-button>
     </app-cta-section>
   </div>
   <div class="row align-items-stretch gy-4 pb-5 justify-content-center">
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let card of mediaStats">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let card of getmediaStats()">
       <app-stat-card  [iconType]="card.iconType" [icon]="card.icon" [title]="card.title" [text]="card.text"
         [borderColor]="card.borderColor" [iconBgColor]="card.iconBgColor" [titleColor]="card.titleColor"
         [cardBgColor]="card.cardBgColor">
@@ -159,34 +159,26 @@
 
   <div class="row justify-content-center py-5 position-relative" style="z-index: 1;">
     <div class="col-11 col-md-10 col-lg-7 col-xl-6 col-xxl-5">
-      <app-hero-section [titleParts]="[
-              { text: '', class: '', breakLine: false },
-              { text: 'Want to Experience ', class: 'text-white', breakLine: true },
-              { text: 'The Fun Yourself?', class: 'gradient-text', breakLine: false }
-            ]" [subtitleParts]="[
-              { text: 'Join thousands of adventurers who have discovered the magic of  ', class: 'text-white fw-medium' },
-              { text: 'Jumanji Café ', class: 'text-secondary' },
-              { text: '. Your next great adventure is just a game away! 🎲', class: 'text-white' }
-            ]" [headingTag]="'h2'">
+      <app-hero-section [titleParts]="getExperienceTitleParts()" [subtitleParts]="getExperienceSubtitleParts()" [headingTag]="'h2'">
       </app-hero-section>
     </div>
     <div class="container w-full">
       <div class="row hero-buttons justify-content-center align-items-center gap-4 flex-wrap mt-5">
         <div class="col-auto">
           <app-primary-button iconLeft="bi-fork-knife">
-            Explore Our Menu
+            {{OurStory.experience?.primaryBtn}}
           </app-primary-button>
         </div>
 
         <div class="col-auto">
           <app-ghost-button iconLeft="today">
-            Check Events
+            {{OurStory.experience?.secondaryBtn}}
           </app-ghost-button>
         </div>
       </div>
 
       <div class="row mt-5 g-4 d-flex align-items-stretch justify-content-center">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of CtaStats">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of getCtaStats()">
           <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
             [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor" [titleColor]="stat.titleColor"
             [cardBgColor]="stat.cardBgColor" [textColor]="stat.textColor">
@@ -195,7 +187,7 @@
       </div>
     </div>
     <div class="text-center pt-5">
-      <app-customer-tag [rating]="4.9" [customerCount]="15000"
+      <app-customer-tag [rating]="4.9" [customerCount]="15000" [text1]="OurStory.customerTag.text1" [text2]="OurStory.customerTag.text2"
         [customerImages]="['/assets/testimonial-img1.jpg', '/assets/testimonial-img1.jpg', '/assets/testimonial-img1.jpg', '/assets/testimonial-img1.jpg']">
       </app-customer-tag>
     </div>

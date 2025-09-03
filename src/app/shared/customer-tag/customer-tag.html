@@ -5,7 +5,7 @@
         </ng-container>
     </div>
     <div class="customer-info d-flex flex-column flex-md-row align-items-center gap-2 gap-md-3">
-        <span class="customer-count fw-bold text-white">{{ customerCount | number }}+ Happy Customers</span>
+        <span class="customer-count fw-bold text-white">{{ customerCount | number }}+ {{text1}}</span>
         <span class="divider text-white fw-bold mx-3 d-none d-md-inline">|</span>
         <span class="stars d-flex align-items-center gap-1 mt-2 mt-md-0">
             <ng-container *ngFor="let star of stars">
@@ -15,7 +15,7 @@
                     <i *ngSwitchCase="'empty'" class="bi bi-star star empty"></i>
                 </ng-container>
             </ng-container>
-            <span class="rating-value text-white ms-1">{{ rating }} Rating</span>
+            <span class="rating-value text-white ms-1">{{ rating }} {{text2}}</span>
         </span>
     </div>
 </div>
