@@ -4,7 +4,13 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-ghost-button',
   template: `
-    <button class="btn btn-ghost bg-white text-primary border-primary rounded-3 d-flex align-items-center justify-content-center fs-18">
+    <button class="btn btn-ghost rounded-3 d-flex align-items-center justify-content-center fs-18"
+      [ngClass]="[
+        'border',
+        bgWhite ? 'bg-white' : '',
+        bgWhite ? 'border-primary' : 'border-white-custom',
+        textColorClass
+      ]">
       <i *ngIf="iconLeft" [ngClass]="isMaterialIcon(iconLeft) ? 'material-icons' : iconLeft">
         {{ isMaterialIcon(iconLeft) ? iconLeft : '' }}
       </i>
@@ -20,6 +26,8 @@ import { CommonModule } from '@angular/common';
 export class GhostButtonComponent {
   @Input() iconLeft?: string;
   @Input() iconRight?: string;
+  @Input() bgWhite: boolean = true;
+  @Input() textColorClass: string = 'text-primary';
 
   isMaterialIcon(icon?: string): boolean {
     return !!icon && !icon.includes('bi-') && !icon.includes('fa-');

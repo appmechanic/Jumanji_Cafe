@@ -1,4 +1,5 @@
-<div class="cta-section w-100 bg-white rounded-20 p-4 p-sm-5 text-center shadow-sm d-inline-flex justify-content-center">
+<div class="cta-section w-100 rounded-20 p-4 p-sm-5 text-center d-inline-flex justify-content-center"
+     [ngClass]="{'bg-white': bgWhite, 'shadow-sm': bgWhite}">
   <div [ngClass]="colClass || 'col-12 col-lg-9'">
     <div *ngIf="icon" class="icon-circle mx-auto mb-2 d-flex align-items-center justify-content-center rounded-pill" [ngClass]="iconBgClass">
       <i *ngIf="!isMaterialIcon(icon)" class="bi" [ngClass]="icon"></i>
@@ -6,10 +7,10 @@
     </div>
     
     <h4 class="heading mb-2">
-      {{ titleStart }} <span class="gradient-text">{{ titleHighlight }}</span>{{ titleEnd }}
-    </h4> 
-    
-    <p class="description mx-auto mb-3">
+      <span [ngClass]="titleClass">{{ titleStart }}</span> <span [ngClass]="titleHighlightClass">{{ titleHighlight }}</span>{{ titleEnd }}
+    </h4>
+
+    <p class="description mx-auto mb-3" [ngClass]="descriptionClass">
       {{ description }}
     </p>
     

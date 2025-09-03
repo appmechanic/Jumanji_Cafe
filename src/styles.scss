@@ -129,6 +129,13 @@ body.dark-mode {
       border-color: #fff !important
     }
   }
+  .cta-last{
+    .btn-primary{
+      &.bg-white{
+        background-color: #fff !important;
+      }
+    }
+  }
 }
 
 h2 {
@@ -163,7 +170,12 @@ h4 {
     line-height: 3rem !important;
   }
 }
-
+.btn-primary{
+  background-color: transparent !important;
+}
+.bg-white {
+  background-color: #fff !important;
+}
 .bg-dark {
   background-color: #000 !important;
 }

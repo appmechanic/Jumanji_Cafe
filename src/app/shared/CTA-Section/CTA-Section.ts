@@ -16,6 +16,10 @@ export class CtaSectionComponent {
   @Input() titleEnd: string = '';
   @Input() description: string = '';
   @Input() colClass: string = '';
+  @Input() titleHighlightClass: string = 'gradient-text';
+  @Input() descriptionClass: string = '';
+  @Input() titleClass: string = '';
+  @Input() bgWhite: boolean = true;
 
   isMaterialIcon(icon?: string): boolean {
     return !!icon && !icon.includes('bi-') && !icon.includes('fa-');

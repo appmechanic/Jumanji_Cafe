@@ -75,15 +75,15 @@
 </div>
 
 <!-- CTA last Section -->
-<div class="container-fluid text-center py-5 gradient-bg cta">
+<div class="container-fluid text-center py-5 gradient-bg cta-last">
   <div class="container">
-    <app-cta-section icon="" [titleStart]="b2b.ctaLast?.titleStart" [titleHighlight]="b2b.ctaLast?.titleHighlight"
-      [description]="b2b.ctaLast?.description">
-      <app-primary-button primaryButton iconLeft="card_travel" iconRight="bi bi-arrow-right"
+    <app-cta-section icon="" titleClass="text-white" [titleStart]="b2b.ctaLast?.titleStart" [titleHighlight]="b2b.ctaLast?.titleHighlight" titleHighlightClass="text-white"
+      [description]="b2b.ctaLast?.description" descriptionClass="text-white" [bgWhite]="false">
+      <app-primary-button primaryButton iconLeft="card_travel" iconRight="bi bi-arrow-right" [bgGradient]="false" textColorClass="text-primary"
         class="d-flex justify-content-center mt-2">
         {{b2b.ctaLast?.primaryBtn}}
       </app-primary-button>
-      <app-ghost-button ghostButton iconLeft="call" class="d-flex justify-content-center mt-2">
+      <app-ghost-button ghostButton iconLeft="call" class="d-flex justify-content-center mt-2" [bgWhite]="false" textColorClass="text-white">
         {{b2b.ctaLast?.ghostBtn}}
       </app-ghost-button>
     </app-cta-section>
