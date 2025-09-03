@@ -27,6 +27,7 @@
             }
         ]
     },
+
     "home": {
         "hero": {
             "titleParts": [
@@ -411,6 +412,7 @@
             }
         ]
     },
+
     "about": {
         "hero": {
             "titleParts": [
@@ -721,11 +723,12 @@
                 }
             ]
         },
-        "customerTag":{
+        "customerTag": {
             "text1": "Happy Customers",
             "text2": "Rating"
         }
     },
+    
     "contact": {
         "title": "Get in Touch",
         "subtitle": "Whether you're planning your next game night, booking a team event, or just saying hello — we'd love to hear from you.",
