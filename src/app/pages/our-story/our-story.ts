@@ -86,7 +86,6 @@ export interface Testimonial {
 })
 export class OurStory implements OnInit, OnDestroy {
   OurStory: any = {};
-  // cta: any = {};
   langSub!: Subscription;
 
   storyStats = [
@@ -350,8 +349,6 @@ export class OurStory implements OnInit, OnDestroy {
       cardBgColor: 'bg-secondary5 shadow-sm'
     }
   ];
-
-
   mediaCards = [
     {
       badgeClass: 'bg-primary2',
@@ -461,9 +458,9 @@ export class OurStory implements OnInit, OnDestroy {
     });
   }
   gethighlightCards(): any[] {
-    const stats = this.i18n.t('about.highlights.cards') as any[];
-    return stats.map((stat: any, idx: number) => ({
-      ...stat,
+    const cards = this.i18n.t('about.highlights.cards') as any[];
+    return cards.map((card: any, idx: number) => ({
+      ...card,
       ...this.highlightCards[idx]
     }));
   }
@@ -475,9 +472,9 @@ export class OurStory implements OnInit, OnDestroy {
     }));
   }
   gettestimonials(): any[] {
-    const stats = this.i18n.t('about.community.testimonials') as any[];
-    return stats.map((stat: any, idx: number) => ({
-      ...stat,
+    const testimonials = this.i18n.t('about.community.testimonials') as any[];
+    return testimonials.map((testimonial: any, idx: number) => ({
+      ...testimonial,
       ...this.testimonials[idx]
     }));
   }
@@ -489,9 +486,9 @@ export class OurStory implements OnInit, OnDestroy {
     }));
   }
     getmediaCards(): any[] {
-    const stats = this.i18n.t('about.media.cards') as any[];
-    return stats.map((stat: any, idx: number) => ({
-      ...stat,
+    const cards = this.i18n.t('about.media.cards') as any[];
+    return cards.map((card: any, idx: number) => ({
+      ...card,
       ...this.mediaCards[idx]
     }));
   }

@@ -27,7 +27,6 @@
             }
         ]
     },
-
     "home": {
         "hero": {
             "titleParts": [
@@ -412,7 +411,6 @@
             }
         ]
     },
-
     "about": {
         "hero": {
             "titleParts": [
@@ -728,7 +726,156 @@
             "text2": "Rating"
         }
     },
-    
+    "b2b": {
+        "hero": {
+            "title": "Corporate & ",
+            "highlight": "Private Events",
+            "subtitle": "Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕",
+            "stats": [
+                {
+                    "title": "200+",
+                    "text": "Board Games"
+                },
+                {
+                    "title": "50+",
+                    "text": "Specialty Drinks"
+                },
+                {
+                    "title": "Daily",
+                    "text": "Events"
+                },
+                {
+                    "title": "5★",
+                    "text": "Experience"
+                }
+            ]
+        },
+        "services": {
+            "title": "Our",
+            "highlight": "Professional Services",
+            "subtitle": "Transform your corporate events with our specialized gaming experiences designed for professional development and team building.",
+            "cards": [
+                {
+                    "badgeRight": "Starting from 150 SAR per person",
+                    "title": "Team-Building Game Sessions",
+                    "subtitle": "Structured board game activities designed to strengthen team bonds, improve communication, and boost workplace collaboration through strategic gameplay.",
+                    "buttonText": "Book Now",
+                    "listItems": [
+                        {
+                            "content": "Professional Game Facilitators"
+                        },
+                        {
+                            "content": "Communication Skills Development"
+                        },
+                        {
+                            "content": "Customized Team Challenges"
+                        },
+                        {
+                            "content": "Performance Analytics"
+                        }
+                    ]
+                },
+                {
+                    "badgeRight": "Starting from 150 SAR per person",
+                    "title": "Team-Building Game Sessions",
+                    "subtitle": "Structured board game activities designed to strengthen team bonds, improve communication, and boost workplace collaboration through strategic gameplay.",
+                    "buttonText": "Book Now",
+                    "listItems": [
+                        {
+                            "content": "Professional Game Facilitators"
+                        },
+                        {
+                            "content": "Communication Skills Development"
+                        },
+                        {
+                            "content": "Customized Team Challenges"
+                        },
+                        {
+                            "content": "Performance Analytics"
+                        }
+                    ]
+                },
+                {
+                    "badgeRight": "Starting from 150 SAR per person",
+                    "title": "Team-Building Game Sessions",
+                    "subtitle": "Structured board game activities designed to strengthen team bonds, improve communication, and boost workplace collaboration through strategic gameplay.",
+                    "buttonText": "Book Now",
+                    "listItems": [
+                        {
+                            "content": "Professional Game Facilitators"
+                        },
+                        {
+                            "content": "Communication Skills Development"
+                        },
+                        {
+                            "content": "Customized Team Challenges"
+                        },
+                        {
+                            "content": "Performance Analytics"
+                        }
+                    ]
+                },
+                {
+                    "badgeRight": "Starting from 150 SAR per person",
+                    "title": "Team-Building Game Sessions",
+                    "subtitle": "Structured board game activities designed to strengthen team bonds, improve communication, and boost workplace collaboration through strategic gameplay.",
+                    "buttonText": "Book Now",
+                    "listItems": [
+                        {
+                            "content": "Professional Game Facilitators"
+                        },
+                        {
+                            "content": "Communication Skills Development"
+                        },
+                        {
+                            "content": "Customized Team Challenges"
+                        },
+                        {
+                            "content": "Performance Analytics"
+                        }
+                    ]
+                }
+            ]
+        },
+        "cta": {
+            "titleStart": "Need a",
+            "titleHighlight": "Custom Solution?",
+            "description": "Every organization is unique, and we love creating tailored experiences. Let's discuss your specific requirements and design the perfect package for your team.",
+            "btnText": "Book Free Consultation"
+        },
+        "client": {
+            "title": "What Our",
+            "highlight": "Community Says",
+            "subtitle": "Real experiences from our amazing gaming community",
+            "testimonials": [
+                {
+                    "quote": "Jumanji Café has become our family's weekend tradition! The staff is incredibly helpful in recommending games, and the atmosphere is perfect for spending quality time together. My kids always ask when we can go back!",
+                    "name": "Ahmed Al-Rahman",
+                    "role": "HR Director",
+                    "location": "Tech Solutions KSA"
+                },
+                {
+                    "quote": "As a strategy game enthusiast, I've finally found my paradise! The collection here is incredible, and I've discovered so many new games. The coffee is excellent too - perfect fuel for those long gaming sessions.",
+                    "name": "Ahmed Al-Rahman",
+                    "role": "HR Director",
+                    "location": "Tech Solutions KSA"
+                },
+                {
+                    "quote": "I brought my team here for a corporate event, and it was amazing! The staff organized everything perfectly, and our team bonding experience was unforgettable. Highly recommended for both personal and business visits.",
+                    "name": "Sara Al-Mutairi",
+                    "role": "",
+                    "location": "Jeddah"
+                }
+            ]
+        },
+        "ctaLast":{
+            "titleStart": "Ready to Elevate Your",
+            "titleHighlight": "Team Experience?",
+            "description": "Let's discuss how our professional services can create unforgettable experiences for your team. Contact us for a customized proposal tailored to your needs.",
+            "primaryBtn": "Explore B2B Services",
+            "ghostBtn": "Get Quote"
+        }
+    },
     "contact": {
         "title": "Get in Touch",
         "subtitle": "Whether you're planning your next game night, booking a team event, or just saying hello — we'd love to hear from you.",

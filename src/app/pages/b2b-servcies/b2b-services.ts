@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeadingSectionComponent } from '../../shared/heading-section/heading-section';
 import { StatCardComponent } from '../../shared/stat-card/stat-card';
@@ -7,6 +7,8 @@ import { CtaSectionComponent } from '../../shared/CTA-Section/CTA-Section';
 import { PrimaryButtonComponent } from '../../shared/buttons/primary-button/primary-button';
 import { GhostButtonComponent } from '../../shared/buttons/ghost-button/ghost-button';
 import { TestimonialCard } from '../../shared/testimonial-card/testimonial-card';
+import { I18nService } from '../../i18n.service';
+import { Subscription } from 'rxjs';
 
 export type StatCardType = {
   iconType: "material" | "bootstrap";
@@ -80,211 +82,191 @@ export interface Testimonial {
   templateUrl: './b2b-services.html',
   styleUrls: ['./b2b-services.scss']
 })
-export class B2BServices {
-  heroStats: StatCardType[] = [
+export class B2BServices implements OnInit, OnDestroy {
+  b2b: any = {};
+  langSub?: Subscription;
+
+  heroStats = [
     {
       iconType: "bootstrap",
       icon: "bi-calendar-check-fill gradient-text",
-      titleicon: "",
-      title: "200+",
-      text: "Board Games",
       textColor: "text-color2",
       borderColor: "border-none",
       iconBgColor: "bg-primary2",
       titleColor: "text-primary",
       cardBgColor: "bg-primary5 shadow-sm",
-      subtitle: "",
-      subtitleColor: ""
     },
     {
       iconType: "bootstrap",
       icon: "bi-buildings-fill gradient-text",
-      title: "50+",
-      titleicon: "",
-      text: "Specialty Drinks",
       textColor: "text-color2",
       borderColor: "border-none",
       iconBgColor: "bg-primary2",
       titleColor: "text-secondary",
       cardBgColor: "bg-primary5 shadow-sm",
-      subtitle: "",
-      subtitleColor: ""
     },
     {
       iconType: "bootstrap",
       icon: "bi-star-fill gradient-text",
-      titleicon: "",
-      title: "Daily",
-      text: "Events",
       textColor: "text-color2",
       borderColor: "border-none",
       iconBgColor: "bg-primary2",
       titleColor: "text-primary",
       cardBgColor: "bg-primary5 shadow-sm",
-      subtitle: "",
-      subtitleColor: ""
     },
     {
       iconType: "bootstrap",
       icon: "bi-people-fill gradient-text",
-      titleicon: "",
-      title: "5★",
-      text: "Experience",
       textColor: "text-color2",
       borderColor: "border-none",
       iconBgColor: "bg-primary2",
       titleColor: "text-secondary",
       cardBgColor: "bg-primary5 shadow-sm",
-      subtitle: "",
-      subtitleColor: ""
     }
   ];
-  businessServices: ShowcaseCardType[] = [
+
+  businessServices  = [
     {
       imageSrc: '/assets/business-services-img1.jpg',
-      category: '',
       categoryIcon: 'groups',
       categoryColor: 'bg-white text-primary',
-      badgeRight: 'Starting from 150 SAR per person',
       badgeRightColor: 'gradient-bg',
-      title: 'Team-Building Game Sessions',
-      subtitle: 'Structured board game activities designed to strengthen team bonds, improve communication, and boost workplace collaboration through strategic gameplay.',
-      buttonText: 'Book Now',
       buttonColor: 'bg-primary text-white',
       showDetailIcon: false,
-      detailIcon: '',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: '',
       attending: 0,
       capacity: 0,
       listItems: [
-        { icon: 'check', content: 'Professional Game Facilitators' },
-        { icon: 'check', content: 'Communication Skills Development' },
-        { icon: 'check', content: 'Customized Team Challenges' },
-        { icon: 'check', content: 'Performance Analytics' }
+        { icon: 'check' },
+        { icon: 'check' },
+        { icon: 'check' },
+        { icon: 'check' }
       ]
     },
     {
       imageSrc: '/assets/business-services-img1.jpg',
-      category: '',
       categoryIcon: 'groups',
       categoryColor: 'bg-white text-primary',
-      badgeRight: 'Starting from 150 SAR per person',
       badgeRightColor: 'gradient-bg',
-      title: 'Team-Building Game Sessions',
-      subtitle: 'Structured board game activities designed to strengthen team bonds, improve communication, and boost workplace collaboration through strategic gameplay.',
-      buttonText: 'Book Now',
       buttonColor: 'bg-primary text-white',
       showDetailIcon: false,
-      detailIcon: '',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: '',
       attending: 0,
       capacity: 0,
       listItems: [
-        { icon: 'check', content: 'Professional Game Facilitators' },
-        { icon: 'check', content: 'Communication Skills Development' },
-        { icon: 'check', content: 'Customized Team Challenges' },
-        { icon: 'check', content: 'Performance Analytics' }
+        { icon: 'check' },
+        { icon: 'check' },
+        { icon: 'check' },
+        { icon: 'check' }
       ]
     },
     {
       imageSrc: '/assets/business-services-img1.jpg',
-      category: '',
       categoryIcon: 'groups',
       categoryColor: 'bg-white text-primary',
-      badgeRight: 'Starting from 150 SAR per person',
       badgeRightColor: 'gradient-bg',
-      title: 'Team-Building Game Sessions',
-      subtitle: 'Structured board game activities designed to strengthen team bonds, improve communication, and boost workplace collaboration through strategic gameplay.',
-      buttonText: 'Book Now',
       buttonColor: 'bg-primary text-white',
       showDetailIcon: false,
-      detailIcon: '',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: '',
       attending: 0,
       capacity: 0,
       listItems: [
-        { icon: 'check', content: 'Professional Game Facilitators' },
-        { icon: 'check', content: 'Communication Skills Development' },
-        { icon: 'check', content: 'Customized Team Challenges' },
-        { icon: 'check', content: 'Performance Analytics' }
+        { icon: 'check' },
+        { icon: 'check' },
+        { icon: 'check' },
+        { icon: 'check' }
       ]
     },
     {
       imageSrc: '/assets/business-services-img1.jpg',
-      category: '',
       categoryIcon: 'groups',
       categoryColor: 'bg-white text-primary',
-      badgeRight: 'Starting from 150 SAR per person',
       badgeRightColor: 'gradient-bg',
-      title: 'Team-Building Game Sessions',
-      subtitle: 'Structured board game activities designed to strengthen team bonds, improve communication, and boost workplace collaboration through strategic gameplay.',
-      buttonText: 'Book Now',
       buttonColor: 'bg-primary text-white',
       showDetailIcon: false,
-      detailIcon: '',
-      players: '',
-      duration: '',
-      tags: [],
-      tagColor: '',
-      gameCategory: '',
       attending: 0,
       capacity: 0,
       listItems: [
-        { icon: 'check', content: 'Professional Game Facilitators' },
-        { icon: 'check', content: 'Communication Skills Development' },
-        { icon: 'check', content: 'Customized Team Challenges' },
-        { icon: 'check', content: 'Performance Analytics' }
+        { icon: 'check' },
+        { icon: 'check' },
+        { icon: 'check' },
+        { icon: 'check' }
       ]
     }
   ];
-  testimonials: Testimonial[] = [
+  testimonials = [
     {
-      quote: '"Jumanji Café has become our family\'s weekend tradition! The staff is incredibly helpful in recommending games, and the atmosphere is perfect for spending quality time together. My kids always ask when we can go back!"',
       showInvertedCommas: true,
       rating: 4.2,
-      name: 'Ahmed Al-Rahman',
-      role: 'HR Director',
-      location: 'Tech Solutions KSA',
       imageSrc: '/assets/testimonial-img1.jpg',
       showCheckIcon: true,
       icon: 'videogame_asset',
       cardClass: 'bg-light'
     },
     {
-      quote: '"As a strategy game enthusiast, I\'ve finally found my paradise! The collection here is incredible, and I\'ve discovered so many new games. The coffee is excellent too - perfect fuel for those long gaming sessions."',
       showInvertedCommas: true,
       rating: 4,
-      name: 'Ahmed Al-Rahman',
-      role: 'HR Director',
-      location: 'Tech Solutions KSA',
       imageSrc: '/assets/testimonial-img1.jpg',
       showCheckIcon: true,
       icon: 'videogame_asset',
       cardClass: 'bg-light'
     },
     {
-      quote: '"I brought my team here for a corporate event, and it was amazing! The staff organized everything perfectly, and our team bonding experience was unforgettable. Highly recommended for both personal and business visits."',
       showInvertedCommas: true,
       rating: 5,
-      name: 'Sara Al-Mutairi',
-      role: '',
-      location: 'Jeddah',
       imageSrc: '/assets/testimonial-img1.jpg',
       showCheckIcon: false,
       icon: 'videogame_asset',
       cardClass: 'bg-light'
     }
   ];
+
+  constructor(public i18n: I18nService) { }
+
+  ngOnInit(): void {
+    this.loadTranslations();
+    this.langSub = this.i18n.langChanged$.subscribe(() => {
+      this.onLanguageChanged();
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.langSub) {
+      this.langSub.unsubscribe();
+    }
+  }
+
+  loadTranslations() {
+    this.b2b = this.i18n.t('b2b');
+  }
+
+  onLanguageChanged() {
+    this.loadTranslations();
+  }
+
+  getheroStats(): any[] {
+    const stats = this.i18n.t('b2b.hero.stats') as any[];
+    return stats.map((stat: any, idx: number) => ({
+      ...stat,
+      ...this.heroStats[idx]
+    }));
+  }
+  getbusinessServices(): any[] {
+    const cards = this.i18n.t('b2b.services.cards') as any[];
+    return cards.map((card: any, idx: number) => {
+      const patchedListItems = card.listItems.map((item: any, itemIdx: number) => ({
+        ...item,
+        icon: this.businessServices[idx].listItems[itemIdx]?.icon || ''
+      }));
+      return {
+        ...card,
+        ...this.businessServices[idx],
+        listItems: patchedListItems
+      };
+    });
+  }
+  gettestimonials(): any[] {
+    const testimonials = this.i18n.t('b2b.client.testimonials') as any[];
+    return testimonials.map((testimonial: any, idx: number) => ({
+      ...testimonial,
+      ...this.testimonials[idx]
+    }));
+  }
 }
