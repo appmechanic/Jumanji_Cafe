@@ -4,39 +4,29 @@
         <div class="row justify-content-center">
             <div class="col-12 custom-col-width">
                 <div class="hero-section-wrapper">
-                    <app-hero-section 
-                      [titleParts]="homeText.hero?.titleParts"
-                      [subtitleParts]="homeText.hero?.subtitleParts">
+                    <app-hero-section [titleParts]="homeText.hero?.titleParts"
+                        [subtitleParts]="homeText.hero?.subtitleParts">
                     </app-hero-section>
                     <div class="row hero-buttons justify-content-center align-items-center gap-4 flex-wrap mt-5">
                         <div class="col-auto">
                             <app-primary-button iconLeft="bi-fork-knife">
-                              {{ homeText.hero?.exploreMenuBtn }}
+                                {{ homeText.hero?.exploreMenuBtn }}
                             </app-primary-button>
                         </div>
 
                         <div class="col-auto">
                             <app-ghost-button iconLeft="videogame_asset">
-                              {{ homeText.hero?.browseGamesBtn }}
+                                {{ homeText.hero?.browseGamesBtn }}
                             </app-ghost-button>
                         </div>
                     </div>
                     <div class="row mt-5 g-4 d-flex align-items-stretch justify-content-center">
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of getHeroStats()">
-                            <app-stat-card 
-                                [iconType]="stat.iconType" 
-                                [icon]="stat.icon" 
-                                [title]="stat.title"
-                                [text]="stat.text" 
-                                [borderColor]="stat.borderColor" 
-                                [iconBgColor]="stat.iconBgColor"
-                                [titleColor]="stat.titleColor" 
-                                [cardBgColor]="stat.cardBgColor"
-                                [titleicon]="stat.titleicon"
-                                [subtitle]="stat.subtitle"
-                                [subtitleColor]="stat.subtitleColor"
-                                [textColor]="stat.textColor"
-                            >
+                            <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title"
+                                [text]="stat.text" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
+                                [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor"
+                                [titleicon]="stat.titleicon" [subtitle]="stat.subtitle"
+                                [subtitleColor]="stat.subtitleColor" [textColor]="stat.textColor">
                             </app-stat-card>
                         </div>
                     </div>
@@ -50,17 +40,11 @@
 <div class="story-section container my-5 mb-0">
     <div class="row justify-content-center">
         <div class="col-12">
-            <app-story-section 
-              [imageSrc]="'/assets/sec2-img.jpg'"
-              [icon1]="homeText.story?.icon1"
-              [textOverImage1]="homeText.story?.textOverImage1"
-              textOverImage1BgColor="gradient-bg"
-              [titleicon]="homeText.story?.titleicon"
-              iconType="material"
-              [titleParts]="homeText.story?.titleParts"
-              [description]="homeText.story?.description"
-              [stats]="getStoryStats()"
-              [buttons]="[{ iconRight: 'bi bi-arrow-right', text: homeText.story?.buttonText }]">
+            <app-story-section [imageSrc]="'/assets/sec2-img.jpg'" [icon1]="homeText.story?.icon1"
+                [textOverImage1]="homeText.story?.textOverImage1" textOverImage1BgColor="gradient-bg"
+                [titleicon]="homeText.story?.titleicon" iconType="material" [titleParts]="homeText.story?.titleParts"
+                [description]="homeText.story?.description" [stats]="getStoryStats()"
+                [buttons]="[{ iconRight: 'bi bi-arrow-right', text: homeText.story?.buttonText }]">
             </app-story-section>
         </div>
     </div>
@@ -68,25 +52,21 @@
 
 <!-- 360 section -->
 <div class="container mb-5">
-    <app-heading-section 
-        iconLeft="slideshow" 
-        iconLeftType="material" 
-        iconLeftColor="bg-primary2" 
-        [title]="homeText['360']?.title"
-        [highlight]="homeText['360']?.highlight"
-        highlightColor="gradient-text"
+    <app-heading-section iconLeft="slideshow" iconLeftType="material" iconLeftColor="bg-primary2"
+        [title]="homeText['360']?.title" [highlight]="homeText['360']?.highlight" highlightColor="gradient-text"
         [subtitle]="homeText['360']?.subtitle">
     </app-heading-section>
-    <app-image-360-viewer [imageSrc]="'/assets/360-img.jpg'" [badgeLeft]="homeText['360']?.badgeLeft" [badgeRight]="homeText['360']?.badgeRight">
+    <app-image-360-viewer [imageSrc]="'/assets/360-img.jpg'" [badgeLeft]="homeText['360']?.badgeLeft"
+        [badgeRight]="homeText['360']?.badgeRight">
     </app-image-360-viewer>
 </div>
 
 <!-- Cafe Menu Section -->
 <div class="container my-5 ">
     <app-heading-section [iconLeft]="'restaurant'" iconLeftType="material" iconLeftColor="bg-secondary2"
-        [iconRight]="'free_breakfast'" iconRightType="material" iconRightColor="bg-primary2" [title]="homeText['cafe-menu']?.title" [highlight]="homeText['cafe-menu']?.highlight"
-        highlightColor="gradient-text"
-        [subtitle]="homeText['cafe-menu']?.subtitle">
+        [iconRight]="'free_breakfast'" iconRightType="material" iconRightColor="bg-primary2"
+        [title]="homeText['cafe-menu']?.title" [highlight]="homeText['cafe-menu']?.highlight"
+        highlightColor="gradient-text" [subtitle]="homeText['cafe-menu']?.subtitle">
     </app-heading-section>
     <div class="row justify-content-center">
         <app-slider [items]="getCafeMenuStats()" [visibleCount]="sliderVisibleCount">
@@ -114,9 +94,9 @@
 <!-- Featured Games Section -->
 <div class="container my-5 ">
     <app-heading-section iconLeft="sports_esports" iconLeftType="material" iconLeftColor="bg-primary2"
-        iconRight="emoji_events" iconRightType="material" iconRightColor="bg-secondary2" [title]="homeText['featured-game']?.title"
-        [highlight]="homeText['featured-game']?.highlight" highlightColor="gradient-text"
-        [subtitle]="homeText['featured-game']?.subtitle">
+        iconRight="emoji_events" iconRightType="material" iconRightColor="bg-secondary2"
+        [title]="homeText['featured-game']?.title" [highlight]="homeText['featured-game']?.highlight"
+        highlightColor="gradient-text" [subtitle]="homeText['featured-game']?.subtitle">
     </app-heading-section>
 
     <app-filter-tab [data]="getFeaturedGameStats()" [config]="gameFilterConfig"
@@ -124,7 +104,7 @@
     </app-filter-tab>
 
     <div class="row justify-content-center">
-        <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let game of getFeaturedGameStats()">
+        <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let game of featuredGames" data="game">
             <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category"
                 [categoryColor]="game.categoryColor" [title]="game.title" [starCount]="game.starCount ?? 0"
                 [starColor]="game.starColor ?? ''" [subtitle]="game.subtitle" [players]="game.players"
@@ -144,9 +124,9 @@
 <!-- Upcoming Event Section -->
 <div class="container my-5 ">
     <app-heading-section iconLeft="sports_esports" iconLeftType="material" iconLeftColor="bg-secondary2"
-        iconRight="emoji_events" iconRightType="material" iconRightColor="bg-primary2" [title]="homeText['upcoming-event']?.title"
-        [highlight]="homeText['upcoming-event']?.highlight" highlightColor="gradient-text"
-        [subtitle]="homeText['upcoming-event']?.subtitle">
+        iconRight="emoji_events" iconRightType="material" iconRightColor="bg-primary2"
+        [title]="homeText['upcoming-event']?.title" [highlight]="homeText['upcoming-event']?.highlight"
+        highlightColor="gradient-text" [subtitle]="homeText['upcoming-event']?.subtitle">
     </app-heading-section>
     <div class="row justify-content-center">
         <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let event of getUpcomingEventStats()">
@@ -156,14 +136,13 @@
                 [eventTime]="event.eventTime ?? ''" [title]="event.title" [subtitle]="event.subtitle"
                 [attending]="event.attending" [capacity]="event.capacity" [buttonText]="event.buttonText"
                 [buttonColor]="event.buttonColor" [showDetailIcon]="event.showDetailIcon"
-                [detailIcon]="event.detailIcon" [showOverlay]="true"
-                [attendingLabel]="getAttendingLabel()"
+                [detailIcon]="event.detailIcon" [showOverlay]="true" [attendingLabel]="getAttendingLabel()"
                 [fullLabel]="getFullLabel()">
             </app-showcase-card>
         </div>
         <app-primary-button iconLeft="bi bi-calendar4-week" iconRight="bi bi-arrow-right"
             class="d-flex justify-content-center mt-3">
-           {{ homeText['upcoming-event']?.Btn }}
+            {{ homeText['upcoming-event']?.Btn }}
         </app-primary-button>
     </div>
 </div>
@@ -171,9 +150,9 @@
 <!-- Business Services -->
 <div class="container my-5 ">
     <app-heading-section iconLeft="corporate_fare" iconLeftType="material" iconLeftColor="bg-primary2"
-        iconRight="card_travel" iconRightType="material" iconRightColor="bg-secondary2" [title]="homeText['business-services']?.title"
-        [highlight]="homeText['business-services']?.highlight" highlightColor="gradient-text"
-        [subtitle]="homeText['business-services']?.subtitle">
+        iconRight="card_travel" iconRightType="material" iconRightColor="bg-secondary2"
+        [title]="homeText['business-services']?.title" [highlight]="homeText['business-services']?.highlight"
+        highlightColor="gradient-text" [subtitle]="homeText['business-services']?.subtitle">
     </app-heading-section>
     <div class="row justify-content-center">
         <div class="col-12 col-sm-6 col-lg-3 pb-4" *ngFor="let service of getBusinessServicesStats()">
@@ -192,8 +171,8 @@
 
 <!-- CTA Section -->
 <div class="container my-5 pb-5">
-    <app-cta-section icon="" [titleStart]="homeText['cta']?.titleStart" [titleHighlight]="homeText['cta']?.titleHighlight"
-        [description]="homeText['cta']?.description">
+    <app-cta-section icon="" [titleStart]="homeText['cta']?.titleStart"
+        [titleHighlight]="homeText['cta']?.titleHighlight" [description]="homeText['cta']?.description">
         <app-primary-button primaryButton iconLeft="card_travel" iconRight="bi bi-arrow-right"
             class="d-flex justify-content-center mt-2">
             {{ homeText['cta']?.BtnLeft }}
@@ -220,7 +199,8 @@
                         <h2 class="text-white me-5">{{ homeText['adventure']?.title1 }}</h2>
                         <h2 class="ms-5" style="color: #FFE07A;">{{ homeText['adventure']?.title2 }}</h2>
                     </div>
-                    <h2 class="d-block d-sm-none" style="text-align: center; color: #FFE07A;">{{ homeText['adventure']?.mobTitle }}</h2>
+                    <h2 class="d-block d-sm-none" style="text-align: center; color: #FFE07A;">{{
+                        homeText['adventure']?.mobTitle }}</h2>
                 </div>
                 <div class="row justify-content-center mt-2">
                     <div class="col-lg-9">
@@ -235,17 +215,10 @@
                 <div class="d-flex justify-content-center">
                     <div class="w-100 row mt-4 g-4 d-flex d-flex align-items-stretch justify-content-center">
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of getAdventureStats()">
-                            <app-stat-card
-                                [iconType]="stat.iconType"
-                                [icon]="stat.icon"
-                                [title]="stat.title"
-                                [text]="stat.text"
-                                [borderColor]="stat.borderColor"
-                                [iconBgColor]="stat.iconBgColor"
-                                [titleColor]="stat.titleColor"
-                                [cardBgColor]="stat.cardBgColor"
-                                [textColor]="stat.textColor"
-                                [subtitleColor]="stat.subtitleColor"
+                            <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title"
+                                [text]="stat.text" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
+                                [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor"
+                                [textColor]="stat.textColor" [subtitleColor]="stat.subtitleColor"
                                 [subtitle]="stat.subtitle">
                             </app-stat-card>
                         </div>
@@ -262,10 +235,12 @@
         <div class="col-xl-5 col-lg-6 col-md-8 col-sm-8 d-none d-sm-block">
             <h2 class="text-start">{{homeText['ready-to-play']?.title1}}</h2>
             <h2 class="text-end"><span class="gradient-text">{{homeText['ready-to-play']?.title2}}</span></h2>
-            <h2 class="text-start ps-5">{{homeText['ready-to-play']?.title3}} <span class="gradient-text">{{homeText['ready-to-play']?.title4}}</span></h2>
+            <h2 class="text-start ps-5">{{homeText['ready-to-play']?.title3}} <span
+                    class="gradient-text">{{homeText['ready-to-play']?.title4}}</span></h2>
         </div>
         <div class="d-block d-sm-none text-center">
-            <h2>{{homeText['ready-to-play']?.mobTitle}}<span class="gradient-text">{{homeText['ready-to-play']?.mobHighlightTitle}}</span></h2>
+            <h2>{{homeText['ready-to-play']?.mobTitle}}<span
+                    class="gradient-text">{{homeText['ready-to-play']?.mobHighlightTitle}}</span></h2>
         </div>
         <div class="decorative-element d-flex align-items-center justify-content-center py-4 my-2">
             <span class="line left"></span>
@@ -295,7 +270,8 @@
                     {{homeText['ready-to-play']?.primaryBtn}}
                 </app-primary-button>
             </div>
-            <div class="col-auto"><span class="fs-18 fw-600" style="color: #9CA3AF;">{{homeText['ready-to-play']?.separator}}</span></div>
+            <div class="col-auto"><span class="fs-18 fw-600"
+                    style="color: #9CA3AF;">{{homeText['ready-to-play']?.separator}}</span></div>
             <div class="col-auto">
                 <app-ghost-button iconLeft="videogame_asset">
                     {{homeText['ready-to-play']?.ghostBtn}}
@@ -305,17 +281,9 @@
         <div class="col-12 custom-col-width">
             <div class="row mt-5 g-4 d-flex align-items-stretch justify-content-center">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let stat of getReadyToPlayStats()">
-                    <app-stat-card
-                        [iconType]="stat.iconType"
-                        [icon]="stat.icon"
-                        [title]="stat.title"
-                        [text]="stat.text"
-                        [borderColor]="stat.borderColor"
-                        [iconBgColor]="stat.iconBgColor"
-                        [titleicon]="stat.titleicon"
-                        [titleColor]="stat.titleColor"
-                        [cardBgColor]="stat.cardBgColor"
-                        [subtitle]="stat.subtitle"
+                    <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+                        [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor" [titleicon]="stat.titleicon"
+                        [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor" [subtitle]="stat.subtitle"
                         [subtitleColor]="stat.subtitleColor">
                     </app-stat-card>
                 </div>
@@ -336,8 +304,9 @@
         <div class="row justify-content-center pt-3">
             <div class="col-12">
                 <app-heading-section iconLeft="military_tech" iconLeftType="material" iconLeftColor="bg-primary2"
-                    iconRight="military_tech" iconRightType="material" iconRightColor="bg-primary2" [title]="homeText['testimonial']?.title"
-                    [highlight]="homeText['testimonial']?.highlight" highlightColor="gradient-text" subtitle="">
+                    iconRight="military_tech" iconRightType="material" iconRightColor="bg-primary2"
+                    [title]="homeText['testimonial']?.title" [highlight]="homeText['testimonial']?.highlight"
+                    highlightColor="gradient-text" subtitle="">
                 </app-heading-section>
             </div>
             <div class="col-12 col-lg-5 pb-2" style="margin-top: -20px;">
@@ -346,11 +315,11 @@
         </div>
         <app-testimonial-slider />
         <div class="py-4">
-        <app-primary-button primaryButton iconLeft="bi-trophy" iconRight="bi-arrow-right"
-            class="d-flex justify-content-center mt-2">
-            {{homeText['testimonial']?.btnText}}
-        </app-primary-button>
-        <p class="fw-600 text-white text-center py-3">{{homeText['testimonial']?.footerText}}</p>
+            <app-primary-button primaryButton iconLeft="bi-trophy" iconRight="bi-arrow-right"
+                class="d-flex justify-content-center mt-2">
+                {{homeText['testimonial']?.btnText}}
+            </app-primary-button>
+            <p class="fw-600 text-white text-center py-3">{{homeText['testimonial']?.footerText}}</p>
         </div>
     </div>
 </div>

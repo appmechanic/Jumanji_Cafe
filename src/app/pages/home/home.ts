@@ -543,7 +543,12 @@ export class Home implements OnInit, OnDestroy {
 
   loadTranslations() {
     this.homeText = this.i18n.t('home');
-    this.gameFilterConfig.allLabel = this.i18n.getCurrentLang() === 'ar' ? 'الكل' : 'All';
+this.gameFilterConfig = {
+    ...this.gameFilterConfig,
+    allLabel: this.i18n.getCurrentLang() === 'ar' ? 'الكل' : 'All'
+  };
+  
+  this.featuredGames = this.getFeaturedGameStats();
   }
 
   onLanguageChanged() {
