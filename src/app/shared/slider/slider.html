@@ -1,4 +1,4 @@
-<div class="slider-container position-relative">
+<div class="slider-container position-relative" [class.rtl]="isRTL">
   <div class="slider-wrapper">
     <div class="slider-content" [ngStyle]="{'transform': 'translateX(' + translateX + 'px)', 'transition': isAnimating ? 'transform 0.3s ease' : 'none'}">
       <ng-container *ngFor="let item of displayItems; let i = index; trackBy: trackByFn">
@@ -13,9 +13,9 @@
   
   <!-- Navigation and indicators in a single line -->
   <div class="navigation-container d-flex align-items-center justify-content-center mt-4 pb-3" *ngIf="showIndicators">
-    <!-- Left navigation arrow -->
-    <button class="slider-nav-btn slider-nav-prev mx-2" (click)="navigatePrev()">
-      <i class="bi bi-chevron-left"></i>
+    <!-- Left/Right navigation arrow (position depends on direction) -->
+    <button class="slider-nav-btn btn-purple mx-2" [ngClass]="isRTL ? 'slider-nav-next' : 'slider-nav-prev'" (click)="navigatePrev()">
+      <i class="bi" [ngClass]="prevIcon"></i>
     </button>
     
     <!-- Indicator dots -->
@@ -26,9 +26,9 @@
             (click)="goToSlide(i)"></span>
     </div>
     
-    <!-- Right navigation arrow -->
-    <button class="slider-nav-btn slider-nav-next mx-2" (click)="navigateNext()">
-      <i class="bi bi-chevron-right"></i>
+    <!-- Right/Left navigation arrow (position depends on direction) -->
+    <button class="slider-nav-btn btn-yellow mx-2" [ngClass]="isRTL ? 'slider-nav-prev' : 'slider-nav-next'" (click)="navigateNext()">
+      <i class="bi" [ngClass]="nextIcon"></i>
     </button>
   </div>
 </div>
