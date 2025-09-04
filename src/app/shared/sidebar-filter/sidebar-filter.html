@@ -1,0 +1,16 @@
+<div class="sidebar-filter bg-white p-4 rounded-20 h-100">
+  <h4>Filters</h4>
+  <div *ngFor="let filter of filters">
+    <p>{{ filter.label }}</p>
+    <div class="filter-options">
+      <button
+        *ngFor="let option of filter.options"
+        class="toggle-button"
+        [class.active]="selectedOption[filter.label] === option"
+        (click)="onFilterSelect(filter.label, option)"
+      >
+        {{ option }}
+      </button>
+    </div>
+  </div>
+</div>

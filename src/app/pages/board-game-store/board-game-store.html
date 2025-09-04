@@ -1,0 +1,38 @@
+<div class="container-fluid w-full py-5 ">
+  <div class="row justify-content-center">
+    <div class="col-11 col-md-10 col-lg-10 col-xl-9">
+      <app-heading-section iconLeft="videogame_asset" iconLeftType="material" iconLeftColor="bg-primary2"
+        iconRight="bi-trophy-fill" iconRightType="bootstrap" iconRightColor="bg-secondary2"
+        [title]="gameStore.hero?.title" [highlight]="gameStore.hero?.highlight" highlightColor="gradient-text"
+        subtitleColor="text-color2" [subtitle]="gameStore.hero?.subtitle">
+      </app-heading-section>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <app-filter-tab [data]="getFeaturedGameStats()" [config]="gameFilterConfig"
+    (filteredDataChange)="onGamesFilteredDataChange($event)">
+  </app-filter-tab>
+</div>
+<div class="container-fluid custom-width">
+  <div class="row">
+    <div class="col-2 mb-4">
+      <app-sidebar-filter [filters]="sidebarFilters" (filterChange)="onSidebarFilterChange($event)">
+      </app-sidebar-filter>
+    </div>
+    <div class="col-10">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let game of featuredGames" data="game">
+          <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category" [categoryColor]="game.categoryColor"
+            [title]="game.title" [starCount]="game.starCount ?? 0" [starColor]="game.starColor ?? ''"
+            [subtitle]="game.subtitle" [players]="game.players" [duration]="game.duration"
+            [playersClass]="game.playersClass ?? ''" [durationClass]="game.durationClass ?? ''" [tags]="game.tags"
+            [tagColor]="game.tagColor" [buttonText]="game.buttonText" [buttonColor]="game.buttonColor"
+            [showDetailIcon]="game.showDetailIcon" [detailIcon]="game.detailIcon"
+            [showOverlay]="false"></app-showcase-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

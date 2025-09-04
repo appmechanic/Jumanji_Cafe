@@ -6,7 +6,7 @@
       <i *ngIf="isMaterialIcon(icon)" class="material-icons">{{ icon }}</i>
     </div>
     
-    <h4 class="heading mb-2">
+    <h4 class="heading mb-2 d-flex flex-wrap justify-content-center gap-2" [ngClass]="titleClass">
       <span [ngClass]="titleClass">{{ titleStart }}</span> <span [ngClass]="titleHighlightClass">{{ titleHighlight }}</span>{{ titleEnd }}
     </h4>
 

@@ -41,7 +41,6 @@ export class ShowcaseCardComponent {
   @Input() showDetailIcon: boolean = false;
   @Input() starColor: string = '';
   @Input() starCount: number = 0;
-  @Input() gameCategory: string = '';
   @Input() detailIcon: string = '';
   @Input() eventDate: string = '';
   @Input() eventTime: string = '';

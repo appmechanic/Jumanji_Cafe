@@ -161,7 +161,6 @@
                         "Family Picks",
                         "Quick Games"
                     ],
-                    "gameCategory": "Strategy",
                     "buttonText": "View Details"
                 },
                 {
@@ -174,7 +173,6 @@
                         "Family Picks",
                         "Top Rated"
                     ],
-                    "gameCategory": "Strategy",
                     "buttonText": "View Details"
                 },
                 {
@@ -186,7 +184,6 @@
                     "tags": [
                         "Top Rated"
                     ],
-                    "gameCategory": "Strategy",
                     "buttonText": "View Details"
                 }
             ]
@@ -410,6 +407,77 @@
                 "qualities": "Logic Games"
             }
         ]
+    },
+    "gameStore":{
+        "hero":{
+            "title": "Board Game",
+            "highlight": "Store",
+            "subtitle": "Discover our handpicked collection of the most exciting board games. From quick party games to strategic adventures! 🎯"
+        },
+         "featured-game": {
+            
+            "items": [
+                {
+                    "category": "Medium",
+                    "title": "Catan",
+                    "subtitle": "Build settlements and cities in this classic strategy game",
+                    "players": "1-4 Players",
+                    "duration": "60-90 min",
+                    "tags": [
+                        "Family Picks",
+                        "Quick Games"
+                    ],
+                    "buttonText": "View Details"
+                },
+                {
+                    "category": "Easy",
+                    "title": "Azul",
+                    "subtitle": "Create beautiful tile patterns in this elegant strategy game",
+                    "players": "3-4 Players",
+                    "duration": "30-60 min",
+                    "tags": [
+                        "Family Picks",
+                        "Top Rated"
+                    ],
+                    "buttonText": "View Details"
+                },
+                {
+                    "category": "Hard",
+                    "title": "Wingspan",
+                    "subtitle": "Attract birds to your wildlife preserves in this engine-building game",
+                    "players": "3-4 Players",
+                    "duration": "60-90 min",
+                    "tags": [
+                        "Top Rated"
+                    ],
+                    "buttonText": "View Details"
+                },
+                {
+                    "category": "Easy",
+                    "title": "Azul",
+                    "subtitle": "Create beautiful tile patterns in this elegant strategy game",
+                    "players": "3-4 Players",
+                    "duration": "60-90 min",
+                    "tags": [
+                        "Family Picks",
+                        "Top Rated"
+                    ],
+                    "buttonText": "View Details"
+                },
+                {
+                    "category": "Medium",
+                    "title": "Catan",
+                    "subtitle": "Build settlements and cities in this classic strategy game",
+                    "players": "3-4 Players",
+                    "duration": "60-90 min",
+                    "tags": [
+                        "Family Picks",
+                        "Quick Games"
+                    ],
+                    "buttonText": "View Details"
+                }
+            ]
+        }
     },
     "about": {
         "hero": {
@@ -838,7 +906,7 @@
             ]
         },
         "package": {
-            "title": "Our Packages",
+            "title": "Our",
             "highlight": "Package Deals",
             "subtitle": "Choose from our pre-designed packages or let us create a custom solution tailored to your specific needs and budget.",
             "cards": [

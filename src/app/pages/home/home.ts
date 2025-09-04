@@ -27,7 +27,7 @@ export type StatCardType = {
   titleColor: string;
   subtitle: string;
   subtitleColor: string;
-  cardBgColor:string;
+  cardBgColor: string;
   titleicon: string;
 };
 
@@ -42,7 +42,6 @@ export type ShowcaseCardType = {
   duration: string;
   tags: string[];
   tagColor: string;
-  gameCategory: string;
   buttonText: string;
   buttonColor: string;
   showDetailIcon: boolean;
@@ -59,7 +58,7 @@ export type ShowcaseCardType = {
   eventTime?: string;
   attending: number;
   capacity: number;
-  listItems?: ListItem[]; 
+  listItems?: ListItem[];
 };
 
 @Component({
@@ -173,7 +172,6 @@ export class Home implements OnInit, OnDestroy {
       duration: "",
       tags: [],
       tagColor: "",
-      gameCategory: "",
       buttonColor: "bg-primary text-white",
       showDetailIcon: false,
       detailIcon: "",
@@ -189,7 +187,6 @@ export class Home implements OnInit, OnDestroy {
       duration: "",
       tags: [],
       tagColor: "",
-      gameCategory: "",
       buttonColor: "bg-primary text-white",
       showDetailIcon: false,
       detailIcon: "",
@@ -206,7 +203,6 @@ export class Home implements OnInit, OnDestroy {
       duration: "",
       tags: [],
       tagColor: "",
-      gameCategory: "",
       buttonColor: "bg-primary text-white",
       showDetailIcon: false,
       detailIcon: "",
@@ -223,7 +219,6 @@ export class Home implements OnInit, OnDestroy {
       duration: "",
       tags: [],
       tagColor: "",
-      gameCategory: "",
       buttonColor: "bg-primary text-white",
       showDetailIcon: false,
       detailIcon: "",
@@ -295,7 +290,6 @@ export class Home implements OnInit, OnDestroy {
       duration: "",
       tags: [],
       tagColor: "",
-      gameCategory: ""
     },
     {
       imageSrc: "/assets/cafe-event-img1.jpg",
@@ -311,7 +305,6 @@ export class Home implements OnInit, OnDestroy {
       duration: "",
       tags: [],
       tagColor: "",
-      gameCategory: ""
     },
     {
       imageSrc: "/assets/cafe-event-img1.jpg",
@@ -327,7 +320,6 @@ export class Home implements OnInit, OnDestroy {
       duration: "",
       tags: [],
       tagColor: "",
-      gameCategory: ""
     }
   ];
 
@@ -344,7 +336,6 @@ export class Home implements OnInit, OnDestroy {
       duration: "",
       tags: [],
       tagColor: "",
-      gameCategory: "",
       attending: 0,
       capacity: 0,
       listItems: [
@@ -366,7 +357,6 @@ export class Home implements OnInit, OnDestroy {
       duration: "",
       tags: [],
       tagColor: "",
-      gameCategory: "",
       attending: 0,
       capacity: 0,
       listItems: [
@@ -388,7 +378,6 @@ export class Home implements OnInit, OnDestroy {
       duration: "",
       tags: [],
       tagColor: "",
-      gameCategory: "",
       attending: 0,
       capacity: 0,
       listItems: [
@@ -410,7 +399,6 @@ export class Home implements OnInit, OnDestroy {
       duration: "",
       tags: [],
       tagColor: "",
-      gameCategory: "",
       attending: 0,
       capacity: 0,
       listItems: [
@@ -512,7 +500,7 @@ export class Home implements OnInit, OnDestroy {
     }
   ];
 
-  constructor(private i18n: I18nService) {}
+  constructor(private i18n: I18nService) { }
 
   ngOnInit() {
     this.updateSliderVisibleCount();
@@ -543,12 +531,12 @@ export class Home implements OnInit, OnDestroy {
 
   loadTranslations() {
     this.homeText = this.i18n.t('home');
-this.gameFilterConfig = {
-    ...this.gameFilterConfig,
-    allLabel: this.i18n.getCurrentLang() === 'ar' ? 'الكل' : 'All'
-  };
-  
-  this.featuredGames = this.getFeaturedGameStats();
+    this.gameFilterConfig = {
+      ...this.gameFilterConfig,
+      allLabel: this.i18n.getCurrentLang() === 'ar' ? 'الكل' : 'All'
+    };
+
+    this.featuredGames = this.getFeaturedGameStats();
   }
 
   onLanguageChanged() {

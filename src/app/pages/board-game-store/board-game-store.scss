@@ -1,0 +1,25 @@
+.custom-width{
+  max-width: 1680px;
+  width: 100%;
+  padding: 0px 20px;
+}
+
+.board-game-store {
+  display: flex;
+  gap: 20px;
+
+  .game-list {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    .game-item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      width: calc(33.333% - 10px);
+      box-sizing: border-box;
+    }
+  }
+}
