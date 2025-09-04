@@ -1,7 +1,6 @@
 .slider-container {
   position: relative;
   width: 100%;
-  margin-bottom: 2rem;
   overflow: hidden;
 }
 
@@ -50,44 +49,47 @@
   }
 }
 
+.navigation-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .slider-nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
   background: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
   
-  i {
-    font-size: 1.2rem;
-    color: #333;
-  }
-  
-  &:hover {
-    background: #fff;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-  }
-  
   &.slider-nav-prev {
-    left: 5px;
+    background-color: #8E44AD; // Purple color like in the image
+    
+    i {
+      color: #fff;
+    }
   }
   
   &.slider-nav-next {
-    right: 5px;
+    background-color: #F1C40F; // Yellow color like in the image
+    
+    i {
+      color: #fff;
+    }
   }
 }
 
 .slider-indicators {
-  margin-top: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .slider-indicator-dot {
@@ -100,8 +102,9 @@
   display: inline-block;
   
   &.active {
-    background-color: #8E44AD; // Purple color to match Jumanji theme
-    transform: scale(1.2);
+    background-color: #8E44AD;
+    width: 40px;
+    border-radius: 10px;
   }
 }
 

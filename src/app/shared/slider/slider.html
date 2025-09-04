@@ -1,9 +1,4 @@
 <div class="slider-container position-relative">
-  <!-- Left navigation arrow -->
-  <button class="slider-nav-btn slider-nav-prev" (click)="navigatePrev()">
-    <i class="bi bi-chevron-left"></i>
-  </button>
-  
   <div class="slider-wrapper">
     <div class="slider-content" [ngStyle]="{'transform': 'translateX(' + translateX + 'px)', 'transition': isAnimating ? 'transform 0.3s ease' : 'none'}">
       <ng-container *ngFor="let item of displayItems; let i = index; trackBy: trackByFn">
@@ -16,17 +11,25 @@
     </div>
   </div>
   
-  <!-- Right navigation arrow -->
-  <button class="slider-nav-btn slider-nav-next" (click)="navigateNext()">
-    <i class="bi bi-chevron-right"></i>
-  </button>
-  
-  <!-- Indicator dots -->
-  <div class="slider-indicators d-flex justify-content-center mt-4" *ngIf="showIndicators">
-    <span *ngFor="let _ of items; let i = index" 
-          class="slider-indicator-dot mx-1"
-          [ngClass]="{'active': (currentIndex - visibleItemsCount) % items.length === i}"
-          (click)="goToSlide(i)"></span>
+  <!-- Navigation and indicators in a single line -->
+  <div class="navigation-container d-flex align-items-center justify-content-center mt-4 pb-3" *ngIf="showIndicators">
+    <!-- Left navigation arrow -->
+    <button class="slider-nav-btn slider-nav-prev mx-2" (click)="navigatePrev()">
+      <i class="bi bi-chevron-left"></i>
+    </button>
+    
+    <!-- Indicator dots -->
+    <div class="slider-indicators d-flex align-items-center">
+      <span *ngFor="let _ of items; let i = index" 
+            class="slider-indicator-dot mx-1"
+            [ngClass]="{'active': activeIndicatorIndex === i}"
+            (click)="goToSlide(i)"></span>
+    </div>
+    
+    <!-- Right navigation arrow -->
+    <button class="slider-nav-btn slider-nav-next mx-2" (click)="navigateNext()">
+      <i class="bi bi-chevron-right"></i>
+    </button>
   </div>
 </div>
 <ng-content></ng-content>

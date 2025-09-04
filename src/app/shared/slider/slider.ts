@@ -25,6 +25,9 @@ export class SliderComponent implements OnInit, AfterViewInit, OnDestroy {
   containerWidth = 0;
   resizeTimeout: any;
 
+  // Add this property to track the active indicator
+  activeIndicatorIndex = 0;
+
   ngOnInit() {
     this.calculateResponsiveLayout();
     if (this.items && this.items.length) {
@@ -94,6 +97,7 @@ export class SliderComponent implements OnInit, AfterViewInit, OnDestroy {
     
     // Initial position shows the actual first items (after the cloned last items)
     this.currentIndex = this.visibleItemsCount;
+    this.activeIndicatorIndex = 0;
     this.updateTranslateX();
   }
 
@@ -107,6 +111,9 @@ export class SliderComponent implements OnInit, AfterViewInit, OnDestroy {
     this.isAnimating = true;
     this.currentIndex++;
     this.updateTranslateX();
+    
+    // Update the active indicator
+    this.activeIndicatorIndex = (this.activeIndicatorIndex + 1) % this.items.length;
     
     if (this.currentIndex >= this.items.length + this.visibleItemsCount) {
       setTimeout(() => {
@@ -127,6 +134,9 @@ export class SliderComponent implements OnInit, AfterViewInit, OnDestroy {
     this.isAnimating = true;
     this.currentIndex--;
     this.updateTranslateX();
+    
+    // Update the active indicator (handle negative values with modulo)
+    this.activeIndicatorIndex = (this.activeIndicatorIndex - 1 + this.items.length) % this.items.length;
     
     if (this.currentIndex < this.visibleItemsCount) {
       setTimeout(() => {
@@ -158,6 +168,7 @@ export class SliderComponent implements OnInit, AfterViewInit, OnDestroy {
     
     this.isAnimating = true;
     this.currentIndex = index + this.visibleItemsCount;
+    this.activeIndicatorIndex = index; // Set the active indicator directly
     this.updateTranslateX();
     this.updateVisibleItems();
     
