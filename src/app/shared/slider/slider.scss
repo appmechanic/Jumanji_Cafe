@@ -1,91 +1,125 @@
 .slider-container {
-  display: flex;
-  flex-direction: column;
   position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
   overflow: hidden;
+}
 
-  .slider-wrapper {
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 20px;
-    position: relative;
+.slider-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 5px;
+}
 
-    .slider-content {
-      display: flex;
-      flex-wrap: nowrap;
-      will-change: transform;
-    }
+.slider-content {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
 
-  }
-
-  .slider-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-
-    .slider-control {
-      background: rgba(255, 255, 255, 0.8);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 2;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      i{
-        font-size: 30px;
-      }
-
-      &:hover {
-        background: rgba(255, 255, 255, 1);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+.slider-item {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  padding: 0 10px;
+  
+  .card-container {
+    height: 100%;
+    
+    ::ng-deep {
+      app-showcase-card {
+        display: block;
+        height: 100%;
       }
       
-      &.prev {
-        background-color: #8154A2;
-        color: #fff;
-      }
-      &.next{
-        background-color: #FFC713;
-        color: #fff;
-      }
-    }
-
-    .slider-indicators {
-      display: flex;
-      gap: 8px;
-
-      .indicator {
-        width: 10px;
-        height: 10px;
-        border-radius: 5px;
-        background-color: #B5B5B5;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-
-      .active {
-        background-color: #8154A2;
-        width: 40px;
-        height: 10px;
+      .card {
+        height: 100%;
+        margin: 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
       }
     }
   }
+}
 
-  .item-container {
-    display: flex;
+.slider-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  
+  i {
+    font-size: 1.2rem;
+    color: #333;
   }
-
-  .first-item {
-    padding-left: 15px;
+  
+  &:hover {
+    background: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
   }
+  
+  &.slider-nav-prev {
+    left: 5px;
+  }
+  
+  &.slider-nav-next {
+    right: 5px;
+  }
+}
 
-  .last-item {
-    padding-right: 15px;
+.slider-indicators {
+  margin-top: 15px;
+}
+
+.slider-indicator-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  
+  &.active {
+    background-color: #8E44AD; // Purple color to match Jumanji theme
+    transform: scale(1.2);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 992px) {
+  .slider-nav-btn {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-nav-btn {
+    width: 30px;
+    height: 30px;
+    
+    i {
+      font-size: 1rem;
+    }
   }
 }

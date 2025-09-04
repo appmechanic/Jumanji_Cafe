@@ -69,19 +69,17 @@
         highlightColor="gradient-text" [subtitle]="homeText['cafe-menu']?.subtitle">
     </app-heading-section>
     <div class="row justify-content-center">
-        <app-slider [items]="getCafeMenuStats()" [visibleCount]="sliderVisibleCount">
+        <app-slider [items]="getCafeMenuStats()">
             <ng-template #itemTemplate let-game>
-                <div class="col-12 col-sm-6 col-lg-4 pb-4">
-                    <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category"
-                        [categoryColor]="game.categoryColor" [title]="game.title" [price]="game.price ?? ''"
-                        [priceColor]="game.priceColor ?? ''" [subtitle]="game.subtitle" [players]="game.players"
-                        [duration]="game.duration" [playersClass]="game.playersClass ?? ''"
-                        [durationClass]="game.durationClass ?? ''" [tags]="game.tags" [tagColor]="game.tagColor"
-                        [gameCategory]="game.gameCategory" [buttonText]="game.buttonText"
-                        [buttonColor]="game.buttonColor" [showDetailIcon]="game.showDetailIcon"
-                        [detailIcon]="game.detailIcon" [showOverlay]="false">
-                    </app-showcase-card>
-                </div>
+                <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category"
+                    [categoryColor]="game.categoryColor" [title]="game.title" [price]="game.price ?? ''"
+                    [priceColor]="game.priceColor ?? ''" [subtitle]="game.subtitle" [players]="game.players"
+                    [duration]="game.duration" [playersClass]="game.playersClass ?? ''"
+                    [durationClass]="game.durationClass ?? ''" [tags]="game.tags" [tagColor]="game.tagColor"
+                    [gameCategory]="game.gameCategory" [buttonText]="game.buttonText"
+                    [buttonColor]="game.buttonColor" [showDetailIcon]="game.showDetailIcon"
+                    [detailIcon]="game.detailIcon" [showOverlay]="false">
+                </app-showcase-card>
             </ng-template>
         </app-slider>
         <app-primary-button iconLeft="bi-fork-knife" iconRight="bi bi-arrow-right"

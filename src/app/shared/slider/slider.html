@@ -1,28 +1,32 @@
-<div class="slider-container mb-4">
+<div class="slider-container position-relative">
+  <!-- Left navigation arrow -->
+  <button class="slider-nav-btn slider-nav-prev" (click)="navigatePrev()">
+    <i class="bi bi-chevron-left"></i>
+  </button>
+  
   <div class="slider-wrapper">
-    <div class="slider-content row" [ngStyle]="{'transform': 'translateX(' + translateX + 'px)', 'transition': isAnimating ? 'transform 0.5s ease' : 'none'}">
-      <ng-container *ngFor="let item of displayItems">
-        <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: item}"></ng-container>
+    <div class="slider-content" [ngStyle]="{'transform': 'translateX(' + translateX + 'px)', 'transition': isAnimating ? 'transform 0.3s ease' : 'none'}">
+      <ng-container *ngFor="let item of displayItems; let i = index; trackBy: trackByFn">
+        <div class="slider-item" [ngStyle]="{'width.px': itemWidth}">
+          <div class="card-container">
+            <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: item}"></ng-container>
+          </div>
+        </div>
       </ng-container>
     </div>
   </div>
   
-  <div class="slider-controls">
-    <button class="slider-control prev" (click)="prev()">
-      <i class="bi bi-arrow-left-short"></i>
-    </button>
-    
-    <div class="slider-indicators">
-      <div *ngFor="let item of items; let i = index" 
-           class="indicator" 
-           [class.active]="i === currentActiveIndex"
-           (click)="goToSlide(i)">
-      </div>
-    </div>
-    
-    <button class="slider-control next" (click)="next()">
-      <i class="bi bi-arrow-right-short"></i>
-    </button>
+  <!-- Right navigation arrow -->
+  <button class="slider-nav-btn slider-nav-next" (click)="navigateNext()">
+    <i class="bi bi-chevron-right"></i>
+  </button>
+  
+  <!-- Indicator dots -->
+  <div class="slider-indicators d-flex justify-content-center mt-4" *ngIf="showIndicators">
+    <span *ngFor="let _ of items; let i = index" 
+          class="slider-indicator-dot mx-1"
+          [ngClass]="{'active': (currentIndex - visibleItemsCount) % items.length === i}"
+          (click)="goToSlide(i)"></span>
   </div>
 </div>
 <ng-content></ng-content>
