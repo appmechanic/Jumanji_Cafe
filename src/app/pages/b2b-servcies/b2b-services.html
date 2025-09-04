@@ -42,8 +42,39 @@
   </div>
 </div>
 
+<!-- package section -->
+<div class="container package-section">
+  <div class="row mb-3">
+    <div class="col-12">
+      <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="bg-primary2" iconRight=""
+        iconRightType="material" iconRightColor="bg-secondary2" [title]="b2b.package?.title" [highlight]="b2b.package?.highlight"
+        highlightColor="gradient-text"
+        [subtitle]="b2b.package?.subtitle">
+      </app-heading-section>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let package of getpackages()">
+      <app-package-card
+        [title]="package.title"
+        [description]="package.description"
+        [price]="package.price"
+        [priceClass]="package.priceClass ?? ''"
+        [currency]="package.currency"
+        [priceSubtext]="package.priceSubtext"
+        [listItems]="package.listItems"
+        [buttonText]="package.buttonText"
+        [buttonClass]="package.buttonClass"
+        [isActive]="package.isActive"
+        [badgeText]="package.badgeText ?? ''"
+        [badgeIcon]="package.badgeIcon ?? ''"
+        [badgeClass]="package.badgeClass ?? ''"
+      ></app-package-card>
+    </div>
+  </div>
+</div>
 <!-- CTA section -->
-<div class="container my-5 pb-4">
+<div class="container mt-4 mb-5 pb-4">
   <app-cta-section icon="bi-nut-fill gradient-text" iconBgClass=" bg-primary5" [titleStart]="b2b.cta?.titleStart"
     [titleHighlight]="b2b.cta?.titleHighlight" [description]="b2b.cta?.description">
     <app-primary-button primaryButton iconLeft="card_travel" iconLeft="bi-calendar2"

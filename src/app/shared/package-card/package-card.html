@@ -1,0 +1,38 @@
+<div class="package-card rounded shadow-sm position-relative bg-white rounded-20 h-100" [class.active]="isActive"
+    [class.border-gradient]="isActive"
+    [ngClass]="cardClass">
+
+    <!-- Card Content -->
+    <div class="package-card-content p-4 d-flex flex-column gap-2 h-100">
+        <!-- Popular Badge -->
+        <div *ngIf="isActive" class="popular-badge px-3 py-1 rounded-pill d-flex gap-2" [ngClass]="badgeClass">
+            <i *ngIf="badgeIcon" [ngClass]="isMaterialIcon(badgeIcon) ? 'material-icons' : badgeIcon"></i>
+            <span>{{badgeText}}</span>
+        </div>
+        <div class="d-flex flex-column">
+            <h5 class="package-title fw-600 sub-title-color">{{title}}</h5>
+            <p class="package-description text-color2 mb-1">{{description}}</p>
+        </div> 
+
+        <!-- Price -->
+        <div class="package-price">
+            <h4 class="price" [ngClass]="priceClass">{{price}} {{currency}} {{priceSubtext}}</h4>
+        </div>
+
+        <!-- Features List -->
+        <ul class="package-features list-unstyled mb-1">
+            <li *ngFor="let item of listItems" class="feature-item d-flex align-items-center text-color2 mb-2 gap-2">
+                <div class="icon-wrapper d-flex align-items-center justify-content-center bg-primary2 p-2 rounded-pill"
+                    *ngIf="item.icon" [ngClass]="item.iconClass || ''">
+                    <i [ngClass]="isMaterialIcon(item.icon) ? 'material-icons' : item.icon"></i>
+                </div>
+                <span>{{item.text}}</span>
+            </li>
+        </ul>
+
+        <!-- Action Button -->
+        <div class="package-action">
+            <button class="w-100 px-2 py-3 fw-600" [ngClass]="[buttonClass]">{{buttonText}}</button>
+        </div>
+    </div>
+</div>

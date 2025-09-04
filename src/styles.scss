@@ -56,12 +56,12 @@ body.dark-mode {
     }
   }
 
-  .showcase-card {
+  .showcase-card, .package-card {
     &.bg-white {
       background-color: $dark-bg !important;
     }
 
-    .text-color {
+    .text-color, .sub-title-color {
       color: #D6D6D6 !important;
     }
   }
@@ -79,7 +79,7 @@ body.dark-mode {
     }
   }
 
-  .simple-cards-container {
+  .simple-cards-container{
     .bg-white {
       background-color: $dark-bg !important;
     }
@@ -260,7 +260,7 @@ h4 {
   line-height: 34px;
 }
 
-.bg-secondary5 .sub-title-color {
+.sub-title-color {
   color: #121212 !important;
 }
 

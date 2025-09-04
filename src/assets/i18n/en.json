@@ -837,6 +837,80 @@
                 }
             ]
         },
+        "package": {
+            "title": "Our Packages",
+            "highlight": "Package Deals",
+            "subtitle": "Choose from our pre-designed packages or let us create a custom solution tailored to your specific needs and budget.",
+            "cards": [
+                {
+                    "title": "Team Builder Pro",
+                    "description": "Perfect for corporate teams looking to strengthen bonds and improve collaboration",
+                    "price": "1,200",
+                    "currency": "SAR",
+                    "priceSubtext": "for up to 12 people",
+                    "listItems": [
+                        {
+                            "text": "4-hour Team Building Session"
+                        },
+                        {
+                            "text": "Premium Coffee & Snacks"
+                        },
+                        {
+                            "text": "Professional Facilitation"
+                        },
+                        {
+                            "text": "Team Performance Report"
+                        }
+                    ],
+                    "buttonText": "Select Package"
+                },
+                {
+                    "title": "Executive Experience",
+                    "description": "Comprehensive package for client entertainment and executive meetings",
+                    "price": "3,500",
+                    "currency": "SAR",
+                    "priceSubtext": "for up to 20 people",
+                    "listItems": [
+                        {
+                            "text": "Private Venue Access"
+                        },
+                        {
+                            "text": "Gourmet Catering Service"
+                        },
+                        {
+                            "text": "Game Selection Consultation"
+                        },
+                        {
+                            "text": "Dedicated Event Coordinator"
+                        }
+                    ],
+                    "buttonText": "Select Package",
+                    "badgeText": "Most Popular"
+                },
+                {
+                    "title": "Corporate Workshop",
+                    "description": "Educational gaming workshop focused on professional development",
+                    "price": "2,000",
+                    "currency": "SAR",
+                    "priceSubtext": "for up to 15 people",
+                    "listItems": [
+                        {
+                            "text": "6-hour Strategic Workshop"
+                        },
+                        {
+                            "text": "Certified Instructor"
+                        },
+                        {
+                            "text": "Learning Materials"
+                        },
+                        {
+                            "text": "Completion Certificates"
+                        }
+                    ],
+                    "buttonText": "Select Package"
+                }
+            ]
+        },
         "cta": {
             "titleStart": "Need a",
             "titleHighlight": "Custom Solution?",
@@ -868,7 +942,7 @@
                 }
             ]
         },
-        "ctaLast":{
+        "ctaLast": {
             "titleStart": "Ready to Bring the Jumanji Experience to Your Next Event?",
             "titleHighlight": "",
             "description": "Transform your corporate events with professional gaming experiences that build teams, develop skills, and create lasting memories. Let's make your next event legendary!",

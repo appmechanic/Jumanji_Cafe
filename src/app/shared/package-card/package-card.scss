@@ -1,0 +1,30 @@
+.package-card {
+    &.active {
+        // border: 4px solid #8E44AD;
+        // height: 105% !important;
+        box-shadow: 0 10px 20px rgba(142, 68, 173, 0.1) !important;
+    }
+
+.popular-badge{
+    width: fit-content;
+}
+    .package-features {
+        .feature-item {
+            .icon-wrapper {
+                width: 30px;
+                height: 30px;
+                i{
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .package-action {
+        button {
+            border-radius: 12px;
+            border: none;
+        }
+    }
+
+}

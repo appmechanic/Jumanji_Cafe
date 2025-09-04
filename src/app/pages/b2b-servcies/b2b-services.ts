@@ -7,6 +7,7 @@ import { CtaSectionComponent } from '../../shared/CTA-Section/CTA-Section';
 import { PrimaryButtonComponent } from '../../shared/buttons/primary-button/primary-button';
 import { GhostButtonComponent } from '../../shared/buttons/ghost-button/ghost-button';
 import { TestimonialCard } from '../../shared/testimonial-card/testimonial-card';
+import { PackageCardComponent, PackageListItem } from '../../shared/package-card/package-card';
 import { I18nService } from '../../i18n.service';
 import { Subscription } from 'rxjs';
 
@@ -66,6 +67,23 @@ export interface Testimonial {
   icon: string;
   cardClass: string;
 }
+
+interface PackageData {
+  title: string;
+  description: string;
+  price: string;
+  priceClass?: string;
+  currency: string;
+  priceSubtext: string;
+  listItems: PackageListItem[];
+  buttonText: string;
+  buttonClass: string;
+  isActive: boolean;
+  badgeText?: string;
+  badgeIcon?: string;
+  badgeClass?: string;
+}
+
 @Component({
   selector: 'app-b2b-services',
   standalone: true,
@@ -77,7 +95,8 @@ export interface Testimonial {
     CtaSectionComponent,
     PrimaryButtonComponent,
     TestimonialCard,
-    GhostButtonComponent
+    GhostButtonComponent,
+    PackageCardComponent
   ],
   templateUrl: './b2b-services.html',
   styleUrls: ['./b2b-services.scss']
@@ -218,6 +237,44 @@ export class B2BServices implements OnInit, OnDestroy {
     }
   ];
 
+  packages = [
+    {
+      priceClass: "text-primary", 
+      listItems: [
+        { icon: 'bi-check' },
+        { icon: 'bi-check' },
+        { icon: 'bi-check' },
+        { icon: 'bi-check' }
+      ],
+      buttonClass: "bg-primary text-white",
+      isActive: false
+    },
+    {
+      priceClass: "text-primary", 
+      listItems: [
+        { icon: 'bi-check' },
+        { icon: 'bi-check' },
+        { icon: 'bi-check' },
+        { icon: 'bi-check' }
+      ],
+      buttonClass: "gradient-bg text-white",
+      isActive: true,
+      badgeIcon: "bi-star-fill",
+      badgeClass: "gradient-bg text-white"
+    },
+    {
+      priceClass: "text-primary", 
+      listItems: [
+        { icon: 'bi-check' },
+        { icon: 'bi-check' },
+        { icon: 'bi-check' },
+        { icon: 'bi-check' }
+      ],
+      buttonClass: "bg-primary text-white",
+      isActive: false
+    }
+  ];
+
   constructor(public i18n: I18nService) { }
 
   ngOnInit(): void {
@@ -268,5 +325,19 @@ export class B2BServices implements OnInit, OnDestroy {
       ...testimonial,
       ...this.testimonials[idx]
     }));
+  }
+  getpackages(): any[] {
+    const cards = this.i18n.t('b2b.package.cards') as any[];
+    return cards.map((card: any, idx: number) => {
+      const patchedListItems = card.listItems.map((item: any, itemIdx: number) => ({
+        ...item,
+        icon: this.packages[idx].listItems[itemIdx]?.icon || ''
+      }));
+      return {
+        ...card,
+        ...this.packages[idx],
+        listItems: patchedListItems
+      };
+    });
   }
 }
