@@ -15,8 +15,8 @@
     (filteredDataChange)="onGamesFilteredDataChange($event)">
   </app-filter-tab>
 </div>
-<div class="container-fluid custom-width">
-  <div class="row">
+<div class="container-fluid custom-width featured-games">
+  <div class="row d-flex flex-wrap">
     <div class="col-2 mb-4">
       <app-sidebar-filter [filters]="sidebarFilters" (filterChange)="onSidebarFilterChange($event)">
       </app-sidebar-filter>
@@ -30,7 +30,7 @@
             [playersClass]="game.playersClass ?? ''" [durationClass]="game.durationClass ?? ''" [tags]="game.tags"
             [tagColor]="game.tagColor" [buttonText]="game.buttonText" [buttonColor]="game.buttonColor"
             [showDetailIcon]="game.showDetailIcon" [detailIcon]="game.detailIcon"
-            [showOverlay]="false"></app-showcase-card>
+            [showOverlay]="false" [age]="game.age" [ageClass]="game.ageClass" [gameType]="game.gameType" [gameTypeClass]="game.gameTypeClass"></app-showcase-card>
         </div>
       </div>
     </div>

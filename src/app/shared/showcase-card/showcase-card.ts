@@ -50,6 +50,10 @@ export class ShowcaseCardComponent {
   @Input() listItems: ListItem[] = []; 
   @Input() attendingLabel: string = 'attending';
   @Input() fullLabel: string = 'full';
+  @Input() age: number = 0;
+  @Input() ageClass: string = '';
+  @Input() gameType: string = '';
+  @Input() gameTypeClass: string = '';
 
   get progressPercent(): number {
     return this.capacity > 0 ? Math.round((this.attending / this.capacity) * 100) : 0;

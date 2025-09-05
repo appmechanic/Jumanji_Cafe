@@ -414,8 +414,7 @@
             "highlight": "Store",
             "subtitle": "Discover our handpicked collection of the most exciting board games. From quick party games to strategic adventures! 🎯"
         },
-         "featured-game": {
-            
+         "featured-game": {   
             "items": [
                 {
                     "category": "Medium",
@@ -456,7 +455,7 @@
                     "category": "Easy",
                     "title": "Azul",
                     "subtitle": "Create beautiful tile patterns in this elegant strategy game",
-                    "players": "3-4 Players",
+                    "players": "7-9 Players",
                     "duration": "60-90 min",
                     "tags": [
                         "Family Picks",
@@ -469,10 +468,34 @@
                     "title": "Catan",
                     "subtitle": "Build settlements and cities in this classic strategy game",
                     "players": "3-4 Players",
-                    "duration": "60-90 min",
+                    "duration": "under 30 min",
                     "tags": [
                         "Family Picks",
                         "Quick Games"
+                    ],
+                    "buttonText": "View Details"
+                },
+                {
+                    "category": "Easy",
+                    "title": "Wingspan",
+                    "subtitle": "Create beautiful tile patterns in this elegant strategy game",
+                    "players": "7-9 Players",
+                    "duration": "60-90 min",
+                    "tags": [
+                        "Family Picks",
+                        "Top Rated"
+                    ],
+                    "buttonText": "View Details"
+                },
+                {
+                    "category": "Easy",
+                    "title": "AA",
+                    "subtitle": "Create beautiful tile patterns in this elegant strategy game",
+                    "players": "2-12 Players",
+                    "duration": "under 30 min",
+                    "tags": [
+                        "Family Picks",
+                        "Top Rated"
                     ],
                     "buttonText": "View Details"
                 }
