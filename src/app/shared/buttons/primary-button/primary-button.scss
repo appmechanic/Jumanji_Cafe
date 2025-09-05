@@ -1,9 +1,11 @@
 .btn-primary {
+  display: flex;
   padding: 16px 20px;
   font-weight: bold;
   cursor: pointer;
   min-width: 240px;
   gap:10px;
+  width: fit-content;
   &.rounded-3{
     border-radius: 14px !important;
    }

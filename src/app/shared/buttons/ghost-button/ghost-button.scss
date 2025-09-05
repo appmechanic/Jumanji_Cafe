@@ -1,17 +1,18 @@
 .btn-ghost {
+  display: flex;
   padding: 16px 20px;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
   min-width: 240px;
-  gap:10px;
-
+  gap: 10px;
+  width: fit-content;
   &:focus,
   &:active {
     background: #fff;
     color: #8154A2;
     outline: none;
   }
-  &.rounded-3{
+  &.rounded-3 {
     border-radius: 14px !important;
   }
 }

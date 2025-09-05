@@ -4,9 +4,7 @@
     <div class="row justify-content-center">
       <div class="col-12 custom-col-width">
         <div class="hero-section-wrapper">
-          <app-hero-section 
-            [titleParts]="OurStory.hero?.titleParts" 
-            [subtitleParts]="OurStory.hero?.subtitleParts" 
+          <app-hero-section [titleParts]="OurStory.hero?.titleParts" [subtitleParts]="OurStory.hero?.subtitleParts"
             [headingTag]="'h1'">
           </app-hero-section>
         </div>
@@ -20,21 +18,11 @@
 <div class="story-section container mt-5" *ngIf="OurStory?.story">
   <div class="row justify-content-center">
     <div class="col-12">
-      <app-story-section 
-        [imageSrc]="'/assets/sec2-img.jpg'" 
-        [textOverImage1]="OurStory.story.textOverImage1"
-        [textOverImage1BgColor]="'gradient-bg'" 
-        [textOverImage1Color]="'text-white'" 
-        [icon1]="'sports_esports'"
-        [textOverImage2]="OurStory.story.textOverImage2" 
-        [textOverImage2BgColor]="'bg-dark'"
-        [textOverImage2Color]="'text-white'" 
-        [icon2]="'location_on'" 
-        [titleicon]="'favorite'" 
-        [iconType]="'material'"
-        [titleParts]="OurStory.story.titleParts" 
-        [description]="OurStory.story.description" 
-        [stats]="getstoryStats()">
+      <app-story-section [imageSrc]="'/assets/sec2-img.jpg'" [textOverImage1]="OurStory.story.textOverImage1"
+        [textOverImage1BgColor]="'gradient-bg'" [textOverImage1Color]="'text-white'" [icon1]="'sports_esports'"
+        [textOverImage2]="OurStory.story.textOverImage2" [textOverImage2BgColor]="'bg-dark'"
+        [textOverImage2Color]="'text-white'" [icon2]="'location_on'" [titleicon]="'favorite'" [iconType]="'material'"
+        [titleParts]="OurStory.story.titleParts" [description]="OurStory.story.description" [stats]="getstoryStats()">
       </app-story-section>
     </div>
   </div>
@@ -45,8 +33,8 @@
   <div class="row">
     <div class="col-12">
       <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="" iconRight="" iconRightType="material"
-        iconRightColor="" [title]="OurStory.mission?.title" [highlight]="OurStory.mission?.highlight" highlightColor="gradient-text"
-        [subtitle]="OurStory.mission?.description">
+        iconRightColor="" [title]="OurStory.mission?.title" [highlight]="OurStory.mission?.highlight"
+        highlightColor="gradient-text" [subtitle]="OurStory.mission?.description">
       </app-heading-section>
     </div>
   </div>
@@ -70,8 +58,8 @@
   <div class="row">
     <div class="col-12">
       <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="" iconRight="" iconRightType="material"
-        iconRightColor="" [title]="OurStory.highlights?.title" [highlight]="OurStory.highlights?.highlight" highlightColor="gradient-text"
-        [subtitle]="OurStory.highlights?.description">
+        iconRightColor="" [title]="OurStory.highlights?.title" [highlight]="OurStory.highlights?.highlight"
+        highlightColor="gradient-text" [subtitle]="OurStory.highlights?.description">
       </app-heading-section>
     </div>
   </div>
@@ -93,8 +81,8 @@
   <div class="row">
     <div class="col-12">
       <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="" iconRight="" iconRightType="material"
-        iconRightColor="" [title]="OurStory.community?.title" [highlight]="OurStory.community?.highlight" highlightColor="gradient-text"
-        [subtitle]="OurStory.community?.subtitle">
+        iconRightColor="" [title]="OurStory.community?.title" [highlight]="OurStory.community?.highlight"
+        highlightColor="gradient-text" [subtitle]="OurStory.community?.subtitle">
       </app-heading-section>
     </div>
   </div>
@@ -118,23 +106,22 @@
   <div class="row">
     <div class="col-12">
       <app-heading-section iconLeft="" iconLeftType="material" iconLeftColor="" iconRight="" iconRightType="material"
-        iconRightColor="" [title]="OurStory.media?.title" [highlight]="OurStory.media?.highlight" highlightColor="gradient-text"
-        [subtitle]="OurStory.media?.subtitle">
+        iconRightColor="" [title]="OurStory.media?.title" [highlight]="OurStory.media?.highlight"
+        highlightColor="gradient-text" [subtitle]="OurStory.media?.subtitle">
       </app-heading-section>
     </div>
   </div>
   <div class="row align-items-stretch gy-4">
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let card of getmediaCards()">
-      <app-media-card [title]="card.title" [subtitle]="card.subtitle" [date]="card.date"
-        [badgeText]="card.badgeText" [badgeClass]="card.badgeClass" [buttonClass]="card.buttonClass"
-        [buttonText]="card.buttonText" [buttonIcon]="card.buttonIcon" [iconBgClass]="card.iconBgClass"
-        [icon]="card.icon" [iconDotClass]="card.iconDotClass" [image]="card.image"></app-media-card>
+      <app-media-card [title]="card.title" [subtitle]="card.subtitle" [date]="card.date" [badgeText]="card.badgeText"
+        [badgeClass]="card.badgeClass" [buttonClass]="card.buttonClass" [buttonText]="card.buttonText"
+        [buttonIcon]="card.buttonIcon" [iconBgClass]="card.iconBgClass" [icon]="card.icon"
+        [iconDotClass]="card.iconDotClass" [image]="card.image"></app-media-card>
     </div>
   </div>
   <div class="text-center my-5">
-    <app-cta-section *ngIf="OurStory.media?.cta"
-      colClass="col-12" icon="" [titleStart]="OurStory.media.cta?.titleStart" [titleHighlight]="OurStory.media.cta?.titleHighlight"
-      [description]="OurStory.media.cta?.description">
+    <app-cta-section *ngIf="OurStory.media?.cta" colClass="col-12" icon="" [titleStart]="OurStory.media.cta?.titleStart"
+      [titleHighlight]="OurStory.media.cta?.titleHighlight" [description]="OurStory.media.cta?.description">
       <app-primary-button primaryButton iconLeft="download" class="d-flex justify-content-center mt-2">
         {{OurStory.media.cta?.primaryBtn}}
       </app-primary-button>
@@ -145,7 +132,7 @@
   </div>
   <div class="row align-items-stretch gy-4 pb-5 justify-content-center">
     <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let card of getmediaStats()">
-      <app-stat-card  [iconType]="card.iconType" [icon]="card.icon" [title]="card.title" [text]="card.text"
+      <app-stat-card [iconType]="card.iconType" [icon]="card.icon" [title]="card.title" [text]="card.text"
         [borderColor]="card.borderColor" [iconBgColor]="card.iconBgColor" [titleColor]="card.titleColor"
         [cardBgColor]="card.cardBgColor">
       </app-stat-card>
@@ -159,21 +146,21 @@
 
   <div class="row justify-content-center py-5 position-relative" style="z-index: 1;">
     <div class="col-11 col-md-10 col-lg-7 col-xl-6 col-xxl-5">
-      <app-hero-section [titleParts]="getExperienceTitleParts()" [subtitleParts]="getExperienceSubtitleParts()" [headingTag]="'h2'">
+      <app-hero-section [titleParts]="getExperienceTitleParts()" [subtitleParts]="getExperienceSubtitleParts()"
+        [headingTag]="'h2'">
       </app-hero-section>
     </div>
     <div class="container w-full">
       <div class="row hero-buttons justify-content-center align-items-center gap-4 flex-wrap mt-5">
         <div class="col-auto">
-          <app-primary-button iconLeft="bi-fork-knife">
-            {{OurStory.experience?.primaryBtn}}
+          <app-primary-button iconLeft="bi-fork-knife" [routerLink]="'/cafe-menu'"
+            [text]="OurStory?.experience?.primaryBtn">
           </app-primary-button>
         </div>
 
         <div class="col-auto">
-          <app-ghost-button iconLeft="today">
-            {{OurStory.experience?.secondaryBtn}}
-          </app-ghost-button>
+          <app-ghost-button iconLeft="today" [routerLink]="''"
+            [text]="OurStory?.experience?.secondaryBtn"></app-ghost-button>
         </div>
       </div>
 
@@ -187,7 +174,8 @@
       </div>
     </div>
     <div class="text-center pt-5">
-      <app-customer-tag [rating]="4.9" [customerCount]="15000" [text1]="OurStory.customerTag.text1" [text2]="OurStory.customerTag.text2"
+      <app-customer-tag [rating]="4.9" [customerCount]="15000" [text1]="OurStory.customerTag.text1"
+        [text2]="OurStory.customerTag.text2"
         [customerImages]="['/assets/testimonial-img1.jpg', '/assets/testimonial-img1.jpg', '/assets/testimonial-img1.jpg', '/assets/testimonial-img1.jpg']">
       </app-customer-tag>
     </div>

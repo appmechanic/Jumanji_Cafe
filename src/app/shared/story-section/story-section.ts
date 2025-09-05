@@ -30,5 +30,9 @@ export class StorySectionComponent {
   @Input() stats: any[] = [];
   @Input() buttons: any[] = [];
 
-
+onButtonClick(button: any) {
+  if (button.onClick) {
+    button.onClick();
+  }
+}
 }

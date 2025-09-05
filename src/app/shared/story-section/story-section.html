@@ -48,9 +48,13 @@
         </div>
       </div>
       <div class="mt-4">
-        <app-primary-button *ngFor="let button of buttons" [iconLeft]="button.iconLeft" [iconRight]="button.iconRight"
+        <app-primary-button *ngFor="let button of buttons" 
+          [iconLeft]="button.iconLeft" 
+          [iconRight]="button.iconRight"
+          [text]="button.text"
+          [routerLink]="button.link" 
+          (buttonClick)="onButtonClick(button)"
           class="me-2">
-          {{ button.text }}
         </app-primary-button>
       </div>
     </div>

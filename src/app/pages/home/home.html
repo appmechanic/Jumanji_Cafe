@@ -9,14 +9,14 @@
                     </app-hero-section>
                     <div class="row hero-buttons justify-content-center align-items-center gap-4 flex-wrap mt-5">
                         <div class="col-auto">
-                            <app-primary-button iconLeft="bi-fork-knife">
-                                {{ homeText.hero?.exploreMenuBtn }}
+                            <app-primary-button iconLeft="bi-fork-knife" [routerLink]="'/cafe-menu'" 
+                                [text]="homeText?.hero?.exploreMenuBtn">
                             </app-primary-button>
                         </div>
 
                         <div class="col-auto">
-                            <app-ghost-button iconLeft="videogame_asset">
-                                {{ homeText.hero?.browseGamesBtn }}
+                            <app-ghost-button iconLeft="videogame_asset" [routerLink]="'/b2b-services'" 
+                                [text]="homeText?.hero?.browseGamesBtn">
                             </app-ghost-button>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                 [textOverImage1]="homeText.story?.textOverImage1" textOverImage1BgColor="gradient-bg"
                 [titleicon]="homeText.story?.titleicon" iconType="material" [titleParts]="homeText.story?.titleParts"
                 [description]="homeText.story?.description" [stats]="getStoryStats()"
-                [buttons]="[{ iconRight: 'bi bi-arrow-right', text: homeText.story?.buttonText }]">
+                [buttons]="[{ iconRight: 'bi-arrow-right', text: homeText.story?.buttonText, link: '/our-story' }]">
             </app-story-section>
         </div>
     </div>
@@ -82,9 +82,9 @@
                 </app-showcase-card>
             </ng-template>
         </app-slider>
-        <app-primary-button iconLeft="bi-fork-knife" iconRight="bi bi-arrow-right"
-            class="d-flex justify-content-center mt-2">
-            {{ homeText['cafe-menu']?.Btn }}
+        <app-primary-button iconLeft="bi-fork-knife" iconRight="bi bi-arrow-right" [routerLink]="'/cafe-menu'"
+            class="d-flex justify-content-center mt-2"
+            [text]="homeText['cafe-menu']?.Btn">
         </app-primary-button>
     </div>
 </div>
@@ -112,9 +112,9 @@
                 [showDetailIcon]="game.showDetailIcon" [detailIcon]="game.detailIcon"
                 [showOverlay]="false"></app-showcase-card>
         </div>
-        <app-primary-button iconLeft="sports_esports" iconRight="bi bi-arrow-right"
-            class="d-flex justify-content-center mt-3">
-            {{ homeText['featured-game']?.Btn }}
+        <app-primary-button iconLeft="sports_esports" iconRight="bi bi-arrow-right" [routerLink]="'/b2b-services'"
+            class="d-flex justify-content-center mt-3"
+            [text]="homeText['featured-game']?.Btn">
         </app-primary-button>
     </div>
 </div>
@@ -139,8 +139,8 @@
             </app-showcase-card>
         </div>
         <app-primary-button iconLeft="bi bi-calendar4-week" iconRight="bi bi-arrow-right"
-            class="d-flex justify-content-center mt-3">
-            {{ homeText['upcoming-event']?.Btn }}
+            class="d-flex justify-content-center mt-3" 
+            [text]="homeText['upcoming-event']?.Btn">
         </app-primary-button>
     </div>
 </div>
@@ -171,12 +171,12 @@
 <div class="container my-5 pb-5">
     <app-cta-section icon="" [titleStart]="homeText['cta']?.titleStart"
         [titleHighlight]="homeText['cta']?.titleHighlight" [description]="homeText['cta']?.description">
-        <app-primary-button primaryButton iconLeft="card_travel" iconRight="bi bi-arrow-right"
-            class="d-flex justify-content-center mt-2">
-            {{ homeText['cta']?.BtnLeft }}
+        <app-primary-button primaryButton iconLeft="card_travel" iconRight="bi bi-arrow-right" [routerLink]="'/b2b-services'"
+            class="d-flex justify-content-center mt-2" 
+            [text]="homeText['cta']?.BtnLeft">
         </app-primary-button>
-        <app-ghost-button ghostButton iconLeft="call" class="d-flex justify-content-center mt-2">
-            {{ homeText['cta']?.BtnRight }}
+        <app-ghost-button ghostButton iconLeft="call" class="d-flex justify-content-center mt-2"  [routerLink]="'/contact-us'"
+            [text]="homeText['cta']?.BtnRight">
         </app-ghost-button>
     </app-cta-section>
 </div>
@@ -264,15 +264,15 @@
         <div
             class="row d-flex hero-buttons justify-content-center align-items-center flex-wrap pt-2 flex-column flex-md-row gap-2 gap-md-0">
             <div class="col-auto">
-                <app-primary-button iconLeft="bi-fork-knife">
-                    {{homeText['ready-to-play']?.primaryBtn}}
+                <app-primary-button iconLeft="bi-fork-knife" [routerLink]="'/cafe-menu'"
+                    [text]="homeText['ready-to-play']?.primaryBtn">
                 </app-primary-button>
             </div>
             <div class="col-auto"><span class="fs-18 fw-600"
                     style="color: #9CA3AF;">{{homeText['ready-to-play']?.separator}}</span></div>
             <div class="col-auto">
-                <app-ghost-button iconLeft="videogame_asset">
-                    {{homeText['ready-to-play']?.ghostBtn}}
+                <app-ghost-button iconLeft="videogame_asset" [routerLink]="'/b2b-services'" 
+                    [text]="homeText['ready-to-play']?.ghostBtn">
                 </app-ghost-button>
             </div>
         </div>
@@ -314,8 +314,8 @@
         <app-testimonial-slider />
         <div class="py-4">
             <app-primary-button primaryButton iconLeft="bi-trophy" iconRight="bi-arrow-right"
-                class="d-flex justify-content-center mt-2">
-                {{homeText['testimonial']?.btnText}}
+                class="d-flex justify-content-center mt-2" 
+                [text]="homeText['testimonial']?.btnText">
             </app-primary-button>
             <p class="fw-600 text-white text-center py-3">{{homeText['testimonial']?.footerText}}</p>
         </div>
