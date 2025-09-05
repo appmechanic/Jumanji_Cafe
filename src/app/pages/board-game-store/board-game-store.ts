@@ -162,7 +162,11 @@ export class BoardGameStore implements OnInit, OnDestroy {
   }
 
   onGamesFilteredDataChange(filteredData: ShowcaseCardType[]): void {
-    this.featuredGames = filteredData;
+    // Only update if no sidebar filters are active to avoid conflicts
+    if (!this.hasActiveFilters()) {
+      this.featuredGames = filteredData.sort((a, b) => a.title.localeCompare(b.title));
+      this.cdr.markForCheck();
+    }
   }
 
   loadTranslations() {
@@ -172,7 +176,7 @@ export class BoardGameStore implements OnInit, OnDestroy {
       allLabel: this.i18n.getCurrentLang() === 'ar' ? 'الكل' : 'All'
     };
 
-    this.featuredGames = this.getFeaturedGameStats();
+    this.featuredGames = this.getFeaturedGameStats().sort((a, b) => a.title.localeCompare(b.title));
   }
   onLanguageChanged() {
     this.loadTranslations();
@@ -231,64 +235,118 @@ export class BoardGameStore implements OnInit, OnDestroy {
     ];
   }
 
+  // Add a helper method to check if the game data is loaded
+  private isDataLoaded(): boolean {
+    return this.featuredGames && this.featuredGames.length > 0;
+  }
+
+  // Add a method to reset filters
+  resetAllFilters() {
+    this.activeFilters = {};
+    this.featuredGames = this.getFeaturedGameStats().sort((a, b) => a.title.localeCompare(b.title));
+    this.cdr.markForCheck();
+  }
+
+  // Enhance the onSidebarFilterChange method for better error handling
   onSidebarFilterChange(filters: ActiveFilters) {
-    console.log('Active filters received:', filters);
-    this.activeFilters = filters;
-    
-    // Start with all games
-    let filteredGames = this.getFeaturedGameStats();
-    
-    // Apply each category of filters
-    Object.keys(filters).forEach(category => {
-      const activeValues = filters[category];
+    try {
+      this.activeFilters = filters;
       
-      // Skip if no filters are active for this category
-      if (!activeValues || activeValues.length === 0) {
+      // Check if all filters are empty (user cleared all filters)
+      const hasAnyActiveFilters = Object.values(filters).some(values => values && values.length > 0);
+      
+      // Start with all games
+      let filteredGames = this.getFeaturedGameStats();
+      
+      if (!hasAnyActiveFilters) {
+        console.log('No active filters, showing all games sorted'); 
+        filteredGames.sort((a, b) => a.title.localeCompare(b.title));
+        this.featuredGames = [...filteredGames];
+        this.cdr.markForCheck();
         return;
       }
       
-      switch (category) {
-        case 'Number of Players':
-          filteredGames = filteredGames.filter(game => {
-            const playerRange = game.players.match(/\d+/g)?.map(Number);
-            return activeValues.some(value => {
-              if (value === '6+') {
-                return playerRange?.some((count: number) => count > 5);
-              } else {
-                return playerRange?.some((count: number) => count === Number(value));
-              }
+      console.log('Initial games before filtering:', filteredGames.map(g => g.title));
+      
+      // Apply each category of filters
+      Object.keys(filters).forEach(category => {
+        const activeValues = filters[category];
+        
+        // Skip if no filters are active for this category
+        if (!activeValues || activeValues.length === 0) {
+          return;
+        }
+        
+        console.log(`Applying filter for ${category} with values:`, activeValues);
+        
+        switch (category) {
+          case 'Number of Players':
+            filteredGames = filteredGames.filter(game => {
+              const playerText = game.players || '';
+              const playerRange = playerText.match(/\d+/g)?.map(Number);
+              return activeValues.some(value => {
+                if (value === '6+') {
+                  return playerRange?.some((count: number) => count >= 6);
+                } else {
+                  return playerRange?.includes(Number(value));
+                }
+              });
             });
-          });
-          break;
-          
-        case 'Difficulty':
-          // Fix the difficulty filtering - use correct property mapping
-          filteredGames = filteredGames.filter(game => {
-            return activeValues.includes(game.category);
-          });
-          break;
-          
-        case 'Play Duration':
-          filteredGames = filteredGames.filter(game => 
-            activeValues.includes(game.duration)
-          );
-          break;
-          
-        case 'Tags':
-          filteredGames = filteredGames.filter(game => 
-            activeValues.some(tag => game.tags.includes(tag))
-          );
-          break;
-      }
-    });
+            break;
+            
+          case 'Difficulty':
+            filteredGames = filteredGames.filter(game => {
+              const gameDifficulty = game.category || '';
+              return activeValues.some(value => 
+                gameDifficulty.toLowerCase() === value.toLowerCase()
+              );
+            });
+            break;
+            
+          case 'Play Duration':
+            filteredGames = filteredGames.filter(game => {
+              const gameDuration = game.duration || '';
+              return activeValues.some(value => 
+                gameDuration.toLowerCase() === value.toLowerCase()
+              );
+            });
+            break;
+            
+          case 'Tags':
+            filteredGames = filteredGames.filter(game => {
+              const gameTags = game.tags || [];
+              return activeValues.some(value => 
+                gameTags.some((tag: string) => tag.toLowerCase() === value.toLowerCase())
+              );
+            });
+            break;
+        }
+        
+        console.log(`After applying ${category} filter: ${filteredGames.length} games remain`);
+      });
+      
+      // Sort the games by title
+      filteredGames.sort((a, b) => a.title.localeCompare(b.title));
+      console.log('Games after sorting:', filteredGames.map(g => g.title));
+      
+      this.featuredGames = [...filteredGames];
+      this.cdr.markForCheck();
+      
+    } catch (error) {
+      console.error('Error in onSidebarFilterChange:', error);
+      // Fallback to showing all games
+      this.featuredGames = this.getFeaturedGameStats().sort((a, b) => a.title.localeCompare(b.title));
+      this.cdr.markForCheck();
+    }
+  }
+
+  applyQuickFilter(category: string, value: string) {
+    this.activeFilters[category] = [value];
     
-    // Use a different array reference to ensure change detection
-    this.featuredGames = [...filteredGames];
-    
-    // Force change detection to update the UI
-    this.cdr.detectChanges();
-    
-    console.log('Filtered games:', this.featuredGames.length, 'of', this.getFeaturedGameStats().length);
-    console.log('Filtered game categories:', this.featuredGames.map(game => game.category));
+    this.onSidebarFilterChange({...this.activeFilters});
+  }
+
+  hasActiveFilters(): boolean {
+    return Object.values(this.activeFilters).some(values => values && values.length > 0);
   }
 }

@@ -23,3 +23,35 @@
     }
   }
 }
+
+.results-count {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0;
+  
+  .btn-link {
+    color: var(--bs-primary);
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.filter-summary {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  
+  .btn-link {
+    padding: 0;
+    color: var(--bs-primary);
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -54,4 +54,17 @@ export class SidebarFilterComponent implements OnInit {
   isFilterActive(category: string, value: string): boolean {
     return this.activeFilters[category]?.includes(value) || false;
   }
+
+  // Add methods for better filter management
+  hasActiveFilters(): boolean {
+    return Object.values(this.activeFilters).some(values => values && values.length > 0);
+  }
+
+  clearAllFilters() {
+    this.activeFilters = {};
+    Object.keys(this.activeFilters).forEach(category => {
+      this.activeFilters[category] = [];
+    });
+    this.filterChange.emit({...this.activeFilters});
+  }
 }
