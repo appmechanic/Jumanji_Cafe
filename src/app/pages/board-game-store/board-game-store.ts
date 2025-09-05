@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeadingSectionComponent } from '../../shared/heading-section/heading-section';
 import { FilterComponent, FilterConfig } from '../../shared/filter-tab/filter-tab';
@@ -36,6 +36,11 @@ export type ShowcaseCardType = {
   attending: number;
   capacity: number;
 };
+
+// Update this interface to match the structure from the sidebar filter
+interface ActiveFilters {
+  [category: string]: string[];
+}
 
 @Component({
   selector: 'app-contact-us',
@@ -141,7 +146,7 @@ export class BoardGameStore implements OnInit, OnDestroy {
 
   langSub!: Subscription;
   public direction: string = 'ltr';
-  constructor(private i18n: I18nService) { }
+  constructor(private i18n: I18nService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.loadTranslations();
@@ -180,6 +185,8 @@ export class BoardGameStore implements OnInit, OnDestroy {
     }));
   }
 
+  activeFilters: ActiveFilters = {};
+
   getSidebarFilters(): any[] {
     const featuredGames = this.getFeaturedGameStats();
 
@@ -189,65 +196,99 @@ export class BoardGameStore implements OnInit, OnDestroy {
       .flat();
     const uniquePlayerCounts = [...new Set(playerCounts)].sort((a, b) => a - b);
 
-    const playerOptions = uniquePlayerCounts.map(count => (count > 5 ? '6+' : count.toString()));
-    const finalPlayerOptions = [...new Set(playerOptions)];
+    // Convert player counts to option objects with label and value
+    const playerOptions = uniquePlayerCounts.map(count => ({
+      label: count > 5 ? '6+ players' : `${count} players`,
+      value: count > 5 ? '6+' : count.toString()
+    }));
 
     return [
       {
         label: 'Number of Players',
-        options: finalPlayerOptions
+        options: playerOptions
       },
       {
         label: 'Play Duration',
-        options: [...new Set(featuredGames.map(game => game.duration))]
+        options: [...new Set(featuredGames.map(game => game.duration))].map(duration => ({
+          label: duration,
+          value: duration
+        }))
       },
       {
         label: 'Difficulty',
-        options: [...new Set(featuredGames.map(game => game.category))]
+        options: [...new Set(featuredGames.map(game => game.category))].map(difficulty => ({
+          label: difficulty,
+          value: difficulty
+        }))
       },
       {
         label: 'Tags',
-        options: [...new Set(featuredGames.flatMap(game => game.tags))]
+        options: [...new Set(featuredGames.flatMap(game => game.tags))].map(tag => ({
+          label: tag,
+          value: tag
+        }))
       }
     ];
   }
 
-  onSidebarFilterChange(filter: { label: string; value: string }) {
-    console.log(`Filter change received: ${filter.label} = ${filter.value}`);
+  onSidebarFilterChange(filters: ActiveFilters) {
+    console.log('Active filters received:', filters);
+    this.activeFilters = filters;
     
-    if (filter.value === 'all') {
-      // Reset to show all games
-      this.featuredGames = this.getFeaturedGameStats();
-      console.log('Resetting to show all games');
-      return;
-    }
-
-    switch (filter.label) {
-      case 'Number of Players':
-        if (filter.value === '6+') {
-          this.featuredGames = this.getFeaturedGameStats().filter(game => {
+    // Start with all games
+    let filteredGames = this.getFeaturedGameStats();
+    
+    // Apply each category of filters
+    Object.keys(filters).forEach(category => {
+      const activeValues = filters[category];
+      
+      // Skip if no filters are active for this category
+      if (!activeValues || activeValues.length === 0) {
+        return;
+      }
+      
+      switch (category) {
+        case 'Number of Players':
+          filteredGames = filteredGames.filter(game => {
             const playerRange = game.players.match(/\d+/g)?.map(Number);
-            return playerRange?.some((count: number) => count > 5);
+            return activeValues.some(value => {
+              if (value === '6+') {
+                return playerRange?.some((count: number) => count > 5);
+              } else {
+                return playerRange?.some((count: number) => count === Number(value));
+              }
+            });
           });
-        } else {
-          this.featuredGames = this.getFeaturedGameStats().filter(game => {
-            const playerRange = game.players.match(/\d+/g)?.map(Number);
-            return playerRange?.some((count: number) => count === Number(filter.value));
+          break;
+          
+        case 'Difficulty':
+          // Fix the difficulty filtering - use correct property mapping
+          filteredGames = filteredGames.filter(game => {
+            return activeValues.includes(game.category);
           });
-        }
-        break;
-      case 'Play Duration':
-        this.featuredGames = this.getFeaturedGameStats().filter(game => game.duration === filter.value);
-        break;
-      case 'Difficulty':
-        this.featuredGames = this.getFeaturedGameStats().filter(game => game.category === filter.value);
-        break;
-      case 'Tags':
-        this.featuredGames = this.getFeaturedGameStats().filter(game => game.tags.includes(filter.value));
-        break;
-      default:
-        console.log('No matching filter logic found.');
-    }
-    console.log('Filtered games:', this.featuredGames);
+          break;
+          
+        case 'Play Duration':
+          filteredGames = filteredGames.filter(game => 
+            activeValues.includes(game.duration)
+          );
+          break;
+          
+        case 'Tags':
+          filteredGames = filteredGames.filter(game => 
+            activeValues.some(tag => game.tags.includes(tag))
+          );
+          break;
+      }
+    });
+    
+    // Use a different array reference to ensure change detection
+    this.featuredGames = [...filteredGames];
+    
+    // Force change detection to update the UI
+    this.cdr.detectChanges();
+    
+    console.log('Filtered games:', this.featuredGames.length, 'of', this.getFeaturedGameStats().length);
+    console.log('Filtered game categories:', this.featuredGames.map(game => game.category));
   }
 }

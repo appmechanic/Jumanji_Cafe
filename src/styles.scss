@@ -469,3 +469,7 @@ h4 {
     background: linear-gradient(to left, #f6d02f, rgb(0 0 0 / 5%) 100%);
   }
 }
+
+app-sidebar-filter .filter-option {
+  cursor: pointer;
+}

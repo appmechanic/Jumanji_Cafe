@@ -1,0 +1,25 @@
+.sidebar-filters {
+  
+  .filter-options {
+
+    
+    .filter-option {
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      
+      &.active {
+        background-color: var(--bs-primary, #805AD5);
+        color: white;
+      }
+    }
+  }
+  
+  .clear-filters {
+    margin-top: 1rem;
+    color: #805AD5;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.875rem;
+  }
+}

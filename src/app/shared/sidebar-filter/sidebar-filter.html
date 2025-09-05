@@ -1,16 +1,18 @@
-<div class="sidebar-filter bg-white p-4 rounded-20 h-100">
+<div class="sidebar-filters bg-white h-100 p-3 rounded-20 shadow-sm">
   <h4>Filters</h4>
-  <div *ngFor="let filter of filters">
-    <p>{{ filter.label }}</p>
-    <div class="filter-options">
-      <button
-        *ngFor="let option of filter.options"
-        class="toggle-button"
-        [class.active]="selectedOption[filter.label] === option"
-        (click)="onFilterSelect(filter.label, option)"
-      >
-        {{ option }}
-      </button>
+  <div class="d-flex flex-column gap-3">
+    <div *ngFor="let filter of filters" class="filter-category">
+      <p class="fw-600 mb-2">{{ filter.label }}</p>
+
+    <div class="filter-options d-flex flex-wrap gap-2">
+      <div *ngFor="let option of filter.options" 
+           class="filter-option px-2 py-1 bg-primary2"
+           [class.active]="isFilterActive(filter.label, option.value)"
+           [class.bg-primary]="isFilterActive(filter.label, option.value)"
+           [class.text-white]="isFilterActive(filter.label, option.value)"
+           (click)="onFilterSelect(filter.label, option.value)">
+        {{ option.label || option.value }}
+      </div>
     </div>
   </div>
 </div>
