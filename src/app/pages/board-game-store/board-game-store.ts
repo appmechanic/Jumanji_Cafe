@@ -37,7 +37,6 @@ export type ShowcaseCardType = {
   capacity: number;
 };
 
-// Update this interface to match the structure from the sidebar filter
 interface ActiveFilters {
   [category: string]: string[];
 }
@@ -162,7 +161,6 @@ export class BoardGameStore implements OnInit, OnDestroy {
   }
 
   onGamesFilteredDataChange(filteredData: ShowcaseCardType[]): void {
-    // Only update if no sidebar filters are active to avoid conflicts
     if (!this.hasActiveFilters()) {
       this.featuredGames = filteredData.sort((a, b) => a.title.localeCompare(b.title));
       this.cdr.markForCheck();
@@ -194,13 +192,11 @@ export class BoardGameStore implements OnInit, OnDestroy {
   getSidebarFilters(): any[] {
     const featuredGames = this.getFeaturedGameStats();
 
-    // Calculate player ranges dynamically
     const playerCounts = featuredGames
       .map(game => game.players.match(/\d+/g)?.map(Number) || [])
       .flat();
     const uniquePlayerCounts = [...new Set(playerCounts)].sort((a, b) => a - b);
 
-    // Convert player counts to option objects with label and value
     const playerOptions = uniquePlayerCounts.map(count => ({
       label: count > 5 ? '6+ players' : `${count} players`,
       value: count > 5 ? '6+' : count.toString()
@@ -235,49 +231,37 @@ export class BoardGameStore implements OnInit, OnDestroy {
     ];
   }
 
-  // Add a helper method to check if the game data is loaded
   private isDataLoaded(): boolean {
     return this.featuredGames && this.featuredGames.length > 0;
   }
 
-  // Add a method to reset filters
   resetAllFilters() {
     this.activeFilters = {};
     this.featuredGames = this.getFeaturedGameStats().sort((a, b) => a.title.localeCompare(b.title));
     this.cdr.markForCheck();
   }
 
-  // Enhance the onSidebarFilterChange method for better error handling
   onSidebarFilterChange(filters: ActiveFilters) {
     try {
       this.activeFilters = filters;
       
-      // Check if all filters are empty (user cleared all filters)
       const hasAnyActiveFilters = Object.values(filters).some(values => values && values.length > 0);
       
-      // Start with all games
       let filteredGames = this.getFeaturedGameStats();
       
       if (!hasAnyActiveFilters) {
-        console.log('No active filters, showing all games sorted'); 
         filteredGames.sort((a, b) => a.title.localeCompare(b.title));
         this.featuredGames = [...filteredGames];
         this.cdr.markForCheck();
         return;
       }
       
-      console.log('Initial games before filtering:', filteredGames.map(g => g.title));
-      
-      // Apply each category of filters
       Object.keys(filters).forEach(category => {
         const activeValues = filters[category];
         
-        // Skip if no filters are active for this category
         if (!activeValues || activeValues.length === 0) {
           return;
         }
-        
-        console.log(`Applying filter for ${category} with values:`, activeValues);
         
         switch (category) {
           case 'Number of Players':
@@ -321,20 +305,14 @@ export class BoardGameStore implements OnInit, OnDestroy {
             });
             break;
         }
-        
-        console.log(`After applying ${category} filter: ${filteredGames.length} games remain`);
       });
       
-      // Sort the games by title
       filteredGames.sort((a, b) => a.title.localeCompare(b.title));
-      console.log('Games after sorting:', filteredGames.map(g => g.title));
       
       this.featuredGames = [...filteredGames];
       this.cdr.markForCheck();
       
     } catch (error) {
-      console.error('Error in onSidebarFilterChange:', error);
-      // Fallback to showing all games
       this.featuredGames = this.getFeaturedGameStats().sort((a, b) => a.title.localeCompare(b.title));
       this.cdr.markForCheck();
     }

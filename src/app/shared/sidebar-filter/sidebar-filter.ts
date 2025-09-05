@@ -16,11 +16,9 @@ export class SidebarFilterComponent implements OnInit {
   @Input() filters: any[] = []; 
   @Output() filterChange = new EventEmitter<ActiveFilters>(); 
 
-  // Track active filters by category
   activeFilters: ActiveFilters = {};
 
   ngOnInit() {
-    // Initialize active filters structure based on input filters
     this.filters.forEach(category => {
       if (category.options && Array.isArray(category.options)) {
         this.activeFilters[category.label] = [];
@@ -29,25 +27,18 @@ export class SidebarFilterComponent implements OnInit {
   }
 
   onFilterSelect(category: string, value: string) {
-    // Initialize the category array if it doesn't exist
     if (!this.activeFilters[category]) {
       this.activeFilters[category] = [];
     }
 
     const index = this.activeFilters[category].indexOf(value);
     
-    // Toggle filter selection
     if (index !== -1) {
-      // Remove filter if already selected
       this.activeFilters[category].splice(index, 1);
     } else {
-      // Add the new filter
       this.activeFilters[category].push(value);
     }
     
-    console.log(`Filter updated: ${category}`, this.activeFilters[category]);
-    
-    // Emit all active filters for parent component to apply filtering
     this.filterChange.emit({...this.activeFilters});
   }
 
@@ -55,7 +46,6 @@ export class SidebarFilterComponent implements OnInit {
     return this.activeFilters[category]?.includes(value) || false;
   }
 
-  // Add methods for better filter management
   hasActiveFilters(): boolean {
     return Object.values(this.activeFilters).some(values => values && values.length > 0);
   }
