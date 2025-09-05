@@ -1,0 +1,238 @@
+<div class="modal-backdrop d-flex align-items-center justify-content-center" (click)="onBackdropClick($event)">
+    <div class="modal-content bg-white rounded-3 shadow-lg position-relative"
+        style="max-width: 900px; width: 95%; max-height: 95vh; overflow-y: auto;">
+
+        <!-- Header with Icon, Title and Close Button -->
+        <div class="d-flex align-items-start justify-content-between p-4 border-bottom">
+            <div class="d-flex align-items-center gap-3">
+                <div class="game-icon bg-primary2 rounded-pill p-2 d-flex align-items-center justify-content-center"
+                    style="width: 50px; height: 50px;">
+                    <i class="bi bi-controller text-primary"></i>
+                </div>
+                <div>
+                    <h4 class="fw-bold mb-1">{{ productData?.title }}</h4>
+                    <p class="text-muted mb-0 small">{{ productData?.subtitle }}</p>
+                </div>
+            </div>
+            <button type="button" class="btn-close text-color2" (click)="onClose()"></button>
+        </div>
+
+        <div class="row g-0">
+            <!-- Left Side - Image and Video -->
+            <div class="col-md-6 p-4">
+                <div class="position-relative mb-3">
+                    <img [src]="productData?.imageSrc" class="w-100 rounded-3" alt="{{ productData?.title }}"
+                        style="height: 300px; object-fit: cover;">
+
+                    <div class="position-absolute top-0 start-0 m-3" *ngIf="productData?.starCount">
+                        <span class="badge bg-secondary bg-opacity-75 text-white d-flex align-items-center gap-1">
+                            <i class="bi bi-star-fill"></i>
+                            <span>{{ productData?.starCount }}</span>
+                        </span>
+                    </div>
+
+                    <div class="position-absolute top-0 end-0 m-3" *ngIf="productData?.price">
+                        <span class="badge bg-primary text-white fs-6 px-3 py-2">{{ productData?.price }}</span>
+                    </div>
+                </div>
+
+                <!-- Video Section -->
+                <div class="video-section bg-light rounded-3 p-4 text-center" style="height: 200px;">
+                    <div *ngIf="!productData?.videoPreview?.videoUrl"
+                        class="d-flex flex-column align-items-center justify-content-center h-100">
+                        <div class="play-icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
+                            <i class="bi bi-play-fill" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <h6 class="fw-bold text-dark mb-1">Game Preview Video</h6>
+                        <p class="text-muted small mb-0">Coming Soon</p>
+                    </div>
+
+                    <iframe *ngIf="productData?.videoPreview?.videoUrl" [src]="productData?.videoPreview?.videoUrl"
+                        class="w-100 h-100 rounded-3" frameborder="0">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Right Side - Product Details -->
+            <div class="col-md-6 p-4">
+                <!-- Game Info Cards -->
+                <div class="row g-2 mb-4">
+                    <div class="col-6" *ngIf="productData?.players">
+                        <div class="info-card bg-primary5 rounded-2 p-3">
+                            <div class="d-flex flex-row gap-2 align-items-center">
+                                <i class="bi bi-people text-primary d-block"></i>
+                                <div class="small text-color">Players</div>
+                            </div>
+                            <div class="fw-bold text-dark">{{ productData?.players }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-6" *ngIf="productData?.duration">
+                        <div class="info-card bg-info-subtle rounded-2 p-3 ">
+                            <div class="d-flex flex-row gap-2 align-items-center">
+                                <i class="bi bi-clock text-info d-block"></i>
+                                <div class="small text-color">Duration</div>
+                            </div>
+                            <div class="fw-bold text-dark">{{ productData?.duration }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-6" *ngIf="productData?.age">
+                        <div class="info-card bg-secondary5 rounded-2 p-3">
+                            <div class="d-flex flex-row gap-2 align-items-center">
+                                <i class="bi bi-person-check text-secondary d-block"></i>
+                                <div class="small text-color">Age</div>
+                            </div>
+                            <div class="fw-bold text-dark">{{ productData?.age }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-6" *ngIf="productData?.difficulty || productData?.category">
+                        <div class="info-card bg-success-subtle rounded-2 p-3">
+                            <div class="d-flex flex-row gap-2 align-items-center">
+                                <i class="bi bi-bar-chart-steps text-success d-block"></i>
+                                <div class="small text-color">Difficulty</div>
+                            </div>
+                            <div class="fw-bold text-dark">{{ productData?.difficulty || productData?.category }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quantity Counter -->
+                <div class="quantity-section mb-4 d-flex flex-row gap-2 align-items-center">
+                    <label class="form-label fw-bold">Quantity:</label>
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="btn btn-sm bg-primary5 rounded-pill shadow-sm" (click)="decreaseQuantity()"
+                            [disabled]="quantity <= 1">
+                            <i class="bi bi-dash"></i>
+                        </button>
+                        <span class="px-3 py-1 border rounded text-center" style="min-width: 50px;">{{ quantity
+                            }}</span>
+                        <button class="btn btn-sm bg-primary5 rounded-pill shadow-sm" (click)="increaseQuantity()">
+                            <i class="bi bi-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Total Cost -->
+                <div class="total-section mb-4" *ngIf="productData?.price">
+                        <h4 class="mb-0">Total: {{ getTotalPrice() }}</h4>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons mb-4">
+                    <button class="btn gradient-bg text-white w-100 mb-2 py-3 fw-bold" (click)="addToCart()">
+                        <i class="bi bi-cart-plus me-2"></i>Add to Cart
+                    </button>
+                    <button class="btn bg-white border border-primary text-primary fw-600 w-100 py-3" (click)="addToWishlist()">
+                        <i class="bi bi-heart me-2"></i>Add to Wishlist
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="tabs-section px-4 pb-4">
+            <!-- Tab Headers -->
+            <ul class="nav nav-tabs border-bottom mb-4">
+                <li class="nav-item">
+                    <button class="nav-link text-primary" [class.active]="activeTab === 'overview'"
+                        (click)="setActiveTab('overview')">
+                        Overview
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link text-primary" [class.active]="activeTab === 'contents'"
+                        (click)="setActiveTab('contents')">
+                        Contents
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link text-primary" [class.active]="activeTab === 'reviews'"
+                        (click)="setActiveTab('reviews')">
+                        Reviews
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- Overview Tab -->
+                <div [style.display]="activeTab === 'overview' ? 'block' : 'none'">
+                    <h5 class="fw-bold mb-3">{{ productData?.overview?.title || 'Game Overview' }}</h5>
+                    <p class="text-muted mb-4">{{ productData?.overview?.description }}</p>
+
+                    <div *ngIf="productData?.overview?.listTitle?.points?.length" class="bg-primary5 p-4 rounded-20">
+                        <h6 class="fw-bold mb-3 mt-1 d-flex flex-row gap-2 text-primary"><i
+                                class="bi bi-lightbulb"></i>{{ productData?.overview?.listTitle?.title }}</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li *ngFor="let point of productData?.overview?.listTitle?.points"
+                                class="d-flex flex-row gap-2 mb-1">
+                                <i class="bi bi-check text-success"></i>{{ point }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contents Tab -->
+                <div [style.display]="activeTab === 'contents' ? 'block' : 'none'">
+                    <h5 class="fw-bold mb-3">{{ productData?.contents?.title || 'Contents' }}</h5>
+                    <div class="row" *ngIf="productData?.contents?.items?.length">
+                        <div class="col-md-6" *ngFor="let item of productData?.contents?.items">
+                            <div class="mb-2">
+                                <i class="bi bi-box text-primary me-2"></i>{{ item }}
+                            </div>
+                        </div>
+                    </div>
+                    <p *ngIf="!productData?.contents?.items?.length" class="text-muted">No contents information
+                        available.</p>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div [style.display]="activeTab === 'reviews' ? 'block' : 'none'">
+                    <div class="d-flex align-items-center mb-4">
+                        <h5 class="fw-bold me-3 mb-0">{{ productData?.reviews?.title || 'Reviews' }}</h5>
+                        <div class="d-flex align-items-center" *ngIf="productData?.reviews?.averageRating">
+                            <div class="stars me-2">
+                                <i class="bi bi-star-fill text-warning" *ngFor="let star of getReviewStars()"></i>
+                            </div>
+                            <span class="text-muted">{{ productData?.reviews?.averageRating }} ({{
+                                productData?.reviews?.totalReviews }} reviews)</span>
+                        </div>
+                    </div>
+
+                    <div *ngFor="let review of productData?.reviews?.items" class="review-item border-bottom pb-3 mb-3">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h6 class="fw-bold mb-0">{{ review?.author }}</h6>
+                            <small class="text-muted">{{ review?.date }}</small>
+                        </div>
+                        <div class="stars mb-2">
+                            <i class="bi bi-star-fill text-warning"
+                                *ngFor="let star of [].constructor(review?.rating)"></i>
+                        </div>
+                        <p class="text-muted mb-0">{{ review?.comment }}</p>
+                    </div>
+
+                    <p *ngIf="!productData?.reviews?.items?.length" class="text-muted">No reviews available yet.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Games Section -->
+        <div *ngIf="productData?.relatedGames?.items?.length" class="related-section px-4 pb-4 border-top pt-4">
+            <h5 class="fw-bold mb-3">{{ productData?.relatedGames?.title }}</h5>
+            <div class="row g-3">
+                <div class="col-md-4" *ngFor="let game of productData?.relatedGames?.items">
+                    <div class="card border-0 shadow-sm">
+                        <img [src]="game?.imageSrc" class="card-img-top" style="height: 150px; object-fit: cover;">
+                        <div class="card-body p-3">
+                            <h6 class="fw-bold mb-1">{{ game?.title }}</h6>
+                            <p class="text-primary fw-bold mb-0">{{ game?.price }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

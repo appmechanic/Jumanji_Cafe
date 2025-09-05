@@ -6,6 +6,7 @@ import { ShowcaseCardComponent } from '../../shared/showcase-card/showcase-card'
 import { SidebarFilterComponent } from '../../shared/sidebar-filter/sidebar-filter';
 import { I18nService } from '../../i18n.service';
 import { Subscription } from 'rxjs';
+import { ProductDetailComponent } from '../../shared/product-detail/product-detail.component';
 
 export type ShowcaseCardType = {
   imageSrc: string;
@@ -51,7 +52,8 @@ interface ActiveFilters {
     HeadingSectionComponent,
     FilterComponent,
     ShowcaseCardComponent,
-    SidebarFilterComponent
+    SidebarFilterComponent,
+    ProductDetailComponent
   ],
   templateUrl: './board-game-store.html',
   styleUrls: ['./board-game-store.scss']
@@ -61,6 +63,10 @@ export class BoardGameStore implements OnInit, OnDestroy {
   gameStore: any = {};
   featuredGames: any[] = [];
   sidebarFilters: any[] = [];
+
+  // Add modal state
+  showProductDetailModal: boolean = false;
+  selectedProduct: any = {};
 
   featuredGameStats = [
     {
@@ -229,9 +235,38 @@ export class BoardGameStore implements OnInit, OnDestroy {
     const items = this.i18n.t('gameStore.featured-game.items') as any[];
     return items.map((item: any, idx: number) => ({
       ...item,
-      // Use modulo to cycle through featuredGameStats if we have more items than styles
-      ...this.featuredGameStats[idx % this.featuredGameStats.length]
+      ...this.featuredGameStats[idx % this.featuredGameStats.length],
+      // Add product detail data
+      productDetail: true,
+      productId: item.id || `F${idx + 1}`
     }));
+  }
+
+  // Handle card click for product detail
+  onCardClick(event: any) {
+    if (event.productId) {
+      const productDetails = this.i18n.t('gameStore.productDetails');
+      const selectedProductData = productDetails[event.productId];
+      
+      if (selectedProductData) {
+        this.selectedProduct = {
+          ...selectedProductData,
+          categoryColor: "bg-secondary5 text-secondary",
+          starColor: "bg-secondary text-white",
+          tagColor: "bg-primary2",
+          buttonColor: "bg-primary text-white"
+        };
+        this.showProductDetailModal = true;
+      } else {
+        console.log('Product details not found for ID:', event.productId);
+      }
+    }
+  }
+
+  // Close product detail modal
+  closeProductDetailModal() {
+    this.showProductDetailModal = false;
+    this.selectedProduct = {};
   }
 
   activeFilters: ActiveFilters = {};
@@ -347,17 +382,17 @@ export class BoardGameStore implements OnInit, OnDestroy {
         subtitle: this.i18n.getCurrentLang() === 'ar' ? 'تبحث عن شيء محدد؟' : 'Looking for something specific?',
         options: [
           {
-            label: this.i18n.getCurrentLang() === 'ar' ? '👨‍👩‍👧‍👦 ليلة عائلية' : '👨‍👩‍👧‍👦 Family Night',
+            label: this.i18n.getCurrentLang() === 'ar' ? 'ليلة عائلية' : 'Family Night',
             value: 'Family Night',
             icon: 'bi-house-heart'
           },
           {
-            label: this.i18n.getCurrentLang() === 'ar' ? '⚡ لعبة حفلة سريعة' : '⚡ Quick Party Game',
+            label: this.i18n.getCurrentLang() === 'ar' ? 'لعبة حفلة سريعة' : 'Quick Party Game',
             value: 'Quick Party Game',
             icon: 'bi-lightning'
           },
           {
-            label: this.i18n.getCurrentLang() === 'ar' ? '🏆 أساتذة الاستراتيجية' : '🏆 Strategy Masters',
+            label: this.i18n.getCurrentLang() === 'ar' ? 'أساتذة الاستراتيجية' : 'Strategy Masters',
             value: 'Strategy Masters',
             icon: 'bi-trophy'
           }

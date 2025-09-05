@@ -1,25 +1,26 @@
-<div class="showcase-card rounded-20 bg-white shadow-sm overflow-hidden h-100 d-flex flex-column">
+<div class="showcase-card rounded-20 bg-white shadow-sm overflow-hidden h-100 d-flex flex-column"
+    [class.cursor-pointer]="productDetail" (click)="onCardClick()">
     <div class="card-img position-relative">
         <img [src]="imageSrc" class="w-100 d-block" alt="Card Image" />
         <!-- Image overlay (conditionally shown) -->
         <div class="card-img-overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.4);"
             *ngIf="showOverlay"></div>
-        <div class="badge position-absolute top-0 start-0 m-2 d-flex align-items-center" [ngClass]="categoryColor"
+        <div class="badge position-absolute top-0 start-0 m-2 d-flex align-items-center" [class]="categoryColor"
             *ngIf="category || categoryIcon">
             <ng-container *ngIf="categoryIcon">
-                <i *ngIf="!isMaterialIcon(categoryIcon)" class="bi me-1 category-icon" [ngClass]="categoryIcon"></i>
+                <i *ngIf="!isMaterialIcon(categoryIcon)" class="bi me-1 category-icon" [class]="categoryIcon"></i>
                 <i *ngIf="isMaterialIcon(categoryIcon)" class="material-icons me-1 category-icon">
                     {{ categoryIcon }}
                 </i>
             </ng-container>
             <span *ngIf="category">{{ category }}</span>
         </div>
-        <div class="badge position-absolute top-0 end-0 m-2" [ngClass]="badgeRightColor"
+        <div class="badge position-absolute top-0 end-0 m-2" [class]="badgeRightColor"
             *ngIf="badgeRight && !starCount">
             {{ badgeRight }}
         </div>
         <div class="badge position-absolute top-0 end-0 m-2 d-flex align-items-center gap-1" *ngIf="starCount"
-            [ngClass]="starColor">
+            [class]="starColor">
             <i class="bi bi-star-fill"></i>
             <span class="fw-bold ms-1">{{ starCount }}</span>
         </div>
@@ -38,14 +39,14 @@
         <div class="d-flex flex-column mb-2">
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <h5 class="fw-bold m-0 text-color w-full">{{ title }}</h5>
-                <span class="badge" [ngClass]="priceColor" *ngIf="price">{{ price }}</span>
+                <span class="badge" [class]="priceColor" *ngIf="price">{{ price }}</span>
             </div>
             <div class="subtitle text-color2 mb-3" *ngIf="subtitle">{{ subtitle }}</div>
             <!-- List Items -->
             <div *ngIf="listItems && listItems.length">
             <ul class="list-unstyled p-0">
                 <li *ngFor="let item of listItems" class="d-flex align-items-center mb-1 gap-2 list-items">
-                    <i *ngIf="!isMaterialIcon(item.icon)" class="bi bg-primary2 rounded-20" [ngClass]="item.icon"></i>
+                    <i *ngIf="!isMaterialIcon(item.icon)" class="bi bg-primary2 rounded-20" [class]="item.icon"></i>
                     <i *ngIf="isMaterialIcon(item.icon)" class="material-icons bg-primary2 rounded-20">{{ item.icon }}</i>
                     <span>{{ item.content }}</span>
                 </li>
@@ -53,25 +54,25 @@
         </div>
         </div>
         <div class="d-flex align-items-center justify-content-between mb-3" *ngIf="players || duration">
-            <span [ngClass]="playersClass" *ngIf="players">
+            <span [class]="playersClass" *ngIf="players">
                 <i class="bi bi-people me-1"></i> {{ players }}
             </span>
-            <span [ngClass]="durationClass" *ngIf="duration">
+            <span [class]="durationClass" *ngIf="duration">
                 <i class="bi bi-clock me-1"></i> {{ duration }}
             </span>
         </div>
 
-        <div class="d-flex align-items-center justify-content-between mb-3" *ngIf="age || gameType">
+        <!-- <div class="d-flex align-items-center justify-content-between mb-3" *ngIf="age || gameType">
             <span [ngClass]="ageClass" *ngIf="age">
                 <i class="bi bi-person-check me-1"></i> {{ age }}
             </span>
             <span [ngClass]="gameTypeClass" *ngIf="gameType">
                 <i class="bi bi-controller me-1"></i> {{ gameType }}
             </span>
-        </div>
+        </div> -->
 
         <div class="mb-3 d-flex" *ngIf="tags.length">
-            <span *ngFor="let tag of tags" class="badge me-2" [ngClass]="tagColor">{{ tag }}</span>
+            <span *ngFor="let tag of tags" class="badge me-2" [class]="tagColor">{{ tag }}</span>
         </div>
         <!-- Attendance Progress Bar -->
         <div class="d-flex align-items-center mb-2 justify-content-between" *ngIf="attending && capacity">
@@ -85,15 +86,23 @@
         </div>
         <div>
             <div class="d-flex align-items-center gap-2" *ngIf="buttonText">
-                <button class="btn w-100 rounded fw-bold py-2" [ngClass]="[buttonColor, buttonText ? 'mt-0' : '']">
+                <button class="btn w-100 rounded fw-bold py-2" [class]="buttonColor + (buttonText ? ' mt-0' : '')">
                     {{ buttonText }}
                 </button>
                 <span *ngIf="showDetailIcon"
             class="rounded border border-2 d-flex align-items-center justify-content-center text-primary cart">
-            <i *ngIf="!isMaterialIcon(detailIcon)" class="bi" [ngClass]="detailIcon"></i>
+            <i *ngIf="!isMaterialIcon(detailIcon)" class="bi" [class]="detailIcon"></i>
             <i *ngIf="isMaterialIcon(detailIcon)" class="material-icons">{{ detailIcon }}</i>
         </span>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Product Detail Modal -->
+<app-product-detail 
+    *ngIf="showProductModal"
+    [productId]="productId"
+    [productData]="productData"
+    (closeModal)="closeProductModal()">
+</app-product-detail>

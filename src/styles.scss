@@ -56,7 +56,7 @@ body.dark-mode {
     }
   }
 
-  .showcase-card, .package-card {
+  .showcase-card, .package-card, .sidebar-filters {
     &.bg-white {
       background-color: $dark-bg !important;
     }
@@ -139,6 +139,25 @@ body.dark-mode {
     .btn-primary{
       &.bg-white{
         background-color: #fff !important;
+      }
+    }
+  }
+
+  .modal-content{
+    .btn-close{
+      --btn-close-color: $dark-text !important;
+    }
+    &.bg-white{
+      background-color: $dark-bg !important;
+    }
+    .small{
+      &.text-color{
+        color: $dark-bg !important;
+      }
+    }
+    .tab-content{
+      li{
+        color: $dark-bg;
       }
     }
   }

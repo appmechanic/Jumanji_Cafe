@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
-// Interface for list items
 export interface ListItem {
   icon: string;        
   iconType?: 'bootstrap' | 'material';  
@@ -13,7 +13,7 @@ export interface ListItem {
   standalone: true,
   templateUrl: './showcase-card.html',
   styleUrls: ['./showcase-card.scss'],
-  imports: [CommonModule]
+  imports: [CommonModule, ProductDetailComponent]
 })
 export class ShowcaseCardComponent {
   @Input() cardBgColor: string = '';
@@ -46,14 +46,22 @@ export class ShowcaseCardComponent {
   @Input() eventTime: string = '';
   @Input() attending: number = 0;
   @Input() capacity: number = 0;
-  @Input() showOverlay: boolean = false;
-  @Input() listItems: ListItem[] = []; 
+  @Input() listItems: ListItem[] = [];
   @Input() attendingLabel: string = 'attending';
   @Input() fullLabel: string = 'full';
   @Input() age: number = 0;
   @Input() ageClass: string = '';
   @Input() gameType: string = '';
   @Input() gameTypeClass: string = '';
+  @Input() showOverlay: boolean = false;
+  
+  @Input() productDetail: boolean = false;
+  @Input() productId: string = '';
+  @Input() productData: any = {};
+  
+  @Output() cardClick = new EventEmitter<any>();
+
+  showProductModal: boolean = false;
 
   get progressPercent(): number {
     return this.capacity > 0 ? Math.round((this.attending / this.capacity) * 100) : 0;
@@ -63,4 +71,14 @@ export class ShowcaseCardComponent {
     return !!icon && !icon.includes('bi-') && !icon.includes('fa-');
   }
 
+  onCardClick() {
+    if (this.productDetail) {
+      this.showProductModal = true;
+      this.cardClick.emit({ productId: this.productId });
+    }
+  }
+
+  closeProductModal() {
+    this.showProductModal = false;
+  }
 }

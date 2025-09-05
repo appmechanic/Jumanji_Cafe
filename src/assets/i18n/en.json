@@ -408,27 +408,31 @@
             }
         ]
     },
-    "gameStore":{
-        "hero":{
+    "gameStore": {
+        "hero": {
             "title": "Board Game",
             "highlight": "Store",
             "subtitle": "Discover our handpicked collection of the most exciting board games. From quick party games to strategic adventures! 🎯"
         },
-         "featured-game": {   
+        "featured-game": {
             "items": [
                 {
+                    "id": "F1",
                     "category": "Medium",
                     "title": "Catan",
                     "subtitle": "Build settlements and cities in this classic strategy game",
-                    "players": "1-4 Players",
+                    "players": "3-4 Players",
                     "duration": "60-90 min",
+                    "price": "179 SAR",
+                    "imageSrc": "/assets/images/games/catan-main.jpg",
                     "tags": [
-                        "Family Picks",
-                        "Quick Games"
+                        "Strategy",
+                        "Staff Pick"
                     ],
                     "buttonText": "View Details"
                 },
                 {
+                    "id": "F2",
                     "category": "Easy",
                     "title": "Azul",
                     "subtitle": "Create beautiful tile patterns in this elegant strategy game",
@@ -441,6 +445,7 @@
                     "buttonText": "View Details"
                 },
                 {
+                    "id": "F3",
                     "category": "Hard",
                     "title": "Wingspan",
                     "subtitle": "Attract birds to your wildlife preserves in this engine-building game",
@@ -452,6 +457,7 @@
                     "buttonText": "View Details"
                 },
                 {
+                    "id": "F4",
                     "category": "Easy",
                     "title": "Azul",
                     "subtitle": "Create beautiful tile patterns in this elegant strategy game",
@@ -464,6 +470,7 @@
                     "buttonText": "View Details"
                 },
                 {
+                    "id": "F5",
                     "category": "Medium",
                     "title": "Catan",
                     "subtitle": "Build settlements and cities in this classic strategy game",
@@ -474,32 +481,285 @@
                         "Quick Games"
                     ],
                     "buttonText": "View Details"
-                },
-                {
-                    "category": "Easy",
-                    "title": "Wingspan",
-                    "subtitle": "Create beautiful tile patterns in this elegant strategy game",
-                    "players": "7-9 Players",
-                    "duration": "60-90 min",
-                    "tags": [
-                        "Family Picks",
-                        "Top Rated"
-                    ],
-                    "buttonText": "View Details"
-                },
-                {
-                    "category": "Easy",
-                    "title": "AA",
-                    "subtitle": "Create beautiful tile patterns in this elegant strategy game",
-                    "players": "2-12 Players",
-                    "duration": "under 30 min",
-                    "tags": [
-                        "Family Picks",
-                        "Top Rated"
-                    ],
-                    "buttonText": "View Details"
                 }
             ]
+        },
+        "productDetails": {
+            "F1": {
+                "id": "F1",
+                "title": "Catan",
+                "subtitle": "Build settlements and cities in this classic strategy game",
+                "price": "179 SAR",
+                "imageSrc": "/assets/cafe-game-img1.jpg",
+                "players": "3-4 Players",
+                "duration": "60-90 min",
+                "age": "10+",
+                "difficulty": "Medium",
+                "starCount": 4,
+                "videoPreview": {
+                    "videoUrl": "",
+                    "title": "Game Preview Video",
+                    "subtitle": "Coming Soon"
+                },
+                "overview": {
+                    "title": "Game Overview",
+                    "description": "In Catan, players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources to build up their civilizations to get to 10 victory points and win the game.",
+                    "listTitle": {
+                        "title": "Why You'll Love This Game",
+                        "points": [
+                            "Perfect for 3-4 players looking for 60-90 min of fun",
+                            "Medium difficulty level - great for 10+ and up",
+                            "Highly rated at 4.8/5 stars by our community"
+                        ]
+                    }
+                },
+                "contents": {
+                    "title": "Contents",
+                    "items": [
+                        "1 Game Board",
+                        "95 Resource Cards",
+                        "25 Development Cards"
+                    ]
+                },
+                "reviews": {
+                    "title": "Reviews",
+                    "averageRating": 4.8,
+                    "totalReviews": 156,
+                    "items": [
+                        {
+                            "author": "Ahmed Al-Rashid",
+                            "rating": 5,
+                            "comment": "Amazing strategy game! Perfect for family nights.",
+                            "date": "2024-12-01"
+                        }
+                    ]
+                },
+                "tabs": {
+                    "overview": "Overview",
+                    "contents": "Contents",
+                    "reviews": "Reviews"
+                }
+            },
+            "F2": {
+                "id": "F2",
+                "title": "Azul",
+                "subtitle": "Create beautiful tile patterns in this elegant strategy game",
+                "price": "179 SAR",
+                "imageSrc": "/assets/cafe-game-img1.jpg",
+                "players": "2-4 Players",
+                "duration": "30-45 min",
+                "age": "10+",
+                "difficulty": "Medium",
+                "starCount": 4,
+                "videoPreview": {
+                    "videoUrl": "",
+                    "title": "Game Preview Video",
+                    "subtitle": "Coming Soon"
+                },
+                "overview": {
+                    "title": "Game Overview",
+                    "description": "In Catan, players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources to build up their civilizations to get to 10 victory points and win the game.",
+                    "listTitle": {
+                        "title": "Why You'll Love This Game",
+                        "points": [
+                            "Perfect for 3-4 players looking for 60-90 min of fun",
+                            "Medium difficulty level - great for 10+ and up",
+                            "Highly rated at 4.8/5 stars by our community"
+                        ]
+                    }
+                },
+                "contents": {
+                    "title": "Contents",
+                    "items": [
+                        "1 Game Board",
+                        "95 Resource Cards",
+                        "25 Development Cards"
+                    ]
+                },
+                "reviews": {
+                    "title": "Reviews",
+                    "averageRating": 4.8,
+                    "totalReviews": 156,
+                    "items": [
+                        {
+                            "author": "Ahmed Al-Rashid",
+                            "rating": 5,
+                            "comment": "Amazing strategy game! Perfect for family nights.",
+                            "date": "2024-12-01"
+                        }
+                    ]
+                },
+                "tabs": {
+                    "overview": "Overview",
+                    "contents": "Contents",
+                    "reviews": "Reviews"
+                }
+            },
+            "F3": {
+                "id": "F3",
+                "title": "Wingspan",
+                "subtitle": "Attract birds to your wildlife preserves in this engine-building game",
+                "price": "179 SAR",
+                "imageSrc": "/assets/cafe-game-img1.jpg",
+                "players": "2-4 Players",
+                "duration": "30-45 min",
+                "age": "10+",
+                "difficulty": "Medium",
+                "starCount": 4,
+                "videoPreview": {
+                    "videoUrl": "",
+                    "title": "Game Preview Video",
+                    "subtitle": "Coming Soon"
+                },
+                "overview": {
+                    "title": "Game Overview",
+                    "description": "In Catan, players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources to build up their civilizations to get to 10 victory points and win the game.",
+                    "listTitle": {
+                        "title": "Why You'll Love This Game",
+                        "points": [
+                            "Perfect for 3-4 players looking for 60-90 min of fun",
+                            "Medium difficulty level - great for 10+ and up",
+                            "Highly rated at 4.8/5 stars by our community"
+                        ]
+                    }
+                },
+                "contents": {
+                    "title": "Contents",
+                    "items": [
+                        "1 Game Board",
+                        "95 Resource Cards",
+                        "25 Development Cards"
+                    ]
+                },
+                "reviews": {
+                    "title": "Reviews",
+                    "averageRating": 4.8,
+                    "totalReviews": 156,
+                    "items": [
+                        {
+                            "author": "Ahmed Al-Rashid",
+                            "rating": 5,
+                            "comment": "Amazing strategy game! Perfect for family nights.",
+                            "date": "2024-12-01"
+                        }
+                    ]
+                },
+                "tabs": {
+                    "overview": "Overview",
+                    "contents": "Contents",
+                    "reviews": "Reviews"
+                }
+            },
+            "F4": {
+                "id": "F4",
+                "title": "Azul",
+                "subtitle": "Create beautiful tile patterns in this elegant strategy game",
+                "price": "157 SAR",
+                "imageSrc": "/assets/cafe-game-img1.jpg",
+                "players": "2-4 Players",
+                "duration": "30-45 min",
+                "age": "10+",
+                "difficulty": "Medium",
+                "starCount": 4,
+                "videoPreview": {
+                    "videoUrl": "",
+                    "title": "Game Preview Video",
+                    "subtitle": "Coming Soon"
+                },
+                "overview": {
+                    "title": "Game Overview",
+                    "description": "In Catan, players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources to build up their civilizations to get to 10 victory points and win the game.",
+                    "listTitle": {
+                        "title": "Why You'll Love This Game",
+                        "points": [
+                            "Perfect for 3-4 players looking for 60-90 min of fun",
+                            "Medium difficulty level - great for 10+ and up",
+                            "Highly rated at 4.8/5 stars by our community"
+                        ]
+                    }
+                },
+                "contents": {
+                    "title": "Contents",
+                    "items": [
+                        "1 Game Board",
+                        "95 Resource Cards",
+                        "25 Development Cards"
+                    ]
+                },
+                "reviews": {
+                    "title": "Reviews",
+                    "averageRating": 4.8,
+                    "totalReviews": 156,
+                    "items": [
+                        {
+                            "author": "Ahmed Al-Rashid",
+                            "rating": 5,
+                            "comment": "Amazing strategy game! Perfect for family nights.",
+                            "date": "2024-12-01"
+                        }
+                    ]
+                },
+                "tabs": {
+                    "overview": "Overview",
+                    "contents": "Contents",
+                    "reviews": "Reviews"
+                }
+            },
+            "F5": {
+                "id": "F5",
+                "title": "Catan",
+                "subtitle": "Build settlements and cities in this classic strategy game",
+                "price": "179 SAR",
+                "imageSrc": "/assets/cafe-game-img1.jpg",
+                "players": "2-4 Players",
+                "duration": "30-45 min",
+                "age": "10+",
+                "difficulty": "Medium",
+                "starCount": 4,
+                "videoPreview": {
+                    "videoUrl": "",
+                    "title": "Game Preview Video",
+                    "subtitle": "Coming Soon"
+                },
+                "overview": {
+                    "title": "Game Overview",
+                    "description": "In Catan, players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources to build up their civilizations to get to 10 victory points and win the game.",
+                    "listTitle": {
+                        "title": "Why You'll Love This Game",
+                        "points": [
+                            "Perfect for 3-4 players looking for 60-90 min of fun",
+                            "Medium difficulty level - great for 10+ and up",
+                            "Highly rated at 4.8/5 stars by our community"
+                        ]
+                    }
+                },
+                "contents": {
+                    "title": "Contents",
+                    "items": [
+                        "1 Game Board",
+                        "95 Resource Cards",
+                        "25 Development Cards"
+                    ]
+                },
+                "reviews": {
+                    "title": "Reviews",
+                    "averageRating": 4.8,
+                    "totalReviews": 156,
+                    "items": [
+                        {
+                            "author": "Ahmed Al-Rashid",
+                            "rating": 5,
+                            "comment": "Amazing strategy game! Perfect for family nights.",
+                            "date": "2024-12-01"
+                        }
+                    ]
+                },
+                "tabs": {
+                    "overview": "Overview",
+                    "contents": "Contents",
+                    "reviews": "Reviews"
+                }
+            }
         }
     },
     "about": {

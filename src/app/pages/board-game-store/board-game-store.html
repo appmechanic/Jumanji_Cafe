@@ -15,24 +15,50 @@
     (filteredDataChange)="onGamesFilteredDataChange($event)">
   </app-filter-tab>
 </div>
-<div class="container-fluid custom-width featured-games">
-  <div class="row d-flex flex-wrap">
+<div class="container-fluid custom-width">
+  <div class="row">
     <div class="col-2 mb-4">
       <app-sidebar-filter [filters]="sidebarFilters" (filterChange)="onSidebarFilterChange($event)">
       </app-sidebar-filter>
-    </div>  
+    </div>
     <div class="col-10">
       <div class="row">
-        <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let game of featuredGames">
-          <app-showcase-card [imageSrc]="game.imageSrc" [category]="game.category" [categoryColor]="game.categoryColor"
-            [title]="game.title" [starCount]="game.starCount ?? 0" [starColor]="game.starColor ?? ''"
-            [subtitle]="game.subtitle" [players]="game.players" [duration]="game.duration"
-            [playersClass]="game.playersClass ?? ''" [durationClass]="game.durationClass ?? ''" [tags]="game.tags"
-            [tagColor]="game.tagColor" [buttonText]="game.buttonText" [buttonColor]="game.buttonColor"
-            [showDetailIcon]="game.showDetailIcon" [detailIcon]="game.detailIcon"
-            [showOverlay]="false" [age]="game.age" [ageClass]="game.ageClass" [gameType]="game.gameType" [gameTypeClass]="game.gameTypeClass"></app-showcase-card>
+        <!-- Update the showcase cards section to include the cardClick event -->
+        <div class="col-lg-6 col-xl-4 col-12 d-flex" *ngFor="let game of featuredGames">
+          <app-showcase-card
+            [imageSrc]="game.imageSrc"
+            [category]="game.category"
+            [categoryColor]="game.categoryColor"
+            [title]="game.title"
+            [subtitle]="game.subtitle"
+            [players]="game.players"
+            [playersClass]="game.playersClass"
+            [duration]="game.duration"
+            [durationClass]="game.durationClass"
+            [tags]="game.tags"
+            [tagColor]="game.tagColor"
+            [buttonText]="game.buttonText"
+            [buttonColor]="game.buttonColor"
+            [starCount]="game.starCount"
+            [starColor]="game.starColor"
+            [showDetailIcon]="game.showDetailIcon"
+            [detailIcon]="game.detailIcon"
+            [price]="game.price"
+            [productDetail]="game.productDetail"
+            [productId]="game.productId"
+            (cardClick)="onCardClick($event)"
+            class="w-100">
+          </app-showcase-card>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Product Detail Modal -->
+<app-product-detail
+  *ngIf="showProductDetailModal"
+  [productId]="selectedProduct.id"
+  [productData]="selectedProduct"
+  (closeModal)="closeProductDetailModal()">
+</app-product-detail>
