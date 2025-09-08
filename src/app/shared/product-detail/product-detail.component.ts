@@ -20,12 +20,7 @@ export class ProductDetailComponent implements OnInit {
 
     ngOnInit() {
         // Ensure activeTab is set to overview by default
-        this.activeTab = 'overview';
-        console.log('Product Data:', this.productData);
-        console.log('Overview Data:', this.productData?.overview);
-        console.log('ListTitle Data:', this.productData?.overview?.listTitle);
-        console.log('Active Tab:', this.activeTab);
-    }
+        this.activeTab = 'overview';    }
 
     onClose() {
         this.closeModal.emit();

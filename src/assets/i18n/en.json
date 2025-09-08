@@ -414,6 +414,9 @@
             "highlight": "Store",
             "subtitle": "Discover our handpicked collection of the most exciting board games. From quick party games to strategic adventures! 🎯"
         },
+        "filters": {
+            "title": "Filters"
+        },
         "featured-game": {
             "items": [
                 {

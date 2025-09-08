@@ -1,6 +1,6 @@
 <div class="sidebar-filters bg-white h-100 p-3 rounded-20 shadow-sm">
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h4>Filters</h4>
+    <h4 [ngClass]="title" class="mb-0">{{title}}</h4>
     <!-- Add a Clear All button -->
     <button *ngIf="hasActiveFilters()" 
             class="text-primary btn fw-600" 

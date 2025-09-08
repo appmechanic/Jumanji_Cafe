@@ -14,6 +14,7 @@ interface ActiveFilters {
   styleUrls: ['./sidebar-filter.scss']
 })
 export class SidebarFilterComponent implements OnInit {
+  @Input() title: string = '';
   @Input() filters: any[] = []; 
   @Output() filterChange = new EventEmitter<ActiveFilters>(); 
 
