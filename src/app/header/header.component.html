@@ -17,22 +17,15 @@
       <div class="d-flex align-items-center gap-2">
         <div class="flex bg-secondary3 text-light rounded-20 d-flex justify-content-center align-items-center"
           style="width: 80px; height: 30px;">
-          <span 
-            class="nav-link" 
-            [class.fw-bold]="currentLang === 'en'" 
-            style="cursor:pointer"
-            (click)="changeLang('en')"
-          >EN</span> |
-          <span 
-            class="nav-link" 
-            [class.fw-bold]="currentLang === 'ar'" 
-            style="cursor:pointer"
-            (click)="changeLang('ar')"
-          >AR</span>
+          <span class="nav-link" [class.fw-bold]="currentLang === 'en'" style="cursor:pointer"
+            (click)="changeLang('en')">EN</span> |
+          <span class="nav-link" [class.fw-bold]="currentLang === 'ar'" style="cursor:pointer"
+            (click)="changeLang('ar')">AR</span>
         </div>
-        <span class="btn bg-purple text-light rounded-pill d-flex justify-content-center align-items-center"
+        <span class="btn bg-purple text-light rounded-pill d-flex justify-content-center align-items-center position-relative"
           style="width: 40px; height: 40px;">
-          <i class="bi bi-cart"></i>
+          <a href="/cart" class="text-white"><i class="bi bi-cart"></i></a>
+          <span class="position-absolute cart-count bg-secondary d-flex align-items-center justify-content-center rounded-pill text-dark fw-600">{{ getTotalItemCount() }}</span>
         </span>
         <span class="btn bg-purple text-light rounded-pill d-flex justify-content-center align-items-center"
           style="width: 40px; height: 40px;">

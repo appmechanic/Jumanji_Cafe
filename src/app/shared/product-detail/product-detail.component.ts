@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart.service';
 
 @Component({
     selector: 'app-product-detail',
@@ -9,6 +10,7 @@ import { CommonModule } from '@angular/common';
     imports: [CommonModule]
 })
 export class ProductDetailComponent implements OnInit {
+    showSuccessMessage = false;
     @Input() productId: string = '';
     @Input() productData: any = {};
 
@@ -17,6 +19,8 @@ export class ProductDetailComponent implements OnInit {
     currentImageIndex: number = 0;
     quantity: number = 1;
     activeTab: string = 'overview';
+
+    constructor(private cartService: CartService) {}
 
     ngOnInit() {
         // Ensure activeTab is set to overview by default
@@ -99,7 +103,14 @@ export class ProductDetailComponent implements OnInit {
         // Save to localStorage
         localStorage.setItem('cartItems', JSON.stringify(existingCart));
 
+        // Notify CartService
+        this.cartService.updateCartItems(existingCart);
+
         // Show success message or notification
+        this.showSuccessMessage = true;
+        setTimeout(() => {
+            this.showSuccessMessage = false;
+        }, 3000);
         console.log('Item added to cart:', cartItem);
     }
 

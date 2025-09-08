@@ -56,7 +56,7 @@ body.dark-mode {
     }
   }
 
-  .showcase-card, .package-card, .sidebar-filters {
+  .showcase-card, .package-card, .sidebar-filters, .order-confirmed-page {
     &.bg-white {
       background-color: $dark-bg !important;
     }
@@ -71,7 +71,7 @@ body.dark-mode {
   .cta-section,
   .info-stat-bar,
   .media-card-root,
-  .testimonial-card {
+  .testimonial-card,  .cart-items, .order-summary {
     &.bg-white {
       background-color: $dark-bg !important;
     }
@@ -93,7 +93,7 @@ body.dark-mode {
     }
   }
 
-  .forms {
+  .form {
     .bg-white {
       background-color: $dark-bg !important;
     }
@@ -143,7 +143,7 @@ body.dark-mode {
     }
   }
 
-  .modal-content{
+  .modal-content, .text-block, .customer-info, .order-info, .contact-form-container, .location-card-container{
     .btn-close{
       --btn-close-color: $dark-text !important;
     }
@@ -160,6 +160,9 @@ body.dark-mode {
         color: $dark-bg;
       }
     }
+  }
+  .text-d{
+    color: $dark-bg;
   }
 }
 
@@ -491,4 +494,13 @@ h4 {
 
 app-sidebar-filter .filter-option {
   cursor: pointer;
+}
+
+.custom-container-width{
+  max-width: 1680px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0px 20px;
 }

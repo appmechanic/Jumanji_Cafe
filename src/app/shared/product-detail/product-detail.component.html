@@ -122,9 +122,10 @@
 
                 <!-- Action Buttons -->
                 <div class="action-buttons mb-4">
-                    <button class="btn gradient-bg text-white w-100 mb-2 py-3 fw-bold" (click)="addToCart()">
+                    <button class="btn gradient-bg text-white w-100 mb-2 py-3 fw-bold" (click)="addToCart(); showSuccessMessage = true">
                         <i class="bi bi-cart-plus me-2"></i>Add to Cart
                     </button>
+                    <div *ngIf="showSuccessMessage" class="my-2 text-success fw-bold">Item added to cart successfully! Quantity: {{ quantity }}</div>
                     <button class="btn bg-white border border-primary text-primary fw-600 w-100 py-3" (click)="addToWishlist()">
                         <i class="bi bi-heart me-2"></i>Add to Wishlist
                     </button>

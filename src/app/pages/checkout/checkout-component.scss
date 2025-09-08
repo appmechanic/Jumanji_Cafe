@@ -1,0 +1,35 @@
+.checkout-page {
+    h4 {
+        font-size: 22px !important;
+        line-height: 28px !important;
+        margin-bottom: 20px;
+    }
+}
+
+label {
+    font-weight: 600;
+}
+
+input,
+textarea {
+    &:focus-visible {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.order-info {
+    button {
+        border-width: 2px !important;
+        outline: none;
+        border-radius: 12px;
+    }
+}
+
+.bottom-btn {
+    button {
+        border-width: 2px !important;
+        border-radius: 8px !important;
+        outline: none;
+    }
+}

@@ -1,7 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef, Inject } from '@angular/core';
 import { ThemeService } from '../theme.service';
 import { CommonModule } from '@angular/common';
-import{I18nService} from '../i18n.service'
+import { I18nService } from '../i18n.service';
+import { CartService } from '../services/cart.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,14 +11,16 @@ import{I18nService} from '../i18n.service'
   imports: [CommonModule]
 })
 export class HeaderComponent implements OnInit {
+  cartItems: any[] = [];
   isDarkMode: boolean = false;
   currentLang = 'en';
 
   navLinks: { label: string; url: string }[] = [];
 
   constructor(
-    private themeService: ThemeService, 
+    private themeService: ThemeService,
     private i18n: I18nService,
+    private cartService: CartService,
     @Inject(ChangeDetectorRef) private cdr: ChangeDetectorRef
   ) {
     this.currentLang = this.i18n.getCurrentLang();
@@ -30,10 +34,10 @@ export class HeaderComponent implements OnInit {
 
   async changeLang(lang: string) {
     if (lang !== this.currentLang) {
-      await this.i18n.setLang(lang); 
+      await this.i18n.setLang(lang);
       this.currentLang = lang;
       await this.loadNavLinks();
-      this.cdr.detectChanges();  
+      this.cdr.detectChanges();
     }
   }
 
@@ -43,8 +47,13 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currentLang = this.i18n.getCurrentLang(); 
+    this.currentLang = this.i18n.getCurrentLang();
     this.loadNavLinks();
+
+    this.cartService.cartItems$.subscribe(cartItems => {
+      this.cartItems = cartItems;
+      this.cdr.detectChanges();
+    });
 
     const toggler = document.querySelector('.navbar-toggler');
     toggler?.addEventListener('click', () => {
@@ -60,5 +69,9 @@ export class HeaderComponent implements OnInit {
         timesIcon?.classList.add('d-none');
       }
     });
+  }
+
+  getTotalItemCount(): number {
+    return this.cartItems.reduce((count, item) => count + item.quantity, 0);
   }
 }

@@ -1,0 +1,113 @@
+<div class="checkout-page custom-container-width my-5 py-5">
+    <app-heading-section iconLeft="bi-credit-card" iconLeftType="bootstrap" iconLeftColor="bg-primary2" iconRight=""
+        iconRightType="material" iconRightColor="bg-primary2" title="" highlight="Checkout"
+        highlightColor="gradient-text"
+        subtitle="Just a few steps before your game begins Complete your order and get ready for an epic adventure! 🌟">
+    </app-heading-section>
+
+    <div class="d-flex flex-lg-row flex-column gap-4 align-items-start">
+        <!-- Left Side: Customer Information Form -->
+        <div class="d-flex flex-column gap-4 flex-grow-1">
+            <div class="customer-info bg-white p-4 rounded-20 shadow-sm ">
+                <h4><i class="bi bi-person text-primary"></i> Customer Information</h4>
+                <form class="row g-3">
+                    <div class="col-md-6">
+                        <label for="fullName" class="form-label">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Enter your full name"
+                            [(ngModel)]="fullName" required>
+                        <p *ngIf="showErrors && !fullName" class="text-danger">Please fill out your full name.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phoneNumber" class="form-label">Phone Number *</label>
+                        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Enter 10-digit phone number"
+                            [(ngModel)]="phoneNumber" required maxlength="10" pattern="\d*">
+                        <p *ngIf="showErrors && !isValidPhoneNumber()" class="text-danger">Please enter a valid 10-digit phone number.</p>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="emailAddress" class="form-label">Email Address *</label>
+                        <input type="email" id="emailAddress" name="emailAddress" class="form-control" placeholder="your@email.com"
+                            [(ngModel)]="emailAddress" required>
+                        <p *ngIf="showErrors && !isValidEmail()" class="text-danger">Please enter a valid email address.</p>
+                    </div>
+                </form>
+            </div>
+            <div class="order-info bg-white p-4 rounded-20 shadow-sm flex-grow-1">
+                <h4><i class="bi bi-calendar-check text-primary"></i> Order Type</h4>
+                <div class="d-flex gap-3">
+                    <button type="button"
+                        class="d-flex flex-grow-1 border border-muted bg-primary5 p-4 gap-3 align-items-center"
+                        [ngClass]="{'border-primary': selectedOrderType === 'pickup'}"
+                        (click)="selectOrderType('pickup')">
+                        <i class="bi bi-truck fs-24 bg-primary text-white px-2 py-1 rounded"></i>
+                        <div class="d-flex flex-column align-items-start">
+                            <p class="mb-0 fw-600">Pickup</p>
+                            <p class="mb-0 text-muted">Order ready in 12-15 min</p>
+                        </div>
+                    </button>
+                    <button type="button"
+                        class="d-flex flex-grow-1 border border-2 border-muted bg-primary5 p-4 gap-3 align-items-center"
+                        [ngClass]="{'border-primary': selectedOrderType === 'reservation'}"
+                        (click)="selectOrderType('reservation')">
+                        <i class="bi bi-calendar-event fs-24 bg-primary text-white px-2 py-1 rounded"></i>
+                        <div class="d-flex flex-column align-items-start">
+                            <p class="mb-0 fw-600">Table Reservation</p>
+                            <p class="mb-0 text-muted">Reserve a table & time</p>
+                        </div>
+                    </button>
+                </div>
+                <p *ngIf="showErrors && !selectedOrderType" class="text-danger">Please select an order type.</p>
+            </div>
+            <div class="text-block bg-white p-4 rounded-20 shadow-sm flex-grow-1">
+                <h4><i class="bi bi-sticky text-primary"></i> Special Notes (Optional)</h4>
+                <textarea class="form-control" rows="3"
+                    placeholder="Any special requests? (e.g., No sugar, Birthday surprise, Extra napkins...)"
+                    maxlength="500"></textarea>
+                <div class="text-end text-muted mt-1">
+                    <small>0/500 characters</small>
+                </div>
+            </div>
+            <div class="d-flex gap-3 bottom-btn">
+                <button class="flex-grow-1 p-2 py-3 border border-primary text-primary fw-600 bg-transparent" routerLink="/cart">Back to Cart</button>
+                <button class="flex-grow-1 p-2 py-3 border border-primary bg-primary fw-600 text-white" (click)="confirmOrder()">Confirm Order</button>
+            </div>
+        </div>
+
+        <!-- Right Side: Order Summary -->
+        <div class="order-summary bg-white p-4 rounded-20 shadow-sm">
+            <h4><i class="bi bi-journal-text text-primary"></i> Order Summary</h4>
+            <div *ngFor="let item of cartItems"
+                class="order-item d-flex align-items-center justify-content-between gap-3 mb-3 w-100">
+                <div class="d-flex align-items-center gap-3">
+                    <img [src]="item.imageSrc" alt="{{ item.title }}" class="item-image rounded"
+                        style="width: 50px; height: 50px;">
+                    <div>
+                        <p class="mb-0 fw-bold">{{ item.title }}</p>
+                        <p class="mb-0 fw-600">Qty: {{ item.quantity }}</p>
+                    </div>
+                </div>
+                <div class="item-details">
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-0">{{ item.price }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column orders border-bottom border-2 mb-3 pb-3 gap-2 border-muted">
+                <p class="d-flex justify-content-between w-100"><span>Subtotal ({{ getTotalItemCount() }}):</span>
+                    <span>{{ subtotal }} SAR</span>
+                </p>
+                <p class="d-flex justify-content-between w-100"><span>VAT (15%):</span> <span>{{ vat }} SAR</span>
+                </p>
+            </div>
+            <p class="d-flex justify-content-between w-100 fw-600"><span>Total:</span> <span class="text-primary">{{
+                    total }} SAR</span></p>
+            <div class="bg-primary5 d-flex align-items-center gap-3 p-3 rounded-20 my-3">
+                <i class="bi bi-wallet2 bg-secondary2 px-2 py-1 rounded-20"></i>
+                <div class="d-flex flex-column">
+                    <p class="mb-0 fw-600 text-d">Payment Method</p>
+                    <p class="text-primary mb-0">Pay at Café</p>
+                    <p class="mb-0 text-d">Cash or Card accepted</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

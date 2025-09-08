@@ -1,0 +1,28 @@
+.cart-items {
+    img {
+        width: 100px;
+        border-radius: 12px;
+    }
+}
+
+.quantity-controls {
+    border-radius: 12px;
+    button {
+        outline: none;
+        border: none;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.remove-item {
+    border: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
