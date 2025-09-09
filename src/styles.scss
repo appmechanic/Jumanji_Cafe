@@ -4,6 +4,7 @@ $secondary: #FFC713;
 $dark-bg: #292929;
 $dark-text: #b5b5b5;
 $field-color: #d6d6d6;
+$body-dark: #121212;
 
 html,
 body {
@@ -15,7 +16,7 @@ body {
 
 // dark mode
 body.dark-mode {
-  background-color: #121212 !important;
+  background-color: $body-dark !important;
   color: #fff !important;
 
   .navbar {
@@ -109,7 +110,7 @@ body.dark-mode {
     }
 
     input {
-      background-color: #121212 !important;
+      background-color: $body-dark !important;
     }
   }
   .heading-section{
@@ -173,6 +174,29 @@ body.dark-mode {
   .order-info{
     .text-muted{
       color: $dark-bg !important;
+    }
+  }
+  .profile{
+    .bg-white{
+      background: $dark-bg !important;
+    }
+    .sidebar {
+      .nav-link {
+        color: $dark-text !important;
+        &.active{
+          color: #fff !important;
+        }
+      }
+    }
+    .card{
+      background: $dark-bg !important;
+      h5{
+        color: #fff !important;
+      }
+      .reward-cards, .order-card, .event-card{
+        background: $body-dark !important;
+        
+      }
     }
   }
 }
@@ -269,7 +293,9 @@ h4 {
 
 .text-orange {
   color: #F79009;
-
+}
+.bg-orange{
+  background-color: #F7900933;
 }
 
 .shadow-sm {
@@ -302,7 +328,7 @@ h4 {
 }
 
 .sub-title-color {
-  color: #121212 !important;
+  color: $body-dark !important;
 }
 
 .text-color {

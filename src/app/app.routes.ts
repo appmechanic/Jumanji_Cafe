@@ -9,11 +9,13 @@ import { BoardGameStore } from './pages/board-game-store/board-game-store';
 import { MyCartComponent } from './pages/my-cart/my-cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { OrderConfirmedComponent } from './pages/order-confirmed/order-confirmed.component';  
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
   { path: 'login', component: AuthFormsComponent },
   { path: 'signup', component: AuthFormsComponent },
   { path: 'forgot-password', component: AuthFormsComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: '', component: Home },
   { path: 'our-story', component: OurStory },
   { path: 'cafe-menu', component: CafeMenu },

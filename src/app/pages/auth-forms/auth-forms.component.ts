@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd, RouterLink } from '@angular/router';
 import { I18nService } from '../../i18n.service';
 import { Subscription } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-auth-forms',
   templateUrl: './auth-forms.component.html',
   styleUrls: ['./auth-forms.component.scss'],
   standalone: true,
-  imports: [CommonModule, RouterLink]
+  imports: [CommonModule, RouterLink, FormsModule]
 })
 export class AuthFormsComponent implements OnInit {
   activeForm: 'login' | 'signup' | 'forgot' = 'login';
@@ -18,6 +19,16 @@ export class AuthFormsComponent implements OnInit {
   showSignupConfirmPassword: boolean = false;
   langSub!: Subscription;
   authForms: any = {}; 
+
+  loginEmail: string = '';
+  loginPassword: string = '';
+  loginError: string = '';
+
+  signupFullName: string = '';
+  signupEmail: string = '';
+  signupPassword: string = '';
+  signupConfirmPassword: string = '';
+  signupError: string = '';
 
   constructor(private i18n: I18nService, private router: Router) {}
 
@@ -41,6 +52,27 @@ export class AuthFormsComponent implements OnInit {
 
   onLanguageChanged() {
     this.loadTranslations();
+  }
+  redirectToProfile() {
+    if (this.activeForm === 'login') {
+      if (!this.loginEmail || !this.loginPassword) {
+        this.loginError = 'Please fill in all fields.';
+        return;
+      }
+      this.loginError = '';
+      this.router.navigate(['/profile']);
+    } else if (this.activeForm === 'signup') {
+      if (!this.signupFullName || !this.signupEmail || !this.signupPassword || !this.signupConfirmPassword) {
+        this.signupError = 'Please fill in all fields.';
+        return;
+      }
+      if (this.signupPassword !== this.signupConfirmPassword) {
+        this.signupError = 'Passwords do not match.';
+        return;
+      }
+      this.signupError = '';
+      this.router.navigate(['/profile']);
+    }
   }
 
   setFormFromUrl(url: string) {

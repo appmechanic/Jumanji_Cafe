@@ -9,16 +9,16 @@
                 <h4 class="mb-1">{{authForms.login.title}}</h4>
                 <p class="mb-4">{{authForms.login.subtitle}}</p>
             </div>
-            <form class="d-flex flex-column gap-3">
+            <form class="d-flex flex-column gap-3" (ngSubmit)="redirectToProfile()">
                 <label>{{authForms.login.email.label}}</label>
                 <div class="input-group mb-3 bg-field">
                     <span class="py-2 px-3"><i class="bi bi-envelope"></i></span>
-                    <input type="email" class="form-control bg-transparent ps-0" placeholder="{{authForms.login.email.placeholder}}" />
+                    <input type="email" [(ngModel)]="loginEmail" name="loginEmail" class="form-control bg-transparent ps-0" placeholder="{{authForms.login.email.placeholder}}" />
                 </div>
                 <label>{{authForms.login.password.label}}</label>
                 <div class="input-group mb-2 bg-field">
                     <span class="py-2 px-3"><i class="bi bi-lock"></i></span>
-                    <input [type]="showLoginPassword ? 'text' : 'password'" class="form-control bg-transparent ps-0"
+                    <input [type]="showLoginPassword ? 'text' : 'password'" [(ngModel)]="loginPassword" name="loginPassword" class="form-control bg-transparent ps-0"
                         placeholder="{{authForms.login.password.placeholder}}" />
                     <span class="py-2 px-3" style="cursor:pointer" (click)="toggleLoginPassword()">
                         <i class="bi" [ngClass]="showLoginPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
@@ -40,26 +40,26 @@
         <div *ngIf="activeForm === 'signup'">
             <div class="login-header text-center">
                 <div class="icon-circle mb-3">
-                    <i class="bi bi-unlock2 fs-24 bg-primary text-white rounded-pill"></i>
+                    <i class="bi bi-person fs-24 bg-primary text-white rounded-pill"></i>
                 </div>
                 <h4 class="mb-1">{{authForms.signup.title}}</h4>
                 <p class="mb-4">{{authForms.signup.subtitle}}</p>
             </div>
-            <form class="d-flex flex-column gap-3">
+            <form class="d-flex flex-column gap-3" (ngSubmit)="redirectToProfile()">
                 <label>{{authForms.signup.fullName.label}}</label>
                 <div class="input-group mb-3 bg-field">
                     <span class="py-2 px-3"><i class="bi bi-envelope"></i></span>
-                    <input type="email" class="form-control bg-transparent ps-0" placeholder="{{authForms.signup.fullName.placeholder}}" />
+                    <input type="text" [(ngModel)]="signupFullName" name="signupFullName" class="form-control bg-transparent ps-0" placeholder="{{authForms.signup.fullName.placeholder}}" />
                 </div>
                 <label>{{authForms.signup.email.label}}</label>
                 <div class="input-group mb-3 bg-field">
                     <span class="py-2 px-3"><i class="bi bi-envelope"></i></span>
-                    <input type="email" class="form-control bg-transparent ps-0" placeholder="{{authForms.signup.email.placeholder}}" />
+                    <input type="email" [(ngModel)]="signupEmail" name="signupEmail" class="form-control bg-transparent ps-0" placeholder="{{authForms.signup.email.placeholder}}" />
                 </div>
                 <label>{{authForms.signup.password.label}}</label>
                 <div class="input-group mb-3 bg-field">
                     <span class="py-2 px-3"><i class="bi bi-lock"></i></span>
-                    <input [type]="showSignupPassword ? 'text' : 'password'" class="form-control bg-transparent ps-0"
+                    <input [type]="showSignupPassword ? 'text' : 'password'" [(ngModel)]="signupPassword" name="signupPassword" class="form-control bg-transparent ps-0"
                         placeholder="{{authForms.signup.password.placeholder}}" />
                     <span class="py-2 px-3" style="cursor:pointer" (click)="toggleSignupPassword()">
                         <i class="bi" [ngClass]="showSignupPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
@@ -68,8 +68,7 @@
                 <label>{{authForms.signup.confirmPassword.label}}</label>
                 <div class="input-group mb-3 bg-field">
                     <span class="py-2 px-3"><i class="bi bi-lock"></i></span>
-                    <input [type]="showSignupConfirmPassword ? 'text' : 'password'"
-                        class="form-control bg-transparent ps-0" placeholder="{{authForms.signup.confirmPassword.placeholder}}" />
+                    <input [type]="showSignupConfirmPassword ? 'text' : 'password'" [(ngModel)]="signupConfirmPassword" name="signupConfirmPassword" class="form-control bg-transparent ps-0" placeholder="{{authForms.signup.confirmPassword.placeholder}}" />
                     <span class="py-2 px-3" style="cursor:pointer" (click)="toggleSignupConfirmPassword()">
                         <i class="bi" [ngClass]="showSignupConfirmPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
                     </span>

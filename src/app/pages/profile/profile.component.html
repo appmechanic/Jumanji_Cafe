@@ -1,0 +1,95 @@
+<div class="profile container my-5 d-flex flex-column flex-md-row gap-4">
+    <aside class="sidebar p-4 bg-white rounded-3 shadow-sm">
+        <div class="user-info mb-4 text-center">
+            <div class="avatar mb-2">
+                <i class="bi bi-person-circle fs-1 text-primary"></i>
+            </div>
+            <div class="fw-bold">{{ user.fullName }}</div>
+            <div class="text-muted small">{{ user.email }}</div>
+        </div>
+        <nav class="nav flex-column gap-2">
+            <a *ngFor="let tab of tabs" [class.active]="activeTab === tab.route"
+                [class.gradient-bg]="activeTab === tab.route" (click)="setActiveTab(tab.route)"
+                class="nav-link cursor-pointer">
+                {{ tab.label }}
+            </a>
+            <button class="btn btn-danger mt-4 w-100">Log Out</button>
+        </nav>
+    </aside>
+    <main class="profile-content flex-grow-1">
+        <ng-container [ngSwitch]="activeTab">
+            <div *ngSwitchCase="'overview'">
+                <!-- Rewards Overview -->
+                <div class="card mb-4 p-4 border-0 shadow-sm">
+                    <h5 class="fw-600 mb-3">Rewards Overview</h5>
+                    <div class="d-flex gap-4 mb-3">
+                        <div class="reward-cards flex-fill rounded-3 p-3">
+                            <div class="text-color small mb-1 fw-600"><i class="bi bi-star text-warning"></i> Current
+                                Points
+                            </div>
+                            <div class="fs-3 fw-bold text-color">{{ rewardsData.currentPoints }}</div>
+                        </div>
+                        <div class="reward-cards flex-fill rounded-3 p-3">
+                            <div class="text-color fw-600 small mb-1"><i class="bi bi-trophy text-warning"></i> Next
+                                Level
+                            </div>
+                            <div class="fs-6 text-color">{{ rewardsData.pointsToNextLevel }} points to go</div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="mb-2 text-color">Progress to Level {{ rewardsData.nextLevel }}</div>
+                        <span class="text-color">{{ rewardsData.progressPercentage }}%</span>
+                    </div>
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar gradient-bg" [style.width.%]="rewardsData.progressPercentage"></div>
+                    </div>
+                </div>
+                <!-- Recent Orders -->
+                <div class="card mb-4 p-4 border-0 shadow-sm">
+                    <h5 class="fw-600 mb-3">Recent Orders</h5>
+                    <div *ngFor="let order of recentOrders"
+                        class="order-card d-flex justify-content-between align-items-center mb-3 p-3 rounded-3">
+                        <div>
+                            <div class="fw-bold text-color">{{ order.id }}</div>
+                            <div class="text-color small">{{ order.details }}</div>
+                            <div class="text-color small">{{ order.date }}</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="d-flex flex-column align-items-center gap-2">
+                                <span class="badge bg-orange text-orange rounded-pill px-3 py-2">{{ order.status
+                                    }}</span>
+                                <span class="fw-bold text-color">${{ order.amount }}</span>
+                            </div>
+                            <button class="btn btn-sm btn-light rounded-circle">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Upcoming Events -->
+                <div class="card p-4 border-0 shadow-sm">
+                    <h5 class="fw-600 mb-3">Upcoming Events</h5>
+                    <div class="row">
+                        <div *ngFor="let event of upcomingEvents" class="col-md-6 mb-3">
+                            <div class="event-card rounded-3 h-100 d-flex flex-column">
+                                <img [src]="event.image" alt="event" class="mb-2 rounded-3"
+                                    style="height: 150px; object-fit: cover;">
+                                <div class="p-3 d-flex flex-column gap-2">
+                                    <div class="fw-bold text-color">{{ event.title }}</div>
+                                    <div class="text-color small d-flex gap-2"><i class="bi bi-calendar-event"></i> {{ event.date }}</div>
+                                    <div class="text-color small d-flex gap-2"><i class="bi bi-clock"></i> {{ event.time }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngSwitchCase="'rewards'">Rewards content here</div>
+            <div *ngSwitchCase="'orders'">My Orders content here</div>
+            <div *ngSwitchCase="'events'">Events content here</div>
+            <div *ngSwitchCase="'favorites'">Favorites content here</div>
+            <div *ngSwitchCase="'settings'">Settings content here</div>
+            <div *ngSwitchDefault>Overview content here</div>
+        </ng-container>
+    </main>
+</div>
