@@ -1,4 +1,4 @@
-<div class="checkout-page custom-container-width my-5 py-5">
+<div class="checkout-page custom-container-width my-5 py-0 py-lg-3">
     <app-heading-section iconLeft="bi-credit-card" iconLeftType="bootstrap" iconLeftColor="bg-primary2" iconRight=""
         iconRightType="material" iconRightColor="bg-primary2" title="" highlight="Checkout"
         highlightColor="gradient-text"
@@ -7,7 +7,7 @@
 
     <div class="d-flex flex-lg-row flex-column gap-4 align-items-start">
         <!-- Left Side: Customer Information Form -->
-        <div class="d-flex flex-column gap-4 flex-grow-1">
+        <div class="d-flex flex-column gap-4 flex-grow-1 col-12 col-md-12 col-lg-9">
             <div class="customer-info bg-white p-4 rounded-20 shadow-sm ">
                 <h4><i class="bi bi-person text-primary"></i> Customer Information</h4>
                 <form class="row g-3">
@@ -33,7 +33,7 @@
             </div>
             <div class="order-info bg-white p-4 rounded-20 shadow-sm flex-grow-1">
                 <h4><i class="bi bi-calendar-check text-primary"></i> Order Type</h4>
-                <div class="d-flex gap-3">
+                <div class="d-flex gap-3 flex-wrap">
                     <button type="button"
                         class="d-flex flex-grow-1 border border-muted bg-primary5 p-4 gap-3 align-items-center"
                         [ngClass]="{'border-primary': selectedOrderType === 'pickup'}"
@@ -73,7 +73,7 @@
         </div>
 
         <!-- Right Side: Order Summary -->
-        <div class="order-summary bg-white p-4 rounded-20 shadow-sm">
+        <div class="order-summary bg-white p-4 rounded-20 shadow-sm  col-12 col-md-6 col-lg-3">
             <h4><i class="bi bi-journal-text text-primary"></i> Order Summary</h4>
             <div *ngFor="let item of cartItems"
                 class="order-item d-flex align-items-center justify-content-between gap-3 mb-3 w-100">

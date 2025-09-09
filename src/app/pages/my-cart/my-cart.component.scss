@@ -7,6 +7,7 @@
 
 .quantity-controls {
     border-radius: 12px;
+
     button {
         outline: none;
         border: none;
@@ -25,4 +26,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.item-details,
+.cart-item-details {
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+        width: fit-content;
+    }
+}
+.cart-item{
+    gap: 20px 0px;
 }

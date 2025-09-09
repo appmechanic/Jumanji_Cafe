@@ -1,4 +1,4 @@
-<div class=" my-5 py-5 my-cart custom-container-width">
+<div class=" my-5 py-0 py-lg-3 my-cart custom-container-width">
     <app-heading-section iconLeft="bi-cart4" iconLeftType="bootstrap" iconLeftColor="bg-primary2" iconRight=""
         iconRightType="material" iconRightColor="bg-primary2" title="Cafe" highlight="Menu"
         highlightColor="gradient-text"
@@ -15,15 +15,15 @@
                 Cart Items ({{ getTotalItemCount() }})
             </h4>
             <div *ngFor="let item of cartItems; let i = index"
-                class="cart-item d-flex justify-content-between align-items-center mb-3">
-                <div class="d-flex align-items-center gap-3">
+                class="cart-item d-flex flex-md-row flex-column justify-content-between align-items-center mb-3">
+                <div class="cart-item-details d-flex align-items-center gap-3 justify-content-between justify-content-md-flex-start">
                     <img [src]="item.imageSrc" alt="{{ item.title }}">
                     <div>
                         <span class="fw-600">{{ item.title }}</span>
                         <p class="mb-0 fw-600 text-primary">{{ item.price }}</p>
                     </div>
                 </div>
-                <div class="item-details d-flex align-items-center gap-3">
+                <div class="item-details d-flex align-items-center gap-3 justify-content-md-flex-start justify-content-between">
                     <div class="quantity-controls bg-white shadow-sm d-flex align-items-center gap-3 px-3 py-2">
                         <button (click)="updateQuantity(i, -1)" class="rounded-pill bg-primary5"><i
                                 class="bi bi-dash"></i></button>
