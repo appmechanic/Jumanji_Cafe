@@ -3,6 +3,7 @@ $primary: #8154A2;
 $secondary: #FFC713;
 $dark-bg: #292929;
 $dark-text: #b5b5b5;
+$field-color: #d6d6d6;
 
 html,
 body {
@@ -33,11 +34,16 @@ body.dark-mode {
     }
   }
 
-  .stat-card {
+  .stat-card, .auth-forms-container {
 
     &.bg-white,
     &.bg-primary5 {
       background-color: $dark-bg !important;
+    }
+    .input-group{
+      i{
+        color: $dark-bg !important;
+      }
     }
   }
 
@@ -64,7 +70,7 @@ body.dark-mode {
       background-color: $dark-bg !important;
     }
     .text-color, .sub-title-color {
-      color: #D6D6D6 !important;
+      color: $field-color !important;
     }
   }
 
@@ -164,6 +170,11 @@ body.dark-mode {
   .text-d{
     color: $dark-bg;
   }
+  .order-info{
+    .text-muted{
+      color: $dark-bg !important;
+    }
+  }
 }
 
 h2 {
@@ -228,7 +239,9 @@ h4 {
 .bg-warning {
   background-color: $secondary !important;
 }
-
+.bg-field {
+  background-color: $field-color !important;
+}
 .nav-link {
   color: #Fafafa;
   font-weight: 400;

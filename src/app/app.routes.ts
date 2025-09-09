@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import{ AuthFormsComponent } from './pages/auth-forms/auth-forms.component';
 import { Home } from './pages/home/home';
 import { OurStory } from './pages/our-story/our-story';
 import { CafeMenu } from './pages/cafe-menu/cafe-menu';
@@ -10,6 +11,9 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { OrderConfirmedComponent } from './pages/order-confirmed/order-confirmed.component';  
 
 export const routes: Routes = [
+  { path: 'login', component: AuthFormsComponent },
+  { path: 'signup', component: AuthFormsComponent },
+  { path: 'forgot-password', component: AuthFormsComponent },
   { path: '', component: Home },
   { path: 'our-story', component: OurStory },
   { path: 'cafe-menu', component: CafeMenu },

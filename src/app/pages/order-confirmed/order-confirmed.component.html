@@ -1,35 +1,34 @@
 <div class="order-confirmed-page custom-container-width my-5 py-5">
     <div class="bg-white p-4 rounded-20 shadow-sm mx-auto">
         <app-heading-section iconLeft="" iconLeftType="bootstrap" iconLeftColor="bg-primary2" iconRight=""
-            iconRightType="material" iconRightColor="bg-primary2" title="Order" highlight="Confirmed"
-            highlightColor="gradient-text" subtitle="Your adventure order has been successfully placed!">
+            iconRightType="material" iconRightColor="bg-primary2" title="{{orderConfirmed.heading.title}}" highlight="{{orderConfirmed.heading.highlight}}"
+            highlightColor="gradient-text" subtitle="{{orderConfirmed.heading.subtitle}}">
         </app-heading-section>
 
         <div class="order-details d-flex justify-content-between mt-4 flex-md-nowrap flex-wrap">
             <div class="d-flex flex-column align-items-start">
-                <p><strong>Order #:</strong> {{ orderId }}</p>
-                <p><strong>Type:</strong> {{ orderType }}</p>
-                <p><strong>Total:</strong> {{ totalAmount }} SAR</p>
+                <p><strong>{{orderConfirmed.order}}:</strong> {{ orderId }}</p>
+                <p><strong>{{orderConfirmed.type}}:</strong> {{ orderType }}</p>
+                <p><strong>{{orderConfirmed.total}}:</strong> {{ totalAmount }} SAR</p>
             </div>
             <div class="d-flex flex-column align-items-start">
-                <p><strong>Estimated Time:</strong> {{ estimatedTime }}</p>
-                <p><strong>Contact:</strong> {{ contactNumber }}</p>
+                <p><strong>{{orderConfirmed.estimateTime}}:</strong> {{ estimatedTime }}</p>
+                <p><strong>{{orderConfirmed.contact}}:</strong> {{ contactNumber }}</p>
             </div>
         </div>
 
         <div class=" p-3 rounded-20 my-3 d-flex align-items-start gap-4 bg-secondary5 highlighted">
             <i class="bi bi-info-circle pt-2 text-orange"></i>
             <div class="d-flex flex-column align-items-start">
-                <p class="mb-1 text-orange"><strong>What's Next?</strong></p>
-                <p class="mb-1 text-d">We'll prepare your order and notify you when it's ready for pickup. Payment will be
-                    collected at the café.</p>
+                <p class="mb-1 text-orange"><strong>{{orderConfirmed.noteTitle}}</strong></p>
+                <p class="mb-1 text-d">{{orderConfirmed.noteDescription}}</p>
             </div>
         </div>
 
         <div class="d-flex gap-3 justify-content-center flex-wrap ">
-            <app-primary-button iconLeft="bi bi-house" [routerLink]="'/'" [text]="'Back to Home'">
+            <app-primary-button iconLeft="bi bi-house" [routerLink]="'/'" [text]="orderConfirmed.backToHome">
             </app-primary-button>
-            <app-ghost-button iconLeft="bi-shop-window" [routerLink]="'/board-game-store'" [text]="'Continue Shopping'">
+            <app-ghost-button iconLeft="bi-shop-window" [routerLink]="'/board-game-store'" [text]="orderConfirmed.continue">
             </app-ghost-button>
         </div>
     </div>

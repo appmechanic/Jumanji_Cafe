@@ -1,25 +1,25 @@
 <div class=" my-5 py-0 py-lg-3 my-cart custom-container-width">
     <app-heading-section iconLeft="bi-cart4" iconLeftType="bootstrap" iconLeftColor="bg-primary2" iconRight=""
-        iconRightType="material" iconRightColor="bg-primary2" title="Cafe" highlight="Menu"
+        iconRightType="material" iconRightColor="bg-primary2" title="{{myCart.heading.title}}" highlight="{{myCart.heading.highlight}}"
         highlightColor="gradient-text"
-        subtitle="Review your items before completing your adventure. Your quest items are ready — let's complete this epic journey! 🌟">
+        subtitle="{{myCart.heading.subtitle}}">
     </app-heading-section>
     <div *ngIf="cartItems.length === 0" class="empty-cart text-center">
-        <h4 class="text-primary">No items added to cart</h4>
-        <p>Your cart is empty. Start exploring and add items to your cart!</p>
+        <h4 class="text-primary">{{myCart.noItem.title}}</h4>
+        <p>{{myCart.noItem.text}}</p>
     </div>
     <div class="gap-4 d-flex flex-lg-row mt-3 flex-column align-items-start">
         <div *ngIf="cartItems.length > 0" class="cart-items bg-white p-4 rounded-20 shadow-sm flex-grow-1 w-100">
             <h4 class="cart-title d-flex align-items-center gap-2">
                 <i class="bi bi-cart4 text-primary"></i>
-                Cart Items ({{ getTotalItemCount() }})
+                {{myCart.cartItem.title}} ({{ getTotalItemCount() }})
             </h4>
             <div *ngFor="let item of cartItems; let i = index"
                 class="cart-item d-flex flex-md-row flex-column justify-content-between align-items-center mb-3">
                 <div class="cart-item-details d-flex align-items-center gap-3 justify-content-between justify-content-md-flex-start">
                     <img [src]="item.imageSrc" alt="{{ item.title }}">
                     <div>
-                        <span class="fw-600">{{ item.title }}</span>
+                        <span class="fw-600">{{ getItemDetails(item.id)?.title }}</span>
                         <p class="mb-0 fw-600 text-primary">{{ item.price }}</p>
                     </div>
                 </div>
@@ -39,31 +39,31 @@
         <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-12">
             <div *ngIf="cartItems.length > 0"
                 class="order-summary bg-white p-4 rounded-20 shadow-sm ">
-                <h4><i class="bi bi-journal-text text-primary"></i> Order Summary</h4>
+                <h4><i class="bi bi-journal-text text-primary"></i> {{myCart.orderSummary.title}}</h4>
                 <div class="d-flex flex-column orders border-bottom border-2 mb-3 pb-3 gap-2 border-muted">
-                    <p class="d-flex justify-content-between w-100"><span>Subtotal ({{ getTotalItemCount() }}):</span>
+                    <p class="d-flex justify-content-between w-100"><span>{{myCart.orderSummary.subtotal}} ({{ getTotalItemCount() }}):</span>
                         <span>{{ subtotal }} SAR</span>
                     </p>
-                    <p class="d-flex justify-content-between w-100"><span>VAT (15%):</span> <span>{{ vat }} SAR</span>
+                    <p class="d-flex justify-content-between w-100"><span>{{myCart.orderSummary.tax}} (15%):</span> <span>{{ vat }} SAR</span>
                     </p>
                 </div>
-                <p class="d-flex justify-content-between w-100 fw-600"><span>Total:</span> <span class="text-primary">{{
+                <p class="d-flex justify-content-between w-100 fw-600"><span>{{myCart.orderSummary.total}}:</span> <span class="text-primary">{{
                         total }} SAR</span></p>
                 <div class="bg-primary5 d-flex align-items-center gap-3 p-3 rounded-20 my-3">
                     <i class="bi bi-clock text-d"></i>
                     <div class="d-flex flex-column">
-                        <p class="mb-0 text-d">Estimated Ready Time</p>
-                        <p class="fw-600 mb-0 text-primary">20-30 mins</p>
+                        <p class="mb-0 text-d">{{myCart.orderSummary.durationText}}</p>
+                        <p class="fw-600 mb-0 text-primary">{{myCart.orderSummary.durationValue}}</p>
                     </div>
                 </div>
                 <div class="d-flex flex-column gap-3 w-100 checkout-buttons">
                     <app-primary-button iconLeft="bi-arrow-right" [routerLink]="'/checkout'" 
-                        [text]="'Proceed to Checkout'">
+                        [text]="myCart.orderSummary.gradientBtn">
                     </app-primary-button>
                     <app-ghost-button iconLeft="bi-shop-window" [routerLink]="'/board-game-store'"
-                        [text]="'Continue Shopping'">
+                        [text]="myCart.orderSummary.ghostBtn1">
                     </app-ghost-button>
-                    <app-ghost-button iconLeft="bi-fork-knife" [routerLink]="'/cafe-menu'" [text]="'Add from Menu'">
+                    <app-ghost-button iconLeft="bi-fork-knife" [routerLink]="'/cafe-menu'" [text]="myCart.orderSummary.ghostBtn2">
                     </app-ghost-button>
                 </div>
             </div>

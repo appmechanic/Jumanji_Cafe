@@ -1,0 +1,102 @@
+<div class="auth-forms m-5 p-5">
+    <div class="auth-forms-container mx-auto bg-white p-4 rounded-20 shadow-sm">
+        <!-- login -->
+        <div *ngIf="activeForm === 'login'">
+            <div class="login-header text-center">
+                <div class="icon-circle mb-3">
+                    <i class="bi bi-person fs-24 bg-primary text-white rounded-pill"></i>
+                </div>
+                <h4 class="mb-1">{{authForms.login.title}}</h4>
+                <p class="mb-4">{{authForms.login.subtitle}}</p>
+            </div>
+            <form class="d-flex flex-column gap-3">
+                <label>{{authForms.login.email.label}}</label>
+                <div class="input-group mb-3 bg-field">
+                    <span class="py-2 px-3"><i class="bi bi-envelope"></i></span>
+                    <input type="email" class="form-control bg-transparent ps-0" placeholder="{{authForms.login.email.placeholder}}" />
+                </div>
+                <label>{{authForms.login.password.label}}</label>
+                <div class="input-group mb-2 bg-field">
+                    <span class="py-2 px-3"><i class="bi bi-lock"></i></span>
+                    <input [type]="showLoginPassword ? 'text' : 'password'" class="form-control bg-transparent ps-0"
+                        placeholder="{{authForms.login.password.placeholder}}" />
+                    <span class="py-2 px-3" style="cursor:pointer" (click)="toggleLoginPassword()">
+                        <i class="bi" [ngClass]="showLoginPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                    </span>
+                </div>
+                <div class="d-flex justify-content-end mb-3">
+                    <a href="#" (click)="$event.preventDefault(); showForgot();" class="forgot-link text-primary">{{authForms.login.forgotLink}}</a>
+                </div>
+                <button type="submit" class=" gradient-bg w-100 mb-2 border-0 text-white fw-600">{{authForms.login.loginBtn}}</button>
+                <button type="button"
+                    class=" w-100 mb-3 text-primary border border-primary fw-600 bg-transparent">{{authForms.login.guestBtn}}</button>
+                <div class="text-center">
+                    <span>{{authForms.login.signupText}} <a href="#" (click)="$event.preventDefault(); showSignup()"
+                            class="text-primary">{{authForms.login.signupLink}}</a></span>
+                </div>
+            </form>
+        </div>
+        <!-- signup -->
+        <div *ngIf="activeForm === 'signup'">
+            <div class="login-header text-center">
+                <div class="icon-circle mb-3">
+                    <i class="bi bi-unlock2 fs-24 bg-primary text-white rounded-pill"></i>
+                </div>
+                <h4 class="mb-1">{{authForms.signup.title}}</h4>
+                <p class="mb-4">{{authForms.signup.subtitle}}</p>
+            </div>
+            <form class="d-flex flex-column gap-3">
+                <label>{{authForms.signup.fullName.label}}</label>
+                <div class="input-group mb-3 bg-field">
+                    <span class="py-2 px-3"><i class="bi bi-envelope"></i></span>
+                    <input type="email" class="form-control bg-transparent ps-0" placeholder="{{authForms.signup.fullName.placeholder}}" />
+                </div>
+                <label>{{authForms.signup.email.label}}</label>
+                <div class="input-group mb-3 bg-field">
+                    <span class="py-2 px-3"><i class="bi bi-envelope"></i></span>
+                    <input type="email" class="form-control bg-transparent ps-0" placeholder="{{authForms.signup.email.placeholder}}" />
+                </div>
+                <label>{{authForms.signup.password.label}}</label>
+                <div class="input-group mb-3 bg-field">
+                    <span class="py-2 px-3"><i class="bi bi-lock"></i></span>
+                    <input [type]="showSignupPassword ? 'text' : 'password'" class="form-control bg-transparent ps-0"
+                        placeholder="{{authForms.signup.password.placeholder}}" />
+                    <span class="py-2 px-3" style="cursor:pointer" (click)="toggleSignupPassword()">
+                        <i class="bi" [ngClass]="showSignupPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                    </span>
+                </div>
+                <label>{{authForms.signup.confirmPassword.label}}</label>
+                <div class="input-group mb-3 bg-field">
+                    <span class="py-2 px-3"><i class="bi bi-lock"></i></span>
+                    <input [type]="showSignupConfirmPassword ? 'text' : 'password'"
+                        class="form-control bg-transparent ps-0" placeholder="{{authForms.signup.confirmPassword.placeholder}}" />
+                    <span class="py-2 px-3" style="cursor:pointer" (click)="toggleSignupConfirmPassword()">
+                        <i class="bi" [ngClass]="showSignupConfirmPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                    </span>
+                </div>
+                <button type="submit" class=" gradient-bg w-100 mb-2 border-0 text-white fw-600">{{authForms.signup.signupBtn}}</button>
+                <p class="text-center">{{authForms.signup.loginText}} <a href="#" (click)="$event.preventDefault(); showLogin()" class="text-primary">{{authForms.signup.loginLink}}</a></p>
+            </form>
+        </div>
+        <!-- forgot password -->
+        <div *ngIf="activeForm === 'forgot'">
+            <div class="login-header text-center">
+                <div class="icon-circle mb-3">
+                    <i class="bi bi-unlock2 fs-24 bg-primary text-white rounded-pill"></i>
+                </div>
+                <h4 class="mb-1">{{authForms.forgot.title}}</h4>
+                <p class="mb-4">{{authForms.forgot.subtitle}}</p>
+            </div>
+            <form class="d-flex flex-column gap-3">
+                <label>{{authForms.forgot.email.label}}</label>
+                <div class="input-group mb-3 bg-field">
+                    <span class="py-2 px-3"><i class="bi bi-envelope"></i></span>
+                    <input type="email" class="form-control bg-transparent ps-0" placeholder="{{authForms.forgot.email.placeholder}}" />
+                </div>
+                <button type="submit" class="gradient-bg w-100 mb-2 border-0 text-white fw-600">{{authForms.forgot.resetBtn}}</button>
+                <button type="button" class=" w-100 mb-3 text-primary border border-primary fw-600 bg-transparent"
+                    routerLink="/login">{{authForms.forgot.backBtn}}</button>
+            </form>
+        </div>
+    </div>
+</div>

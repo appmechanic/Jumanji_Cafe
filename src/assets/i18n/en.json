@@ -1,4 +1,56 @@
 {
+    "authForms": {
+        "login": {
+            "title": "Welcome Back",
+            "subtitle": "Log in to continue your adventure",
+            "email":{
+                "label": "Email Address",
+                "placeholder": "Enter your email"
+            },
+            "password":{
+                "label": "Password",
+                "placeholder": "Enter your password"
+            },
+            "forgotLink": "Forgot Password?",
+            "loginBtn": "Log In",
+            "guestBtn": "Continue as Guest",
+            "signupText": "Don't have an account?",
+            "signupLink": "Sign Up"
+        },
+        "signup": {
+            "title": "Create an Account",
+            "subtitle": "Join the jungle and start earning rewards",
+            "fullName":{
+                "label": "Full Name",
+                "placeholder": "Enter your full name"
+            },
+            "email": {
+                "label": "Email Address",
+                "placeholder": "Enter your email"
+            },
+            "password": {
+                "label": "Password",
+                "placeholder": "Password"
+            },
+            "confirmPassword": {
+                "label": "Confirm Password",
+                "placeholder": "Confirm Password"
+            },
+            "signupBtn": "Sign Up",
+            "loginText": "Already have an account?",
+            "loginLink": "Log In"
+        },
+        "forgot": {
+            "title": "Forgot Your Password?",
+            "subtitle": "No worries! Enter your email and we'll send you reset instructions",
+            "email": {
+                "label": "Email Address",
+                "placeholder": "Enter your email"
+            },
+            "resetBtn": "Send Reset Link",
+            "backBtn": "Back to Login"
+        }
+    },
     "header": {
         "navLinks": [
             {
@@ -1448,6 +1500,105 @@
         "quick-games": "Quick Games",
         "top-rated": "Top Rated",
         "strategy": "Strategy"
+    },
+    "myCart": {
+        "heading":{
+            "title": "My",
+            "highlight": "Cart",
+            "subtitle": "Review your items before completing your adventure. Your quest items are ready — let's complete this epic journey! 🌟"
+        },
+        "noItem":{
+            "title": "No items added to cart",
+            "text": "Your cart is empty. Start exploring and add items to your cart!"
+        },
+        "orderSummary":{
+            "title": "Order Summary",
+            "subtotal": "Subtotal",
+            "tax": "VAT",
+            "total": "Total",
+            "durationText": "Estimated Ready Time",
+            "durationValue": "20-30 mins",
+            "gradientBtn": "Proceed to Checkout",
+            "ghostBtn1": "Continue Shopping",
+            "ghostBtn2": "Add from Menu"
+        },
+        "cartItem":{
+            "title": "Cart Item"
+        }
+    },
+    "checkout":{
+        "heading":{
+            "title": "",
+            "highlight": "Checkout",
+            "subtitle": "Just a few steps before your game begins Complete your order and get ready for an epic adventure! 🌟"
+        },
+        "customerInfo":{
+            "title": "Customer Information",
+            "fullName":{
+                "label": "Full Name *",
+                "placeholder": "Enter your full name",
+                "error": "Please fill out your full name."
+            },
+            "phoneNumber":{
+                "label": "Phone Number *",
+                "placeholder": "+966 XXX XXX XXXX",
+                "error": "Please enter a valid 10-digit phone number."
+            },
+            "emailAddress":{
+                "label": "Email Address *",
+                "placeholder": "your@email.com",
+                "error": "Please enter a valid email address."
+            }
+        },
+        "orderType":{
+            "title": "Order Type",
+            "pickup":{
+                "title": "Pickup",
+                "description": "Order ready in 12-15 min"
+            },
+            "table":{
+                "title": "Table Reservation",
+                "description": "Reserve a table & time"
+            },
+            "error": "Please select an order type."
+        },
+        "notes":{
+            "title": "Special Notes (Optional)",
+            "placeholder": "Any special requests? (e.g., No sugar, Birthday surprise, Extra napkins...)",
+            "limit": "0/500 characters"
+        },
+        "buttons":{
+            "confirmOrder": "Confirm Order",
+            "backToCart": "Back to Cart"
+        },
+        "orderSummary":{
+            "quantity": "Qty",
+            "title": "Order Summary",
+            "subtotal": "Subtotal",
+            "tax": "VAT",
+            "total": "Total",
+            "payment":{
+                "title": "Payment Method",
+                "highlight": "Pay at Café",
+                "description" : "Cash or Card accepted"
+            }
+        }
+    },
+    "orderConfirmed":{
+        "heading":{
+            "title": "Order",
+            "highlight": "Confirmed!",
+            "subtitle": "Your adventure order has been successfully placed!"
+        },
+        "order": "Order #",
+        "type": "Type",
+        "total": "Total",
+        "estimateTime": "Estimated Time",
+        "contact": "Contact",
+        "noteTitle": "What's Next?",
+        "noteDescription": "We'll prepare your order and notify you when it's ready for pickup. Payment will be collected at the café.",
+        "backToHome": "Back to Home",
+        "continue": "Continue Shopping"
     },
     "footer": {
         "description": "Experience the ultimate board game café adventure in the heart of Jeddah. Where games come to life and legends are born! 🎲✨",

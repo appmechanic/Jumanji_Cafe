@@ -22,18 +22,24 @@
           <span class="nav-link" [class.fw-bold]="currentLang === 'ar'" style="cursor:pointer"
             (click)="changeLang('ar')">AR</span>
         </div>
-        <span class="btn bg-purple text-light rounded-pill d-flex justify-content-center align-items-center position-relative"
-          style="width: 40px; height: 40px;">
-          <a href="/cart" class="text-white"><i class="bi bi-cart"></i></a>
-          <span class="position-absolute cart-count bg-secondary d-flex align-items-center justify-content-center rounded-pill text-dark fw-600">{{ getTotalItemCount() }}</span>
-        </span>
+        <a href="/cart" class="text-white"><span
+            class="btn bg-purple text-light rounded-pill d-flex justify-content-center align-items-center position-relative"
+            style="width: 40px; height: 40px;">
+            <i class="bi bi-cart"></i>
+            <span
+              class="position-absolute cart-count bg-secondary d-flex align-items-center justify-content-center rounded-pill text-dark fw-600">{{
+              getTotalItemCount() }}</span>
+          </span>
+        </a>
+        <a href="/login" class="text-white">
+          <span class="btn bg-purple text-light rounded-pill d-flex justify-content-center align-items-center"
+            style="width: 40px; height: 40px;">
+            <i class="bi bi-person"></i>
+          </span>
+        </a>
         <span class="btn bg-purple text-light rounded-pill d-flex justify-content-center align-items-center"
           style="width: 40px; height: 40px;">
           <i class="bi bi-search"></i>
-        </span>
-        <span class="btn bg-purple text-light rounded-pill d-flex justify-content-center align-items-center"
-          style="width: 40px; height: 40px;">
-          <i class="bi bi-person"></i>
         </span>
         <span class="btn bg-purple text-light rounded-pill d-flex justify-content-center align-items-center"
           style="width: 40px; height: 40px;" (click)="toggleTheme()">

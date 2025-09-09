@@ -4,6 +4,8 @@ import { HeadingSectionComponent } from '../../shared/heading-section/heading-se
 import { CartService } from '../../services/cart.service';
 import { Router, RouterLink } from "@angular/router";
 import { FormsModule } from '@angular/forms';
+import { I18nService } from '../../i18n.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-checkout',
@@ -13,7 +15,7 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, HeadingSectionComponent, RouterLink, FormsModule],
 })
 export class CheckoutComponent implements OnInit {
-clearCart(): void {
+  clearCart(): void {
     this.cartItems = [];
     localStorage.removeItem('cartItems');
   }
@@ -27,15 +29,28 @@ clearCart(): void {
   phoneNumber: string = '';
   emailAddress: string = '';
 
-  showErrors: boolean = false; 
+  showErrors: boolean = false;
+  checkout: any = {};
+  langSub!: Subscription;
 
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(private cartService: CartService, private router: Router, private i18n: I18nService) { }
 
   ngOnInit(): void {
+    this.loadTranslations();
     this.loadCartItems();
     this.showErrors = false;
+    this.langSub = this.i18n.langChanged$.subscribe(() => {
+      this.loadTranslations();
+    });
   }
 
+  loadTranslations() {
+    this.checkout = this.i18n.t('checkout');
+  }
+
+  onLanguageChanged() {
+    this.loadTranslations();
+  }
   loadCartItems(): void {
     const storedCart = localStorage.getItem('cartItems');
     this.cartItems = storedCart ? JSON.parse(storedCart) : [];
@@ -71,34 +86,34 @@ clearCart(): void {
     let hasError = false;
 
     if (!this.fullName) {
-        hasError = true;
+      hasError = true;
     }
     if (!this.phoneNumber) {
-        hasError = true;
+      hasError = true;
     }
     if (!this.emailAddress) {
-        hasError = true;
+      hasError = true;
     }
     if (!this.selectedOrderType) {
-        hasError = true;
+      hasError = true;
     }
 
     if (hasError) {
-        this.showErrors = true;
-        return;
+      this.showErrors = true;
+      return;
     }
     this.showErrors = false;
     const orderId = Math.random().toString(36).substring(2, 14).toUpperCase();
 
     // Save to localStorage
     localStorage.setItem('orderDetails', JSON.stringify({
-        orderId,
-        orderType: this.selectedOrderType,
-        totalAmount: this.total,
-        contactNumber: this.phoneNumber,
-        fullName: this.fullName,
-        emailAddress: this.emailAddress,
-        estimatedTime: '12-15 min',
+      orderId,
+      orderType: this.selectedOrderType,
+      totalAmount: this.total,
+      contactNumber: this.phoneNumber,
+      fullName: this.fullName,
+      emailAddress: this.emailAddress,
+      estimatedTime: '12-15 min',
     }));
 
     // Clear cart 
@@ -109,13 +124,13 @@ clearCart(): void {
     this.total = 0;
 
     this.router.navigate(['/order-confirmed'], {
-        state: {
-            orderId,
-            orderType: this.selectedOrderType,
-            totalAmount: this.total,
-            contactNumber: this.phoneNumber,
-            estimatedTime: '12-15 min',
-        },
+      state: {
+        orderId,
+        orderType: this.selectedOrderType,
+        totalAmount: this.total,
+        contactNumber: this.phoneNumber,
+        estimatedTime: '12-15 min',
+      },
     });
   }
 }

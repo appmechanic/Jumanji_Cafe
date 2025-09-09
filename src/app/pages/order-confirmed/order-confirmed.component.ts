@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HeadingSectionComponent } from '../../shared/heading-section/heading-section';
 import { PrimaryButtonComponent } from '../../shared/buttons/primary-button/primary-button';
 import { GhostButtonComponent } from '../../shared/buttons/ghost-button/ghost-button';
+import { I18nService } from '../../i18n.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-order-confirmed',
@@ -18,8 +20,10 @@ export class OrderConfirmedComponent {
   totalAmount: number = 0;
   contactNumber: string = '';
   estimatedTime: string = '';
+  langSub!: Subscription;
+  orderConfirmed: any = {};
 
-  constructor() {
+  constructor(private i18n: I18nService) {
     if (!localStorage.getItem('orderConfirmedReloaded')) {
       localStorage.setItem('orderConfirmedReloaded', 'true');
       window.location.reload();
@@ -33,4 +37,18 @@ export class OrderConfirmedComponent {
     this.contactNumber = orderDetails.contactNumber || '';
     this.estimatedTime = orderDetails.estimatedTime || '';
   }
+  ngOnInit() {
+        this.loadTranslations();
+        this.langSub = this.i18n.langChanged$.subscribe(() => {
+            this.loadTranslations();
+        });
+    }
+
+    loadTranslations() {
+        this.orderConfirmed = this.i18n.t('orderConfirmed');
+    }
+
+    onLanguageChanged() {
+        this.loadTranslations();
+    }
 }
