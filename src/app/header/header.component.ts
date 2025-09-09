@@ -3,6 +3,7 @@ import { ThemeService } from '../theme.service';
 import { CommonModule } from '@angular/common';
 import { I18nService } from '../i18n.service';
 import { CartService } from '../services/cart.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ export class HeaderComponent implements OnInit {
   cartItems: any[] = [];
   isDarkMode: boolean = false;
   currentLang = 'en';
+  isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   navLinks: { label: string; url: string }[] = [];
 
@@ -49,6 +51,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.currentLang = this.i18n.getCurrentLang();
     this.loadNavLinks();
+    this.checkLoginStatus();
 
     this.cartService.cartItems$.subscribe(cartItems => {
       this.cartItems = cartItems;
@@ -69,6 +72,11 @@ export class HeaderComponent implements OnInit {
         timesIcon?.classList.add('d-none');
       }
     });
+  }
+
+  checkLoginStatus(): void {
+    const userInfo = localStorage.getItem('userInfo');
+    this.isLoggedIn$.next(!!userInfo);
   }
 
   getTotalItemCount(): number {

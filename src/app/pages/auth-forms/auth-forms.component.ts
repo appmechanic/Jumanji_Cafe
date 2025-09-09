@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd, RouterLink } from '@angular/router';
 import { I18nService } from '../../i18n.service';
-import { Subscription } from 'rxjs';
+import { Subscription, BehaviorSubject } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -29,6 +29,8 @@ export class AuthFormsComponent implements OnInit {
   signupPassword: string = '';
   signupConfirmPassword: string = '';
   signupError: string = '';
+
+  static loginStatus$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private i18n: I18nService, private router: Router) {}
 
@@ -59,6 +61,15 @@ export class AuthFormsComponent implements OnInit {
         this.loginError = 'Please fill in all fields.';
         return;
       }
+      
+      // Save user info to localStorage
+      const userInfo = {
+        email: this.loginEmail,
+        fullName: 'Admin' // This would normally come from a backend
+      };
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+      AuthFormsComponent.loginStatus$.next(true);
+      
       this.loginError = '';
       this.router.navigate(['/profile']);
     } else if (this.activeForm === 'signup') {
@@ -70,9 +81,24 @@ export class AuthFormsComponent implements OnInit {
         this.signupError = 'Passwords do not match.';
         return;
       }
+      
+      // Save user info to localStorage
+      const userInfo = {
+        email: this.signupEmail,
+        fullName: this.signupFullName
+      };
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+      AuthFormsComponent.loginStatus$.next(true);
+      
       this.signupError = '';
       this.router.navigate(['/profile']);
     }
+  }
+
+  logout() {
+    localStorage.removeItem('userInfo');
+    AuthFormsComponent.loginStatus$.next(false);
+    this.router.navigate(['/login']);
   }
 
   setFormFromUrl(url: string) {
