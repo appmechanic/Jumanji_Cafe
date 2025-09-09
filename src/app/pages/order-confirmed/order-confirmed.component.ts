@@ -20,6 +20,12 @@ export class OrderConfirmedComponent {
   estimatedTime: string = '';
 
   constructor() {
+    if (!localStorage.getItem('orderConfirmedReloaded')) {
+      localStorage.setItem('orderConfirmedReloaded', 'true');
+      window.location.reload();
+    } else {
+      localStorage.removeItem('orderConfirmedReloaded');
+    }
     const orderDetails = JSON.parse(localStorage.getItem('orderDetails') || '{}');
     this.orderId = orderDetails.orderId || '';
     this.orderType = orderDetails.orderType || '';

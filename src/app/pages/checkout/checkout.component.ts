@@ -13,7 +13,10 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, HeadingSectionComponent, RouterLink, FormsModule],
 })
 export class CheckoutComponent implements OnInit {
-
+clearCart(): void {
+    this.cartItems = [];
+    localStorage.removeItem('cartItems');
+  }
   cartItems: any[] = [];
   subtotal: number = 0;
   vat: number = 0;
@@ -30,7 +33,7 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCartItems();
-    this.showErrors = false; // Ensure errors are hidden when the page loads
+    this.showErrors = false;
   }
 
   loadCartItems(): void {
@@ -70,10 +73,10 @@ export class CheckoutComponent implements OnInit {
     if (!this.fullName) {
         hasError = true;
     }
-    if (!this.phoneNumber || !this.isValidPhoneNumber()) {
+    if (!this.phoneNumber) {
         hasError = true;
     }
-    if (!this.emailAddress || !this.isValidEmail()) {
+    if (!this.emailAddress) {
         hasError = true;
     }
     if (!this.selectedOrderType) {
@@ -84,9 +87,7 @@ export class CheckoutComponent implements OnInit {
         this.showErrors = true;
         return;
     }
-
-    this.showErrors = false; 
-
+    this.showErrors = false;
     const orderId = Math.random().toString(36).substring(2, 14).toUpperCase();
 
     // Save to localStorage
@@ -99,6 +100,13 @@ export class CheckoutComponent implements OnInit {
         emailAddress: this.emailAddress,
         estimatedTime: '12-15 min',
     }));
+
+    // Clear cart 
+    localStorage.removeItem('cartItems');
+    this.cartItems = [];
+    this.subtotal = 0;
+    this.vat = 0;
+    this.total = 0;
 
     this.router.navigate(['/order-confirmed'], {
         state: {
