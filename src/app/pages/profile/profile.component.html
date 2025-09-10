@@ -26,7 +26,7 @@
                 <!-- Rewards Overview -->
                 <div class="card mb-4 p-4 border-0 shadow-sm">
                     <h5 class="fw-600 mb-3">Rewards Overview</h5>
-                    <div class="d-flex gap-4 mb-3">
+                    <div class="d-flex flex-column flex-md-row gap-4 mb-3">
                         <div *ngFor="let card of rewardsCards" class="reward-cards flex-fill rounded-3 p-3">
                             <div class="text-color small mb-1 fw-600">
                                 <i class="bi" [ngClass]="card.icon" class="text-warning"></i> {{ card.title }}
@@ -42,7 +42,7 @@
                         <div class="progress-bar gradient-bg" [style.width.%]="rewardsData.progressPercentage"></div>
                     </div>
                 </div>
-                <!-- Recent Orders -->  
+                <!-- Recent Orders -->
                 <div class="card mb-4 p-4 border-0 shadow-sm">
                     <h5 class="fw-600 mb-3">Recent Orders</h5>
                     <div *ngFor="let order of recentOrders"
@@ -90,7 +90,7 @@
                 <!-- Rewards Status -->
                 <div class="card mb-4 p-4 border-0 shadow-sm">
                     <h5 class="fw-600 mb-3">Rewards Overview</h5>
-                    <div class="d-flex gap-4 mb-3">
+                    <div class="d-flex flex-column flex-md-row gap-4 mb-3">
                         <div *ngFor="let status of rewardsStatus"
                             class="reward-cards status flex-fill rounded-3 p-3 d-flex flex-column align-items-center gap-2">
                             <div class="text-color small">
@@ -132,7 +132,7 @@
                 <div class="card mb-4 p-4 border-0 shadow-sm">
                     <h5 class="fw-600 mb-3">My Orders</h5>
                     <div *ngFor="let order of recentOrders"
-                        class="order-card d-flex justify-content-between align-items-center mb-3 p-3 rounded-3">
+                        class="order-card d-flex flex-md-row flex-column justify-content-between align-items-md-center align-items-start p-3 rounded-3 gap-3 gap-md-0">
                         <div class="d-flex flex-column gap-2">
                             <div class="fw-bold text-color">{{ order.id }}</div>
                             <div class="d-flex align-items-center gap-3">
@@ -151,7 +151,8 @@
                             </div>
                             <div class="buttons d-flex flex-wrap gap-2">
                                 <button class="btn btn-sm bg-primary text-white">View Receipt</button>
-                                <button class="btn btn-sm bg-transparent border-primary text-primary me-2">Reorder</button>
+                                <button
+                                    class="btn btn-sm bg-transparent border-primary text-primary me-2">Reorder</button>
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-3">
@@ -165,14 +166,16 @@
                 </div>
             </div>
             <div *ngSwitchCase="'events'">
+                <!-- My Events -->
                 <div class="card p-4 border-0 shadow-sm">
                     <h5 class="fw-600 mb-3">My Events</h5>
                     <div class="row">
                         <div *ngFor="let event of upcomingEvents" class="col-md-12 mb-3">
-                            <div class="event-card rounded-3 pb-3 pe-3 d-flex gap-3 shadow-sm">
+                            <div class="event-card rounded-3 pb-3 pe-3 d-flex flex-md-row flex-column gap-3 shadow-sm">
                                 <img [src]="event.image" alt="event" class="rounded-3"
                                     style="width: 250px; object-fit: cover;">
-                                <div class="flex-grow-1 d-flex justify-content-between align-items-center p-3">
+                                <div
+                                    class="flex-grow-1 d-flex flex-md-row flex-column justify-content-between align-items-md-center align-items-start p-3 gap-md-0 gap-3">
                                     <div class="d-flex flex-column gap-2">
                                         <div class="fw-bold text-color">{{ event.title }}</div>
                                         <div class="text-color small d-flex gap-2">
@@ -184,7 +187,7 @@
                                         <span class="badge bg-primary2 rounded-pill px-3 py-2">{{ event.status
                                             }}</span>
                                     </div>
-                                    <div class="buttons d-flex flex-column gap-2">
+                                    <div class="buttons d-flex flex-md-column flex-wrap flex-row gap-2">
                                         <button class="btn btn-sm bg-primary text-white">View Details</button>
                                         <button class="btn btn-sm bg-transparent text-danger">Cancel</button>
                                     </div>
@@ -192,10 +195,331 @@
                             </div>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center mt-4">
+                        <app-primary-button iconLeft="bi-calendar-event" [routerLink]="''" [text]="'Browse All Events'">
+                        </app-primary-button>
+                    </div>
                 </div>
             </div>
-            <div *ngSwitchCase="'favorites'">Favorites content here</div>
-            <div *ngSwitchCase="'settings'">Settings content here</div>
+            <div *ngSwitchCase="'favorites'">
+                <!-- Favorites -->
+                <div class="card p-4 border-0 shadow-sm">
+                    <div
+                        class="d-flex flex-md-row flex-column justify-content-between align-items-md-center align-items-start gap-md-0 gap-2 mb-3">
+                        <h5 class="fw-600 mb-0">My Favorite Games</h5>
+                        <button class="btn btn-md gradient-bg text-white fw-600" routerLink="/board-game-store">Browse
+                            Games</button>
+                    </div>
+                    <div class="row">
+                        <div *ngFor="let game of favoriteGames" class="col-xl-3 col-lg-4 col-md-4 col-12 mb-3">
+                            <div class="game-card rounded-3 shadow-sm d-flex flex-column align-items-center order-card">
+                                <div class="position-relative w-100">
+                                    <img [src]="game.image" alt="game" class="rounded-3"
+                                        style="height: 200px; width: 100%; object-fit: cover;">
+                                    <i class="bi bi-heart-fill text-danger position-absolute top-0 end-0 m-2"></i>
+                                </div>
+                                <div class="text-center p-3 w-100 d-flex flex-column align-items-center gap-2">
+                                    <div class="fw-bold text-color">{{ game.title }}</div>
+                                    <div class="text-muted small">{{ game.category }}</div>
+                                    <button class="btn btn-md bg-primary text-white w-100 fw-600">Play Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngSwitchCase="'settings'">
+                <!-- Profile Settings -->
+                <div class="card p-4 border-0 shadow-sm">
+                    <h5 class="fw-600 mb-3">Profile Settings</h5>
+                    <div class="row">
+                        <div *ngFor="let tab of settingTabs; let i = index" class="col-12 mb-3">
+                            <div class="setting-tab d-flex align-items-center p-3 rounded-3 shadow-sm order-card">
+                                <i [class]="tab.iconClass" class="fs-3 me-3 rounded-pill"></i>
+                                <div class="flex-grow-1">
+                                    <div class="fw-bold text-color">{{ tab.title }}</div>
+                                    <div class="text-muted small">{{ tab.subtitle }}</div>
+                                </div>
+                                <i class="bi bi-chevron-right text-muted fs-4 cursor-pointer"
+                                    (click)="openModal(i)"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modals -->
+            <div *ngIf="activeModal === 0" class="modal-overlay">
+                <div class="modal-content bg-white">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-600">Edit Profile</h5>
+                        <i class="bi bi-x cursor-pointer text-muted fs-4" (click)="closeModal()"></i>
+                    </div>
+                    <form>
+                        <div class="text-center mb-3">
+                            <div
+                                class="avatar-container d-flex flex-column align-items-center position-relative mx-auto">
+                                <img [src]="user.avatar" alt="Avatar" class="rounded-circle gradient-bg p-1 "
+                                    style="width: 100px; height: 100px;">
+                                <div
+                                    class="icon position-absolute bg-primary text-white rounded-circle d-flex align-items-center justify-content-center px-2 py-1 bottom-0 end-0">
+                                    <i class="bi bi-camera"></i>
+                                </div>
+                            </div>
+                            <span type="button" class="text-color2 text-decoration-none pt-1">Click camera to change
+                                photo</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" id="firstName" name="firstName" class="form-control bg-field"
+                                [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" class="form-control bg-field"
+                                [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-control bg-field"
+                                [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" id="phone" name="phone" class="form-control bg-field"
+                                [(ngModel)]="user.phoneNumber" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="birthday" class="form-label">Birthday</label>
+                            <input type="date" id="birthday" name="birthday" class="form-control bg-field"
+                                [(ngModel)]="user.birthday" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class="d-flex gap-2 flex-md-row flex-column">
+                            <button type="button" class="btn bg-transparent text-primary border-primary fw-600 w-100"
+                                (click)="closeModal()">Cancel</button>
+                            <button type="button" class="btn gradient-bg text-white fw-600 w-100"
+                                (click)="closeModal()">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div *ngIf="activeModal === 1" class="modal-overlay">
+                <div class="modal-content bg-white">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-600">Change Password</h5>
+                        <i class="bi bi-x cursor-pointer text-muted fs-4" (click)="closeModal()"></i>
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label for="currentPassword" class="form-label">Current Password</label>
+                            <div class="input-group">
+                                <input type="password" id="currentPassword" name="currentPassword"
+                                    class="form-control bg-field" [type]="showCurrentPassword ? 'text' : 'password'">
+                                <span class="input-group-text cursor-pointer bg-field"
+                                    (click)="showCurrentPassword = !showCurrentPassword">
+                                    <i class="bi" [ngClass]="showCurrentPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label">New Password</label>
+                            <div class="input-group">
+                                <input type="password" id="newPassword" name="newPassword" class="form-control bg-field"
+                                    [type]="showNewPassword ? 'text' : 'password'">
+                                <span class="input-group-text cursor-pointer bg-field"
+                                    (click)="showNewPassword = !showNewPassword">
+                                    <i class="bi" [ngClass]="showNewPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
+                            <div class="input-group">
+                                <input type="password" id="confirmNewPassword" name="confirmNewPassword"
+                                    class="form-control bg-field" [type]="showConfirmPassword ? 'text' : 'password'">
+                                <span class="input-group-text cursor-pointer bg-field"
+                                    (click)="showConfirmPassword = !showConfirmPassword">
+                                    <i class="bi" [ngClass]="showConfirmPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mb-3 bg-light p-3 rounded-3">
+                            <p class="fw-600 mb-2">Password requirements:</p>
+                            <ul class="text-color2 small p-0">
+                                <li *ngFor="let requirement of passwordRequirements"
+                                    class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-check2"></i>{{ requirement }}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="d-flex gap-2 flex-md-row flex-column">
+                            <button type="button" class="btn bg-transparent text-primary border-primary fw-600 w-100"
+                                (click)="closeModal()">Cancel</button>
+                            <button type="button" class="btn gradient-bg text-white fw-600 w-100"
+                                (click)="closeModal()">Update Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div *ngIf="activeModal === 2" class="modal-overlay">
+                <div class="modal-content bg-white">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-600">Notification Preferences</h5>
+                        <i class="bi bi-x cursor-pointer text-muted fs-4" (click)="closeModal()"></i>
+                    </div>
+                    <form class="notification-form">
+                        <div class="mb-3">
+                            <div class="icon d-flex align-items-center gap-2 mb-2">
+                                <i class="{{ notificationPreferences.email.icon }} px-2 py-1 rounded-pill"></i>
+                                <h6 class="fw-600 mb-0">{{ notificationPreferences.email.title }}</h6>
+                            </div>
+                            <div *ngFor="let emailPref of notificationPreferences.email.preferences"
+                                class="form-check d-flex gap-2 align-items-center justify-content-between p-0 pt-2">
+                                <label class="form-check-label" for="email-{{emailPref.label}}">
+                                    {{ emailPref.label }}
+                                </label>
+                                <input class="form-check-input" type="checkbox" [checked]="emailPref.enabled"
+                                    id="email-{{emailPref.label}}">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="icon d-flex align-items-center gap-2 mb-2">
+                                <i class="{{ notificationPreferences.push.icon }} px-2 py-1 rounded-pill"></i>
+                                <h6 class="fw-600 mb-0">{{ notificationPreferences.push.title }}</h6>
+                            </div>
+                            <div *ngFor="let pushPref of notificationPreferences.push.preferences"
+                                class="form-check d-flex gap-2 align-items-center justify-content-between p-0 pt-2">
+                                <label class="form-check-label" for="push-{{pushPref.label}}">
+                                    {{ pushPref.label }}
+                                </label>
+                                <input class="form-check-input" type="checkbox" [checked]="pushPref.enabled"
+                                    id="push-{{pushPref.label}}">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="icon d-flex align-items-center gap-2 mb-2">
+                                <i class="{{ notificationPreferences.sms.icon }} px-2 py-1 rounded-pill"></i>
+                                <h6 class="fw-600 mb-0">{{ notificationPreferences.sms.title }}</h6>
+                            </div>
+                            <div *ngFor="let smsPref of notificationPreferences.sms.preferences"
+                                class="form-check d-flex gap-2 align-items-center justify-content-between p-0 pt-2">
+                                <label class="form-check-label" for="sms-{{smsPref.label}}">
+                                    {{ smsPref.label }}
+                                </label>
+                                <input class="form-check-input" type="checkbox" [checked]="smsPref.enabled"
+                                    id="sms-{{smsPref.label}}">
+                            </div>
+                        </div>
+                        <div class="mb-3 bg-field p-3 rounded-3">
+                            <div class="icon d-flex align-items-center gap-2 mb-2">
+                                <i class="{{ notificationPreferences.quietHours.icon }} px-2 py-1 rounded-pill"></i>
+                                <h6 class="fw-600 mb-0">{{ notificationPreferences.quietHours.title }}</h6>
+                            </div>
+                            <p class="text-color2 mb-1">{{notificationPreferences.quietHours.description}}</p>
+                            <div class="d-flex gap-2 align-items-center justify-content-between">
+                                <div class="d-flex flex-column w-100">
+                                    <label for="quietHoursFrom" class="form-label mb-0">From:</label>
+                                    <input type="time" id="quietHoursFrom" class="form-control bg-dark text-white2"
+                                        [(ngModel)]="notificationPreferences.quietHours.from"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                                <div class="d-flex flex-column w-100">
+                                    <label for="quietHoursTo" class="form-label mb-0">To:</label>
+                                    <input type="time" id="quietHoursTo" class="form-control bg-dark text-white2"
+                                        [(ngModel)]="notificationPreferences.quietHours.to"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 flex-md-row flex-column">
+                            <button type="button" class="btn bg-transparent text-primary border-primary fw-600 w-100"
+                                (click)="closeModal()">Cancel</button>
+                            <button type="button" class="btn gradient-bg text-white fw-600 w-100"
+                                (click)="closeModal()">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div *ngIf="activeModal === 3" class="modal-overlay">
+                <div class="modal-content bg-white">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-600">Privacy & Security</h5>
+                        <i class="bi bi-x cursor-pointer text-muted fs-4" (click)="closeModal()"></i>
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <div class="icon d-flex align-items-center gap-2 mb-2">
+                                <i class="{{ privacySecurity.privacySettings.icon }} px-2 py-1 rounded-pill"></i>
+                                <h6 class="fw-600 mb-0">{{ privacySecurity.privacySettings.title }}</h6>
+                            </div>
+                            <label for="autoLogout" class="form-label">{{
+                                    privacySecurity.privacySettings.options.title }}</label>
+                            <select id="autoLogout" class="form-select">
+                                <option *ngFor="let option of privacySecurity.privacySettings.options.values"
+                                    [value]="option.label">
+                                    {{ option.label }}
+                                </option>
+                            </select>
+                            <div *ngFor="let preference of privacySecurity.privacySettings.preferences"
+                                class="form-check d-flex gap-2 align-items-center justify-content-between p-0 pt-2">
+                                <label class="form-check-label" for="privacy-{{preference.label}}">
+                                    {{ preference.label }}
+                                </label>
+                                <input class="form-check-input" type="checkbox" [checked]="preference.enabled"
+                                    id="privacy-{{preference.label}}">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="icon d-flex align-items-center gap-2 mb-2">
+                                <i class="{{ privacySecurity.securitySettings.icon }} px-2 py-1 rounded-pill"></i>
+                                <h6 class="fw-600 mb-0">{{ privacySecurity.securitySettings.title }}</h6>
+                            </div>
+                            <div *ngFor="let preference of privacySecurity.securitySettings.preferences"
+                                class="form-check d-flex gap-2 align-items-start justify-content-between p-0 pt-2">
+                                <label class="form-check-label d-flex flex-column" for="security-{{preference.label}}">
+                                    {{ preference.label }}
+                                    <span *ngIf="preference.text" class="text-muted small">{{ preference.text }}</span>
+                                </label>
+                                <input class="form-check-input" type="checkbox" [checked]="preference.enabled"
+                                    id="security-{{preference.label}}">
+                            </div>
+                            <div class="mt-3">
+                                <label for="autoLogout" class="form-label">{{
+                                    privacySecurity.securitySettings.options.text }}</label>
+                                <select id="autoLogout" class="form-select">
+                                    <option *ngFor="let option of privacySecurity.securitySettings.options.values"
+                                        [value]="option.label">
+                                        {{ option.label }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="icon d-flex align-items-center gap-2 mb-2">
+                                <i class="{{ privacySecurity.marketingSettings.icon }} px-2 py-1 rounded-pill"></i>
+                                <h6 class="fw-600 mb-0">{{ privacySecurity.marketingSettings.title }}</h6>
+                            </div>
+                            <div *ngFor="let preference of privacySecurity.marketingSettings.preferences"
+                                class="form-check d-flex gap-2 align-items-start justify-content-between p-0 pt-2">
+                                <label class="form-check-label d-flex flex-column" for="marketing-{{preference.label}}">
+                                    {{ preference.label }}
+                                    <span *ngIf="preference.text" class="text-muted small">{{ preference.text }}</span>
+                                </label>
+                                <input class="form-check-input" type="checkbox" [checked]="preference.enabled"
+                                    id="marketing-{{preference.label}}">
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 flex-md-row flex-column">
+                            <button type="button" class="btn bg-transparent text-primary border-primary fw-600 w-100"
+                                (click)="closeModal()">Cancel</button>
+                            <button type="button" class="btn gradient-bg text-white fw-600 w-100"
+                                (click)="closeModal()">Save Settings</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div *ngSwitchDefault>Overview content here</div>
         </ng-container>
     </main>

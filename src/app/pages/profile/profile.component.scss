@@ -1,7 +1,7 @@
 $bg-color: #ededed;
 $border: #D6D6D6;
 $dark-bg: #292929;
-
+$bg-primary: #8154A2;
 
 .sidebar {
     min-width: 240px;
@@ -79,4 +79,90 @@ $dark-bg: #292929;
     .badge{
         width: fit-content !important;
     }
+}
+.setting-tab{
+    i{
+        &.rounded-pill{
+            padding: 5px 12px;
+        }
+    }
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+.modal-content {
+    overflow: scroll;
+    max-height: 90vh;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .form-control{
+        box-shadow: none !important;
+        border: none;
+    }
+    .input-group-text{
+
+            border: none !important;
+
+    }
+
+    .avatar-container{
+        width: fit-content;
+    }
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.form-check-input {
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+    box-shadow: none;
+    border: none;
+}
+
+.form-check-input:checked {
+    background-color: $bg-primary;
+    box-shadow: none;
+    outline: none;
+    border: none;
+}
+
+.form-check-input::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: $bg-primary;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+.form-check-input:checked::before {
+    transform: translateX(20px);
+    background-color: $bg-primary;
+    display: none;
 }

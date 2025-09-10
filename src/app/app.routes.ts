@@ -11,11 +11,24 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { OrderConfirmedComponent } from './pages/order-confirmed/order-confirmed.component';  
 import { ProfileComponent } from './pages/profile/profile.component';
 
+
 export const routes: Routes = [
   { path: 'login', component: AuthFormsComponent },
   { path: 'signup', component: AuthFormsComponent },
   { path: 'forgot-password', component: AuthFormsComponent },
-  { path: 'profile', component: ProfileComponent },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    children: [
+      { path: '', redirectTo: 'overview', pathMatch: 'full' },
+      { path: 'overview', component: ProfileComponent },
+      { path: 'rewards', component: ProfileComponent },
+      { path: 'orders', component: ProfileComponent },
+      { path: 'events', component: ProfileComponent },
+      { path: 'favorites', component: ProfileComponent },
+      { path: 'settings', component: ProfileComponent }
+    ]
+  },
   { path: '', component: Home },
   { path: 'our-story', component: OurStory },
   { path: 'cafe-menu', component: CafeMenu },
