@@ -141,7 +141,9 @@ $bg-primary: #8154A2;
     box-shadow: none;
     border: none;
 }
-
+.form-select{
+    box-shadow: none !important;
+}
 .form-check-input:checked {
     background-color: $bg-primary;
     box-shadow: none;

@@ -192,6 +192,9 @@ body.dark-mode {
         border: none !important;
       }
     }
+    .bg-light{
+      background-color: $body-dark !important;
+    }
   }
 
   .text-d {
@@ -247,6 +250,9 @@ body.dark-mode {
       &::placeholder {
         color: $dark-text !important;
       }
+    }
+    &.form-control {
+      color: $dark-text !important;
     }
   }
 }
