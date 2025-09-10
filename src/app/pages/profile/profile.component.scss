@@ -106,6 +106,7 @@ $bg-primary: #8154A2;
     padding: 20px;
     border-radius: 10px;
     max-width: 500px;
+    margin: 0px 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     &::-webkit-scrollbar {
         display: none;
@@ -115,9 +116,7 @@ $bg-primary: #8154A2;
         border: none;
     }
     .input-group-text{
-
             border: none !important;
-
     }
 
     .avatar-container{

@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { PrimaryButtonComponent } from '../../shared/buttons/primary-button/primary-button';
 import { FormsModule } from '@angular/forms';
-import { first } from 'rxjs';
-import { Binary, isNgContainer } from '@angular/compiler';
-import { Title } from '@angular/platform-browser';
+import { I18nService } from '../../i18n.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -15,7 +14,9 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
+  langSub!: Subscription;
+  profile: any = {};
 
   user = {
     email: 'admin@gmail.com',
@@ -56,14 +57,10 @@ export class ProfileComponent {
 
   rewardsCards = [
     {
-      title: 'Current Points',
       icon: 'bi-star',
-      points: 850,
     },
     {
-      title: 'Next Level',
       icon: 'bi-trophy',
-      points: '150 points to go',
     },
   ];
 
@@ -71,64 +68,51 @@ export class ProfileComponent {
     currentPoints: 850,
     nextLevel: 3,
     pointsToNextLevel: 150,
-    pointsToNextLevelText: '150 points to go',
     progressPercentage: 85
   };
 
   rewardsStatus = [
     {
-      icon: 'bi bi-trophy',
-      points: 'Level 2',
-      title: 'Game Explorer',
+      icon: 'bi bi-trophy'    
     },
     {
-      icon: 'bi bi-disc',
-      points: 850,
-      title: 'Total Points',
+      icon: 'bi bi-disc'
     },
     {
-      icon: 'bi bi-gift',
-      points: 12,
-      title: 'Rewards Earned'
+      icon: 'bi bi-gift'
     }
   ];
   availableRewards = [
-    { title: 'Free Coffee', pointsRequired: 100, status: 'Redeem' },
-    { title: '20% Off Game Session', pointsRequired: 200, status: 'Redeem' },
-    { title: 'Free Dessert', pointsRequired: 150, status: 'Redeem' },
-    { title: 'VIP Table Reservation', pointsRequired: 500, status: 'Locked' }
+    {  pointsRequired: 100 },
+    {  pointsRequired: 200},
+    {  pointsRequired: 150 },
+    {  pointsRequired: 500}
   ];
 
   recentOrders = [
     {
       id: '#JUM8K9XL',
-      details: ['Monopoly Session', 'Jungle Coffee', 'Adventure Snack Box'],
       date: '2024-09-15 ',
       time: '14:30',
-      status: 'Completed',
       amount: '125.50'
     },
     {
       id: '#JUM7BW1JP',
-      details: ['Chess Tournament', 'Herbal Tea', 'Board Game Pizza'],
       date: '2024-09-13 ',
       time: '16:00',
-      status: 'Completed',
       amount: '98.75'
     },
     {
       id: '#JUM6K5M9N',
-      details: ['Scrabble Night', 'Espresso Double', 'Victory Cake'],
       date: '2024-09-12 ',
       time: '14:45',
-      status: 'Completed',
       amount: '87.25'
     }
   ];
 
   upcomingEvents = [
-    { image: '/assets/cafe-event-img1.jpg', title: 'Chess Championship Finals', date: '2024-12-15', time: '18:00', status: 'Registered' },
-    { image: '/assets/cafe-event-img1.jpg', title: 'Monopoly Marathon Weekend', date: '2024-12-22', time: '10:00', status: 'Registered' },
+    { image: '/assets/cafe-event-img1.jpg',  date: '2024-12-15', time: '18:00',  },
+    { image: '/assets/cafe-event-img1.jpg',  date: '2024-12-22', time: '10:00',  },
   ];
 
   favoriteGames = [
@@ -208,50 +192,109 @@ export class ProfileComponent {
 
   privacySecurity = {
     privacySettings: {
-        title: 'Privacy Settings',
-        icon: 'bi bi-shield-lock bg-info-subtle text-info',
-        options: {
-          title: 'Profile Visibility',
-          values: [
-            { label: 'Public' },
-            { label: 'Private' }
+      title: 'Privacy Settings',
+      icon: 'bi bi-shield-lock bg-info-subtle text-info',
+      options: {
+        title: 'Profile Visibility',
+        values: [
+          { label: 'Public' },
+          { label: 'Private' }
         ]
       },
-        preferences: [
-            { label: 'Show Online Status', enabled: true },
-            { label: 'Share Game Activity', enabled: true },
-            { label: 'Allow Friend Requests', enabled: true }
-        ]
+      preferences: [
+        { label: 'Show Online Status', enabled: true },
+        { label: 'Share Game Activity', enabled: true },
+        { label: 'Allow Friend Requests', enabled: true }
+      ]
     },
     securitySettings: {
-        title: 'Security Settings',
-        icon: 'bi bi-shield-lock bg-orange text-orange',
-        preferences: [
-            { label: 'Two-Factor Authentication', enabled: false, text: 'Add extra security to your account' },
-        ],
-        options: {
-            text: 'Auto-logout (minutes)',
-            values: [
-                { label: '5' },
-                { label: '10' },
-                { label: '15' },
-                { label: '30' },
-                { label: '60' }
-            ]
-        }
+      title: 'Security Settings',
+      icon: 'bi bi-shield-lock bg-orange text-orange',
+      preferences: [
+        { label: 'Two-Factor Authentication', enabled: false, text: 'Add extra security to your account' },
+      ],
+      options: {
+        text: 'Auto-logout (minutes)',
+        values: [
+          { label: '5' },
+          { label: '10' },
+          { label: '15' },
+          { label: '30' },
+          { label: '60' }
+        ]
+      }
     },
     marketingSettings: {
-        title: 'Marketing Preferences',
-        icon: 'bi bi-layers bg-success-subtle text-success',
-        preferences: [
-            { label: 'Share Analytics Data', enabled: true, text: 'Help improve our services' },
-            { label: 'Marketing Emails', enabled: false },
-        ]
+      title: 'Marketing Preferences',
+      icon: 'bi bi-layers bg-success-subtle text-success',
+      preferences: [
+        { label: 'Share Analytics Data', enabled: true, text: 'Help improve our services' },
+        { label: 'Marketing Emails', enabled: false },
+      ]
     }
-};
+  };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private i18n: I18nService) { }
 
+  ngOnInit(): void {
+    this.loadTranslations();
+    this.langSub = this.i18n.langChanged$.subscribe(() => {
+      this.loadTranslations();
+    });
+  }
+  loadTranslations() {
+    this.profile = this.i18n.t('profile');
+  }
+
+  onLanguageChanged() {
+    this.loadTranslations();
+  }
+  gettabs(): any[] {
+    return this.i18n.t('profile.tabs') as any[] || this.tabs;
+  }
+
+  getrewardsCards(): any[] {
+    const stats = this.i18n.t('profile.overview.reward.cards') as any[];
+    return stats.map((stat: any, idx: number) => ({
+      ...stat,
+      ...this.rewardsCards[idx]
+    }));
+  }
+  getrewardsData(): any {
+    const stats = this.i18n.t('profile.overview.rewardsData') as any;
+    return {
+        ...stats,
+        ...this.rewardsData
+    };
+  }
+  getrecentOrders(): any[] {
+    const stats = this.i18n.t('profile.overview.recentOrders') as any[];
+    return stats.map((stat: any, idx: number) => ({
+      ...stat,
+      ...this.recentOrders[idx]
+    }));
+  }
+  getupcomingEvents(): any[] {
+    const stats = this.i18n.t('profile.overview.upcomingEvents.cards') as any[];
+    return stats.map((stat: any, idx: number) => ({
+        ...stat,
+        ...this.upcomingEvents[idx]
+    }));
+  }
+getrewardsStatus(): any[] {
+  const stats = this.i18n.t('profile.rewardsStatus.cards') as any[] || [];
+  return stats.map((stat: any, idx: number) => ({
+    ...stat,
+    ...this.rewardsStatus[idx]
+  }));
+}
+getavailableRewards(): any[] {
+  const stats = this.i18n.t('profile.rewardsStatus.availableRewards.cards') as any[] || [];
+  return stats.map((stat: any, idx: number) => ({
+    ...stat,
+    ...this.availableRewards[idx]
+  }));
+}
   setActiveTab(tab: string) {
     this.activeTab = tab;
     this.router.navigate(['/profile', tab]);
@@ -261,6 +304,4 @@ export class ProfileComponent {
     localStorage.removeItem('userInfo');
     this.router.navigate(['/login']);
   }
-
-
 }

@@ -3,11 +3,11 @@
         "login": {
             "title": "Welcome Back",
             "subtitle": "Log in to continue your adventure",
-            "email":{
+            "email": {
                 "label": "Email Address",
                 "placeholder": "Enter your email"
             },
-            "password":{
+            "password": {
                 "label": "Password",
                 "placeholder": "Enter your password"
             },
@@ -20,7 +20,7 @@
         "signup": {
             "title": "Create an Account",
             "subtitle": "Join the jungle and start earning rewards",
-            "fullName":{
+            "fullName": {
                 "label": "Full Name",
                 "placeholder": "Enter your full name"
             },
@@ -1502,16 +1502,16 @@
         "strategy": "Strategy"
     },
     "myCart": {
-        "heading":{
+        "heading": {
             "title": "My",
             "highlight": "Cart",
             "subtitle": "Review your items before completing your adventure. Your quest items are ready — let's complete this epic journey! 🌟"
         },
-        "noItem":{
+        "noItem": {
             "title": "No items added to cart",
             "text": "Your cart is empty. Start exploring and add items to your cart!"
         },
-        "orderSummary":{
+        "orderSummary": {
             "title": "Order Summary",
             "subtotal": "Subtotal",
             "tax": "VAT",
@@ -1522,70 +1522,70 @@
             "ghostBtn1": "Continue Shopping",
             "ghostBtn2": "Add from Menu"
         },
-        "cartItem":{
+        "cartItem": {
             "title": "Cart Item"
         }
     },
-    "checkout":{
-        "heading":{
+    "checkout": {
+        "heading": {
             "title": "",
             "highlight": "Checkout",
             "subtitle": "Just a few steps before your game begins Complete your order and get ready for an epic adventure! 🌟"
         },
-        "customerInfo":{
+        "customerInfo": {
             "title": "Customer Information",
-            "fullName":{
+            "fullName": {
                 "label": "Full Name *",
                 "placeholder": "Enter your full name",
                 "error": "Please fill out your full name."
             },
-            "phoneNumber":{
+            "phoneNumber": {
                 "label": "Phone Number *",
                 "placeholder": "+966 XXX XXX XXXX",
                 "error": "Please enter a valid 10-digit phone number."
             },
-            "emailAddress":{
+            "emailAddress": {
                 "label": "Email Address *",
                 "placeholder": "your@email.com",
                 "error": "Please enter a valid email address."
             }
         },
-        "orderType":{
+        "orderType": {
             "title": "Order Type",
-            "pickup":{
+            "pickup": {
                 "title": "Pickup",
                 "description": "Order ready in 12-15 min"
             },
-            "table":{
+            "table": {
                 "title": "Table Reservation",
                 "description": "Reserve a table & time"
             },
             "error": "Please select an order type."
         },
-        "notes":{
+        "notes": {
             "title": "Special Notes (Optional)",
             "placeholder": "Any special requests? (e.g., No sugar, Birthday surprise, Extra napkins...)",
             "limit": "0/500 characters"
         },
-        "buttons":{
+        "buttons": {
             "confirmOrder": "Confirm Order",
             "backToCart": "Back to Cart"
         },
-        "orderSummary":{
+        "orderSummary": {
             "quantity": "Qty",
             "title": "Order Summary",
             "subtotal": "Subtotal",
             "tax": "VAT",
             "total": "Total",
-            "payment":{
+            "payment": {
                 "title": "Payment Method",
                 "highlight": "Pay at Café",
-                "description" : "Cash or Card accepted"
+                "description": "Cash or Card accepted"
             }
         }
     },
-    "orderConfirmed":{
-        "heading":{
+    "orderConfirmed": {
+        "heading": {
             "title": "Order",
             "highlight": "Confirmed!",
             "subtitle": "Your adventure order has been successfully placed!"
@@ -1599,6 +1599,104 @@
         "noteDescription": "We'll prepare your order and notify you when it's ready for pickup. Payment will be collected at the café.",
         "backToHome": "Back to Home",
         "continue": "Continue Shopping"
+    },
+    "profile": {
+        "overview": {
+            "reward": {
+                "title": "Rewards Overview",
+                "cards": [
+                    {
+                        "title": "Current Points",
+                        "points": 850
+                    },
+                    {
+                        "title": "Next Level",
+                        "points": "150 points to go"
+                    }
+                ]
+            },
+            "rewardsData": {
+                "text": "Progress to Level",
+                "pointsToNextLevelText": "150 points to go"
+            },
+            "recentOrders": [
+                {
+                    "details": [
+                        "Monopoly Session",
+                        "Jungle Coffee",
+                        "Adventure Snack Box"
+                    ],
+                    "status": "Completed"
+                },
+                {
+                    "details": [
+                        "Chess Tournament",
+                        "Herbal Tea",
+                        "Board Game Pizza"
+                    ],
+                    "status": "Completed"
+                },
+                {
+                    "details": [
+                        "Scrabble Night",
+                        "Espresso Double",
+                        "Victory Cake"
+                    ],
+                    "status": "Completed"
+                }
+            ],
+            "upcomingEvents": {
+                "title": "Upcoming Events",
+                "cards": [
+                    {
+                        "title": "Chess Championship Finals",
+                        "status": "Registered"
+                    },
+                    {
+                        "title": "Monopoly Marathon Weekend",
+                        "status": "Registered"
+                    }
+                ]
+            }
+        },
+        "rewardsStatus": {
+            "title": "Rewards Overview",
+            "cards": [
+                {
+                    "points": "Level 2",
+                    "title": "Game Explorer"
+                },
+                {
+                    "points": 850,
+                    "title": "Total Points"
+                },
+                {
+                    "points": 12,
+                    "title": "Rewards Earned"
+                }
+            ],
+            "availableRewards": {
+                "title": "Available Rewards",
+                "cards": [
+                    {
+                        "title": "Free Coffee",
+                        "status": "Redeem"
+                    },
+                    {
+                        "title": "20% Off Game Session",
+                        "status": "Redeem"
+                    },
+                    {
+                        "title": "Free Dessert",
+                        "status": "Redeem"
+                    },
+                    {
+                        "title": "VIP Table Reservation",
+                        "status": "Locked"
+                    }
+                ]
+            }
+        }
     },
     "footer": {
         "description": "Experience the ultimate board game café adventure in the heart of Jeddah. Where games come to life and legends are born! 🎲✨",
