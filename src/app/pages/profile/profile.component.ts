@@ -5,7 +5,22 @@ import { PrimaryButtonComponent } from '../../shared/buttons/primary-button/prim
 import { FormsModule } from '@angular/forms';
 import { I18nService } from '../../i18n.service';
 import { Subscription } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
+
+export interface User {
+  email: string;
+  password: string;
+  fullName: string;
+  firstName: string;
+  lastName: string;
+  avatar: string;
+  phoneNumber: string;
+  currentLevel: number;
+  currentLevelTitle: string;
+  birthday: string;
+  [key: string]: string | number;
+}
 
 @Component({
   selector: 'app-profile',
@@ -18,10 +33,10 @@ export class ProfileComponent implements OnInit {
   langSub!: Subscription;
   profile: any = {};
 
-  user = {
+  user: User = {
     email: 'admin@gmail.com',
     password: 'admin',
-    fullName: 'Admin',
+    fullName: 'Admin User',
     firstName: 'Admin',
     lastName: 'User',
     avatar: '/assets/testimonial-img1.jpg',
@@ -30,6 +45,7 @@ export class ProfileComponent implements OnInit {
     currentLevelTitle: 'Game Explorer',
     birthday: '',
   };
+
   activeModal: number | null = null;
   showCurrentPassword = false;
   showNewPassword = false;
@@ -73,7 +89,7 @@ export class ProfileComponent implements OnInit {
 
   rewardsStatus = [
     {
-      icon: 'bi bi-trophy'    
+      icon: 'bi bi-trophy'
     },
     {
       icon: 'bi bi-disc'
@@ -83,10 +99,10 @@ export class ProfileComponent implements OnInit {
     }
   ];
   availableRewards = [
-    {  pointsRequired: 100 },
-    {  pointsRequired: 200},
-    {  pointsRequired: 150 },
-    {  pointsRequired: 500}
+    { pointsRequired: 100 },
+    { pointsRequired: 200 },
+    { pointsRequired: 150 },
+    { pointsRequired: 500 }
   ];
 
   recentOrders = [
@@ -111,40 +127,46 @@ export class ProfileComponent implements OnInit {
   ];
 
   upcomingEvents = [
-    { image: '/assets/cafe-event-img1.jpg',  date: '2024-12-15', time: '18:00',  },
-    { image: '/assets/cafe-event-img1.jpg',  date: '2024-12-22', time: '10:00',  },
+    { image: '/assets/cafe-event-img1.jpg', date: '2024-12-15', time: '18:00', },
+    { image: '/assets/cafe-event-img1.jpg', date: '2024-12-22', time: '10:00', },
   ];
 
   favoriteGames = [
-    { image: '/assets/cafe-game-img1.jpg', title: 'Catan', category: 'Strategy' },
-    { image: '/assets/cafe-game-img1.jpg', title: 'Ticket to Ride', category: 'Family' },
-    { image: '/assets/cafe-game-img1.jpg', title: 'Pandemic', category: 'Cooperative' },
-    { image: '/assets/cafe-game-img1.jpg', title: 'Carcassonne', category: 'Tile Placement' },
+    { image: '/assets/cafe-game-img1.jpg' },
+    { image: '/assets/cafe-game-img1.jpg' },
+    { image: '/assets/cafe-game-img1.jpg' },
+    { image: '/assets/cafe-game-img1.jpg' },
   ];
 
   settingTabs = [
     {
-      title: 'Edit Profile Information',
-      subtitle: 'Update your name, email, and avatar',
       iconClass: 'bi bi-person-circle bg-primary2'
     },
     {
-      title: 'Change Password',
-      subtitle: 'Update your account password',
       iconClass: 'bi bi-key bg-orange text-orange'
     },
     {
-      title: 'Notification Preferences',
-      subtitle: 'Manage your notification settings',
       iconClass: 'bi bi-bell bg-orange text-orange'
     },
     {
-      title: 'Privacy & Security',
-      subtitle: 'Manage your privacy settings',
       iconClass: 'bi bi-shield-lock bg-primary2'
     }
   ];
 
+  editProfileLabel = {
+    title: 'Edit Profile',
+    text: 'Click camera to change photo',
+    saveBtn: 'Save Changes',
+    cancelBtn: 'Cancel',
+    avatar: 'user.avatar',
+    fields: [
+      { id: 'firstName', label: 'First Name', type: 'text', model: 'user.firstName' },
+      { id: 'lastName', label: 'Last Name', type: 'text', model: 'user.lastName' },
+      { id: 'email', label: 'Email', type: 'email', model: 'user.email' },
+      { id: 'phone', label: 'Phone', type: 'text', model: 'user.phoneNumber' },
+      { id: 'birthday', label: 'Birthday', type: 'date', model: 'user.birthday' }
+    ]
+  }
   passwordRequirements = [
     'At least 8 characters',
     'Upper and lowercase letters',
@@ -263,12 +285,12 @@ export class ProfileComponent implements OnInit {
   getrewardsData(): any {
     const stats = this.i18n.t('profile.overview.rewardsData') as any;
     return {
-        ...stats,
-        ...this.rewardsData
+      ...stats,
+      ...this.rewardsData
     };
   }
   getrecentOrders(): any[] {
-    const stats = this.i18n.t('profile.overview.recentOrders') as any[];
+    const stats = this.i18n.t('profile.overview.recentOrders.orders') as any[] || [];
     return stats.map((stat: any, idx: number) => ({
       ...stat,
       ...this.recentOrders[idx]
@@ -277,24 +299,38 @@ export class ProfileComponent implements OnInit {
   getupcomingEvents(): any[] {
     const stats = this.i18n.t('profile.overview.upcomingEvents.cards') as any[];
     return stats.map((stat: any, idx: number) => ({
-        ...stat,
-        ...this.upcomingEvents[idx]
+      ...stat,
+      ...this.upcomingEvents[idx]
     }));
   }
-getrewardsStatus(): any[] {
-  const stats = this.i18n.t('profile.rewardsStatus.cards') as any[] || [];
-  return stats.map((stat: any, idx: number) => ({
-    ...stat,
-    ...this.rewardsStatus[idx]
-  }));
-}
-getavailableRewards(): any[] {
-  const stats = this.i18n.t('profile.rewardsStatus.availableRewards.cards') as any[] || [];
-  return stats.map((stat: any, idx: number) => ({
-    ...stat,
-    ...this.availableRewards[idx]
-  }));
-}
+  getrewardsStatus(): any[] {
+    const stats = this.i18n.t('profile.rewardsStatus.cards') as any[] || [];
+    return stats.map((stat: any, idx: number) => ({
+      ...stat,
+      ...this.rewardsStatus[idx]
+    }));
+  }
+  getavailableRewards(): any[] {
+    const stats = this.i18n.t('profile.rewardsStatus.availableRewards.cards') as any[] || [];
+    return stats.map((stat: any, idx: number) => ({
+      ...stat,
+      ...this.availableRewards[idx]
+    }));
+  }
+  getfavoriteGames(): any[] {
+    const stats = this.i18n.t('profile.favoriteGames.cards') as any[] || [];
+    return stats.map((stat: any, idx: number) => ({
+      ...stat,
+      ...this.favoriteGames[idx]
+    }));
+  }
+  getsettingTabs(): any[] {
+    const stats = this.i18n.t('profile.settingTabs.tabs') as any[] || [];
+    return stats.map((stat: any, idx: number) => ({
+      ...stat,
+      ...this.settingTabs[idx]
+    }));
+  }
   setActiveTab(tab: string) {
     this.activeTab = tab;
     this.router.navigate(['/profile', tab]);

@@ -1601,6 +1601,12 @@
         "continue": "Continue Shopping"
     },
     "profile": {
+        "user": {
+            "fullName": "Admin",
+            "firstName": "Admin",
+            "lastName": "User",
+            "currentLevelTitle": "Game Explorer"
+        },
         "overview": {
             "reward": {
                 "title": "Rewards Overview",
@@ -1619,34 +1625,42 @@
                 "text": "Progress to Level",
                 "pointsToNextLevelText": "150 points to go"
             },
-            "recentOrders": [
-                {
-                    "details": [
-                        "Monopoly Session",
-                        "Jungle Coffee",
-                        "Adventure Snack Box"
-                    ],
-                    "status": "Completed"
-                },
-                {
-                    "details": [
-                        "Chess Tournament",
-                        "Herbal Tea",
-                        "Board Game Pizza"
-                    ],
-                    "status": "Completed"
-                },
-                {
-                    "details": [
-                        "Scrabble Night",
-                        "Espresso Double",
-                        "Victory Cake"
-                    ],
-                    "status": "Completed"
-                }
-            ],
+            "recentOrders": {
+                "title": "My Orders",
+                "itemTitle": "Items",
+                "receiptBtn": "View Receipt",
+                "reorderBtn": "Reorder",
+                "orders": [
+                    {
+                        "details": [
+                            "Monopoly Session",
+                            "Jungle Coffee",
+                            "Adventure Snack Box"
+                        ],
+                        "status": "Completed"
+                    },
+                    {
+                        "details": [
+                            "Chess Tournament",
+                            "Herbal Tea",
+                            "Board Game Pizza"
+                        ],
+                        "status": "Completed"
+                    },
+                    {
+                        "details": [
+                            "Scrabble Night",
+                            "Espresso Double",
+                            "Victory Cake"
+                        ],
+                        "status": "Completed"
+                    }
+                ]
+            },
             "upcomingEvents": {
                 "title": "Upcoming Events",
+                "viewBtn": "View Details",
+                "cancelBtn": "Cancel",
                 "cards": [
                     {
                         "title": "Chess Championship Finals",
@@ -1696,6 +1710,76 @@
                     }
                 ]
             }
+        },
+        "favoriteGames": {
+            "title": "My Favorite Games",
+            "browseBtn": "Browse Games",
+            "cards": [
+                {
+                    "title": "Catan",
+                    "category": "Strategy",
+                    "btn": "Play Now"
+                },
+                {
+                    "title": "Ticket to Ride",
+                    "category": "Family",
+                    "btn": "Play Now"
+                },
+                {
+                    "title": "Pandemic",
+                    "category": "Cooperative",
+                    "btn": "Play Now"
+                },
+                {
+                    "title": "Carcassonne",
+                    "category": "Tile Placement",
+                    "btn": "Play Now"
+                }
+            ]
+        },
+        "settingTabs": {
+            "title": "Profile Settings",
+            "tabs": [
+                {
+                    "title": "Edit Profile Information",
+                    "subtitle": "Update your name, email, and avatar"
+                },
+                {
+                    "title": "Change Password",
+                    "subtitle": "Update your account password"
+                },
+                {
+                    "title": "Notification Preferences",
+                    "subtitle": "Manage your notification settings"
+                },
+                {
+                    "title": "Privacy & Security",
+                    "subtitle": "Manage your privacy settings"
+                }
+            ]
+        },
+        "editProfileLabel": {
+            "title": "Edit Profile",
+            "text": "Click camera to change photo",
+            "saveBtn": "Save Changes",
+            "cancelBtn": "Cancel",
+            "fields": [
+                {
+                    "label": "First Name"
+                },
+                {
+                    "label": "Last Name"
+                },
+                {
+                    "label": "Email"
+                },
+                {
+                    "label": "Phone"
+                },
+                {
+                    "label": "Birthday"
+                }
+            ]
         }
     },
     "footer": {
