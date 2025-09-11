@@ -1780,6 +1780,78 @@
                     "label": "Birthday"
                 }
             ]
+        },
+        "changePassword": {
+            "title": "Change Password",
+            "label1": "Current Password",
+            "label2": "New Password",
+            "label3": "Confirm New Password",
+            "requirements": {
+                "title": "Password Requirements",
+                "list": [
+                    "At least 8 characters",
+                    "Upper and lowercase letters",
+                    "At least one number"
+                ]
+            },
+            "cancelBtn": "Cancel",
+            "saveBtn": "Update Password"
+        },
+        "notification":{
+            "title": "Notification Preferences",
+            "cancelBtn": "Cancel",
+            "saveBtn": "Save Preferences"
+        },
+        "notificationemail": {
+            "title": "Email Notifications",
+            "preferences": [
+                {
+                    "label": "Order Updates"
+                },
+                {
+                    "label": "Event Reminders"
+                },
+                {
+                    "label": "Weekly Newsletter"
+                },
+                {
+                    "label": "Promotions & Offers"
+                }
+            ]
+        },
+        "notificationpush": {
+            "title": "Push Notifications",
+            "preferences": [
+                {
+                    "label": "Order Updates"
+                },
+                {
+                    "label": "Event Reminders"
+                },
+                {
+                    "label": "Promotions & Offers"
+                },
+                {
+                    "label": "Game Recommendations"
+                }
+            ]
+        },
+        "notificationsms": {
+            "title": "SMS Notifications",
+            "preferences": [
+                {
+                    "label": "Order Updates"
+                },
+                {
+                    "label": "Event Reminders"
+                }
+            ]
+        },
+        "notificationquietHours": {
+            "title": "Quiet Hours",
+            "description": "No notifications during these hours",
+            "fromlabel": "From",
+            "tolabel": "To"
         }
     },
     "footer": {

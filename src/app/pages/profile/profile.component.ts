@@ -167,50 +167,41 @@ export class ProfileComponent implements OnInit {
       { id: 'birthday', label: 'Birthday', type: 'date', model: 'user.birthday' }
     ]
   }
-  passwordRequirements = [
-    'At least 8 characters',
-    'Upper and lowercase letters',
-    'At least one number'
-  ];
 
-  notificationPreferences = {
-    email: {
-      title: 'Email Notifications',
-      icon: 'bi bi-envelope bg-success-subtle text-success',
-      preferences: [
-        { label: 'Order Updates', enabled: true },
-        { label: 'Event Reminders', enabled: false },
-        { label: 'Weekly Newsletter', enabled: true },
-        { label: 'Promotions & Offers', enabled: true }
-      ]
-    },
-    push: {
-      title: 'Push Notifications',
-      icon: 'bi bi-bell bg-info-subtle text-info',
-      preferences: [
-        { label: 'Order Updates', enabled: true },
-        { label: 'Event Reminders', enabled: true },
-        { label: 'Promotions & Offers', enabled: false },
-        { label: 'Game Recommendations', enabled: true }
-      ]
-    },
-    sms: {
-      title: 'SMS Notifications',
-      icon: 'bi bi-chat-dots bg-orange text-orange',
-      preferences: [
-        { label: 'Order Updates', enabled: false },
-        { label: 'Event Reminders', enabled: true }
-      ]
-    },
-    quietHours: {
-      title: 'Quiet Hours',
-      icon: 'bi bi-moon bg-primary2',
-      description: 'No notifications during these hours',
-      enabled: true,
-      from: '22:00',
-      to: '08:00'
-    }
-  };
+  notificationemail = {
+    icon: 'bi bi-envelope bg-success-subtle text-success',
+    title: '',
+    preferences: [
+      { enabled: true },
+      { enabled: false },
+      { enabled: true },
+      { enabled: true }
+    ]
+  }
+  notificationpush = {
+    icon: 'bi bi-bell bg-info-subtle text-info',
+    title: '',
+    preferences: [
+      { enabled: true },
+      { enabled: true },
+      { enabled: false },
+      { enabled: true }
+    ]
+  }
+  notificationsms = {
+    icon: 'bi bi-chat-dots bg-orange text-orange',
+    title: '',
+    preferences: [
+      { enabled: false },
+      { enabled: true }
+    ]
+  }
+  notificationquietHours = {
+    icon: 'bi bi-moon bg-primary2',
+    enabled: true,
+    from: '22:00',
+    to: '08:00'
+  }
 
   privacySecurity = {
     privacySettings: {
@@ -259,6 +250,9 @@ export class ProfileComponent implements OnInit {
   constructor(private router: Router, private i18n: I18nService) { }
 
   ngOnInit(): void {
+    this.notificationemail.title = this.i18n.t('profile.notificationemail.title');
+    this.notificationpush.title = this.i18n.t('profile.notificationpush.title');
+    this.notificationsms.title = this.i18n.t('profile.notificationsms.title');
     this.loadTranslations();
     this.langSub = this.i18n.langChanged$.subscribe(() => {
       this.loadTranslations();
@@ -331,6 +325,39 @@ export class ProfileComponent implements OnInit {
       ...this.settingTabs[idx]
     }));
   }
+  getpasswordRequirements(): string[] {
+    const requirements = this.i18n.t('profile.changePassword.requirements.list') as string[] || [];
+    return requirements;
+  }
+
+  getnotificationemail(): any[] {
+    const stats = this.i18n.t('profile.notificationemail.preferences') as any[] || [];
+    return stats.map((stat: any, idx: number) => ({
+      ...stat,
+      ...this.notificationemail.preferences[idx]
+    }));
+  }
+  getnotificationpush(): any[] {
+    const stats = this.i18n.t('profile.notificationpush.preferences') as any[] || [];
+    return stats.map((stat: any, idx: number) => ({
+      ...stat,
+      ...this.notificationpush.preferences[idx]
+    }));
+  }
+  getnotificationsms(): any[] {
+    const stats = this.i18n.t('profile.notificationsms.preferences') as any[] || [];
+    return stats.map((stat: any, idx: number) => ({
+      ...stat,
+      ...this.notificationsms.preferences[idx]
+    }));
+  }
+  getnotificationquietHours(): any {
+  const stats = this.i18n.t('profile.notificationquietHours') || {}; 
+  return {
+    ...stats, 
+    ...this.notificationquietHours 
+  };
+}
   setActiveTab(tab: string) {
     this.activeTab = tab;
     this.router.navigate(['/profile', tab]);

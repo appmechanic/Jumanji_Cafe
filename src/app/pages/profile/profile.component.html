@@ -263,71 +263,81 @@
                         <i class="bi bi-x cursor-pointer text-muted fs-4" (click)="closeModal()"></i>
                     </div>
                     <form>
-                      <div class="text-center mb-3">
-                        <div class="avatar-container d-flex flex-column align-items-center position-relative mx-auto">
-                          <img [src]="user.avatar" alt="Avatar" class="rounded-circle gradient-bg p-1" style="width: 100px; height: 100px;">
-                          <div class="icon position-absolute bg-primary text-white rounded-circle d-flex align-items-center justify-content-center px-2 py-1 bottom-0 end-0">
-                            <i class="bi bi-camera"></i>
-                          </div>
+                        <div class="text-center mb-3">
+                            <div
+                                class="avatar-container d-flex flex-column align-items-center position-relative mx-auto">
+                                <img [src]="user.avatar" alt="Avatar" class="rounded-circle gradient-bg p-1"
+                                    style="width: 100px; height: 100px;">
+                                <div
+                                    class="icon position-absolute bg-primary text-white rounded-circle d-flex align-items-center justify-content-center px-2 py-1 bottom-0 end-0">
+                                    <i class="bi bi-camera"></i>
+                                </div>
+                            </div>
+                            <span type="button" class="text-color2 text-decoration-none pt-1">{{ editProfileLabel.text
+                                }}</span>
                         </div>
-                        <span type="button" class="text-color2 text-decoration-none pt-1">{{ editProfileLabel.text }}</span>
-                      </div>
-                      <div *ngFor="let field of editProfileLabel.fields" class="mb-3">
-                        <label [for]="field.id" class="form-label">{{ field.label }}</label>
-                        <input [type]="field.type" [id]="field.id" [name]="field.id" class="form-control bg-field" [(ngModel)]="user[field.id]" [ngModelOptions]="{standalone: true}">
-                      </div>
-                      <div class="d-flex gap-2 flex-md-row flex-column">
-                        <button type="button" class="btn bg-transparent text-primary border-primary fw-600 w-100" (click)="closeModal()">{{ editProfileLabel.cancelBtn }}</button>
-                        <button type="button" class="btn gradient-bg text-white fw-600 w-100" (click)="closeModal()">{{ editProfileLabel.saveBtn }}</button>
-                      </div>
+                        <div *ngFor="let field of editProfileLabel.fields" class="mb-3">
+                            <label [for]="field.id" class="form-label">{{ field.label }}</label>
+                            <input [type]="field.type" [id]="field.id" [name]="field.id" class="form-control bg-field"
+                                [(ngModel)]="user[field.id]" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class="d-flex gap-2 flex-md-row flex-column">
+                            <button type="button" class="btn bg-transparent text-primary border-primary fw-600 w-100"
+                                (click)="closeModal()">{{ editProfileLabel.cancelBtn }}</button>
+                            <button type="button" class="btn gradient-bg text-white fw-600 w-100"
+                                (click)="closeModal()">{{ editProfileLabel.saveBtn }}</button>
+                        </div>
                     </form>
                 </div>
             </div>
-
+            <!-- modal of change pwd -->
             <div *ngIf="activeModal === 1" class="modal-overlay">
                 <div class="modal-content bg-white">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h5 class="fw-600">Change Password</h5>
+                        <h5 class="fw-600">{{profile.changePassword.title}}</h5>
                         <i class="bi bi-x cursor-pointer text-muted fs-4" (click)="closeModal()"></i>
                     </div>
                     <form>
                         <div class="mb-3">
-                            <label for="currentPassword" class="form-label">Current Password</label>
-                            <div class="input-group">
+                            <label for="currentPassword" class="form-label">{{profile.changePassword.label1}}</label>
+
+                            <div class="input-group bg-field rounded-3">
                                 <input type="password" id="currentPassword" name="currentPassword"
-                                    class="form-control bg-field" [type]="showCurrentPassword ? 'text' : 'password'">
-                                <span class="input-group-text cursor-pointer bg-field"
+                                    class="form-control bg-transparent"
+                                    [type]="showCurrentPassword ? 'text' : 'password'">
+                                <span class="input-group-text cursor-pointer bg-transparent"
                                     (click)="showCurrentPassword = !showCurrentPassword">
                                     <i class="bi" [ngClass]="showCurrentPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
                                 </span>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="newPassword" class="form-label">New Password</label>
-                            <div class="input-group">
-                                <input type="password" id="newPassword" name="newPassword" class="form-control bg-field"
-                                    [type]="showNewPassword ? 'text' : 'password'">
-                                <span class="input-group-text cursor-pointer bg-field"
+                            <label for="newPassword" class="form-label">{{profile.changePassword.label2}}</label>
+                            <div class="input-group bg-field rounded-3">
+                                <input type="password" id="newPassword" name="newPassword"
+                                    class="form-control bg-transparent" [type]="showNewPassword ? 'text' : 'password'">
+                                <span class="input-group-text cursor-pointer bg-transparent"
                                     (click)="showNewPassword = !showNewPassword">
                                     <i class="bi" [ngClass]="showNewPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
                                 </span>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
-                            <div class="input-group">
+                            <label for="confirmNewPassword" class="form-label">{{profile.changePassword.label3}}</label>
+                            <div class="input-group bg-field rounded-3">
                                 <input type="password" id="confirmNewPassword" name="confirmNewPassword"
-                                    class="form-control bg-field" [type]="showConfirmPassword ? 'text' : 'password'">
-                                <span class="input-group-text cursor-pointer bg-field"
+                                    class="form-control bg-transparent"
+                                    [type]="showConfirmPassword ? 'text' : 'password'">
+                                <span class="input-group-text cursor-pointer bg-transparent"
                                     (click)="showConfirmPassword = !showConfirmPassword">
                                     <i class="bi" [ngClass]="showConfirmPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
                                 </span>
                             </div>
                         </div>
                         <div class="mb-3 bg-light p-3 rounded-3">
-                            <p class="fw-600 mb-2">Password requirements:</p>
+                            <p class="fw-600 mb-2">{{profile.changePassword.requirements.title}}</p>
                             <ul class="text-color2 small p-0">
-                                <li *ngFor="let requirement of passwordRequirements"
+                                <li *ngFor="let requirement of getpasswordRequirements()"
                                     class="d-flex align-items-center gap-2">
                                     <i class="bi bi-check2"></i>{{ requirement }}
                                 </li>
@@ -335,27 +345,27 @@
                         </div>
                         <div class="d-flex gap-2 flex-md-row flex-column">
                             <button type="button" class="btn bg-transparent text-primary border-primary fw-600 w-100"
-                                (click)="closeModal()">Cancel</button>
+                                (click)="closeModal()">{{profile.changePassword.cancelBtn}}</button>
                             <button type="button" class="btn gradient-bg text-white fw-600 w-100"
-                                (click)="closeModal()">Update Password</button>
+                                (click)="closeModal()">{{profile.changePassword.saveBtn}}</button>
                         </div>
                     </form>
                 </div>
             </div>
-
+            <!-- modal of notification  -->
             <div *ngIf="activeModal === 2" class="modal-overlay">
                 <div class="modal-content bg-white">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h5 class="fw-600">Notification Preferences</h5>
+                        <h5 class="fw-600">{{profile.notification.title}}</h5>
                         <i class="bi bi-x cursor-pointer text-muted fs-4" (click)="closeModal()"></i>
                     </div>
                     <form class="notification-form">
                         <div class="mb-3">
                             <div class="icon d-flex align-items-center gap-2 mb-2">
-                                <i class="{{ notificationPreferences.email.icon }} px-2 py-1 rounded-pill"></i>
-                                <h6 class="fw-600 mb-0">{{ notificationPreferences.email.title }}</h6>
+                                <i class="{{ notificationemail.icon }} px-2 py-1 rounded-pill"></i>
+                                <h6 class="fw-600 mb-0">{{ notificationemail.title }}</h6>
                             </div>
-                            <div *ngFor="let emailPref of notificationPreferences.email.preferences"
+                            <div *ngFor="let emailPref of getnotificationemail()"
                                 class="form-check d-flex gap-2 align-items-center justify-content-between p-0 pt-2">
                                 <label class="form-check-label" for="email-{{emailPref.label}}">
                                     {{ emailPref.label }}
@@ -366,10 +376,10 @@
                         </div>
                         <div class="mb-3">
                             <div class="icon d-flex align-items-center gap-2 mb-2">
-                                <i class="{{ notificationPreferences.push.icon }} px-2 py-1 rounded-pill"></i>
-                                <h6 class="fw-600 mb-0">{{ notificationPreferences.push.title }}</h6>
+                                <i class="{{ notificationpush.icon }} px-2 py-1 rounded-pill"></i>
+                                <h6 class="fw-600 mb-0">{{ notificationpush.title }}</h6>
                             </div>
-                            <div *ngFor="let pushPref of notificationPreferences.push.preferences"
+                            <div *ngFor="let pushPref of getnotificationpush()"
                                 class="form-check d-flex gap-2 align-items-center justify-content-between p-0 pt-2">
                                 <label class="form-check-label" for="push-{{pushPref.label}}">
                                     {{ pushPref.label }}
@@ -380,10 +390,10 @@
                         </div>
                         <div class="mb-3">
                             <div class="icon d-flex align-items-center gap-2 mb-2">
-                                <i class="{{ notificationPreferences.sms.icon }} px-2 py-1 rounded-pill"></i>
-                                <h6 class="fw-600 mb-0">{{ notificationPreferences.sms.title }}</h6>
+                                <i class="{{ notificationsms.icon }} px-2 py-1 rounded-pill"></i>
+                                <h6 class="fw-600 mb-0">{{ notificationsms.title }}</h6>
                             </div>
-                            <div *ngFor="let smsPref of notificationPreferences.sms.preferences"
+                            <div *ngFor="let smsPref of getnotificationsms()"
                                 class="form-check d-flex gap-2 align-items-center justify-content-between p-0 pt-2">
                                 <label class="form-check-label" for="sms-{{smsPref.label}}">
                                     {{ smsPref.label }}
@@ -394,30 +404,30 @@
                         </div>
                         <div class="mb-3 bg-field p-3 rounded-3">
                             <div class="icon d-flex align-items-center gap-2 mb-2">
-                                <i class="{{ notificationPreferences.quietHours.icon }} px-2 py-1 rounded-pill"></i>
-                                <h6 class="fw-600 mb-0">{{ notificationPreferences.quietHours.title }}</h6>
+                                <i class="{{ getnotificationquietHours().icon }} px-2 py-1 rounded-pill"></i>
+                                <h6 class="fw-600 mb-0">{{ getnotificationquietHours().title }}</h6>
                             </div>
-                            <p class="text-color2 mb-1">{{notificationPreferences.quietHours.description}}</p>
+                            <p class="text-color2 mb-1">{{ getnotificationquietHours().description }}</p>
                             <div class="d-flex gap-2 align-items-center justify-content-between">
                                 <div class="d-flex flex-column w-100">
-                                    <label for="quietHoursFrom" class="form-label mb-0">From:</label>
+                                    <label for="quietHoursFrom" class="form-label mb-0">{{
+                                        getnotificationquietHours().fromlabel }}</label>
                                     <input type="time" id="quietHoursFrom" class="form-control bg-dark text-white2"
-                                        [(ngModel)]="notificationPreferences.quietHours.from"
-                                        [ngModelOptions]="{standalone: true}">
+                                        [(ngModel)]="notificationquietHours.from" [ngModelOptions]="{standalone: true}">
                                 </div>
                                 <div class="d-flex flex-column w-100">
-                                    <label for="quietHoursTo" class="form-label mb-0">To:</label>
+                                    <label for="quietHoursTo" class="form-label mb-0">{{
+                                        getnotificationquietHours().tolabel }}</label>
                                     <input type="time" id="quietHoursTo" class="form-control bg-dark text-white2"
-                                        [(ngModel)]="notificationPreferences.quietHours.to"
-                                        [ngModelOptions]="{standalone: true}">
+                                        [(ngModel)]="notificationquietHours.to" [ngModelOptions]="{standalone: true}">
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex gap-2 flex-md-row flex-column">
                             <button type="button" class="btn bg-transparent text-primary border-primary fw-600 w-100"
-                                (click)="closeModal()">Cancel</button>
+                                (click)="closeModal()">{{profile.notification.cancelBtn}}</button>
                             <button type="button" class="btn gradient-bg text-white fw-600 w-100"
-                                (click)="closeModal()">Save Changes</button>
+                                (click)="closeModal()">{{profile.notification.saveBtn}}</button>
                         </div>
                     </form>
                 </div>
