@@ -1601,10 +1601,20 @@
     "continue": "متابعة التسوق"
   },
   "profile": {
+    "logoutBtn": "تسجيل الخروج",
+      "tabs": [
+    { "label": "نظرة عامة", "route": "overview" },
+    { "label": "المكافآت", "route": "rewards" },
+    { "label": "طلباتي", "route": "orders" },
+    { "label": "الفعاليات", "route": "events" },
+    { "label": "المفضلة", "route": "favorites" },
+    { "label": "الإعدادات", "route": "settings" }
+  ],
     "user": {
       "fullName": "أدمين",
       "firstName": "أدمين",
       "lastName": "المستخدم",
+      "currentLevel": "المستوى 2",
       "currentLevelTitle": "مستكشف الألعاب"
     },
     "overview": {

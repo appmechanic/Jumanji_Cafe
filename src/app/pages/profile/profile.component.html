@@ -4,20 +4,20 @@
             <div class="avatar mb-2">
                 <i class="bi bi-person-circle fs-1 text-primary"></i>
             </div>
-            <div class="fw-bold">{{ user.fullName }}</div>
-            <div class="text-muted small">{{ user.email }}</div>
+            <div class="fw-bold">{{ getusers().fullName }}</div>
+            <div class="text-muted small">{{ getusers().email }}</div>
             <div class="gradient-bg px-2 py-1 rounded-20 level text-white">
-                Level {{ user.currentLevel }} - {{ user.currentLevelTitle }}
+                {{ getusers().currentLevel }} - {{ getusers().currentLevelTitle }}
             </div>
         </div>
         <nav class="nav flex-column gap-2">
-            <a *ngFor="let tab of tabs" [class.active]="activeTab === tab.route"
+            <a *ngFor="let tab of gettabs()" [class.active]="activeTab === tab.route"
                 [class.gradient-bg]="activeTab === tab.route" [class.text-white]="activeTab === tab.route"
                 [class.fw-600]="activeTab === tab.route" (click)="setActiveTab(tab.route)"
                 class="nav-link cursor-pointer">
                 {{ tab.label }}
             </a>
-            <button class="btn btn-danger mt-4 w-100" (click)="logout()">Log Out</button>
+            <button class="btn btn-danger mt-4 w-100" (click)="logout()">{{profile.logoutBtn}}</button>
         </nav>
     </aside>
     <main class="profile-content flex-grow-1">
@@ -278,8 +278,8 @@
                         </div>
                         <div *ngFor="let field of editProfileLabel.fields" class="mb-3">
                             <label [for]="field.id" class="form-label">{{ field.label }}</label>
-                            <input [type]="field.type" [id]="field.id" [name]="field.id" class="form-control bg-field"
-                                [(ngModel)]="user[field.id]" [ngModelOptions]="{standalone: true}">
+                            <!-- <input [type]="field.type" [id]="field.id" [name]="field.id" class="form-control bg-field"
+                                [(ngModel)]="user[field.id]" [ngModelOptions]="{standalone: true}"> -->
                         </div>
                         <div class="d-flex gap-2 flex-md-row flex-column">
                             <button type="button" class="btn bg-transparent text-primary border-primary fw-600 w-100"

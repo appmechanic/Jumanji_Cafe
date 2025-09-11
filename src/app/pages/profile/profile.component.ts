@@ -8,19 +8,6 @@ import { Subscription } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 
 
-export interface User {
-  email: string;
-  password: string;
-  fullName: string;
-  firstName: string;
-  lastName: string;
-  avatar: string;
-  phoneNumber: string;
-  currentLevel: number;
-  currentLevelTitle: string;
-  birthday: string;
-  [key: string]: string | number;
-}
 
 @Component({
   selector: 'app-profile',
@@ -33,16 +20,11 @@ export class ProfileComponent implements OnInit {
   langSub!: Subscription;
   profile: any = {};
 
-  user: User = {
+  user = {
     email: 'admin@gmail.com',
     password: 'admin',
-    fullName: 'Admin User',
-    firstName: 'Admin',
-    lastName: 'User',
     avatar: '/assets/testimonial-img1.jpg',
     phoneNumber: '+1 (555) 123-4567',
-    currentLevel: 2,
-    currentLevelTitle: 'Game Explorer',
     birthday: '',
   };
 
@@ -265,9 +247,6 @@ export class ProfileComponent implements OnInit {
   onLanguageChanged() {
     this.loadTranslations();
   }
-  gettabs(): any[] {
-    return this.i18n.t('profile.tabs') as any[] || this.tabs;
-  }
 
   getrewardsCards(): any[] {
     const stats = this.i18n.t('profile.overview.reward.cards') as any[];
@@ -352,10 +331,24 @@ export class ProfileComponent implements OnInit {
     }));
   }
   getnotificationquietHours(): any {
-  const stats = this.i18n.t('profile.notificationquietHours') || {}; 
+    const stats = this.i18n.t('profile.notificationquietHours') || {};
+    return {
+      ...stats,
+      ...this.notificationquietHours
+    };
+  }
+  gettabs(): any[] {
+    const translatedTabs = this.i18n.t('profile.tabs') as any[] || [];
+    return translatedTabs.map((tab: any, idx: number) => ({
+      ...tab,
+      route: this.tabs[idx]?.route
+    }));
+  }
+  getusers(): any {
+  const stats = this.i18n.t('profile.user') || {}; 
   return {
-    ...stats, 
-    ...this.notificationquietHours 
+    ...this.user,
+    ...stats 
   };
 }
   setActiveTab(tab: string) {

@@ -1601,10 +1601,38 @@
         "continue": "Continue Shopping"
     },
     "profile": {
+        "logoutBtn": "Log Out",
+        "tabs": [
+            {
+                "label": "Overview",
+                "route": "overview"
+            },
+            {
+                "label": "Rewards",
+                "route": "rewards"
+            },
+            {
+                "label": "My Orders",
+                "route": "orders"
+            },
+            {
+                "label": "Events",
+                "route": "events"
+            },
+            {
+                "label": "Favorites",
+                "route": "favorites"
+            },
+            {
+                "label": "Settings",
+                "route": "settings"
+            }
+        ],
         "user": {
             "fullName": "Admin",
             "firstName": "Admin",
             "lastName": "User",
+            "currentLevel": "Level 2",
             "currentLevelTitle": "Game Explorer"
         },
         "overview": {
@@ -1797,7 +1825,7 @@
             "cancelBtn": "Cancel",
             "saveBtn": "Update Password"
         },
-        "notification":{
+        "notification": {
             "title": "Notification Preferences",
             "cancelBtn": "Cancel",
             "saveBtn": "Save Preferences"
