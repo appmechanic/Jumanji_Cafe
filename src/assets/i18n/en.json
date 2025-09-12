@@ -460,6 +460,64 @@
             }
         ]
     },
+    "cafeMenu": {
+        "hero": {
+            "title": "Cafe ",
+            "highlight": " Menu",
+            "subtitle": "Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕"
+        },
+        "items": [
+            {
+                "category": "Jumanji Special",
+                "title": "Catan",
+                "price": "15 SAR",
+                "subtitle": "Build settlements and cities in this classic strategy game",
+                "buttonText": "Add to Order"
+            },
+            {
+                "category": "Customer Favorite",
+                "title": "Azul",
+                "price": "15 SAR",
+                "subtitle": "Create beautiful tile patterns in this elegant strategy game",
+                "buttonText": "Add to Order"
+            },
+            {
+                "category": "Jumanji Special",
+                "title": "Wingspan",
+                "price": "15 SAR",
+                "subtitle": "Attract birds to your wildlife preserves in this engine-building game",
+                "buttonText": "Add to Order"
+            },
+            {
+                "category": "Sweet Victory",
+                "title": "Wingspan",
+                "price": "15 SAR",
+                "subtitle": "Attract birds to your wildlife preserves in this engine-building game",
+                "buttonText": "Add to Order"
+            },
+            {
+                "category": "Sweet Victory",
+                "title": "Wingspan",
+                "price": "15 SAR",
+                "subtitle": "Attract birds to your wildlife preserves in this engine-building game",
+                "buttonText": "Add to Order"
+            },
+            {
+                "category": "Customer Favorite",
+                "title": "Azul",
+                "price": "15 SAR",
+                "subtitle": "Create beautiful tile patterns in this elegant strategy game",
+                "buttonText": "Add to Order"
+            },
+            {
+                "category": "Jumanji Special",
+                "title": "Wingspan",
+                "price": "15 SAR",
+                "subtitle": "Attract birds to your wildlife preserves in this engine-building game",
+                "buttonText": "Add to Order"
+            }
+        ]
+    },
     "gameStore": {
         "hero": {
             "title": "Board Game",
