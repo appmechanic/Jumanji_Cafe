@@ -399,14 +399,15 @@ export class ProfileComponent implements OnInit {
     };
   }
   getprivacyAndSecurity(): any {
-    const stats = this.i18n.t('profile.privacyAndSecurity') || {}; // Fetch translation data
+    const stats = this.i18n.t('profile.privacyAndSecurity') || {}; 
     return {
-      ...stats // Return the translation data
+      ...stats 
     };
   }
   setActiveTab(tab: string) {
     this.activeTab = tab;
     this.router.navigate(['/profile', tab]);
+    
   }
 
   logout() {
