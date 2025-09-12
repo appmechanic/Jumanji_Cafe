@@ -1602,14 +1602,32 @@
   },
   "profile": {
     "logoutBtn": "تسجيل الخروج",
-      "tabs": [
-    { "label": "نظرة عامة", "route": "overview" },
-    { "label": "المكافآت", "route": "rewards" },
-    { "label": "طلباتي", "route": "orders" },
-    { "label": "الفعاليات", "route": "events" },
-    { "label": "المفضلة", "route": "favorites" },
-    { "label": "الإعدادات", "route": "settings" }
-  ],
+    "tabs": [
+      {
+        "label": "نظرة عامة",
+        "route": "overview"
+      },
+      {
+        "label": "المكافآت",
+        "route": "rewards"
+      },
+      {
+        "label": "طلباتي",
+        "route": "orders"
+      },
+      {
+        "label": "الفعاليات",
+        "route": "events"
+      },
+      {
+        "label": "المفضلة",
+        "route": "favorites"
+      },
+      {
+        "label": "الإعدادات",
+        "route": "settings"
+      }
+    ],
     "user": {
       "fullName": "أدمين",
       "firstName": "أدمين",
@@ -1862,6 +1880,63 @@
       "description": "لا توجد إشعارات خلال هذه الساعات",
       "fromlabel": "من",
       "tolabel": "إلى"
+    },
+    "privacyAndSecurity": {
+      "title": "الخصوصية والأمان",
+      "cancelBtn": "إلغاء",
+      "saveBtn": "حفظ الإعدادات"
+    },
+    "privacySettings": {
+      "title": "إعدادات الخصوصية",
+      "options": {
+        "title": "رؤية الملف الشخصي",
+        "values": [
+          {
+            "label": "عام"
+          },
+          {
+            "label": "خاص"
+          }
+        ]
+      },
+      "preferences": [
+        {
+          "label": "إظهار الحالة على الإنترنت",
+          "enabled": true
+        },
+        {
+          "label": "مشاركة نشاط الألعاب",
+          "enabled": true
+        },
+        {
+          "label": "السماح بطلبات الصداقة",
+          "enabled": true
+        }
+      ]
+    },
+    "securitySettings": {
+      "title": "إعدادات الأمان",
+      "preferences": [
+        {
+          "label": "المصادقة الثنائية",
+          "text": "أضف أمانًا إضافيًا إلى حسابك"
+        }
+      ],
+      "options": {
+        "text": "تسجيل الخروج التلقائي (بالدقائق)"
+      }
+    },
+    "marketingSettings": {
+      "title": "تفضيلات التسويق",
+      "preferences": [
+        {
+          "label": "مشاركة بيانات التحليلات",
+          "text": "ساعدنا في تحسين خدماتنا"
+        },
+        {
+          "label": "رسائل البريد الإلكتروني التسويقية"
+        }
+      ]
     }
   },
   "footer": {

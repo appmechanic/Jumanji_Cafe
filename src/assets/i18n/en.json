@@ -1880,6 +1880,63 @@
             "description": "No notifications during these hours",
             "fromlabel": "From",
             "tolabel": "To"
+        },
+        "privacyAndSecurity": {
+            "title": "Privacy & Security",
+            "cancelBtn": "Cancel",
+            "saveBtn": "Save Settings"
+        },
+        "privacySettings": {
+            "title": "Privacy Settings",
+            "options": {
+                "title": "Profile Visibility",
+                "values": [
+                    {
+                        "label": "Public"
+                    },
+                    {
+                        "label": "Private"
+                    }
+                ]
+            },
+            "preferences": [
+                {
+                    "label": "Show Online Status",
+                    "enabled": true
+                },
+                {
+                    "label": "Share Game Activity",
+                    "enabled": true
+                },
+                {
+                    "label": "Allow Friend Requests",
+                    "enabled": true
+                }
+            ]
+        },
+        "securitySettings": {
+            "title": "Security Settings",
+            "preferences": [
+                {
+                    "label": "Two-Factor Authentication",
+                    "text": "Add extra security to your account"
+                }
+            ],
+            "options": {
+                "text": "Auto-logout (minutes)"
+            }
+        },
+        "marketingSettings": {
+            "title": "Marketing Preferences",
+            "preferences": [
+                {
+                    "label": "Share Analytics Data",
+                    "text": "Help improve our services"
+                },
+                {
+                    "label": "Marketing Emails"
+                }
+            ]
         }
     },
     "footer": {

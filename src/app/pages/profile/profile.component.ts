@@ -185,61 +185,55 @@ export class ProfileComponent implements OnInit {
     to: '08:00'
   }
 
-  privacySecurity = {
-    privacySettings: {
-      title: 'Privacy Settings',
-      icon: 'bi bi-shield-lock bg-info-subtle text-info',
-      options: {
-        title: 'Profile Visibility',
-        values: [
-          { label: 'Public' },
-          { label: 'Private' }
-        ]
-      },
-      preferences: [
-        { label: 'Show Online Status', enabled: true },
-        { label: 'Share Game Activity', enabled: true },
-        { label: 'Allow Friend Requests', enabled: true }
-      ]
-    },
-    securitySettings: {
-      title: 'Security Settings',
-      icon: 'bi bi-shield-lock bg-orange text-orange',
-      preferences: [
-        { label: 'Two-Factor Authentication', enabled: false, text: 'Add extra security to your account' },
-      ],
-      options: {
-        text: 'Auto-logout (minutes)',
-        values: [
-          { label: '5' },
-          { label: '10' },
-          { label: '15' },
-          { label: '30' },
-          { label: '60' }
-        ]
-      }
-    },
-    marketingSettings: {
-      title: 'Marketing Preferences',
-      icon: 'bi bi-layers bg-success-subtle text-success',
-      preferences: [
-        { label: 'Share Analytics Data', enabled: true, text: 'Help improve our services' },
-        { label: 'Marketing Emails', enabled: false },
+  privacySettings = {
+    icon: 'bi bi-shield-lock bg-info-subtle text-info',
+    preferences: [
+      { enabled: true },
+      { enabled: true },
+      { enabled: true }
+    ]
+  }
+  securitySettings = {
+    icon: 'bi bi-shield-lock bg-orange text-orange',
+    preferences: [
+      { enabled: false, },
+    ],
+    options: {
+      values: [
+        { label: '5' },
+        { label: '10' },
+        { label: '15' },
+        { label: '30' },
+        { label: '60' }
       ]
     }
-  };
+  }
+  marketingSettings = {
+    icon: 'bi bi-layers bg-success-subtle text-success',
+    preferences: [
+      { enabled: true  },
+      { enabled: false},
+    ]
+  }
+  leftChevronRight: string = 'bi bi-chevron-right'; 
 
   constructor(private router: Router, private i18n: I18nService) { }
 
   ngOnInit(): void {
+    this.updateleftChevronRight();
     this.notificationemail.title = this.i18n.t('profile.notificationemail.title');
     this.notificationpush.title = this.i18n.t('profile.notificationpush.title');
     this.notificationsms.title = this.i18n.t('profile.notificationsms.title');
     this.loadTranslations();
     this.langSub = this.i18n.langChanged$.subscribe(() => {
       this.loadTranslations();
+      this.updateleftChevronRight();
     });
   }
+  updateleftChevronRight(): void {
+  const currentLang = this.i18n.getCurrentLang(); 
+  this.leftChevronRight = currentLang === 'ar' ? 'bi bi-chevron-left' : 'bi bi-chevron-right'; 
+}
   loadTranslations() {
     this.profile = this.i18n.t('profile');
   }
@@ -345,10 +339,62 @@ export class ProfileComponent implements OnInit {
     }));
   }
   getusers(): any {
-  const stats = this.i18n.t('profile.user') || {}; 
+    const stats = this.i18n.t('profile.user') || {};
+    return {
+      ...this.user,
+      ...stats
+    };
+  }
+  
+getprivacySettings(): any {
+  const stats = this.i18n.t('profile.privacySettings') || {}; 
   return {
-    ...this.user,
-    ...stats 
+    ...stats, 
+    ...this.privacySettings, 
+    preferences: (stats.preferences || []).map((pref: any, idx: number) => ({
+      ...pref,
+      ...this.privacySettings.preferences[idx] 
+    })),
+    options: {
+      ...stats.options,
+      values: (stats.options?.values || []).map((option: any) => ({
+        ...option
+      }))
+    }
+  };
+}
+getsecuritySettings(): any {
+  const stats = this.i18n.t('profile.securitySettings') || {}; 
+  return {
+    ...stats,
+    ...this.securitySettings,
+    preferences: (stats.preferences || []).map((pref: any, idx: number) => ({
+      ...pref,
+      ...this.securitySettings.preferences[idx] 
+    })),
+    options: {
+      ...stats.options,
+      values: (this.securitySettings.options.values || []).map((option: any) => ({
+        ...option
+      }))
+    }
+  };
+}
+getmarketingSettings(): any {
+  const stats = this.i18n.t('profile.marketingSettings') || {}; 
+  return {
+    ...stats,
+    ...this.marketingSettings,
+    preferences: (stats.preferences || []).map((pref: any, idx: number) => ({
+      ...pref,
+      ...this.marketingSettings.preferences[idx] 
+    }))
+  };
+}
+getprivacyAndSecurity(): any {
+  const stats = this.i18n.t('profile.privacyAndSecurity') || {}; // Fetch translation data
+  return {
+    ...stats // Return the translation data
   };
 }
   setActiveTab(tab: string) {
