@@ -9,6 +9,14 @@ import { Title } from '@angular/platform-browser';
 
 
 
+type User = {
+  email: string;
+  password: string;
+  avatar: string;
+  phoneNumber: string;
+  birthday: string;
+};
+
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -20,7 +28,7 @@ export class ProfileComponent implements OnInit {
   langSub!: Subscription;
   profile: any = {};
 
-  user = {
+  user: User = {
     email: 'admin@gmail.com',
     password: 'admin',
     avatar: '/assets/testimonial-img1.jpg',
@@ -142,13 +150,12 @@ export class ProfileComponent implements OnInit {
     cancelBtn: 'Cancel',
     avatar: 'user.avatar',
     fields: [
-      { id: 'firstName', label: 'First Name', type: 'text', model: 'user.firstName' },
-      { id: 'lastName', label: 'Last Name', type: 'text', model: 'user.lastName' },
-      { id: 'email', label: 'Email', type: 'email', model: 'user.email' },
-      { id: 'phone', label: 'Phone', type: 'text', model: 'user.phoneNumber' },
-      { id: 'birthday', label: 'Birthday', type: 'date', model: 'user.birthday' }
-    ]
-  }
+      { id: 'email', label: 'Email', type: 'email' },
+      { id: 'password', label: 'Password', type: 'password' },
+      { id: 'phoneNumber', label: 'Phone', type: 'text' },
+      { id: 'birthday', label: 'Birthday', type: 'date' }
+    ] as { id: keyof User; label: string; type: string }[]
+  };
 
   notificationemail = {
     icon: 'bi bi-envelope bg-success-subtle text-success',
@@ -211,11 +218,11 @@ export class ProfileComponent implements OnInit {
   marketingSettings = {
     icon: 'bi bi-layers bg-success-subtle text-success',
     preferences: [
-      { enabled: true  },
-      { enabled: false},
+      { enabled: true },
+      { enabled: false },
     ]
   }
-  leftChevronRight: string = 'bi bi-chevron-right'; 
+  leftChevronRight: string = 'bi bi-chevron-right';
 
   constructor(private router: Router, private i18n: I18nService) { }
 
@@ -231,9 +238,9 @@ export class ProfileComponent implements OnInit {
     });
   }
   updateleftChevronRight(): void {
-  const currentLang = this.i18n.getCurrentLang(); 
-  this.leftChevronRight = currentLang === 'ar' ? 'bi bi-chevron-left' : 'bi bi-chevron-right'; 
-}
+    const currentLang = this.i18n.getCurrentLang();
+    this.leftChevronRight = currentLang === 'ar' ? 'bi bi-chevron-left' : 'bi bi-chevron-right';
+  }
   loadTranslations() {
     this.profile = this.i18n.t('profile');
   }
@@ -345,58 +352,58 @@ export class ProfileComponent implements OnInit {
       ...stats
     };
   }
-  
-getprivacySettings(): any {
-  const stats = this.i18n.t('profile.privacySettings') || {}; 
-  return {
-    ...stats, 
-    ...this.privacySettings, 
-    preferences: (stats.preferences || []).map((pref: any, idx: number) => ({
-      ...pref,
-      ...this.privacySettings.preferences[idx] 
-    })),
-    options: {
-      ...stats.options,
-      values: (stats.options?.values || []).map((option: any) => ({
-        ...option
+
+  getprivacySettings(): any {
+    const stats = this.i18n.t('profile.privacySettings') || {};
+    return {
+      ...stats,
+      ...this.privacySettings,
+      preferences: (stats.preferences || []).map((pref: any, idx: number) => ({
+        ...pref,
+        ...this.privacySettings.preferences[idx]
+      })),
+      options: {
+        ...stats.options,
+        values: (stats.options?.values || []).map((option: any) => ({
+          ...option
+        }))
+      }
+    };
+  }
+  getsecuritySettings(): any {
+    const stats = this.i18n.t('profile.securitySettings') || {};
+    return {
+      ...stats,
+      ...this.securitySettings,
+      preferences: (stats.preferences || []).map((pref: any, idx: number) => ({
+        ...pref,
+        ...this.securitySettings.preferences[idx]
+      })),
+      options: {
+        ...stats.options,
+        values: (this.securitySettings.options.values || []).map((option: any) => ({
+          ...option
+        }))
+      }
+    };
+  }
+  getmarketingSettings(): any {
+    const stats = this.i18n.t('profile.marketingSettings') || {};
+    return {
+      ...stats,
+      ...this.marketingSettings,
+      preferences: (stats.preferences || []).map((pref: any, idx: number) => ({
+        ...pref,
+        ...this.marketingSettings.preferences[idx]
       }))
-    }
-  };
-}
-getsecuritySettings(): any {
-  const stats = this.i18n.t('profile.securitySettings') || {}; 
-  return {
-    ...stats,
-    ...this.securitySettings,
-    preferences: (stats.preferences || []).map((pref: any, idx: number) => ({
-      ...pref,
-      ...this.securitySettings.preferences[idx] 
-    })),
-    options: {
-      ...stats.options,
-      values: (this.securitySettings.options.values || []).map((option: any) => ({
-        ...option
-      }))
-    }
-  };
-}
-getmarketingSettings(): any {
-  const stats = this.i18n.t('profile.marketingSettings') || {}; 
-  return {
-    ...stats,
-    ...this.marketingSettings,
-    preferences: (stats.preferences || []).map((pref: any, idx: number) => ({
-      ...pref,
-      ...this.marketingSettings.preferences[idx] 
-    }))
-  };
-}
-getprivacyAndSecurity(): any {
-  const stats = this.i18n.t('profile.privacyAndSecurity') || {}; // Fetch translation data
-  return {
-    ...stats // Return the translation data
-  };
-}
+    };
+  }
+  getprivacyAndSecurity(): any {
+    const stats = this.i18n.t('profile.privacyAndSecurity') || {}; // Fetch translation data
+    return {
+      ...stats // Return the translation data
+    };
+  }
   setActiveTab(tab: string) {
     this.activeTab = tab;
     this.router.navigate(['/profile', tab]);
