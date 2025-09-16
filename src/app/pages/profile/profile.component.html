@@ -122,7 +122,7 @@
                                     <div class="fw-600 text-color">{{ reward.title }}</div>
                                     <div class="text-color2 small">{{ reward.status }}</div>
                                 </div>
-                                <button class="btn bg-primary text-white" [disabled]="reward.status === 'Locked'">
+                                <button class="btn bg-primary text-white" [disabled]="reward.status === 'Locked'" routerLink="/reward">
                                     {{ reward.status }}
                                 </button>
                             </div>

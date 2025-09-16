@@ -1,7 +1,6 @@
 <div
-  class="stat-card d-flex flex-column align-items-center justify-content-center text-center p-3 py-4 rounded-20 h-100" 
-  [ngClass]="getClassNames()"
-  [style.backgroundColor]="!isClass(cardBgColor) ? cardBgColor : null"
+  class="stat-card d-flex flex-column align-items-center justify-content-center text-center p-3 py-4 rounded-20 h-100"
+  [ngClass]="getClassNames()" [style.backgroundColor]="!isClass(cardBgColor) ? cardBgColor : null"
   [style.border]="!isClass(borderColor) ? '2px solid ' + borderColor : null">
   <!-- Only show icon container if icon is present and not empty -->
   <div *ngIf="icon && icon.trim().length > 0"
@@ -12,15 +11,23 @@
   </div>
 
   <p *ngIf="(title && title.trim().length > 0) || titleicon"
-    class="stat-value fs-24 mb-0 fw-600 d-flex align-items-center justify-content-center gap-2 py-2" [ngClass]="titleColor">
+    class="stat-value fs-24 mb-0 fw-600 d-flex align-items-center justify-content-center gap-2 py-2"
+    [ngClass]="titleColor">
     <span *ngIf="title && title.trim().length > 0">{{ title }}</span>
     <ng-container *ngIf="titleicon">
-      <i *ngIf="iconType === 'material'" class="material-icons" >{{ titleicon }}</i>
+      <i *ngIf="iconType === 'material'" class="material-icons">{{ titleicon }}</i>
       <i *ngIf="iconType === 'bootstrap'" [class]="'bi ' + titleicon + ' ' "></i>
     </ng-container>
   </p>
-  <p *ngIf="subtitle && subtitle.trim().length > 0" class="stat-subtitle mb-0 fw-600 fs-18" [ngClass]="subtitleColor">{{
+  <p *ngIf="subtitle && subtitle.trim().length > 0" class=" mb-0 fs-18" [ngClass]="subtitleColor">{{
     subtitle }}</p>
 
-<p *ngIf="text" class="stat-label mb-0" [ngClass]="textColor">{{ text }}</p>
+  <p *ngIf="text" class="stat-label mb-0" [ngClass]="textColor">{{ text }}</p>
+
+  <button *ngIf="btnText" [ngClass]="btnColor" class="w-100 border-0 outline-none p-2 rounded fw-600 mt-3 d-flex align-items-center justify-content-center gap-2">
+  <span>
+    <i *ngIf="btniconType === 'material'" class="material-icons" style="font-size: 1rem;">{{ btnIcon }}</i>
+    <i *ngIf="btniconType === 'bootstrap'" class="bi" [ngClass]="btnIcon" style="font-size: 1rem;"></i>
+  </span>
+  <span>{{btnText}}</span></button>
 </div>

@@ -1,0 +1,116 @@
+<div class="container-fluid p-sm-5  p-4 rewards-hero gradient-bg">
+  <div class="row">
+    <div class="col-12">
+      <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2"
+        iconRight="local_cafe" iconRightType="material" iconRightColor="bg-primary2" titleColor="text-white"
+        [title]="rewards.hero?.title" [highlight]="rewards.hero?.highlight" highlightColor="gradient-text"
+        subtitleColor="text-white" [subtitle]="rewards.hero?.subtitle">
+      </app-heading-section>
+    </div>
+  </div>
+
+  <div class="container mb-5 mt-4">
+    <div class="row g-4 d-flex align-items-stretch justify-content-center">
+      <div class="col-6 col-sm-5 col-md-4 col-lg-3" *ngFor="let stat of getheroStats()">
+        <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+          [textColor]="stat.textColor" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
+          [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor">
+        </app-stat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- redeem reward section -->
+<div class="container mt-5 redeem-rewards">
+  <div class="row">
+    <div class="col-12">
+      <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2" iconRight=""
+        iconRightType="material" iconRightColor="bg-primary2" titleColor="text-color" [title]="rewards.redeem?.title"
+        [highlight]="rewards.redeem?.highlight" highlightColor="gradient-text" subtitleColor="text-color2"
+        [subtitle]="rewards.redeem?.subtitle">
+      </app-heading-section>
+    </div>
+  </div>
+
+  <div class="container mb-5 mt-4">
+    <div class="row g-4 d-flex align-items-stretch justify-content-center">
+      <div class="col-6 col-sm-5 col-md-4 col-lg-3" *ngFor="let stat of getredeemStats()">
+        <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+          [textColor]="stat.textColor" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
+          [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor" [subtitle]="stat.subtitle"
+          [subtitleColor]="stat.subtitleColor" [btnText]="stat.btnText" [btnColor]="stat.btnColor"
+          [btnIcon]="stat.btnIcon" [btniconType]="stat.btniconType">
+        </app-stat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- how it work -->
+<div class="container mb-5 work-sec">
+  <div class="row">
+    <div class="col-12">
+      <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2" iconRight=""
+        iconRightType="material" iconRightColor="bg-primary2" titleColor="text-color" [title]="rewards.work?.title"
+        [highlight]="rewards.work?.highlight" highlightColor="gradient-text" subtitleColor="text-color2"
+        [subtitle]="rewards.work?.subtitle">
+      </app-heading-section>
+    </div>
+  </div>
+
+  <div class="container mb-5 mt-4">
+    <div class="row g-4 d-flex align-items-stretch justify-content-center">
+      <div class="col-6 col-sm-5 col-md-4 col-lg-3" *ngFor="let stat of getworkStats()">
+        <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+          [textColor]="stat.textColor" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
+          [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor" [subtitle]="stat.subtitle"
+          [subtitleColor]="stat.subtitleColor" [btnText]="stat.btnText" [btnColor]="stat.btnColor"
+          [btnIcon]="stat.btnIcon" [btniconType]="stat.btniconType">
+        </app-stat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- achievement -->
+<div class="container mb-5 achievement-sec">
+  <div class="row">
+    <div class="col-12">
+      <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2" iconRight=""
+        iconRightType="material" iconRightColor="bg-primary2" titleColor="text-color" [title]="rewards.achievement?.title"
+        [highlight]="rewards.achievement?.highlight" highlightColor="gradient-text" subtitleColor="text-color2"
+        [subtitle]="rewards.achievement?.subtitle">
+      </app-heading-section>
+    </div>
+  </div>
+
+  <div class="container mb-5 mt-4">
+    <div class="row g-4 d-flex align-items-stretch justify-content-center">
+      <div class="col-6 col-sm-5 col-md-4 col-lg-2" *ngFor="let stat of getachievementStats()">
+        <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+          [textColor]="stat.textColor" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
+          [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor" [subtitle]="stat.subtitle"
+          [subtitleColor]="stat.subtitleColor" [btnText]="stat.btnText" [btnColor]="stat.btnColor"
+          [btnIcon]="stat.btnIcon" [btniconType]="stat.btniconType">
+        </app-stat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA last Section -->
+<div class="container-fluid text-center py-5 gradient-bg cta-last">
+  <div class="container">
+    <app-cta-section icon="" titleClass="text-white" [titleStart]="rewards.ctaLast?.titleStart" [titleHighlight]="rewards.ctaLast?.titleHighlight" titleHighlightClass="text-white"
+      [description]="rewards.ctaLast?.description" descriptionClass="text-white" [bgWhite]="false">
+      <app-primary-button primaryButton iconLeft="card_travel" iconRight="" [bgGradient]="false" textColorClass="text-primary"
+        class="d-flex justify-content-center mt-2">
+        {{rewards.ctaLast?.primaryBtn}}
+      </app-primary-button>
+      <app-ghost-button ghostButton iconLeft="bi-download" class="d-flex justify-content-center mt-2" [bgWhite]="false" textColorClass="text-white">
+        {{rewards.ctaLast?.ghostBtn}}
+      </app-ghost-button>
+    </app-cta-section>
+  </div>
+</div>

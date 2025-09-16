@@ -10,7 +10,7 @@ import { MyCartComponent } from './pages/my-cart/my-cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { OrderConfirmedComponent } from './pages/order-confirmed/order-confirmed.component';  
 import { ProfileComponent } from './pages/profile/profile.component';
-
+import { Rewards } from './pages/rewards/rewards';
 
 export const routes: Routes = [
   { path: 'login', component: AuthFormsComponent },
@@ -38,4 +38,5 @@ export const routes: Routes = [
   { path: 'cart', component: MyCartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'order-confirmed', component: OrderConfirmedComponent },
+  { path: 'reward', component: Rewards },
 ];

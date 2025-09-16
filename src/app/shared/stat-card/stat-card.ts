@@ -10,9 +10,10 @@ import { CommonModule } from '@angular/common';
 })
 export class StatCardComponent {
   @Input() iconType!: 'material' | 'bootstrap'; 
+  @Input() btniconType!: 'material' | 'bootstrap'; 
   @Input() icon!: string;
   @Input() titleicon!: string;
-  
+  @Input() btnIcon!: string;
   @Input() title!: string;
   @Input() subtitle!: string;
   @Input() text!: string;
@@ -23,6 +24,9 @@ export class StatCardComponent {
   @Input() iconBgColor: string = '';
   @Input() titleColor: string = '';
 @Input() subtitleColor: string = '';
+@Input() btnText?: string;
+@Input() btnColor?: string;
+
 isClass(value: string): boolean {
   // Accepts only class names (letters, numbers, dashes, underscores)
   return /^[\w- ]+$/.test(value);

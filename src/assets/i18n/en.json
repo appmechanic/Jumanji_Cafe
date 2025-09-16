@@ -1997,6 +1997,118 @@
             ]
         }
     },
+    "rewards": {
+        "hero": {
+            "title": "Jumanji Rewards",
+            "highlight": "",
+            "subtitle": "Play more, sip more, and earn along the way. Join our loyalty journey and unlock rewards with every order, game, or visit.",
+            "stats": [
+                {
+                    "title": "2,500+",
+                    "text": "Active Members"
+                },
+                {
+                    "title": "15,000+",
+                    "text": "Rewards Redeemed   "
+                },
+                {
+                    "title": "98%",
+                    "text": "Satisfaction Rate"
+                }
+            ]
+        },
+        "redeem": {
+            "title": "Redeem Your",
+            "highlight": "Awards",
+            "subtitle": "Choose from our exciting collection of rewards and treats. The more you play, the more you earn!",
+            "stats": [
+                {
+                    "title": "Free Drink",
+                    "subtitle": "Any coffee, tea, or fresh juice",
+                    "text": "100 Points",
+                    "btnText": "Redeem Now"
+                },
+                {
+                    "title": "Free Dessert",
+                    "subtitle": "Delicious cakes, cookies, or pastries",
+                    "text": "150 Points",
+                    "btnText": "Need 15 More"
+                },
+                {
+                    "title": "15% Off Your Bill",
+                    "subtitle": "Valid on food and beverage orders",
+                    "text": "200 Points",
+                    "btnText": "Need 65 More"
+                },
+                {
+                    "title": "Free Game Session",
+                    "subtitle": "2-hour table reservation included",
+                    "text": "300 Points",
+                    "btnText": "Need 165 More"
+                }
+            ]
+        },
+        "work": {
+            "title": "How It",
+            "highlight": "Works",
+            "subtitle": "Simple steps to start earning and redeeming rewards",
+            "stats": [
+                {
+                   "title": "Step 1",
+                    "subtitle": "Earn Points",
+                    "text": "Get points when you order food, play games, or attend"
+                },
+                {
+                   "title": "Step 2",
+                    "subtitle": "Track Progress ",
+                    "text": "Monitor your points and level progress online anytime"
+                },
+                {
+                    "title": "Step 3",
+                    "subtitle": "Redeem Instantly",
+                    "text": "Use your points for rewards instantly at the café"
+                }
+            ]
+        },
+        "achievement": {
+            "title": "Your",
+            "highlight": "Achievements",
+            "subtitle": "Unlock special badges as you explore Jumanji Café",
+            "stats": [
+                {
+                   "subtitle": "First Visit",
+                    "text": "Earned"
+                },
+                {
+                   "subtitle": "Coffee Lover",
+                    "text": "Earned "
+                },
+                {
+                    "subtitle": "Game Master",
+                    "text": " "
+                },
+                {
+                   "subtitle": "Tournament Player",
+                    "text": "Earned "
+                },
+                {
+                    "subtitle": "Social Butterfly",
+                    "text": " "
+                },
+                {
+                   "subtitle": "Sweet Tooth",
+                    "text": "Earned "
+                }
+            ]
+        },
+         "ctaLast": {
+            "titleStart": "Not a Member Yet?",
+            "titleHighlight": "",
+            "description": "Join thousands of adventurers earning rewards with every visit. Start your journey today and unlock exclusive perks!",
+            "primaryBtn": "Join the Program",
+            "ghostBtn": "Download App"
+        }
+    },
     "footer": {
         "description": "Experience the ultimate board game café adventure in the heart of Jeddah. Where games come to life and legends are born! 🎲✨",
         "footerLinks": [
