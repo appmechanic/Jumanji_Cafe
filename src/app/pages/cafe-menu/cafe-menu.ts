@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeadingSectionComponent } from '../../shared/heading-section/heading-section';
 import { ShowcaseCardComponent, ListItem } from '../../shared/showcase-card/showcase-card';
+import { I18nService } from '../../i18n.service';
+import { Subscription } from 'rxjs';
+
 
 export type ShowcaseCardType = {
   imageSrc: string;
@@ -30,92 +33,124 @@ export type ShowcaseCardType = {
   styleUrls: ['./cafe-menu.scss']
 })
 export class CafeMenu {
-    cafeMenu: ShowcaseCardType[] = [
-      {
-        imageSrc: '/assets/cafe-menu-img1.jpg',
-        category: 'Jumanji Special',
-        categoryColor: 'bg-primary text-white',
-        title: 'Catan',
-        price: '15 SAR',
-        priceColor: 'bg-secondary2',
-        subtitle: 'Build settlements and cities in this classic strategy game',
-        buttonText: 'Add to Order',
-        buttonColor: 'bg-primary text-white',
-        showDetailIcon: false,
+  cafeMenu: any = {};
+  langSub?: Subscription;
+  cafeMenuStats = [
+    {
+      imageSrc: '/assets/cafe-menu-img1.jpg',
+      category: '',
+      categoryColor: 'bg-primary text-white',
+      title: '',
+      price: '',
+      priceColor: 'bg-secondary2',
+      subtitle: '',
+      buttonText: '',
+      buttonColor: 'bg-primary text-white',
+      showDetailIcon: false,
 
-      },
-      {
-        imageSrc: '/assets/cafe-menu-img1.jpg',
-        category: 'Customer Favorite',
-        categoryColor: 'bg-secondary text-white',
-        title: 'Azul',
-        price: '15 SAR',
-        priceColor: 'bg-secondary2',
-        subtitle: 'Create beautiful tile patterns in this elegant strategy game',
-        buttonText: 'Add to Order',
-        buttonColor: 'bg-primary text-white',
-        showDetailIcon: false,
-      },
-      {
-        imageSrc: '/assets/cafe-menu-img1.jpg',
-        category: 'Jumanji Special',
-        categoryColor: 'bg-primary text-white',
-        title: 'Wingspan',
-        price: '15 SAR',
-        priceColor: 'bg-secondary2',
-        subtitle: 'Attract birds to your wildlife preserves in this engine-building game',
-        buttonText: 'Add to Order',
-        buttonColor: 'bg-primary text-white',
-        showDetailIcon: false
-      },
-      {
-        imageSrc: '/assets/cafe-menu-img1.jpg',
-        category: 'Sweet Victory',
-        categoryColor: 'bg-primary text-white',
-        title: 'Wingspan',
-        price: '15 SAR',
-        priceColor: 'bg-secondary2',
-        subtitle: 'Attract birds to your wildlife preserves in this engine-building game',
-        buttonText: 'Add to Order',
-        buttonColor: 'bg-primary text-white',
-        showDetailIcon: false,
-      },
-      {
-        imageSrc: '/assets/cafe-menu-img1.jpg',
-        category: 'Sweet Victory',
-        categoryColor: 'bg-primary text-white',
-        title: 'Wingspan',
-        price: '15 SAR',
-        priceColor: 'bg-secondary2',
-        subtitle: 'Attract birds to your wildlife preserves in this engine-building game',
-        buttonText: 'Add to Order',
-        buttonColor: 'bg-primary text-white',
-        showDetailIcon: false
-      },
-      {
-        imageSrc: '/assets/cafe-menu-img1.jpg',
-        category: 'Customer Favorite',
-        categoryColor: 'bg-secondary text-white',
-        title: 'Azul',
-        price: '15 SAR',
-        priceColor: 'bg-secondary2',
-        subtitle: 'Create beautiful tile patterns in this elegant strategy game',
-        buttonText: 'Add to Order',
-        buttonColor: 'bg-primary text-white',
-        showDetailIcon: false
-      },
-      {
-        imageSrc: '/assets/cafe-menu-img1.jpg',
-        category: 'Jumanji Special',
-        categoryColor: 'bg-primary text-white',
-        title: 'Wingspan',
-        price: '15 SAR',
-        priceColor: 'bg-secondary2',
-        subtitle: 'Attract birds to your wildlife preserves in this engine-building game',
+    },
+    {
+      imageSrc: '/assets/cafe-menu-img1.jpg',
+      category: '',
+      categoryColor: 'bg-secondary text-white',
+      title: '',
+      price: '',
+      priceColor: 'bg-secondary2',
+      subtitle: '',
+      buttonText: '',
+      buttonColor: 'bg-primary text-white',
+      showDetailIcon: false,
+    },
+    {
+      imageSrc: '/assets/cafe-menu-img1.jpg',
+      category: '',
+      categoryColor: 'bg-primary text-white',
+      title: '',
+      price: '',
+      priceColor: 'bg-secondary2',
+      subtitle: '',
+      buttonText: '',
+      buttonColor: 'bg-primary text-white',
+      showDetailIcon: false
+    },
+    {
+      imageSrc: '/assets/cafe-menu-img1.jpg',
+      category: '',
+      categoryColor: 'bg-primary text-white',
+      title: '',
+      price: '',
+      priceColor: 'bg-secondary2',
+      subtitle: '',
+      buttonText: '',
+      buttonColor: 'bg-primary text-white',
+      showDetailIcon: false,
+    },
+    {
+      imageSrc: '/assets/cafe-menu-img1.jpg',
+      category: '',
+      categoryColor: 'bg-primary text-white',
+      title: '',
+      price: '',
+      priceColor: 'bg-secondary2',
+      subtitle: '',
+      buttonText: '',
+      buttonColor: 'bg-primary text-white',
+      showDetailIcon: false
+    },
+    {
+      imageSrc: '/assets/cafe-menu-img1.jpg',
+      category: '',
+      categoryColor: 'bg-secondary text-white',
+      title: '',
+      price: '',
+      priceColor: 'bg-secondary2',
+      subtitle: '',
+      buttonText: '',
+      buttonColor: 'bg-primary text-white',
+      showDetailIcon: false
+    },
+    {
+      imageSrc: '/assets/cafe-menu-img1.jpg',
+      category: '',
+      categoryColor: 'bg-primary text-white',
+      title: '',
+      price: '',
+      priceColor: 'bg-secondary2',
+      subtitle: '',
+      buttonText: '',
+      buttonColor: 'bg-primary text-white',
+      showDetailIcon: false
+    }
+  ];
 
-        buttonText: 'Add to Order',
-        buttonColor: 'bg-primary text-white',
-        showDetailIcon: false
-      }
-    ];
+  constructor(private i18n: I18nService) { }
+
+  ngOnInit() {
+    this.loadTranslations();
+    this.langSub = this.i18n.langChanged$.subscribe(() => {
+      this.loadTranslations();
+    });
+  }
+
+  ngOnDestroy() {
+    this.langSub?.unsubscribe();
+  }
+
+  loadTranslations() {
+    this.cafeMenu = this.i18n.t('cafeMenu');
+    const items = this.i18n.t('cafeMenu.items') as any[];
+
+  }
+
+  onLanguageChanged() {
+    this.loadTranslations();
+  }
+
+  getCafeMenuStats(): any[] {
+    const items = this.i18n.t('cafeMenu.items') as any[];
+    return items.map((item: any, idx: number) => ({
+      ...this.cafeMenuStats[idx],
+      ...item
+    }));
+  }
 }

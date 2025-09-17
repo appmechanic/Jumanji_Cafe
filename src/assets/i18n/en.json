@@ -461,11 +461,10 @@
         ]
     },
     "cafeMenu": {
-        "hero": {
+        
             "title": "Cafe ",
             "highlight": " Menu",
-            "subtitle": "Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕"
-        },
+            "subtitle": "Fuel your adventures with our specially crafted drinks and delicious treats, designed to keep you energized through epic gaming sessions! ☕",
         "items": [
             {
                 "category": "Jumanji Special",
