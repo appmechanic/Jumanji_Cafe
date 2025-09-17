@@ -1,0 +1,45 @@
+.adventure-form-card {
+    background-color: #FFFFFF33;
+
+    .form-control {
+        outline: none;
+        font-size: 16px;
+
+        &:focus {
+            box-shadow: none;
+            border-color: #8154A2;
+        }
+    }
+
+    input::placeholder {
+        color: #fff !important;
+        opacity: 1;
+    }
+
+    .interest-btn {
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        border: 1.5px solid #fff2;
+        transition: all 0.2s;
+
+        &:hover,
+        &.selected {
+            background: #fff;
+            color: #8154A2;
+            border-color: #f7c948;
+
+        }
+
+        i {
+            font-size: 1.2rem;
+        }
+    }
+
+    .btn.gradient-bg {
+        border: none;
+    }
+    .icons{
+        width: 40px;
+        height: 40px;
+    }
+}

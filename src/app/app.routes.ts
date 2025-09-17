@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import{ AuthFormsComponent } from './pages/auth-forms/auth-forms.component';
+import { AuthFormsComponent } from './pages/auth-forms/auth-forms.component';
 import { Home } from './pages/home/home';
 import { OurStory } from './pages/our-story/our-story';
 import { CafeMenu } from './pages/cafe-menu/cafe-menu';
@@ -8,9 +8,10 @@ import { B2BServices } from './pages/b2b-servcies/b2b-services';
 import { BoardGameStore } from './pages/board-game-store/board-game-store';
 import { MyCartComponent } from './pages/my-cart/my-cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
-import { OrderConfirmedComponent } from './pages/order-confirmed/order-confirmed.component';  
+import { OrderConfirmedComponent } from './pages/order-confirmed/order-confirmed.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { Rewards } from './pages/rewards/rewards';
+import { EventNews } from './pages/event-news/event-news';
 
 export const routes: Routes = [
   { path: 'login', component: AuthFormsComponent },
@@ -39,4 +40,5 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'order-confirmed', component: OrderConfirmedComponent },
   { path: 'reward', component: Rewards },
+  { path: 'events-news', component: EventNews },
 ];

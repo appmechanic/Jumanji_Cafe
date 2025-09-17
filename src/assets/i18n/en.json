@@ -875,6 +875,200 @@
             }
         }
     },
+    "events": {
+        "hero": {
+            "title": "Events &",
+            "highlight": "News",
+            "subtitle": "Stay in the loop with all the epic game nights, tournaments, and adventures happening at Jumanji Café. Your next legendary moment awaits! 🎲✨🏆",
+            "stats": [
+                {
+                    "title": "12+",
+                    "text": "Upcoming Events"
+                },
+                {
+                    "title": "8",
+                    "text": "Tournaments"
+                },
+                {
+                    "title": "150+",
+                    "text": "Players Joined"
+                },
+                {
+                    "title": "25+",
+                    "text": "Game Nights"
+                }
+            ]
+        },
+        "upcoming-event": {
+            "items": [
+                {
+                    "category": "Tournament",
+                    "badgeRight": "Free Entry",
+                    "eventDate": "Dec 15, 2024",
+                    "eventTime": "7:00 PM",
+                    "title": "Tournament Night: Catan Championship",
+                    "subtitle": "Join our monthly Catan tournament and compete for amazing prizes!",
+                    "buttonText": "Join Event"
+                },
+                {
+                    "category": "Family",
+                    "badgeRight": "50 SAR",
+                    "eventDate": "Dec 20, 2024",
+                    "eventTime": "5:30 PM",
+                    "title": "Azul Strategy Workshop",
+                    "subtitle": "Learn advanced Azul strategies from top players.",
+                    "buttonText": "Join Event"
+                },
+                {
+                    "category": "Launch",
+                    "badgeRight": "Beginner",
+                    "eventDate": "Dec 22, 2024",
+                    "eventTime": "6:00 PM",
+                    "title": "Family Game Night",
+                    "subtitle": "Bring your family for a fun-filled evening of games!",
+                    "buttonText": "Join Event"
+                },
+                {
+                    "category": "Theme Nights",
+                    "badgeRight": "RSVP",
+                    "eventDate": "Dec 22, 2024",
+                    "eventTime": "6:00 PM",
+                    "title": "Family Game Night",
+                    "subtitle": "Bring your family for a fun-filled evening of games!",
+                    "buttonText": "Join Event"
+                },
+                {
+                    "category": "Workshop",
+                    "badgeRight": "50 SAR",
+                    "eventDate": "Dec 20, 2024",
+                    "eventTime": "5:30 PM",
+                    "title": "Azul Strategy Workshop",
+                    "subtitle": "Learn advanced Azul strategies from top players.",
+                    "buttonText": "Join Event"
+                },
+                {
+                    "category": "Tournament",
+                    "badgeRight": "Free Entry",
+                    "eventDate": "Dec 15, 2024",
+                    "eventTime": "7:00 PM",
+                    "title": "Tournament Night: Catan Championship",
+                    "subtitle": "Join our monthly Catan tournament and compete for amazing prizes!",
+                    "buttonText": "Join Event"
+                }
+            ]
+        },
+        "news": {
+            "title": "Latest",
+            "highlight": "News",
+            "subtitle": "Stay updated with the latest happenings, new arrivals, and exciting announcements from  Jumanji Café! 📰✨",
+            "cards": [
+                {
+                    "badgeText": "New Arrivals",
+                    "postedDate": "3 weeks ago",
+                    "title": "Community Tournament Champions 🏆",
+                    "description": "Congratulations to our November tournament winners! Amazing displays of strategy and sports..",
+                    "btnText": "Read More"
+                },
+                {
+                    "badgeText": "Now Open",
+                    "postedDate": "1 week ago",
+                    "title": "Extended Weekend Hours! ⏰",
+                    "description": "Great news! We're now open until midnight on Fridays and Saturdays to accommodate more gaming adventures.",
+                    "btnText": "Read More"
+                },
+                {
+                    "badgeText": "New Menu",
+                    "postedDate": "1 week ago",
+                    "title": "Chef's Special Gaming Menu 🍕",
+                    "description": "Our chef has created special one-handed meals perfect for gaming! No more interrupted gameplay.",
+                    "btnText": "Read More"
+                },
+                {
+                    "badgeText": "Staff Picks",
+                    "postedDate": "2 week ago",
+                    "title": "Member Loyalty Program Launch 🏆",
+                    "description": "Join our new loyalty program and earn points for every visit! Exclusive perks and early access to events.",
+                    "btnText": "Read More"
+                },
+                {
+                    "badgeText": "Staff Picks",
+                    "postedDate": "3 week ago",
+                    "title": "Community Tournament Champions 👑",
+                    "description": "Congratulations to our November tournament winners! Amazing displays of strategy and sportsmanship.",
+                    "btnText": "Read More"
+                }
+            ]
+        },
+        "gallery": {
+            "title": "Past Events",
+            "highlight": "Gallery",
+            "subtitle": "Relive the magical moments from our past events! See the joy, competition, and community spirit that makes Jumanji Café special. 📸🎲",
+            "btn": "View Full Gallery",
+            "stats": [
+                {
+                    "title": "500+",
+                    "text": "Photos Captured"
+                },
+                {
+                    "title": "25+",
+                    "text": "Events Hosted"
+                },
+                {
+                    "title": "1000+",
+                    "text": "Happy Participants"
+                },
+                {
+                    "title": "100%",
+                    "text": "Memorable Moments"
+                }
+            ]
+        },
+        "adventureUpdatesForm": {
+            "formtitle": "Adventure",
+            "formcoloredtitle": "Updates",
+            "formsubtitle": "Join our community of 500+ gamers and never miss an epic event, new game arrival, or exclusive offer!",
+            "label": "Your Email Address",
+            "placeholder": "Enter your email for magical updates...",
+            "interestLabel": "What Interests You? (Optional)",
+            "interestOptions": [
+                {
+                    "text": "Tournaments"
+                },
+                {
+                    "text": "Family Events"
+                },
+                {
+                    "text": "Workshops"
+                },
+                {
+                    "text": "New Games"
+                },
+                {
+                    "text": "Special Offers"
+                },
+                {
+                    "text": "Theme Nights"
+                }
+            ],
+            "listLabel": "What You'll Get:",
+            "listItems": [
+                {
+                    "text": "Early event registration"
+                },
+                {
+                    "text": "New game launch notifications"
+                },
+                {
+                    "text": "Exclusive member discounts"
+                },
+                {
+                    "text": "Tournament invitations"
+                }
+            ],
+            "btnText": "Start My Gaming Adventure!",
+            "footertext": "We respect your privacy. Unsubscribe anytime. No spam, just epic gaming updates!"
+        }
+    },
     "about": {
         "hero": {
             "titleParts": [

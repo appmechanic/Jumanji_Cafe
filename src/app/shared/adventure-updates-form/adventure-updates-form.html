@@ -1,0 +1,50 @@
+<div class="adventure-form-card p-4 p-md-5 rounded-4 shadow-lg text-white position-relative">
+    <app-heading-section [iconLeft]="iconLeft" [iconLeftType]="iconLeftType" [iconLeftColor]="iconLeftColor"
+        [iconRight]="iconRight" [iconRightType]="iconRightType" [iconRightColor]="iconRightColor" [titleColor]="formtitleColor"
+        [title]="formtitle" [highlight]="formcoloredtitle" highlightColor="gradient-text"
+        [subtitleColor]="formsubtitleColor" [subtitle]="formsubtitle">
+      </app-heading-section>
+    
+    <!-- Email -->
+    <div class="mb-3">
+        <label class="fw-bold mb-2 d-flex gap-2"><i class="bi bi-envelope-fill text-warning "></i>{{ label }}</label>
+        <input type="email" class="form-control form-control-lg rounded-4 " [ngClass]="placeholderClass" [placeholder]="placeholder" />
+    </div>
+    <!-- Interests -->
+    <div class="mb-4">
+        <label class="fw-bold mb-2 d-flex gap-2"><i class="bi bi-stars text-warning "></i>{{ interestLabel }}</label>
+        <div class="row g-2">
+            <div class="col-12 col-sm-6 col-md-4" *ngFor="let opt of interestOptions">
+                <button type="button"
+                    class="interest-btn w-100 d-flex align-items-center gap-2 py-4 px-3 rounded-4 border fw-600"
+                    [ngClass]="{'selected': selectedInterests.includes(opt.text)}" (click)="toggleInterest(opt.text)">
+                    <i class="bi rounded-pill d-flex align-items-center justify-content-center icons" [ngClass]="opt.icon"></i>
+                    <span>{{ opt.text }}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- What You'll Get -->
+    <div class="mb-4 px-2 py-4 border bg-white2 rounded-20">
+        <label class="fw-bold mb-2 d-flex gap-2"><i class="bi bi-gift-fill text-warning"></i>{{ listLabel }}</label>
+        <div class="row">
+            <div class="col-12 col-md-6" *ngFor="let item of listItems">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="bi rounded-pill d-flex align-items-center justify-content-center icons" [ngClass]="item.icon" [class]="listIconColor"></i>
+                    <span>{{ item.text }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Button -->
+    <div class="text-center mt-4">
+        <button class="btn  w-100 fw-bold rounded-3 text-white py-3" [ngClass]="btnGradient">
+            <i *ngIf="btnIcon" class="bi me-2" [ngClass]="btnIcon"></i>
+            {{ btnText }}
+        </button>
+    </div>
+    <div class="text-center mt-3 fs-7 text-white-50">
+<i *ngIf="footerIconType === 'bootstrap'" class="bi" [ngClass]="footerIcon"></i>
+        {{footertext}}
+    </div>
+</div>

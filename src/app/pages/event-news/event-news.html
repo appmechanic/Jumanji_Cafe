@@ -1,0 +1,147 @@
+<div class="container-fluid py-5 position-relative b2b-services">
+  <div class="overlay position-absolute top-0 start-0 w-100 h-100 linear-gradient-purple2"></div>
+  <div class="row">
+    <div class="col-12">
+      <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2"
+        iconRight="local_cafe" iconRightType="material" iconRightColor="bg-primary2" titleColor="text-white"
+        [title]="events.hero?.title" [highlight]="events.hero?.highlight" highlightColor="gradient-text"
+        subtitleColor="text-white" [subtitle]="events.hero?.subtitle">
+      </app-heading-section>
+    </div>
+  </div>
+  <div class="container mb-5 mt-4">
+    <div class="row g-4 d-flex align-items-stretch justify-content-center">
+      <div class="col-6 col-sm-5 col-md-4 col-lg-3" *ngFor="let stat of getheroStats()">
+        <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+          [textColor]="stat.textColor" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
+          [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor">
+        </app-stat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- events -->
+<div class="container my-5 pt-5 events-sec">
+  <div class="row">
+    <div class="col-12 bg-white rounded-4 shadow-sm p-3 px-md-4 mx-2 mb-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+        <!-- Left: Event Categories -->
+        <div>
+          <div class="fw-bold mb-2 fs-6 d-flex align-items-center gap-1">
+            <i class="bi bi-filter text-primary fs-5"></i>
+            Event Categories
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <button *ngFor="let cat of eventCategories" class="btn btn-sm px-3 rounded-pill fw-bold"
+              [ngClass]="{'gradient-bg text-white': selectedCategory === cat, 'bg-light2  text-color': selectedCategory !== cat}"
+              (click)="selectCategory(cat)">
+              {{ cat }}
+            </button>
+          </div>
+        </div>
+        <!-- Right: Tags -->
+        <div>
+          <div class="fw-bold mb-2 fs-6 d-flex align-items-center gap-1">
+            <i class="bi bi-tag text-warning fs-5"></i>
+            Filter by Tags
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <button *ngFor="let tag of eventTags" class="btn btn-sm px-3 rounded-pill fw-bold"
+              [ngClass]="{'gradient-bg text-white': selectedTag === tag, 'bg-light2 text-color': selectedTag !== tag}"
+              (click)="selectTag(tag)">
+              {{ tag }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="text-color2 fs-7 pt-3">
+        <i class="bi bi-calendar-event"></i>
+        Showing {{ filteredEvents.length }} events
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6 col-lg-4 pb-4" *ngFor="let event of filteredEvents">
+      <app-showcase-card [imageSrc]="event.imageSrc" [category]="event.category" [categoryColor]="event.categoryColor"
+        [badgeRight]="event.badgeRight ?? ''" [badgeRightColor]="event.badgeRightColor ?? ''"
+        [eventDate]="event.eventDate ?? ''" [eventTime]="event.eventTime ?? ''" [title]="event.title"
+        [subtitle]="event.subtitle" [attending]="event.attending" [capacity]="event.capacity"
+        [buttonText]="event.buttonText" [buttonColor]="event.buttonColor" [showDetailIcon]="event.showDetailIcon"
+        [detailIcon]="event.detailIcon" [showOverlay]="true" [attendingLabel]="getAttendingLabel()"
+        [fullLabel]="getFullLabel()">
+      </app-showcase-card>
+    </div>
+  </div>
+</div>
+
+<!-- latest news -->
+<div class="container mb-5 news-sec">
+  <div class="row ">
+    <div class="col-12">
+      <app-heading-section iconLeft="bi-file-earmark-ruled" iconLeftType="bootstrap" iconLeftColor="bg-secondary2"
+        iconRight="bi-megaphone" iconRightType="bootstrap" iconRightColor="bg-primary2" titleColor="text-color"
+        [title]="events.news?.title" [highlight]="events.news?.highlight" highlightColor="gradient-text"
+        subtitleColor="text-color" [subtitle]="events.news?.subtitle">
+      </app-heading-section>
+    </div>
+  </div>
+  <div class="container mb-5 mt-4">
+    <div class="row g-4 d-flex align-items-stretch justify-content-center">
+      <div class="col-12 col-md-6" *ngFor="let card of getnewsCards()">
+        <news-card [img]="card.img" [icon]="card.icon" [iconColor]="card.iconColor" [badgeText]="card.badgeText"
+          [badgeColor]="card.badgeColor" [postedDate]="card.postedDate" [title]="card.title"
+          [description]="card.description" [btnText]="card.btnText" [btnIcon]="card.btnIcon">
+        </news-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- gallery -->
+<div class="container mb-5 pt-4">
+  <div class="row">
+    <div class="col-12">
+      <app-heading-section iconLeft="bi-camera" iconLeftType="bootstrap" iconLeftColor="bg-secondary2"
+        iconRight="bi-image" iconRightType="bootstrap" iconRightColor="bg-primary2" titleColor="text-color"
+        [title]="events.gallery?.title" [highlight]="events.gallery?.highlight" highlightColor="gradient-text"
+        subtitleColor="text-color" [subtitle]="events.gallery?.subtitle">
+      </app-heading-section>
+    </div>
+  </div>
+  <div class="row align-items-stretch gy-4">
+    <div class="col-12 col-md-6 col-lg-3" *ngFor="let card of galleryImgCards">
+      <app-image-showcase-card [imageSrc]="card.imageSrc"></app-image-showcase-card>
+    </div>
+  </div>
+  <div class="row mt-4 g-4 d-flex align-items-stretch justify-content-center">
+    <div class="col-6 col-sm-5 col-md-4 col-lg-3" *ngFor="let stat of getgalleryStats()">
+      <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
+        [textColor]="stat.textColor" [borderColor]="stat.borderColor" [iconBgColor]="stat.iconBgColor"
+        [titleColor]="stat.titleColor" [cardBgColor]="stat.cardBgColor">
+      </app-stat-card>
+    </div>
+  </div>
+  <div class="row mt-4 g-4 d-flex align-items-stretch justify-content-center">
+    <app-primary-button iconLeft="bi-image" class="d-flex justify-content-center mt-3" [text]="events.gallery?.btn">
+    </app-primary-button>
+  </div>
+</div>
+
+<div class="container-fluid radial-gradient-purple py-5">
+  <div class="container py-5">
+    <adventure-updates-form [formtitle]="events.adventureUpdatesForm.formtitle"
+      [formcoloredtitle]="events.adventureUpdatesForm.formcoloredtitle"
+      [formsubtitle]="events.adventureUpdatesForm.formsubtitle" [label]="events.adventureUpdatesForm.label"
+      [placeholder]="events.adventureUpdatesForm.placeholder"
+      [interestLabel]="events.adventureUpdatesForm.interestLabel" [interestOptions]="mappedOptionIcons"
+      [listLabel]="events.adventureUpdatesForm.listLabel" [listItems]="mappedListIcons"
+      [btnText]="events.adventureUpdatesForm.btnText" [footertext]="events.adventureUpdatesForm.footertext"
+      [formtitleColor]="'text-white'" [formsubtitleColor]="'text-white'" iconLeft="bi-app-indicator"
+      iconLeftType="bootstrap" iconLeftColor="bg-secondary2" iconRight="bi-send" iconRightType="bootstrap"
+      iconRightColor="bg-primary2" [placeholderClass]="'text-white bg-white2 border'" [listIconColor]="'text-warning'"
+      [btnIcon]="'bi-send'" [btnGradient]="'gradient-bg'" [footerIcon]="'bi bi-shield-check text-warning'"
+      [footerIconType]="'bootstrap'">
+    </adventure-updates-form>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="news-card d-flex flex-lg-row flex-column rounded-4 bg-white shadow-sm overflow-hidden gap-3 h-100">
+  <!-- Image -->
+  <div class="news-img flex-shrink-0">
+    <img [src]="img" alt="news" class="h-100 w-100 object-fit-cover" />
+  </div>
+  <!-- Content -->
+  <div class="flex-grow-1 p-3 d-flex flex-column justify-content-between">
+    <div>
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="icon-box d-flex align-items-center justify-content-center" [ngClass]="iconColor">
+          <i class="bi" [ngClass]="icon"></i>
+        </span>
+        <div class="d-flex flex-column">
+        <span class="badge fw-semibold rounded-pill" [ngClass]="badgeColor">{{ badgeText }}</span>
+        <span class="text-color2 ms-2 date">{{ postedDate }}</span>
+        </div>
+      </div>
+      <div class="fw-bold fs-5 mb-1">{{ title }}</div>
+      <div class="text-color2 mb-2">{{ description }}</div>
+    </div>
+    <div>
+      <button class="text-primary2 fw-bold d-inline-flex align-items-center gap-1 bg-transparent border-0 p-0">
+        <span>{{ btnText }}</span>
+        <i *ngIf="btnIcon" class="bi" [ngClass]="btnIcon"></i>
+      </button>
+    </div>
+  </div>
+</div>
