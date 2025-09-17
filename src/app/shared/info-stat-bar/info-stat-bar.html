@@ -12,7 +12,7 @@
       </ng-container>
       <div class="d-flex flex-md-column flex-row align-items-center justify-content-center gap-md-0 gap-3">
         <span class="info-stat-title fw-bold fs-4" [ngClass]="stat.titleColor">{{ stat.title }}</span>
-        <span class="info-stat-text font-medium">{{ stat.text }}</span>
+        <span class="info-stat-text font-medium" [ngClass]="stat.textColor">{{ stat.text }}</span>
       </div>
     </div>
     <div *ngIf="!last"

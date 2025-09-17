@@ -7,6 +7,7 @@ export interface InfoStatBarItem {
   title: string ;
   titleColor?: string;
   text: string;
+  textColor: string ;
 }
 
 @Component({

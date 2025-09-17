@@ -1,0 +1,14 @@
+$bg-img: url('../../../assets/rewards-bg.jpg') no-repeat center center;
+
+.cta-last {
+  background: $bg-img;
+  background-size: cover;
+  background-color: #0000009a;
+    background-blend-mode: overlay
+}
+// .level-card{
+//     max-width: 1680px;
+//     width: 100%;
+//     padding: 0 20px;
+//     margin: 0 auto;
+// }

@@ -36,14 +36,21 @@ body.dark-mode {
   }
 
   .stat-card,
-  .auth-forms-container {
+  .auth-forms-container, .points-level-card {
 
     &.bg-white,
     &.bg-primary5 {
       background-color: $dark-bg !important;
     }
   }
-
+   .redeem-rewards{
+    button{
+      &.cursor-not-allowed{
+        background-color: #EEE7F3 ;
+        color: $dark-bg !important;
+      }
+    }
+   }
   .text-color,
   .text-color2,
   .description,
@@ -62,7 +69,7 @@ body.dark-mode {
   .showcase-card,
   .package-card,
   .sidebar-filters,
-  .order-confirmed-page {
+  .order-confirmed-page{
     &.bg-white {
       background-color: $dark-bg !important;
     }
@@ -255,7 +262,29 @@ body.dark-mode {
       color: $dark-text !important;
     }
   }
+  .point-sec{
+    .bg-white{
+      background-color: $dark-bg !important;
+    }
+    .point-guide-card{
+      background-color: #4a4a4a !important;
+    }
+  }
+  .achievement-sec{
+    .border-dark{
+      border-color: #4a4a4a !important;
+    }
+    .stat-card{
+      .icon{
+        &.text-color{
+          color: $dark-bg !important
+        }
+      }
+    }
+  }
 }
+
+// normal styling
 
   h2 {
     font-size: 1.9rem !important;
@@ -515,6 +544,8 @@ body.dark-mode {
   .border-secondary {
     border: 1px solid $secondary !important;
   }
+
+  
 
   .fw-600 {
     font-weight: 600 !important;

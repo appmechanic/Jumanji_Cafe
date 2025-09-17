@@ -21,11 +21,25 @@
   </div>
 </div>
 
+<!-- level card -->
+<div class="container my-5 pt-5 level-card">
+  <points-level-card icon="bi-controller" iconBg="bg-primary text-white" [points]="rewards.profileLevelCard?.points"
+    [subtitle]="rewards.profileLevelCard?.subtitle" cardBgColor="bg-white" [shadow]="true"
+    [currentLevel]="rewards.profileLevelCard?.currentLevel"
+    [currentLevelName]="rewards.profileLevelCard?.currentLevelName"
+    [currentPoints]="rewards.profileLevelCard?.currentPoints"
+    [nextLevelPoints]="rewards.profileLevelCard?.nextLevelPoints"
+    [primaryBtnText]="rewards.profileLevelCard?.primaryBtnText" [ghostBtnText]="rewards.profileLevelCard?.ghostBtnText"
+    iconPrimary="bi-qr-code" iconGhost="bi-clock-history"
+    [pointsToNextLevelText]="rewards.profileLevelCard?.pointsToNextLevelText">
+  </points-level-card>
+</div>
+
 <!-- redeem reward section -->
-<div class="container mt-5 redeem-rewards">
+<div class="container mt-5 py-4 redeem-rewards">
   <div class="row">
     <div class="col-12">
-      <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2" iconRight=""
+      <app-heading-section iconLeft="bi-gift" iconLeftType="bootstrap" iconLeftColor="bg-secondary2" iconRight=""
         iconRightType="material" iconRightColor="bg-primary2" titleColor="text-color" [title]="rewards.redeem?.title"
         [highlight]="rewards.redeem?.highlight" highlightColor="gradient-text" subtitleColor="text-color2"
         [subtitle]="rewards.redeem?.subtitle">
@@ -51,7 +65,7 @@
 <div class="container mb-5 work-sec">
   <div class="row">
     <div class="col-12">
-      <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2" iconRight=""
+      <app-heading-section iconLeft="bi-lightbulb" iconLeftType="bootstrap" iconLeftColor="bg-secondary2" iconRight=""
         iconRightType="material" iconRightColor="bg-primary2" titleColor="text-color" [title]="rewards.work?.title"
         [highlight]="rewards.work?.highlight" highlightColor="gradient-text" subtitleColor="text-color2"
         [subtitle]="rewards.work?.subtitle">
@@ -73,19 +87,38 @@
   </div>
 </div>
 
+<!-- point guide -->
+<div class="container mb-5 point-sec">
+  <div class="row bg-white p-5 rounded-20 shadow-sm">
+    <div class="col-12">
+      <app-heading-section iconLeft="bi-star" iconLeftType="bootstrap" iconLeftColor="bg-secondary2" iconRight=""
+        iconRightType="material" iconRightColor="bg-primary2" titleColor="text-color" title="Point Earning Guide"
+        highlight="" highlightColor="gradient-text" subtitleColor="text-color2" subtitle="">
+      </app-heading-section>
+    </div>
+    <div class="row gy-4 pb-4" style="margin-top: -30px;">
+      <div class="col-12 col-md-6 col-lg-3" *ngFor="let item of getpointGuideItems()">
+        <point-guide-list [icon]="item.icon" [iconColor]="item.iconColor" [title]="item.title"
+          [subtitle]="item.subtitle">
+        </point-guide-list>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- achievement -->
-<div class="container mb-5 achievement-sec">
+<div class="container my-5 achievement-sec">
   <div class="row">
     <div class="col-12">
       <app-heading-section iconLeft="restaurant" iconLeftType="material" iconLeftColor="bg-secondary2" iconRight=""
-        iconRightType="material" iconRightColor="bg-primary2" titleColor="text-color" [title]="rewards.achievement?.title"
-        [highlight]="rewards.achievement?.highlight" highlightColor="gradient-text" subtitleColor="text-color2"
-        [subtitle]="rewards.achievement?.subtitle">
+        iconRightType="material" iconRightColor="bg-primary2" titleColor="text-color"
+        [title]="rewards.achievement?.title" [highlight]="rewards.achievement?.highlight" highlightColor="gradient-text"
+        subtitleColor="text-color2" [subtitle]="rewards.achievement?.subtitle">
       </app-heading-section>
     </div>
   </div>
 
-  <div class="container mb-5 mt-4">
+  <div class="container mb-5 pb-5 mt-4">
     <div class="row g-4 d-flex align-items-stretch justify-content-center">
       <div class="col-6 col-sm-5 col-md-4 col-lg-2" *ngFor="let stat of getachievementStats()">
         <app-stat-card [iconType]="stat.iconType" [icon]="stat.icon" [title]="stat.title" [text]="stat.text"
@@ -102,15 +135,21 @@
 <!-- CTA last Section -->
 <div class="container-fluid text-center py-5 gradient-bg cta-last">
   <div class="container">
-    <app-cta-section icon="" titleClass="text-white" [titleStart]="rewards.ctaLast?.titleStart" [titleHighlight]="rewards.ctaLast?.titleHighlight" titleHighlightClass="text-white"
+    <app-cta-section icon="" titleClass="text-white" [titleStart]="rewards.ctaLast?.titleStart"
+      [titleHighlight]="rewards.ctaLast?.titleHighlight" titleHighlightClass="text-white"
       [description]="rewards.ctaLast?.description" descriptionClass="text-white" [bgWhite]="false">
-      <app-primary-button primaryButton iconLeft="card_travel" iconRight="" [bgGradient]="false" textColorClass="text-primary"
-        class="d-flex justify-content-center mt-2">
+      <app-primary-button primaryButton iconLeft="card_travel" iconRight="" [bgGradient]="true"
+        textColorClass="text-white" class="d-flex justify-content-center mt-2">
         {{rewards.ctaLast?.primaryBtn}}
       </app-primary-button>
-      <app-ghost-button ghostButton iconLeft="bi-download" class="d-flex justify-content-center mt-2" [bgWhite]="false" textColorClass="text-white">
+      <app-ghost-button ghostButton iconLeft="bi-download" class="d-flex justify-content-center mt-2" [bgWhite]="false"
+        textColorClass="text-white">
         {{rewards.ctaLast?.ghostBtn}}
       </app-ghost-button>
     </app-cta-section>
+    <div class="text-center pb-3">
+      <app-info-stat-bar [stats]="gethighlightInfoStats()" [bgColor]="'bg-none'" [shadow]="false">
+      </app-info-stat-bar>
+    </div>
   </div>
 </div>

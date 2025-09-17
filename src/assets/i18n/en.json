@@ -2017,6 +2017,17 @@
                 }
             ]
         },
+        "profileLevelCard": {
+            "points": "135 Points",
+            "subtitle": "Your Treasure Collection",
+            "currentLevel": "Level 2",
+            "currentLevelName": "Game Explorer",
+            "currentPoints": "135 pts",
+            "nextLevelPoints": "200 pts",
+            "primaryBtnText": "Show QR Code",
+            "ghostBtnText": "Points History",
+            "pointsToNextLevelText": "points to next level"
+        },
         "redeem": {
             "title": "Redeem Your",
             "highlight": "Awards",
@@ -2054,12 +2065,12 @@
             "subtitle": "Simple steps to start earning and redeeming rewards",
             "stats": [
                 {
-                   "title": "Step 1",
+                    "title": "Step 1",
                     "subtitle": "Earn Points",
                     "text": "Get points when you order food, play games, or attend"
                 },
                 {
-                   "title": "Step 2",
+                    "title": "Step 2",
                     "subtitle": "Track Progress ",
                     "text": "Monitor your points and level progress online anytime"
                 },
@@ -2070,17 +2081,35 @@
                 }
             ]
         },
+        "pointGuideItems": [
+            {
+                "title": "Coffee/Drink Order",
+                "subtitle": "5 pts"
+            },
+            {
+                "title": "Food Order",
+                "subtitle": "10 pts"
+            },
+            {
+                "title": "Game Session (1hr)",
+                "subtitle": "15 pts"
+            },
+            {
+                "title": "Event Attendance",
+                "subtitle": "25 pts"
+            }
+        ],
         "achievement": {
             "title": "Your",
             "highlight": "Achievements",
             "subtitle": "Unlock special badges as you explore Jumanji Café",
             "stats": [
                 {
-                   "subtitle": "First Visit",
+                    "subtitle": "First Visit",
                     "text": "Earned"
                 },
                 {
-                   "subtitle": "Coffee Lover",
+                    "subtitle": "Coffee Lover",
                     "text": "Earned "
                 },
                 {
@@ -2088,7 +2117,7 @@
                     "text": " "
                 },
                 {
-                   "subtitle": "Tournament Player",
+                    "subtitle": "Tournament Player",
                     "text": "Earned "
                 },
                 {
@@ -2096,17 +2125,31 @@
                     "text": " "
                 },
                 {
-                   "subtitle": "Sweet Tooth",
+                    "subtitle": "Sweet Tooth",
                     "text": "Earned "
                 }
             ]
         },
-         "ctaLast": {
+        "ctaLast": {
             "titleStart": "Not a Member Yet?",
             "titleHighlight": "",
             "description": "Join thousands of adventurers earning rewards with every visit. Start your journey today and unlock exclusive perks!",
             "primaryBtn": "Join the Program",
-            "ghostBtn": "Download App"
+            "ghostBtn": "Download App",
+            "infoStats": [
+                {
+                    "title": "Free",
+                    "text": "To Join"
+                },
+                {
+                    "title": "Instant",
+                    "text": "Rewards"
+                },
+                {
+                    "title": "Exclusive",
+                    "text": "Perks"
+                }
+            ]
         }
     },
     "footer": {
